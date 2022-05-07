@@ -133,10 +133,18 @@ local clipboard_config = function()
     ]])
 end
 
-
 local smartim_config = function()
 	vim.g.smartim_default = "com.apple.keylayout.US"
 	vim.cmd([[packadd smartim]])
+end
+
+local clock_config = function()
+	vim.cmd([[packadd sran.nvim]])
+	vim.cmd([[packadd clock.nvim]])
+	--vim.g.clockn_enable = 1
+	vim.g.clockn_winblend = 0
+	vim.cmd([[au VimEnter * highlight ClockNormal guifg=#a0caf7]])
+	vim.g.clockn_to_top = 2
 end
 
 local load_core = function()
@@ -150,6 +158,7 @@ local load_core = function()
 	dashboard_config()
 	minimap_config()
 	smartim_config()
+	clock_config()
 	-- clipboard_config()
 
 	require("core.options")

@@ -58,5 +58,13 @@ ui["mbbill/undotree"] = {
 	opt = true,
 	cmd = "UndotreeToggle",
 }
+ui["iamcco/sran.nvim"] = {
+	opt = true,
+	cmd = "StartupTime",
+}
+ui["iamcco/clock.nvim"] = {
+	opt = true,
+	cmd = "StartupTime",
+}
 
 return ui
