@@ -7,7 +7,7 @@ ui["sainnhe/edge"] = { opt = false, config = conf.edge }
 ui["catppuccin/nvim"] = {
 	opt = false,
 	as = "catppuccin",
-	config = conf.catppuccin,
+	--config = conf.catppuccin, -- see config.lua for more information
 }
 ui["hoob3rt/lualine.nvim"] = {
 	opt = true,

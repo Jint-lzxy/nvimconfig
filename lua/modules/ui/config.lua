@@ -19,6 +19,17 @@ function config.nord()
 	vim.g.nord_italic = false
 end
 
+--[[
+====================MARK=======================
+    Now deprecated due to load problems, try
+           to fix this in the future.
+
+F: Go to init.lua to set the env.
+
+Update: Try:
+https://github.com/catppuccin/nvim/issues/84
+===============================================
+
 function config.catppuccin()
 	require("catppuccin").setup({
 		transparent_background = true,
@@ -69,6 +80,7 @@ function config.catppuccin()
 		},
 	})
 end
+--]]
 
 function config.lualine()
 	local gps = require("nvim-gps")

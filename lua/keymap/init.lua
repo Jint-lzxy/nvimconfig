@@ -141,7 +141,6 @@ local plug_map = {
 	["n|<Down>"] = map_cr("resize +2"):with_silent():with_noremap(),
 	["n|<Left>"] = map_cr("vertical resize +2"):with_silent():with_noremap(),
 	["n|<Right>"] = map_cr("vertical resize -2"):with_silent():with_noremap(),
-	["i|jj"] = map_cmd("<ESC>"):with_silent():with_noremap(),
 }
 
 bind.nvim_load_mapping(plug_map)
