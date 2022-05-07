@@ -7,7 +7,7 @@ ui["sainnhe/edge"] = { opt = false, config = conf.edge }
 ui["catppuccin/nvim"] = {
 	opt = false,
 	as = "catppuccin",
-	--config = conf.catppuccin, -- see config.lua for more information
+	config = conf.catppuccin, -- see config.lua for more information
 }
 ui["hoob3rt/lualine.nvim"] = {
 	opt = true,
@@ -60,11 +60,13 @@ ui["mbbill/undotree"] = {
 }
 ui["iamcco/sran.nvim"] = {
 	opt = true,
-	cmd = "StartupTime",
+	cmd = "BufWinEnter",
 }
 ui["iamcco/clock.nvim"] = {
 	opt = true,
-	cmd = "StartupTime",
+	after = "sran.nvim",
+	event = "BufWinEnter",
+	config = conf.clock,
 }
 
 return ui

@@ -360,4 +360,9 @@ function config.tabout()
 	})
 end
 
+function config.better_escape()
+	vim.g.better_escape_shortcut = "jj"
+	vim.g.better_escape_interval = 300
+end
+
 return config

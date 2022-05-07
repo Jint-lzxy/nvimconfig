@@ -21,15 +21,11 @@ end
 
 --[[
 ====================MARK=======================
-    Now deprecated due to load problems, try
-           to fix this in the future.
-
-F: Go to init.lua to set the env.
-
-Update: Try:
+Update: Now fixed.
+If you've experienced same issue, try:
 https://github.com/catppuccin/nvim/issues/84
 ===============================================
-
+--]]
 function config.catppuccin()
 	require("catppuccin").setup({
 		transparent_background = true,
@@ -80,7 +76,6 @@ function config.catppuccin()
 		},
 	})
 end
---]]
 
 function config.lualine()
 	local gps = require("nvim-gps")
@@ -135,14 +130,45 @@ function config.lualine()
 		sections = simple_sections,
 		filetypes = { "dapui_watches" },
 	}
+	--[[
+	-- Try a new theme!
+	--==========================
+	local colors = {
+		blue = "#80a0ff",
+		cyan = "#79dac8",
+		black = "#080808",
+		white = "#c6c6c6",
+		red = "#ff5189",
+		violet = "#d183e8",
+		grey = "#303030",
+	}
 
+	local bubbles_theme = {
+		normal = {
+			a = { fg = colors.black, bg = colors.violet },
+			b = { fg = colors.white, bg = colors.grey },
+			c = { fg = colors.black, bg = colors.black },
+		},
+		insert = { a = { fg = colors.black, bg = colors.blue } },
+		visual = { a = { fg = colors.black, bg = colors.cyan } },
+		replace = { a = { fg = colors.black, bg = colors.red } },
+
+		inactive = {
+			a = { fg = colors.white, bg = colors.black },
+			b = { fg = colors.white, bg = colors.black },
+			c = { fg = colors.black, bg = colors.black },
+		},
+	}
+	--==========================
+	--]]
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
 			theme = "catppuccin",
 			disabled_filetypes = {},
 			component_separators = "|",
-			section_separators = { left = "", right = "" },
+			section_separators = { left = "", right = "" },
+			-- section_separators = { left = "", right = "" },
 		},
 		sections = {
 			lualine_a = { "mode" },
@@ -173,7 +199,7 @@ function config.lualine()
 					},
 				},
 			},
-			lualine_z = { "progress", "location" },
+			lualine_z = { "progress" },
 		},
 		inactive_sections = {
 			lualine_a = {},
@@ -472,6 +498,13 @@ function config.indent_blankline()
 	})
 	-- because lazy load indent-blankline so need readd this autocmd
 	vim.cmd("autocmd CursorMoved * IndentBlanklineRefresh")
+end
+
+function config.clock()
+	--vim.g.clockn_enable = 1
+	vim.g.clockn_winblend = 0
+	vim.cmd([[au VimEnter * highlight ClockNormal guifg=#a0caf7]])
+	vim.g.clockn_to_top = 2
 end
 
 return config

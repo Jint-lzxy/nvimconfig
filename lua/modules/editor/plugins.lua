@@ -107,7 +107,11 @@ editor["rmagatti/auto-session"] = {
 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
 	config = conf.auto_session,
 }
-editor["jdhao/better-escape.vim"] = { opt = true, event = "InsertEnter" }
+editor["jdhao/better-escape.vim"] = {
+	opt = true,
+	event = "InsertEnter",
+	config = conf.better_escape,
+}
 editor["rcarriga/nvim-dap-ui"] = {
 	opt = false,
 	config = conf.dapui,
