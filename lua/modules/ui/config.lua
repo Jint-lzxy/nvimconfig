@@ -199,7 +199,7 @@ function config.lualine()
 					},
 				},
 			},
-			lualine_z = { "progress" },
+			lualine_z = { "progress", "location" },
 		},
 		inactive_sections = {
 			lualine_a = {},
