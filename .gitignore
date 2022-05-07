@@ -1,0 +1,4 @@
+# Ignore macOS store file
+/.DS_Store
+# Ignore old config
+/backup/*
