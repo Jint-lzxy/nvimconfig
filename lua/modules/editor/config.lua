@@ -205,7 +205,22 @@ function config.dap()
 		dapui.close()
 	end
 
-	vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
+	--[[vim.fn.sign_define("DapBreakpoint", {
+		text = "⊚", (ori: "🛑")
+		texthl = "",
+		linehl = "",
+		numhl = "",
+	})--]]
+
+	vim.cmd([[au VimEnter * highlight DapBreakpoint guifg = #993939]])
+	vim.cmd([[au VimEnter * highlight DapLogPoint guifg = #61afef]])
+	vim.cmd([[au VimEnter * highlight DapStopped guifg = #98c379]])
+
+	vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+	vim.fn.sign_define("DapBreakpointCondition", { text = "ﳁ", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+	vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+	vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapLogPoint", linehl = "", numhl = "" })
+	vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", linehl = "", numhl = "" })
 
 	dap.adapters.lldb = {
 		type = "executable",
@@ -240,6 +255,29 @@ function config.dap()
 
 	dap.configurations.c = dap.configurations.cpp
 	dap.configurations.rust = dap.configurations.cpp
+
+	dap.configurations.lua = {
+		{
+			type = "nlua",
+			request = "attach",
+			name = "Attach to running Neovim instance",
+			host = function()
+				local value = vim.fn.input("Host [127.0.0.1]: ")
+				if value ~= "" then
+					return value
+				end
+				return "127.0.0.1"
+			end,
+			port = function()
+				local val = tonumber(vim.fn.input("Port: "))
+				assert(val, "Please provide a port number")
+				return val
+			end,
+		},
+	}
+	dap.adapters.nlua = function(callback, config)
+		callback({ type = "server", host = config.host, port = config.port })
+	end
 
 	dap.adapters.go = function(callback, config)
 		local stdout = vim.loop.new_pipe(false)
@@ -320,6 +358,25 @@ function config.dap()
 			end,
 		},
 	}
+end
+
+function config.dapvirtualtext()
+	require("nvim-dap-virtual-text").setup({
+		enabled = true,
+		enabled_commands = true,
+		highlight_changed_variables = true,
+		highlight_new_as_changed = false,
+		show_stop_reason = true,
+		commented = false,
+		only_first_definition = true,
+		all_references = false,
+		-- filter_references_pattern = '<module',
+		-- experimental features:
+		virt_text_pos = "eol",
+		all_frames = false,
+		virt_lines = false,
+		virt_text_win_col = nil,
+	})
 end
 
 function config.specs()
