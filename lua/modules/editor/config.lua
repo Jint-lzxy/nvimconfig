@@ -195,6 +195,7 @@ function config.dap()
 	local dap = require("dap")
 	local dapui = require("dapui")
 
+	-- dap.set_log_level("TRACE")
 	dap.listeners.after.event_initialized["dapui_config"] = function()
 		dapui.open()
 	end
@@ -261,7 +262,7 @@ function config.dap()
 			type = "nlua",
 			request = "attach",
 			name = "Attach to running Neovim instance",
-			host = function()
+			--[[host = function()
 				local value = vim.fn.input("Host [127.0.0.1]: ")
 				if value ~= "" then
 					return value
@@ -272,11 +273,11 @@ function config.dap()
 				local val = tonumber(vim.fn.input("Port: "))
 				assert(val, "Please provide a port number")
 				return val
-			end,
+			end,--]]
 		},
 	}
 	dap.adapters.nlua = function(callback, config)
-		callback({ type = "server", host = config.host, port = config.port })
+		callback({ type = "server", host = config.host or "127.0.0.1", port = config.port or 38697 })
 	end
 
 	dap.adapters.go = function(callback, config)
