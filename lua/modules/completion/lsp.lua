@@ -104,6 +104,7 @@ local enhance_server_opts = {
 				diagnostics = {
 					globals = {
 						"vim",
+						"jit",
 						-- 天慾录 全局 exp from vscode
 						"lstg",
 						"firefly",

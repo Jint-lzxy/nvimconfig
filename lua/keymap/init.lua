@@ -110,7 +110,7 @@ local plug_map = {
 	-- Plugin dap
 	["n|<F6>"] = map_cr("lua require('dap').continue()"):with_noremap():with_silent(),
 	["n|<leader>dr"] = map_cr("lua require('dap').continue()"):with_noremap():with_silent(),
-	["n|<leader>dR"] = map_cr("lua require('osv').launch()"):with_noremap():with_silent(),
+	["n|<leader>dR"] = map_cr("lua require('osv').run_this()"):with_noremap():with_silent(),
 	["n|<leader>dd"] = map_cr("lua require('dap').terminate() require('dapui').close()"):with_noremap():with_silent(),
 	["n|<leader>db"] = map_cr("lua require('dap').toggle_breakpoint()"):with_noremap():with_silent(),
 	["n|<leader>dB"] = map_cr("lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))")
