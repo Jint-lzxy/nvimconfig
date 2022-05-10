@@ -60,7 +60,7 @@ ui["mbbill/undotree"] = {
 }
 ui["iamcco/sran.nvim"] = {
 	opt = true,
-	cmd = "BufWinEnter",
+	event = "BufWinEnter",
 }
 ui["iamcco/clock.nvim"] = {
 	opt = true,
