@@ -67,7 +67,10 @@ local neovide_config = function()
 end
 
 local dashboard_config = function()
-	vim.g.dashboard_footer_icon = "🐬 "
+	-- vim.g.dashboard_footer_icon = "🐬 "
+	vim.g.total_plugins = vim.fn.len(vim.fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
+		+ vim.fn.len(vim.fn.globpath("~/.local/share/nvim/site/pack/packer/opt", "*", 0, 1))
+	vim.g.dashboard_custom_footer = { "🥰  Neovim loaded " .. vim.g.total_plugins .. " plugins" }
 	vim.g.dashboard_default_executive = "telescope"
 
 	vim.g.dashboard_custom_header = {
