@@ -100,7 +100,7 @@ local enhance_server_opts = {
 	["sumneko_lua"] = function(opts)
 		opts.settings = {
 			Lua = {
-				runtime = { version = { "LuaJIT 2.1.0-beta3" } },
+				runtime = { version = { "LuaJIT" } },
 				diagnostics = {
 					globals = {
 						"vim",
