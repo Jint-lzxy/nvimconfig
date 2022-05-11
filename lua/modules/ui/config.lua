@@ -57,7 +57,7 @@ function config.catppuccin()
 		-- TSMethod = { fg = cp.blue, style = "NONE" },
 		TSNamespace = { fg = cp.rosewater, style = "NONE" },
 		-- TSStringRegex = { fg = cp.peach, style = "NONE" },
-		-- TSVariable = { fg = cp.white, style = "NONE" },
+		TSVariable = { fg = cp.pink, style = "NONE" },
 		-- TSTagAttribute = { fg = cp.mauve, style = "NONE" },
 		TSURI = { fg = cp.rosewater, style = "underline" },
 		-- TSLiteral = { fg = cp.teal, style = "NONE" },
