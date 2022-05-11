@@ -119,7 +119,7 @@ local minimap_config = function()
 	vim.g.minimap_git_colors = 1
 end
 
-local function check_conda()
+local check_conda = function()
 	local venv = os.getenv("CONDA_PREFIX")
 	if venv then
 		vim.g.python3_host_prog = venv .. "/bin/python"
