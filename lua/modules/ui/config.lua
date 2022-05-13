@@ -46,13 +46,13 @@ function config.alpha()
 	end
 	local leader = "<leader>"
 	dashboard.section.buttons.val = {
-		button("comma s c", " Scheme change", leader, "<cmd>Telescope colorscheme<cr>"),
-		button("comma f r", " File frecency", leader, "<cmd>Telescope frecency<cr>"),
-		button("comma f e", " File history", leader, "<cmd>Telescope oldfiles<cr>"),
-		button("comma f p", " Project find", leader, "<cmd>Telescope project<cr>"),
-		button("comma f f", " File find", leader, "<cmd>Telescope find_files<cr>"),
-		button("comma f n", " File new", leader, "<cmd>enew<cr>"),
-		button("comma f w", " Word find", leader, "<cmd>Telescope live_grep<cr>"),
+		button("[leader] s c", " Scheme change", leader, "<cmd>Telescope colorscheme<cr>"),
+		button("[leader] f r", " File frecency", leader, "<cmd>Telescope frecency<cr>"),
+		button("[leader] f e", " File history", leader, "<cmd>Telescope oldfiles<cr>"),
+		button("[leader] f p", " Project find", leader, "<cmd>Telescope project<cr>"),
+		button("[leader] f f", " File find", leader, "<cmd>Telescope find_files<cr>"),
+		button("[leader] f n", " File new", leader, "<cmd>enew<cr>"),
+		button("[leader] f w", " Word find", leader, "<cmd>Telescope live_grep<cr>"),
 	}
 	dashboard.section.buttons.opts.hl = "String"
 

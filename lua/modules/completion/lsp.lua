@@ -125,11 +125,15 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
 			end,
 			setttings = {
 				Lua = {
+					runtime = { version = { "LuaJIT" } },
 					diagnostics = { globals = { "vim", "packer_plugins" } },
 					workspace = {
 						library = {
 							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 							[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+							[vim.fn.expand(
+								"$HOME/Documents/[IN DEV]《东方天慾录 ～The Sealing of Prophet's Fantasy》/lib"
+							)] = true,
 						},
 						maxPreload = 100000,
 						preloadFileSize = 10000,
@@ -150,7 +154,7 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
 			end,
 			args = {
 				"--background-index",
-				"-std=c++20",
+				"-std=c++17",
 				"--pch-storage=memory",
 				"--clang-tidy",
 				"--suggest-missing-includes",
