@@ -2,5 +2,8 @@
 /.DS_Store
 /lua/.DS_Store
 /lua/modules/.DS_Store
+/lua/modules/completion/.DS_Store
 # Ignore old config
 /backup/*
+lua
+lua

@@ -66,53 +66,6 @@ local neovide_config = function()
 	vim.g.neovide_cursor_vfx_particle_density = 5.0
 end
 
-local dashboard_config = function()
-	-- vim.g.dashboard_footer_icon = "🐬 "
-	vim.g.total_plugins = vim.fn.len(vim.fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
-		+ vim.fn.len(vim.fn.globpath("~/.local/share/nvim/site/pack/packer/opt", "*", 0, 1))
-	vim.g.dashboard_custom_footer = { "🥰  Neovim loaded " .. vim.g.total_plugins .. " plugins" }
-	vim.g.dashboard_default_executive = "telescope"
-
-	vim.g.dashboard_custom_header = {
-		[[      ██╗██╗███╗   ██╗████████╗   ██╗     ███████╗██╗  ██╗██╗   ██╗ ]],
-		[[      ██║██║████╗  ██║╚══██╔══╝   ██║     ╚══███╔╝╚██╗██╔╝╚██╗ ██╔╝ ]],
-		[[      ██║██║██╔██╗ ██║   ██║█████╗██║       ███╔╝  ╚███╔╝  ╚████╔╝  ]],
-		[[ ██   ██║██║██║╚██╗██║   ██║╚════╝██║      ███╔╝   ██╔██╗   ╚██╔╝   ]],
-		[[ ╚█████╔╝██║██║ ╚████║   ██║      ███████╗███████╗██╔╝ ██╗   ██║    ]],
-		[[  ╚════╝ ╚═╝╚═╝  ╚═══╝   ╚═╝      ╚══════╝╚══════╝╚═╝  ╚═╝   ╚═╝    ]],
-	}
-	vim.g.dashboard_custom_section = {
-		change_colorscheme = {
-			description = { " Scheme change              [leader] s c " },
-			command = "DashboardChangeColorscheme",
-		},
-		find_frecency = {
-			description = { " File frecency              [leader] f r " },
-			command = "Telescope frecency",
-		},
-		find_history = {
-			description = { " File history               [leader] f e " },
-			command = "DashboardFindHistory",
-		},
-		find_project = {
-			description = { " Project find               [leader] f p " },
-			command = "Telescope project",
-		},
-		find_file = {
-			description = { " File find                  [leader] f f " },
-			command = "DashboardFindFile",
-		},
-		file_new = {
-			description = { " File new                   [leader] f n " },
-			command = "DashboardNewFile",
-		},
-		find_word = {
-			description = { " Word find                  [leader] f w " },
-			command = "DashboardFindWord",
-		},
-	}
-end
-
 local minimap_config = function()
 	vim.g.minimap_auto_start = 0
 	vim.g.minimap_block_filetypes = { "aerial", "NvimTree" }
@@ -151,7 +104,6 @@ local load_core = function()
 
 	pack.ensure_plugins()
 	neovide_config()
-	dashboard_config()
 	minimap_config()
 	check_conda()
 	-- clipboard_config()
