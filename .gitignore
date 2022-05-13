@@ -5,5 +5,3 @@
 /lua/modules/completion/.DS_Store
 # Ignore old config
 /backup/*
-lua
-lua
