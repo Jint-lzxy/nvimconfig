@@ -131,9 +131,6 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
 						library = {
 							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 							[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-							[vim.fn.expand(
-								"$HOME/Documents/[IN DEV]《东方天慾录 ～The Sealing of Prophet's Fantasy》/lib"
-							)] = true,
 						},
 						maxPreload = 100000,
 						preloadFileSize = 10000,
