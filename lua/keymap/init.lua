@@ -135,8 +135,17 @@ local plug_map = {
 	["n|<leader>D"] = map_cr("DiffviewOpen"):with_silent():with_noremap(),
 	["n|<leader><leader>D"] = map_cr("DiffviewClose"):with_silent():with_noremap(),
 	-- Plugin Clock
-	["n|ç"] = map_cu("ClockEnable"):with_silent():with_noremap(),
-	["n|Ç"] = map_cu("ClockDisable"):with_silent():with_noremap(),
+	["n|ç"] = map_cr(
+		"lua \z
+		if(vim.g.clockn_enable==1) \z
+		then \z
+			vim.cmd([[ClockDisable]]) \z
+			vim.g.clockn_enable=0 \z
+		else \z
+			vim.cmd([[ClockEnable]]) \z
+			vim.g.clockn_enable=1 \z
+		end"
+	):with_silent():with_noremap(),
 	-- Accoustomed Settings
 	["n|<Up>"] = map_cr("resize -2"):with_silent():with_noremap(),
 	["n|<Down>"] = map_cr("resize +2"):with_silent():with_noremap(),

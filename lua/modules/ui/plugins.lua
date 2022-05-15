@@ -69,7 +69,6 @@ ui["iamcco/sran.nvim"] = {
 ui["iamcco/clock.nvim"] = {
 	opt = true,
 	after = "sran.nvim",
-	event = "BufWinEnter",
 	config = conf.clock,
 }
 
