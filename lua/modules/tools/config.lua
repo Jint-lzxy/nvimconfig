@@ -10,12 +10,12 @@ function config.telescope()
 	require("telescope").setup({
 		defaults = {
 			initial_mode = "insert",
-			prompt_prefix = "  ",
+			prompt_prefix = "   ",
 			selection_caret = " ",
 			entry_prefix = " ",
 			scroll_strategy = "limit",
 			results_title = false,
-			borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+			borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 			layout_strategy = "horizontal",
 			path_display = { "absolute" },
 			file_ignore_patterns = {},

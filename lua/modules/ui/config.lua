@@ -71,7 +71,7 @@ function config.alpha()
 			.. " plugins"
 	end
 	dashboard.section.footer.val = footer()
-	dashboard.section.footer.opts.hl = "Function"
+	dashboard.section.footer.opts.hl = "Typedef"
 
 	local head_butt_padding = 2
 	local occu_height = #dashboard.section.header.val + 2 * #dashboard.section.buttons.val + head_butt_padding
