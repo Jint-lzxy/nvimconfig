@@ -22,6 +22,7 @@ function config.alpha()
 			cursor = 5,
 			width = 50,
 			align_shortcut = "right",
+			hl = "String",
 			hl_shortcut = "Keyword",
 		}
 
@@ -58,7 +59,7 @@ function config.alpha()
 
 	local function footer()
 		local total_plugins = #vim.tbl_keys(packer_plugins)
-		return "   Have Fun with neovim"
+		return " 🥰  Have Fun with neovim"
 			.. "   v"
 			.. vim.version().major
 			.. "."
