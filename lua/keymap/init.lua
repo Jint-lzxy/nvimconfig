@@ -62,9 +62,6 @@ local plug_map = {
 	["n|<Leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent(),
 	-- Plugin Aerial
 	["n|†"] = map_cr("AerialToggle! right"):with_noremap():with_silent(),
-	-- Plugin Minimap
-	["n|˜"] = map_cr("MinimapToggle"):with_noremap():with_silent(),
-	["n|®"] = map_cr("MinimapRefresh"):with_noremap():with_silent(),
 	-- Plugin Undotree
 	["n|<Leader>u"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
 	-- Plugin Telescope

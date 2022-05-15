@@ -47,11 +47,11 @@ ui["akinsho/bufferline.nvim"] = {
 	event = "BufRead",
 	config = conf.nvim_bufferline,
 }
-ui["petertriho/nvim-scrollbar"] = {
+ui["dstein64/nvim-scrollview"] = {
 	opt = true,
 	event = "BufRead",
 	config = function()
-		require("scrollbar").setup()
+		require("scrollview").setup({})
 	end,
 }
 ui["wfxr/minimap.vim"] = {
