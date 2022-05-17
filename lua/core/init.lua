@@ -74,7 +74,7 @@ local check_conda = function()
 end
 
 local init_notify = function()
-	vim.cmd([[au VimEnter * highlight NotifyMain guifg = #D9E0EE guibg = #2f2d38]])
+	vim.cmd([[au VimEnter * highlight NotifyMain guifg = #D9E0EE guibg = #282C34]])
 	vim.cmd([[au VimEnter * highlight link NotifyERRORBody NotifyMain]])
 	vim.cmd([[au VimEnter * highlight link NotifyWARNBody NotifyMain]])
 	vim.cmd([[au VimEnter * highlight link NotifyINFOBody NotifyMain]])
