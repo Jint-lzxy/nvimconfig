@@ -215,7 +215,7 @@ function config.notify()
 
 	notify.setup({
 		---@usage Animation style one of { "fade", "slide", "fade_in_slide_out", "static" }
-		stages = "fade_in_slide_out",
+		stages = "slide",
 		---@usage Function called when a new window is opened, use for changing win settings/config
 		on_open = nil,
 		---@usage Function called when a window is closed

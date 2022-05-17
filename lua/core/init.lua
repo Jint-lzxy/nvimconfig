@@ -73,6 +73,14 @@ local check_conda = function()
 	end
 end
 
+local init_notify = function()
+	vim.cmd([[au VimEnter * highlight NotifyMain guifg = #D9E0EE guibg = #2f2d38]])
+	vim.cmd([[au VimEnter * highlight link NotifyERRORBody NotifyMain]])
+	vim.cmd([[au VimEnter * highlight link NotifyWARNBody NotifyMain]])
+	vim.cmd([[au VimEnter * highlight link NotifyINFOBody NotifyMain]])
+	vim.cmd([[au VimEnter * highlight link NotifyDEBUGBody NotifyMain]])
+	vim.cmd([[au VimEnter * highlight link NotifyTRACEBody NotifyMain]])
+end
 local clipboard_config = function()
 	vim.cmd([[
     let g:clipboard = {
@@ -99,6 +107,7 @@ local load_core = function()
 	pack.ensure_plugins()
 	neovide_config()
 	check_conda()
+	init_notify()
 	-- clipboard_config()
 
 	require("core.options")
