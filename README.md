@@ -5,4 +5,3 @@
 ## Acknowledgement
 
 - [glepnir/nvim](https://github.com/glepnir/nvim)
-- [ayamir/nvimdots](https://github.com/ayamir/nvimdots)
