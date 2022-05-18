@@ -210,9 +210,4 @@ function config.filetype()
 	})
 end
 
-function config.smartim()
-	vim.cmd([[packadd smartim]])
-	vim.g.smartim_default = "com.apple.keylayout.US"
-end
-
 return config

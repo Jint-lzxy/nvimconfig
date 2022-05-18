@@ -53,10 +53,4 @@ tools["nathom/filetype.nvim"] = {
 	config = conf.filetype,
 }
 
-tools["ybian/smartim"] = {
-	opt = true,
-	event = "BufWinEnter",
-	config = conf.smartim,
-}
-
 return tools

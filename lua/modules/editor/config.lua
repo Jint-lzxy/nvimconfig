@@ -426,4 +426,11 @@ function config.better_escape()
 	vim.g.better_escape_interval = 300
 end
 
+function config.imselect()
+	if vim.fn.executable("im-select") == 1 then
+		vim.g.im_select_get_im_cmd = "im-select"
+		vim.g.im_select_default = "com.apple.keylayout.US"
+	end
+end
+
 return config
