@@ -81,6 +81,7 @@ local init_notify = function()
 	vim.cmd([[au VimEnter * highlight link NotifyDEBUGBody NotifyMain]])
 	vim.cmd([[au VimEnter * highlight link NotifyTRACEBody NotifyMain]])
 end
+
 local clipboard_config = function()
 	vim.cmd([[
     let g:clipboard = {
@@ -108,7 +109,9 @@ local load_core = function()
 	neovide_config()
 	check_conda()
 	init_notify()
-	-- clipboard_config()
+	if global.is_windows then
+		clipboard_config()
+	end
 
 	require("core.options")
 	require("core.mapping")
