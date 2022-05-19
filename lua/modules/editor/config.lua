@@ -25,6 +25,7 @@ function config.nvim_treesitter()
 			"vue",
 			"css",
 		},
+		autotag = { enable = true },
 		highlight = { enable = true, disable = { "vim" } },
 		textobjects = {
 			select = {
