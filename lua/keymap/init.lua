@@ -7,10 +7,10 @@ require("keymap.config")
 local plug_map = {
 	-- Bufferline
 	["n|gb"] = map_cr("BufferLinePick"):with_noremap():with_silent(),
-	["n|Ô"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent(),
+	["n|∆"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent(),
 	["n|˚"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent(),
-	["n|<Í-j>"] = map_cr("BufferLineMoveNext"):with_noremap():with_silent(),
-	["n|<Í-k>"] = map_cr("BufferLineMovePrev"):with_noremap():with_silent(),
+	["n|Ô"] = map_cr("BufferLineMoveNext"):with_noremap():with_silent(),
+	["n|"] = map_cr("BufferLineMovePrev"):with_noremap():with_silent(),
 	["n|<leader>be"] = map_cr("BufferLineSortByExtension"):with_noremap(),
 	["n|<leader>bd"] = map_cr("BufferLineSortByDirectory"):with_noremap(),
 	["n|¡"] = map_cr("BufferLineGoToBuffer 1"):with_noremap():with_silent(),
@@ -125,8 +125,8 @@ local plug_map = {
 	["o|m"] = map_cu([[lua require('tsht').nodes()]]):with_silent(),
 	["c|Q"] = map_cu([[%SnipRun]]):with_silent(),
 	-- Plugin Tabout
-	["i|Ò"] = map_cmd([[<Plug>(TaboutMulti)]]):with_silent(),
-	["i|Ó"] = map_cmd([[<Plug>(TaboutBackMulti)]]):with_silent(),
+	["i|¬"] = map_cmd([[<Plug>(TaboutMulti)]]):with_silent(),
+	["i|˙"] = map_cmd([[<Plug>(TaboutBackMulti)]]):with_silent(),
 	-- Plugin Diffview
 	["n|<leader>D"] = map_cr("DiffviewOpen"):with_silent():with_noremap(),
 	["n|<leader><leader>D"] = map_cr("DiffviewClose"):with_silent():with_noremap(),
