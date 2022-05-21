@@ -54,8 +54,7 @@ editor["mfussenegger/nvim-ts-hint-textobject"] = {
 }
 editor["windwp/nvim-ts-autotag"] = {
 	opt = true,
-	ft = { "html", "xml" },
-	requires = "nvim-treesitter",
+	after = "nvim-treesitter",
 	config = conf.autotag,
 }
 editor["andymass/vim-matchup"] = {
