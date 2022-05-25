@@ -77,9 +77,7 @@ ui["iamcco/clock.nvim"] = {
 ui["j-hui/fidget.nvim"] = {
 	opt = true,
 	event = "BufRead",
-	config = function()
-		require("fidget").setup({})
-	end,
+	config = conf.fidget,
 }
 
 return ui
