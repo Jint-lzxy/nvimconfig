@@ -75,11 +75,6 @@ end
 
 local init_notify = function()
 	vim.cmd([[au VimEnter * highlight NotifyMain guifg = #D9E0EE guibg = #282C34]])
-	vim.cmd([[au VimEnter * highlight link NotifyERRORBody NotifyMain]])
-	vim.cmd([[au VimEnter * highlight link NotifyWARNBody NotifyMain]])
-	vim.cmd([[au VimEnter * highlight link NotifyINFOBody NotifyMain]])
-	vim.cmd([[au VimEnter * highlight link NotifyDEBUGBody NotifyMain]])
-	vim.cmd([[au VimEnter * highlight link NotifyTRACEBody NotifyMain]])
 end
 
 local clipboard_config = function()
