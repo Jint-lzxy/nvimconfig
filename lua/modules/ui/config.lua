@@ -126,40 +126,52 @@ function config.catppuccin()
 		--        Change the core default settings here!
 		-- ====================================================
 
-		-- ErrorMsg = { fg = cp.red, style = "bold" },
-		-- TSProperty = { fg = cp.yellow, style = "NONE" },
-		-- TSInclude = { fg = cp.teal, style = "NONE" },
-		-- TSOperator = { fg = cp.sky, style = "bold" },
-		-- TSKeywordOperator = { fg = cp.sky, style = "bold" },
-		-- TSPunctSpecial = { fg = cp.maroon, style = "bold" },
-		-- TSFloat = { fg = cp.peach, style = "bold" },
+		-- TSField = { fg = cp.teal },
+		-- TSProperty = { fg = cp.teal, style = "NONE" },
+		-- TSInclude = { fg = cp.mauve, style = "NONE" },
+		-- TSOperator = { fg = cp.sky, style = "NONE" },
+		-- TSKeywordOperator = { fg = cp.mauve, style = "NONE" },
+		-- TSPunctSpecial = { fg = cp.sky, style = "NONE" },
+		-- TSFloat = { fg = cp.peach, style = "NONE" },
 		TSNumber = { fg = cp.peach, style = "NONE" },
-		-- TSBoolean = { fg = cp.peach, style = "bold" },
-		-- TSConditional = { fg = cp.mauve, style = "bold" },
-		-- TSRepeat = { fg = cp.mauve, style = "bold" },
-		-- TSException = { fg = cp.peach, style = "NONE" },
-		-- TSConstBuiltin = { fg = cp.lavender, style = "NONE" },
+		-- TSBoolean = { fg = cp.peach, style = "NONE" },
+		-- TSConstructor = { fg = cp.sapphire },
+		-- TSConstant = { fg = cp.peach },
+		-- TSConditional = { fg = cp.mauve, style = "NONE" },
+		-- TSRepeat = { fg = cp.mauve, style = "NONE" },
+		-- TSException = { fg = cp.mauve, style = "NONE" },
+		-- TSConstBuiltin = { fg = cp.peach, style = "NONE" },
 		-- TSFuncBuiltin = { fg = cp.peach, style = "NONE" },
-		-- TSTypeBuiltin = { fg = cp.yellow, style = "NONE" },
-		-- TSVariableBuiltin = { fg = cp.teal, style = "NONE" },
+		TSNamespace = { fg = cp.blue, style = "NONE" },
+		-- TSType = { fg = cp.yellow, style = "NONE" },
+		-- TSTypeBuiltin = { fg = cp.yellow, style = "italic" },
+		-- TSVariableBuiltin = { fg = cp.red },
 		-- TSFunction = { fg = cp.blue, style = "NONE" },
-		-- TSParameter = { fg = cp.rosewater, style = "NONE" },
-		-- TSKeywordFunction = { fg = cp.maroon, style = "NONE" },
-		-- TSKeyword = { fg = cp.red, style = "NONE" },
-		-- TSMethod = { fg = cp.blue, style = "NONE" },
-		TSNamespace = { fg = cp.rosewater, style = "NONE" },
-		-- TSStringRegex = { fg = cp.peach, style = "NONE" },
-		TSVariable = { fg = cp.white, style = "NONE" },
-		-- TSTagAttribute = { fg = cp.mauve, style = "NONE" },
+		-- TSFuncMacro = { fg = cp.teal, style = "NONE" },
+		-- TSParameter = { fg = cp.maroon, style = "italic" },
+		-- TSKeywordFunction = { fg = cp.mauve, style = "NONE" },
+		-- TSKeyword = { fg = cp.mauve, style = "NONE" },
+		-- TSKeywordReturn = { fg = cp.mauve, style = "NONE" },
+		-- TSNote = { fg = cp.base, bg = cp.blue },
+		-- TSWarning = { fg = cp.base, bg = cp.yellow },
+		-- TSDanger = { fg = cp.base, bg = cp.red },
+		-- TSConstMacro = { fg = cp.mauve },
 		TSURI = { fg = cp.rosewater, style = "underline" },
-		-- TSLiteral = { fg = cp.teal, style = "NONE" },
-		-- TSEmphasis = { fg = cp.maroon, style = "NONE" },
-		-- TSStringEscape = { fg = cp.pink, style = "NONE" },
-		-- bashTSFuncBuiltin = { fg = cp.red, style = "NONE" },
-		-- bashTSParameter = { fg = cp.yellow, style = "NONE" },
-		-- typescriptTSProperty = { fg = cp.lavender, style = "NONE" },
-		-- cssTSProperty = { fg = cp.yellow, style = "NONE" },
+		-- TSError = { fg = cp.red },
+		-- TSLabel = { fg = cp.sapphire },
+		-- TSMethod = { fg = cp.blue, style = "NONE" },
+		-- TSPunctDelimiter = { fg = cp.overlay2 },
+		-- TSPunctBracket = { fg = delimeters },
+		-- TSPunctBracket = { fg = cp.overlay2 },
+		-- TSString = { fg = cp.green, style = "NONE" },
+		-- TSStringRegex = { fg = cp.peach, style = "NONE" },
+		TSVariable = { fg = cp.text, style = "NONE" },
+		-- TSTagAttribute = { fg = cp.teal, style = "italic" },
+		-- TSTag = { fg = cp.mauve },
+		-- TSTagDelimiter = { fg = cp.sky },
+		-- TSText = { fg = cp.text },
 	})
+
 	require("catppuccin").setup({
 		transparent_background = true,
 		term_colors = true,
@@ -321,37 +333,6 @@ function config.lualine()
 		return ""
 	end
 
-	--[[
-	-- Try a new theme!
-	--==========================
-	local colors = {
-		blue = "#80a0ff",
-		cyan = "#79dac8",
-		black = "#080808",
-		white = "#c6c6c6",
-		red = "#ff5189",
-		violet = "#d183e8",
-		grey = "#303030",
-	}
-
-	local bubbles_theme = {
-		normal = {
-			a = { fg = colors.black, bg = colors.violet },
-			b = { fg = colors.white, bg = colors.grey },
-			c = { fg = colors.black, bg = colors.black },
-		},
-		insert = { a = { fg = colors.black, bg = colors.blue } },
-		visual = { a = { fg = colors.black, bg = colors.cyan } },
-		replace = { a = { fg = colors.black, bg = colors.red } },
-
-		inactive = {
-			a = { fg = colors.white, bg = colors.black },
-			b = { fg = colors.white, bg = colors.black },
-			c = { fg = colors.black, bg = colors.black },
-		},
-	}
-	--==========================
-	--]]
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
