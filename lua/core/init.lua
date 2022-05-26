@@ -73,10 +73,6 @@ local check_conda = function()
 	end
 end
 
-local init_notify = function()
-	vim.cmd([[au VimEnter * highlight NotifyMain guifg = #D9E0EE guibg = #282C34]])
-end
-
 local clipboard_config = function()
 	vim.cmd([[
     let g:clipboard = {
@@ -94,6 +90,14 @@ local clipboard_config = function()
     ]])
 end
 
+local success_notice = function()
+	vim.notify(
+		"Successfully initialized neovim, enjoy!",
+		vim.log.levels.INFO,
+		{ title = "Load Success!", timeout = 10 }
+	)
+end
+
 local load_core = function()
 	local pack = require("core.pack")
 	createdir()
@@ -103,7 +107,6 @@ local load_core = function()
 	pack.ensure_plugins()
 	neovide_config()
 	check_conda()
-	init_notify()
 	if global.is_windows then
 		clipboard_config()
 	end
@@ -117,6 +120,8 @@ local load_core = function()
 	-- vim.cmd([[set background=light]])
 	vim.g.catppuccin_flavour = "mocha"
 	vim.cmd([[colorscheme catppuccin]])
+
+	success_notice()
 end
 
 load_core()
