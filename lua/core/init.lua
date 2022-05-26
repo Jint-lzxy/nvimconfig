@@ -90,14 +90,6 @@ local clipboard_config = function()
     ]])
 end
 
-local success_notice = function()
-	vim.notify(
-		"Successfully initialized neovim, enjoy!",
-		vim.log.levels.INFO,
-		{ title = "Load Success!", timeout = 10 }
-	)
-end
-
 local load_core = function()
 	local pack = require("core.pack")
 	createdir()
@@ -120,8 +112,6 @@ local load_core = function()
 	-- vim.cmd([[set background=light]])
 	vim.g.catppuccin_flavour = "mocha"
 	vim.cmd([[colorscheme catppuccin]])
-
-	success_notice()
 end
 
 load_core()
