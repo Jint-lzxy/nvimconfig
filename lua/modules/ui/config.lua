@@ -126,6 +126,7 @@ function config.catppuccin()
 		--        Change the core default settings here!
 		-- ====================================================
 
+		-- ErrorMsg = { fg = cp.red, style = "bold" },
 		-- TSField = { fg = cp.teal },
 		-- TSProperty = { fg = cp.teal, style = "NONE" },
 		-- TSInclude = { fg = cp.mauve, style = "NONE" },
@@ -170,6 +171,30 @@ function config.catppuccin()
 		-- TSTag = { fg = cp.mauve },
 		-- TSTagDelimiter = { fg = cp.sky },
 		-- TSText = { fg = cp.text },
+
+		-- bashTSFuncBuiltin = { fg = cp.red, style = "NONE" },
+		-- bashTSParameter = { fg = cp.yellow, style = "NONE" },
+
+		-- typescriptTSProperty = { fg = cp.lavender, style = "NONE" },
+
+		-- cssTSProperty = { fg = cp.yellow, style = "NONE" },
+		-- cssTSType = { fg = cp.lavender },
+
+		-- jsonTSLabel = { fg = cp.blue }, -- For labels: label: in C and :label: in Lua.
+
+		-- luaTSField = { fg = cp.rosewater },
+		-- luaTSConstructor = { fg = cp.lavender }, -- For constructor calls and definitions: = { } in Lua, and Java constructors.
+		-- luaTSFuncBuiltin = { fg = cp.teal, style = "italic" }, -- For builtin functions: table.insert in Lua.
+
+		-- javaTSField = { fg = cp.red },
+		-- javaTSType = { fg = cp.yellow }, -- current Java TS parser doesn't distinguish types properly
+		-- javaTSConstant = { fg = cp.teal },
+
+		-- typescriptTSProperty = { fg = cp.lavender, style = "italic" }, -- Same as TSField.
+
+		-- cppTSProperty = { fg = cp.white },
+
+		-- yamlTSField = { fg = cp.blue }, -- For fields.
 	})
 
 	require("catppuccin").setup({
