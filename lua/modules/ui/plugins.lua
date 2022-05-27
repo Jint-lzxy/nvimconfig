@@ -6,6 +6,7 @@ ui["shaunsingh/nord.nvim"] = { opt = false, config = conf.nord }
 ui["sainnhe/edge"] = { opt = false, config = conf.edge }
 ui["catppuccin/nvim"] = {
 	opt = false,
+	commit = "f079dda",
 	as = "catppuccin",
 	config = conf.catppuccin, -- see config.lua for more information
 }

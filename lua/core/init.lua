@@ -110,7 +110,6 @@ local load_core = function()
 	pack.load_compile()
 
 	-- vim.cmd([[set background=light]])
-	vim.g.catppuccin_flavour = "mocha"
 	vim.cmd([[colorscheme catppuccin]])
 end
 
