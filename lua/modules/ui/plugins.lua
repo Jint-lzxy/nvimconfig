@@ -7,7 +7,6 @@ ui["sainnhe/edge"] = { opt = false, config = conf.edge }
 ui["catppuccin/nvim"] = {
 	opt = false,
 	as = "catppuccin",
-	commit = "f6df99ec",
 	config = conf.catppuccin, -- see config.lua for more information
 }
 ui["rcarriga/nvim-notify"] = {
