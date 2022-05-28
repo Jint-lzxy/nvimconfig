@@ -195,6 +195,11 @@ function config.catppuccin()
 		-- cppTSProperty = { fg = cp.white },
 
 		-- yamlTSField = { fg = cp.blue }, -- For fields.
+
+		DiagnosticError = { bg = cp.none },
+		DiagnosticInfo = { bg = cp.none },
+		DiagnosticHint = { bg = cp.none },
+		DiagnosticWarn = { bg = cp.none },
 	})
 
 	require("catppuccin").setup({
