@@ -111,7 +111,14 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
 				"--background-index",
 				"-std=c++17",
 				"--pch-storage=memory",
+				"--query-driver=/usr/bin/clang++,/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
 				"--clang-tidy",
+				"--clang-tidy-checks=*",
+				"--all-scopes-completion",
+				"--cross-file-rename",
+				"--completion-style=detailed",
+				"--header-insertion-decorators",
+				"--header-insertion=iwyu",
 				"--suggest-missing-includes",
 			},
 			commands = {
@@ -229,7 +236,16 @@ efmls.init({
 -- Require `efmls-configs-nvim`'s config here
 
 local vint = require("efmls-configs.linters.vint")
-local clangtidy = require("efmls-configs.linters.clang_tidy")
+local clangtidy = {
+	prefix = "clang-tidy",
+	lintStdin = false,
+	lintCommand = string.format(
+		"%s -extra-arg=-I/Library/Developer/CommandLineTools/usr/include/c++/v1 ${INPUT}",
+		"/usr/local/bin/clang-tidy"
+	),
+	lintFormats = { "%f:%l:%c: %trror: %m", "%f:%l:%c: %tarning: %m", "%f:%l:%c: %tote: %m" },
+	rootMarkers = {},
+}
 local eslint = require("efmls-configs.linters.eslint")
 local flake8 = require("efmls-configs.linters.flake8")
 local shellcheck = require("efmls-configs.linters.shellcheck")
@@ -237,7 +253,7 @@ local shellcheck = require("efmls-configs.linters.shellcheck")
 local black = require("efmls-configs.formatters.black")
 local luafmt = require("efmls-configs.formatters.stylua")
 local clangfmt = {
-	formatCommand = "clang-format -style='{BasedOnStyle: LLVM}'",
+	formatCommand = "clang-format -style='{BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Always}'",
 	formatStdin = true,
 }
 local prettier = require("efmls-configs.formatters.prettier")
@@ -262,8 +278,8 @@ flake8 = vim.tbl_extend("force", flake8, {
 efmls.setup({
 	vim = { formatter = vint },
 	lua = { formatter = luafmt },
-	c = { formatter = clangfmt, linter = clangtidy },
-	cpp = { formatter = clangfmt, linter = clangtidy },
+	c = { formatter = clangfmt },
+	cpp = { formatter = clangfmt },
 	python = { formatter = black },
 	vue = { formatter = prettier },
 	typescript = { formatter = prettier, linter = eslint },
