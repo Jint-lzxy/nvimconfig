@@ -108,6 +108,7 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
 			single_file_support = true,
 			on_attach = custom_attach,
 			args = {
+				"-Wall",
 				"--background-index",
 				"-std=c++17",
 				"--pch-storage=memory",
