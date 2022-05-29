@@ -236,6 +236,7 @@ efmls.init({
 -- Require `efmls-configs-nvim`'s config here
 
 local vint = require("efmls-configs.linters.vint")
+--[[
 local clangtidy = {
 	prefix = "clang-tidy",
 	lintStdin = false,
@@ -246,6 +247,7 @@ local clangtidy = {
 	lintFormats = { "%f:%l:%c: %trror: %m", "%f:%l:%c: %tarning: %m", "%f:%l:%c: %tote: %m" },
 	rootMarkers = {},
 }
+--]]
 local eslint = require("efmls-configs.linters.eslint")
 local flake8 = require("efmls-configs.linters.flake8")
 local shellcheck = require("efmls-configs.linters.shellcheck")
@@ -253,7 +255,26 @@ local shellcheck = require("efmls-configs.linters.shellcheck")
 local black = require("efmls-configs.formatters.black")
 local luafmt = require("efmls-configs.formatters.stylua")
 local clangfmt = {
-	formatCommand = "clang-format -style='{BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Always}'",
+	formatCommand = "clang-format -style='{ \z
+            BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Always, \z
+            NamespaceIndentation: All, AccessModifierOffset: -4, \z
+            AlignArrayOfStructures: Right, AlignConsecutiveAssignments: Consecutive, \z
+            AlignConsecutiveBitFields: Consecutive, AlignConsecutiveDeclarations: Consecutive, \z
+            AlignEscapedNewlines: Left, AlignTrailingComments: true, \z
+            AllowShortBlocksOnASingleLine: Always, AllowShortCaseLabelsOnASingleLine: true, \z
+            AllowShortEnumsOnASingleLine: true, AllowShortFunctionsOnASingleLine: All, \z
+            AllowShortLoopsOnASingleLine: true, BitFieldColonSpacing: Both, \z
+            BreakBeforeTernaryOperators: true, BreakConstructorInitializers: BeforeColon, \z
+            BreakInheritanceList: BeforeColon, BreakStringLiterals: true, \z
+            Cpp11BracedListStyle: true, EmptyLineAfterAccessModifier: Never, \z
+            IncludeBlocks: Regroup, IndentPPDirectives: BeforeHash, \z
+            IndentWrappedFunctionNames: true, PointerAlignment: Left, \z
+            ReferenceAlignment: Pointer, SeparateDefinitionBlocks: Always, \z
+            SortIncludes: CaseSensitive, SortUsingDeclarations: true, \z
+            SpaceAfterCStyleCast: true, SpaceBeforeCaseColon: false, \z
+            SpaceBeforeRangeBasedForLoopColon: false, \z
+            Standard: Auto \z
+        }'",
 	formatStdin = true,
 }
 local prettier = require("efmls-configs.formatters.prettier")
