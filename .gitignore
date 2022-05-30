@@ -1,5 +1,6 @@
 # Ignore macOS store file
 /.DS_Store
+/my-snippets/.DS_Store
 /lua/.DS_Store
 /lua/modules/.DS_Store
 /lua/modules/completion/.DS_Store
