@@ -66,6 +66,10 @@ local neovide_config = function()
 	vim.g.neovide_cursor_vfx_particle_density = 5.0
 end
 
+local lspsaga_config = function()
+	vim.cmd([[au VimEnter * highlight LspFloatWinNormal guibg='#282C34']])
+end
+
 local check_conda = function()
 	local venv = os.getenv("CONDA_PREFIX")
 	if venv then
@@ -99,6 +103,7 @@ local load_core = function()
 	pack.ensure_plugins()
 	neovide_config()
 	check_conda()
+	lspsaga_config()
 	if global.is_windows then
 		clipboard_config()
 	end
