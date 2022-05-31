@@ -256,7 +256,7 @@ local black = require("efmls-configs.formatters.black")
 local luafmt = require("efmls-configs.formatters.stylua")
 local clangfmt = {
 	formatCommand = "clang-format -style='{ \z
-            BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Always, \z
+            BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: ForIndentation, \z
             NamespaceIndentation: All, AccessModifierOffset: -4, \z
             AlignArrayOfStructures: Right, AlignConsecutiveAssignments: Consecutive, \z
             AlignConsecutiveBitFields: Consecutive, AlignConsecutiveDeclarations: Consecutive, \z
