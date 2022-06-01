@@ -68,6 +68,7 @@ end
 
 local lspsaga_config = function()
 	vim.cmd([[au VimEnter * highlight LspFloatWinNormal guibg='#282C34']])
+	vim.cmd([[au VimEnter * highlight SagaShadow guibg='#282C34']])
 end
 
 local check_conda = function()
