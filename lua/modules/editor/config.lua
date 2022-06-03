@@ -18,6 +18,7 @@ function config.nvim_treesitter()
 			"latex",
 			"make",
 			"python",
+			"ruby",
 			"rust",
 			"html",
 			"javascript",
