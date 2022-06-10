@@ -266,14 +266,14 @@ local clangfmt = {
             AllowShortLoopsOnASingleLine: true, BitFieldColonSpacing: Both, \z
             BreakBeforeTernaryOperators: true, BreakConstructorInitializers: BeforeColon, \z
             BreakInheritanceList: BeforeColon, BreakStringLiterals: true, \z
-            Cpp11BracedListStyle: true, EmptyLineAfterAccessModifier: Never, \z
+            Cpp11BracedListStyle: true, EmptyLineAfterAccessModifier: Leave, \z
             IncludeBlocks: Regroup, IndentPPDirectives: BeforeHash, \z
             IndentWrappedFunctionNames: true, PointerAlignment: Left, \z
             ReferenceAlignment: Pointer, SeparateDefinitionBlocks: Always, \z
             SortIncludes: CaseSensitive, SortUsingDeclarations: true, \z
             SpaceAfterCStyleCast: true, SpaceBeforeCaseColon: false, \z
             SpaceBeforeRangeBasedForLoopColon: false, \z
-            Standard: Auto \z
+            EmptyLineBeforeAccessModifier: Leave, Standard: Auto \z
         }'",
 	formatStdin = true,
 }
