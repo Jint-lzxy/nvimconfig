@@ -9,6 +9,7 @@ function config.nvim_treesitter()
 		ensure_installed = {
 			"bash",
 			"c",
+			"cmake",
 			"cpp",
 			"lua",
 			"go",
