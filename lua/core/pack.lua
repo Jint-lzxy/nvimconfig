@@ -101,6 +101,7 @@ function plugins.back_compile()
 		os.rename(packer_compiled, bak_compiled)
 	end
 	plugins.compile()
+	vim.notify("Packer Compile Success!", vim.log.levels.INFO, { title = "Success!" })
 end
 
 function plugins.auto_compile()
