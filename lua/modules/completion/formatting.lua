@@ -19,6 +19,41 @@ vim.api.nvim_create_user_command("FormatToggle", function()
 	M.toggle_format_on_save()
 end, {})
 
+local block_list = {}
+vim.api.nvim_create_user_command("FormatterDisable", function(opts)
+	if block_list[opts.args] == nil then
+		vim.notify(
+			string.format("[LSP]Format for [%s] has been disabled.", opts.args),
+			vim.log.levels.WARN,
+			{ title = "LSP Format Warning!" }
+		)
+		block_list[opts.args] = true
+		return
+	end
+	block_list[opts.args] = not block_list[opts.args]
+end, {
+	nargs = 1,
+	complete = function(_, _, _)
+		return {
+			"markdown",
+			"vim",
+			"lua",
+			"c",
+			"cpp",
+			"python",
+			"vue",
+			"typescript",
+			"javascript",
+			"yaml",
+			"html",
+			"css",
+			"scss",
+			"sh",
+			"rust",
+		}
+	end,
+})
+
 function M.enable_format_on_save(is_configured)
 	local opts = { pattern = "*", timeout = 1000 }
 	vim.api.nvim_create_augroup("format_on_save", {})
@@ -113,6 +148,14 @@ function M.format(opts)
 
 	local timeout_ms = opts.timeout_ms
 	for _, client in pairs(clients) do
+		if block_list[vim.bo.filetype] == true then
+			vim.notify(
+				string.format("[LSP][%s] format for [%s] has been disabled.", client.name, vim.bo.filetype),
+				vim.log.levels.WARN,
+				{ title = "LSP Format Warning!" }
+			)
+			return
+		end
 		local params = vim.lsp.util.make_formatting_params(opts.formatting_options)
 		local result, err = client.request_sync("textDocument/formatting", params, timeout_ms, bufnr)
 		if result and result.result then
