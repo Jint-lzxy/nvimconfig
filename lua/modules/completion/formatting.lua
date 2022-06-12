@@ -20,17 +20,26 @@ vim.api.nvim_create_user_command("FormatToggle", function()
 end, {})
 
 local block_list = {}
-vim.api.nvim_create_user_command("FormatterDisable", function(opts)
+vim.api.nvim_create_user_command("FormatterToggle", function(opts)
 	if block_list[opts.args] == nil then
 		vim.notify(
-			string.format("[LSP]Format for [%s] has been disabled.", opts.args),
+			string.format("[LSP]Formatter for [%s] has been recorded in list and disabled.", opts.args),
 			vim.log.levels.WARN,
-			{ title = "LSP Format Warning!" }
+			{ title = "LSP Formatter Warning!" }
 		)
 		block_list[opts.args] = true
 		return
 	end
 	block_list[opts.args] = not block_list[opts.args]
+	vim.notify(
+		string.format(
+			"[LSP]Formatter for [%s] has been %s.",
+			opts.args,
+			not block_list[opts.args] and "enabled" or "disabled"
+		),
+		not block_list[opts.args] and vim.log.levels.INFO or vim.log.levels.WARN,
+		{ title = string.format("LSP Formatter %s", not block_list[opts.args] and "Info" or "Warning") }
+	)
 end, {
 	nargs = 1,
 	complete = function(_, _, _)
@@ -150,7 +159,11 @@ function M.format(opts)
 	for _, client in pairs(clients) do
 		if block_list[vim.bo.filetype] == true then
 			vim.notify(
-				string.format("[LSP][%s] format for [%s] has been disabled.", client.name, vim.bo.filetype),
+				string.format(
+					"[LSP][%s] formatter for [%s] has been disabled. The file is not being processed.",
+					client.name,
+					vim.bo.filetype
+				),
 				vim.log.levels.WARN,
 				{ title = "LSP Format Warning!" }
 			)
