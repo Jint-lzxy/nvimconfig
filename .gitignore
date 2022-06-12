@@ -5,5 +5,9 @@
 /lua/modules/.DS_Store
 /lua/modules/completion/.DS_Store
 /lua/modules/editor/.DS_Store
+
+# Ignore local format config
+/format_disabled_dirs.txt
+
 # Ignore old config
 /backup/*
