@@ -28,18 +28,18 @@ vim.api.nvim_create_user_command("FormatterToggle", function(opts)
 			{ title = "LSP Formatter Warning!" }
 		)
 		block_list[opts.args] = true
-		return
+	else
+		block_list[opts.args] = not block_list[opts.args]
+		vim.notify(
+			string.format(
+				"[LSP]Formatter for [%s] has been %s.",
+				opts.args,
+				not block_list[opts.args] and "enabled" or "disabled"
+			),
+			not block_list[opts.args] and vim.log.levels.INFO or vim.log.levels.WARN,
+			{ title = string.format("LSP Formatter %s", not block_list[opts.args] and "Info" or "Warning") }
+		)
 	end
-	block_list[opts.args] = not block_list[opts.args]
-	vim.notify(
-		string.format(
-			"[LSP]Formatter for [%s] has been %s.",
-			opts.args,
-			not block_list[opts.args] and "enabled" or "disabled"
-		),
-		not block_list[opts.args] and vim.log.levels.INFO or vim.log.levels.WARN,
-		{ title = string.format("LSP Formatter %s", not block_list[opts.args] and "Info" or "Warning") }
-	)
 end, {
 	nargs = 1,
 	complete = function(_, _, _)
