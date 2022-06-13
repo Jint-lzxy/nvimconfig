@@ -258,12 +258,12 @@ local clangfmt = {
 	formatCommand = "clang-format -style='{ \z
             BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: ForIndentation, \z
             NamespaceIndentation: All, AccessModifierOffset: -4, \z
-            AlignArrayOfStructures: Right, AlignConsecutiveAssignments: Consecutive, \z
-            AlignConsecutiveBitFields: Consecutive, AlignConsecutiveDeclarations: Consecutive, \z
-            AlignEscapedNewlines: Left, AlignTrailingComments: true, \z
-            AllowShortBlocksOnASingleLine: Always, AllowShortCaseLabelsOnASingleLine: true, \z
-            AllowShortEnumsOnASingleLine: true, AllowShortFunctionsOnASingleLine: All, \z
-            AllowShortLoopsOnASingleLine: true, BitFieldColonSpacing: Both, \z
+            AlignArrayOfStructures: Right, AlignEscapedNewlines: Left, \z
+            AlignTrailingComments: true, AllowShortBlocksOnASingleLine: Always, \z
+            AllowShortCaseLabelsOnASingleLine: true, AllowShortEnumsOnASingleLine: true, \z
+            AllowShortFunctionsOnASingleLine: All, AllowShortLoopsOnASingleLine: true, \z
+            BitFieldColonSpacing: Both, BreakBeforeBraces: Linux, \z
+            FixNamespaceComments: true, ShortNamespaceLines: 3, \z
             BreakBeforeTernaryOperators: true, BreakConstructorInitializers: BeforeColon, \z
             BreakInheritanceList: BeforeColon, BreakStringLiterals: true, \z
             Cpp11BracedListStyle: true, EmptyLineAfterAccessModifier: Leave, \z
@@ -272,7 +272,7 @@ local clangfmt = {
             ReferenceAlignment: Pointer, SeparateDefinitionBlocks: Always, \z
             SortIncludes: CaseSensitive, SortUsingDeclarations: true, \z
             SpaceAfterCStyleCast: true, SpaceBeforeCaseColon: false, \z
-            SpaceBeforeRangeBasedForLoopColon: false, \z
+            SpaceBeforeRangeBasedForLoopColon: false, AlignConsecutiveAssignments: Consecutive, \z
             EmptyLineBeforeAccessModifier: Leave, Standard: Auto \z
         }'",
 	formatStdin = true,
