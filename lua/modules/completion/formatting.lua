@@ -172,7 +172,7 @@ function M.format(opts)
 					vim.bo.filetype
 				),
 				vim.log.levels.WARN,
-				{ title = "LSP Format Warning!" }
+				{ title = "LSP Formatter Warning!" }
 			)
 			return
 		end
