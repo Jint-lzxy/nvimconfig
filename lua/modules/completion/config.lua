@@ -30,7 +30,7 @@ function config.cmp()
 	============================================================================================
 	--]========]
 
-	vim.cmd([[packadd cmp-tabnine]])
+	-- vim.cmd([[packadd cmp-tabnine]])
 	local t = function(str)
 		return vim.api.nvim_replace_termcodes(str, true, true, true)
 	end
@@ -72,7 +72,7 @@ function config.cmp()
 		},
 		sorting = {
 			comparators = {
-				require("cmp_tabnine.compare"),
+				-- require("cmp_tabnine.compare"),
 				compare.offset,
 				compare.exact,
 				compare.score,
@@ -185,7 +185,7 @@ function config.cmp()
 			{ name = "orgmode" },
 			{ name = "buffer" },
 			{ name = "latex_symbols" },
-			{ name = "cmp_tabnine" },
+			-- { name = "cmp_tabnine" },
 		},
 	})
 end
@@ -201,10 +201,10 @@ function config.luasnip()
 	require("luasnip.loaders.from_snipmate").lazy_load()
 end
 
-function config.tabnine()
-	local tabnine = require("cmp_tabnine.config")
-	tabnine:setup({ max_line = 1000, max_num_results = 20, sort = true })
-end
+-- function config.tabnine()
+-- 	local tabnine = require("cmp_tabnine.config")
+-- 	tabnine:setup({ max_line = 1000, max_num_results = 20, sort = true })
+-- end
 
 function config.autopairs()
 	require("nvim-autopairs").setup({})
@@ -218,9 +218,9 @@ end
 
 function config.bqf()
 	vim.cmd([[
-    hi BqfPreviewBorder guifg=#F2CDCD ctermfg=71
-    hi link BqfPreviewRange Search
-]])
+        hi BqfPreviewBorder guifg=#F2CDCD ctermfg=71
+        hi link BqfPreviewRange Search
+    ]])
 
 	require("bqf").setup({
 		auto_enable = true,

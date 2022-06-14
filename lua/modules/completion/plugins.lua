@@ -46,12 +46,12 @@ completion["hrsh7th/nvim-cmp"] = {
 		{ "f3fora/cmp-spell", after = "cmp-path" },
 		{ "hrsh7th/cmp-buffer", after = "cmp-spell" },
 		{ "kdheepak/cmp-latex-symbols", after = "cmp-buffer" },
-		{
-			"tzachar/cmp-tabnine",
-			run = "./install.sh",
-			after = "cmp-latex-symbols",
-			config = conf.tabnine,
-		},
+		-- {
+		-- 	"tzachar/cmp-tabnine",
+		-- 	run = "./install.sh",
+		-- 	after = "cmp-latex-symbols",
+		-- 	config = conf.tabnine,
+		-- },
 	},
 }
 completion["L3MON4D3/LuaSnip"] = {
