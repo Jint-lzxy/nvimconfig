@@ -30,6 +30,7 @@ function config.cmp()
 	============================================================================================
 	--]========]
 
+	vim.cmd([[packadd cmp-tabnine]])
 	local t = function(str)
 		return vim.api.nvim_replace_termcodes(str, true, true, true)
 	end
@@ -57,6 +58,8 @@ function config.cmp()
 		return false
 	end
 
+	local compare = require("cmp.config.compare")
+
 	local cmp = require("cmp")
 	cmp.setup({
 		window = {
@@ -69,14 +72,15 @@ function config.cmp()
 		},
 		sorting = {
 			comparators = {
-				cmp.config.compare.offset,
-				cmp.config.compare.exact,
-				cmp.config.compare.score,
+				require("cmp_tabnine.compare"),
+				compare.offset,
+				compare.exact,
+				compare.score,
 				require("cmp-under-comparator").under,
-				cmp.config.compare.kind,
-				cmp.config.compare.sort_text,
-				cmp.config.compare.length,
-				cmp.config.compare.order,
+				compare.kind,
+				compare.sort_text,
+				compare.length,
+				compare.order,
 			},
 		},
 		formatting = {
@@ -112,7 +116,7 @@ function config.cmp()
 				vim_item.kind = string.format("%s %s", lspkind_icons[vim_item.kind], vim_item.kind)
 
 				vim_item.menu = ({
-					-- cmp_tabnine = "[TN]",
+					cmp_tabnine = "[TN]",
 					buffer = "[BUF]",
 					orgmode = "[ORG]",
 					nvim_lsp = "[LSP]",
@@ -181,7 +185,7 @@ function config.cmp()
 			{ name = "orgmode" },
 			{ name = "buffer" },
 			{ name = "latex_symbols" },
-			-- {name = 'cmp_tabnine'}
+			{ name = "cmp_tabnine" },
 		},
 	})
 end
@@ -197,10 +201,10 @@ function config.luasnip()
 	require("luasnip.loaders.from_snipmate").lazy_load()
 end
 
--- function config.tabnine()
---     local tabnine = require('cmp_tabnine.config')
---     tabnine:setup({max_line = 1000, max_num_results = 20, sort = true})
--- end
+function config.tabnine()
+	local tabnine = require("cmp_tabnine.config")
+	tabnine:setup({ max_line = 1000, max_num_results = 20, sort = true })
+end
 
 function config.autopairs()
 	require("nvim-autopairs").setup({})
