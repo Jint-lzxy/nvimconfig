@@ -69,6 +69,14 @@ end
 local lspsaga_config = function()
 	vim.cmd([[au VimEnter * highlight LspFloatWinNormal guibg='#282C34']])
 	vim.cmd([[au VimEnter * highlight SagaShadow guibg='#282C34']])
+	vim.cmd([[au VimEnter * highlight LspFloatWinBorder guibg='#282C34']])
+	vim.cmd([[au VimEnter * highlight LspSagaBorderTitle guibg='#282C34']])
+	vim.cmd([[au VimEnter * highlight LspSagaRenameBorder guibg='#282C34']])
+	vim.cmd([[au VimEnter * highlight LspSagaHoverBorder guibg='#282C34']])
+	vim.cmd([[au VimEnter * highlight LspSagaSignatureHelpBorder guibg='#282C34']])
+	vim.cmd([[au VimEnter * highlight LspSagaCodeActionBorder guibg='#282C34']])
+	vim.cmd([[au VimEnter * highlight LspSagaDefPreviewBorder guibg='#282C34']])
+	vim.cmd([[au VimEnter * highlight LspLinesDiagBorder guibg='#282C34']])
 end
 
 local check_conda = function()
