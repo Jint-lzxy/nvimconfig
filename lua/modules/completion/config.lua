@@ -65,9 +65,11 @@ function config.cmp()
 		window = {
 			completion = {
 				border = border("CmpBorder"),
+				winhighlight = "Normal:CmpPmenu",
 			},
 			documentation = {
 				border = border("CmpDocBorder"),
+				winhighlight = "Normal:CmpPmenu",
 			},
 		},
 		sorting = {
