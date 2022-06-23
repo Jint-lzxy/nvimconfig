@@ -273,6 +273,7 @@ local clangfmt = {
             SortIncludes: CaseSensitive, SortUsingDeclarations: true, \z
             SpaceAfterCStyleCast: true, SpaceBeforeCaseColon: false, \z
             SpaceBeforeRangeBasedForLoopColon: false, AlignConsecutiveAssignments: Consecutive, \z
+            AlwaysBreakTemplateDeclarations: Yes, IndentCaseLabels: true, \z
             EmptyLineBeforeAccessModifier: Leave, Standard: Auto \z
         }'",
 	formatStdin = true,
