@@ -66,11 +66,12 @@ local neovide_config = function()
 	vim.g.neovide_cursor_vfx_particle_density = 5.0
 end
 
-local lspbg_config = function()
+local bg_config = function()
 	vim.cmd([[au VimEnter * highlight LspFloatWinNormal guibg='#363C42']])
 	vim.cmd([[au VimEnter * highlight SagaShadow guibg='#363C42']])
 	vim.cmd([[au VimEnter * highlight CmpPmenu guibg='#363C42']])
-	vim.cmd([[au VimEnter * highlight NvimTreeNormal guibg='#2A3036']])
+	-- vim.cmd([[au VimEnter * highlight NvimTreeNormal guibg='#2A3036']])
+	vim.cmd([[au VimEnter * highlight NormalFloat guibg='#363C42']])
 end
 
 local check_conda = function()
@@ -106,7 +107,7 @@ local load_core = function()
 	pack.ensure_plugins()
 	neovide_config()
 	check_conda()
-	lspbg_config()
+	bg_config()
 	if global.is_windows then
 		clipboard_config()
 	end
