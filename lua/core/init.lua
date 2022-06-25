@@ -66,14 +66,6 @@ local neovide_config = function()
 	vim.g.neovide_cursor_vfx_particle_density = 5.0
 end
 
-local bg_config = function()
-	vim.cmd([[au VimEnter * highlight LspFloatWinNormal guibg='#363C42']])
-	vim.cmd([[au VimEnter * highlight SagaShadow guibg='#363C42']])
-	vim.cmd([[au VimEnter * highlight CmpPmenu guibg='#363C42']])
-	-- vim.cmd([[au VimEnter * highlight NvimTreeNormal guibg='#2A3036']])
-	vim.cmd([[au VimEnter * highlight NormalFloat guibg='#363C42']])
-end
-
 local check_conda = function()
 	local venv = os.getenv("CONDA_PREFIX")
 	if venv then
@@ -98,6 +90,17 @@ local clipboard_config = function()
     ]])
 end
 
+local catppuccin_config = function()
+	vim.cmd([[au VimEnter * highlight DiagnosticError guibg=NONE]])
+	vim.cmd([[au VimEnter * highlight DiagnosticInfo guibg=NONE]])
+	vim.cmd([[au VimEnter * highlight DiagnosticHint guibg=NONE]])
+	vim.cmd([[au VimEnter * highlight DiagnosticWarn guibg=NONE]])
+	vim.g.catppuccin_flavour = "macchiato"
+
+	-- vim.cmd([[set background=light]])
+	vim.cmd([[colorscheme catppuccin]])
+end
+
 local load_core = function()
 	local pack = require("core.pack")
 	createdir()
@@ -107,7 +110,6 @@ local load_core = function()
 	pack.ensure_plugins()
 	neovide_config()
 	check_conda()
-	bg_config()
 	if global.is_windows then
 		clipboard_config()
 	end
@@ -118,8 +120,7 @@ local load_core = function()
 	require("core.event")
 	pack.load_compile()
 
-	-- vim.cmd([[set background=light]])
-	vim.cmd([[colorscheme catppuccin]])
+	catppuccin_config()
 end
 
 load_core()
