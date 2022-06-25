@@ -126,10 +126,6 @@ function config.catppuccin()
 		--        Change the core default settings here!
 		-- ====================================================
 
-		-- Corrections for inconsistent color (caused by transparent background option) of bufferline
-		BufferLineCloseButton = { bg = "#161320" },
-		BufferLineIndicatorVisible = { bg = "#161320" },
-
 		-- ErrorMsg = { fg = cp.red, style = "bold" },
 		-- TSField = { fg = cp.teal },
 		-- TSProperty = { fg = cp.teal, style = "NONE" },
@@ -559,7 +555,7 @@ function config.nvim_bufferline()
 	require("bufferline").setup({
 		options = {
 			number = "none",
-			modified_icon = "",
+			modified_icon = "✥",
 			buffer_close_icon = "",
 			left_trunc_marker = "",
 			right_trunc_marker = "",
