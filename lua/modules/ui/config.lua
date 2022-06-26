@@ -12,7 +12,7 @@ function config.alpha()
 		[[ ╚█████╔╝██║██║ ╚████║   ██║      ███████╗███████╗██╔╝ ██╗   ██║    ]],
 		[[  ╚════╝ ╚═╝╚═╝  ╚═══╝   ╚═╝      ╚══════╝╚══════╝╚═╝  ╚═╝   ╚═╝    ]],
 		[[                                                                    ]],
-		[[    Configuration By 冷酔閑吟                       ver 2022.06     ]],
+		[[    Configuration By 冷酔閑吟                       ver 2022.07     ]],
 	}
 
 	local function button(sc, txt, leader_txt, keybind, keybind_opts)
@@ -555,7 +555,7 @@ function config.nvim_bufferline()
 	require("bufferline").setup({
 		options = {
 			number = "none",
-			modified_icon = "✥",
+			modified_icon = "",
 			buffer_close_icon = "",
 			left_trunc_marker = "",
 			right_trunc_marker = "",
