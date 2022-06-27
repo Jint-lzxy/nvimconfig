@@ -271,7 +271,7 @@ function config.notify()
 		-- Render function for notifications. See notify-render()
 		render = "default",
 		---@usage highlight behind the window for stages that change opacity
-		background_colour = "#282C34",
+		background_colour = "#1E1E2E",
 		---@usage minimum width for notification windows
 		minimum_width = 50,
 		---@usage Icons for the different levels
