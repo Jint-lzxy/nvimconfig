@@ -7,8 +7,8 @@ require("keymap.config")
 local plug_map = {
 	-- Bufferline
 	["n|gb"] = map_cr("BufferLinePick"):with_noremap():with_silent(),
-	["n|∆"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent(),
-	["n|˚"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent(),
+	["n|˚"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent(),
+	["n|∆"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent(),
 	["n|Ô"] = map_cr("BufferLineMoveNext"):with_noremap():with_silent(),
 	["n|"] = map_cr("BufferLineMovePrev"):with_noremap():with_silent(),
 	["n|<leader>be"] = map_cr("BufferLineSortByExtension"):with_noremap(),
