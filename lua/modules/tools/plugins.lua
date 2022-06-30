@@ -52,5 +52,9 @@ tools["nathom/filetype.nvim"] = {
 	opt = false,
 	config = conf.filetype,
 }
+tools["cdelledonne/vim-cmake"] = {
+	opt = false,
+	config = conf.vim_cmake,
+}
 
 return tools

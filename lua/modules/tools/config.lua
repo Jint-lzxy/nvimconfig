@@ -211,4 +211,9 @@ function config.filetype()
 	})
 end
 
+function config.vim_cmake()
+	vim.g.cmake_default_config = "Debug"
+	vim.g.cmake_root_markers = { ".git", ".svn", "src" }
+end
+
 return config
