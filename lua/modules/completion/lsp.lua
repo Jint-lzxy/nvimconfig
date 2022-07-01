@@ -263,7 +263,7 @@ local clangfmt = {
             AllowShortCaseLabelsOnASingleLine: true, AllowShortEnumsOnASingleLine: true, \z
             AllowShortFunctionsOnASingleLine: All, AllowShortLoopsOnASingleLine: true, \z
             BitFieldColonSpacing: Both, BreakBeforeBraces: Linux, \z
-            FixNamespaceComments: true, ShortNamespaceLines: 3, \z
+            FixNamespaceComments: true, ShortNamespaceLines: 3, ColumnLimit: 100, \z
             BreakBeforeTernaryOperators: true, BreakConstructorInitializers: BeforeColon, \z
             BreakInheritanceList: BeforeColon, BreakStringLiterals: true, \z
             Cpp11BracedListStyle: true, EmptyLineAfterAccessModifier: Leave, \z
