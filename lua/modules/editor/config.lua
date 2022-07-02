@@ -175,11 +175,11 @@ function config.dapui()
 					-- Provide as ID strings or tables with "id" and "size" keys
 					{
 						id = "scopes",
-						size = 0.25, -- Can be float or integer > 1
+						size = 0.55, -- Can be float or integer > 1
 					},
-					{ id = "breakpoints", size = 0.25 },
-					{ id = "stacks", size = 0.25 },
-					{ id = "watches", size = 0.25 },
+					{ id = "stacks", size = 0.2 },
+					{ id = "watches", size = 0.2 },
+					{ id = "breakpoints", size = 0.05 },
 				},
 				size = 40,
 				position = "left",
@@ -187,9 +187,12 @@ function config.dapui()
 			{ elements = { "repl" }, size = 10, position = "bottom" },
 		},
 		floating = {
-			max_height = nil,
-			max_width = nil,
-			mappings = { close = { "q", "<Esc>" } },
+			max_height = nil, -- These can be integers or a float between 0 and 1.
+			max_width = nil, -- Floats will be treated as percentage of your screen.
+			border = "single", -- Border style. Can be "single", "double" or "rounded"
+			mappings = {
+				close = { "q", "<Esc>" },
+			},
 		},
 		windows = { indent = 1 },
 	})
@@ -229,7 +232,7 @@ function config.dap()
 
 	dap.adapters.lldb = {
 		type = "executable",
-		command = "/usr/local/Cellar/llvm/13.0.1_1/bin/lldb-vscode",
+		command = "/usr/local/Cellar/llvm/14.0.6/bin/lldb-vscode",
 		name = "lldb",
 	}
 	dap.configurations.cpp = {
