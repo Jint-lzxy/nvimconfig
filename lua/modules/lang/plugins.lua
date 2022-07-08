@@ -25,4 +25,9 @@ lang["iamcco/markdown-preview.nvim"] = {
 	run = "cd app && yarn install",
 }
 lang["chrisbra/csv.vim"] = { opt = true, ft = "csv" }
+lang["gauteh/vim-cppman"] = {
+	opt = true,
+	ft = { "c", "cpp" },
+	keys = "K", -- only activate this plugin when we're searching for documentation.
+}
 return lang
