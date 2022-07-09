@@ -431,8 +431,14 @@ function config.tabout()
 end
 
 function config.better_escape()
-	vim.g.better_escape_shortcut = "jj"
-	vim.g.better_escape_interval = 300
+	require("better_escape").setup({
+		mapping = { "jk", "jj" }, -- a table with mappings to use
+		timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+		clear_empty_lines = false, -- clear line after escaping if there is only whitespace
+		keys = function()
+			return vim.api.nvim_win_get_cursor(0)[2] > 1 and "<Esc>l" or "<Esc>"
+		end,
+	})
 end
 
 function config.imselect()
