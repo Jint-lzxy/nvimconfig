@@ -36,19 +36,19 @@ ui["kyazdani42/nvim-tree.lua"] = {
 }
 ui["lewis6991/gitsigns.nvim"] = {
 	opt = true,
-	event = { "BufRead", "BufNewFile" },
+	event = { "BufReadPost", "BufNewFile" },
 	config = conf.gitsigns,
 	requires = { "nvim-lua/plenary.nvim", opt = true },
 }
 ui["lukas-reineke/indent-blankline.nvim"] = {
 	opt = true,
-	event = "BufRead",
+	event = "BufReadPost",
 	config = conf.indent_blankline,
 }
 ui["akinsho/bufferline.nvim"] = {
 	opt = true,
 	tag = "*",
-	event = "BufRead",
+	event = "BufReadPost",
 	config = conf.nvim_bufferline,
 }
 ui["dstein64/nvim-scrollview"] = {
@@ -77,7 +77,7 @@ ui["iamcco/clock.nvim"] = {
 } -- Remember to call command < :call sran#util#install() > (within <>)
 ui["j-hui/fidget.nvim"] = {
 	opt = true,
-	event = "BufRead",
+	event = "BufReadPost",
 	config = conf.fidget,
 }
 
