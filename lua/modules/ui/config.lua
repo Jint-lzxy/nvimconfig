@@ -714,6 +714,10 @@ function config.clock()
 	vim.g.clockn_to_top = 2
 end
 
+function config.scrollview()
+	require("scrollview").setup({})
+end
+
 function config.fidget()
 	require("fidget").setup({
 		window = { blend = 0 },

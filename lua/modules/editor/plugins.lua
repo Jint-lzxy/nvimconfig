@@ -3,31 +3,12 @@ local conf = require("modules.editor.config")
 
 editor["junegunn/vim-easy-align"] = { opt = true, cmd = "EasyAlign" }
 editor["RRethy/vim-illuminate"] = {
-	config = function()
-		vim.g.Illuminate_highlightUnderCursor = 0
-		vim.g.Illuminate_ftblacklist = {
-			"help",
-			"dashboard",
-			"alpha",
-			"packer",
-			"norg",
-			"DoomInfo",
-			"NvimTree",
-			"Outline",
-			"toggleterm",
-		}
-	end,
 	event = "BufReadPost",
+	config = conf.illuminate,
 }
 editor["terrortylor/nvim-comment"] = {
 	opt = false,
-	config = function()
-		require("nvim_comment").setup({
-			hook = function()
-				require("ts_context_commentstring.internal").update_commentstring()
-			end,
-		})
-	end,
+	config = conf.nvim_comment,
 }
 editor["nvim-treesitter/nvim-treesitter"] = {
 	opt = true,
@@ -81,9 +62,7 @@ editor["phaazon/hop.nvim"] = {
 		"HopChar2",
 	},--]]
 	event = "BufReadPost",
-	config = function()
-		require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
-	end,
+	config = conf.hop,
 }
 editor["karb94/neoscroll.nvim"] = {
 	opt = true,

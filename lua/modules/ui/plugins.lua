@@ -53,14 +53,8 @@ ui["akinsho/bufferline.nvim"] = {
 }
 ui["dstein64/nvim-scrollview"] = {
 	opt = true,
-	event = "BufRead",
-	config = function()
-		require("scrollview").setup({})
-	end,
-}
-ui["wfxr/minimap.vim"] = {
-	opt = true,
-	event = "BufRead",
+	event = "BufReadPost",
+	config = conf.scrollview,
 }
 ui["mbbill/undotree"] = {
 	opt = true,
