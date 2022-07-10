@@ -259,7 +259,7 @@ function config.dap()
 
 	dap.adapters.lldb = {
 		type = "executable",
-		command = "/usr/local/Cellar/llvm/14.0.6/bin/lldb-vscode",
+		command = "/usr/local/opt/llvm/bin/lldb-vscode",
 		name = "lldb",
 	}
 	dap.configurations.cpp = {
