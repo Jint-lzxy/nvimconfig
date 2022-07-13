@@ -261,7 +261,7 @@ local clangfmt = {
             AlignArrayOfStructures: Right, AlignEscapedNewlines: Left, \z
             AlignTrailingComments: true, AllowShortBlocksOnASingleLine: Always, \z
             AllowShortCaseLabelsOnASingleLine: true, AllowShortEnumsOnASingleLine: true, \z
-            AllowShortFunctionsOnASingleLine: All, AllowShortLoopsOnASingleLine: true, \z
+            AllowShortFunctionsOnASingleLine: Inline, AllowShortLoopsOnASingleLine: true, \z
             BitFieldColonSpacing: Both, BreakBeforeBraces: Linux, \z
             FixNamespaceComments: true, ShortNamespaceLines: 3, ColumnLimit: 100, \z
             BreakBeforeTernaryOperators: true, BreakConstructorInitializers: BeforeColon, \z
@@ -272,8 +272,10 @@ local clangfmt = {
             ReferenceAlignment: Pointer, SeparateDefinitionBlocks: Always, \z
             SortIncludes: CaseSensitive, SortUsingDeclarations: true, \z
             SpaceAfterCStyleCast: true, SpaceBeforeCaseColon: false, \z
+            AllowShortLambdasOnASingleLine: All, PackConstructorInitializers: Never, \z
             SpaceBeforeRangeBasedForLoopColon: false, AlignConsecutiveAssignments: Consecutive, \z
             AlwaysBreakTemplateDeclarations: Yes, IndentCaseLabels: true, \z
+            SpaceBeforeSquareBrackets: false, SpaceBeforeRangeBasedForLoopColon: true, \z
             EmptyLineBeforeAccessModifier: Leave, Standard: Auto \z
         }'",
 	formatStdin = true,
