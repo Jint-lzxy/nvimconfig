@@ -47,6 +47,12 @@ local def_map = {
 	["v|K"] = map_cmd(":m '<-2<cr>gv=gv"),
 	["v|<"] = map_cmd("<gv"),
 	["v|>"] = map_cmd(">gv"),
+	-- Accoustomed Settings
+	["n|<Up>"] = map_cr("resize -2"):with_silent():with_noremap(),
+	["n|<Down>"] = map_cr("resize +2"):with_silent():with_noremap(),
+	["n|<Left>"] = map_cr("vertical resize +2"):with_silent():with_noremap(),
+	["n|<Right>"] = map_cr("vertical resize -2"):with_silent():with_noremap(),
+	["n|ø"] = map_cmd("<Esc>:only<CR>"),
 }
 
 bind.nvim_load_mapping(def_map)

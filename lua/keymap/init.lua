@@ -132,12 +132,6 @@ local plug_map = {
 	-- Plugin Diffview
 	["n|<leader>D"] = map_cr("DiffviewOpen"):with_silent():with_noremap(),
 	["n|<leader><leader>D"] = map_cr("DiffviewClose"):with_silent():with_noremap(),
-	-- Accoustomed Settings
-	["n|<Up>"] = map_cr("resize -2"):with_silent():with_noremap(),
-	["n|<Down>"] = map_cr("resize +2"):with_silent():with_noremap(),
-	["n|<Left>"] = map_cr("vertical resize +2"):with_silent():with_noremap(),
-	["n|<Right>"] = map_cr("vertical resize -2"):with_silent():with_noremap(),
-	-- ["i|jj"] = map_cmd("<ESC>"):with_silent():with_noremap(),
 }
 
 bind.nvim_load_mapping(plug_map)
