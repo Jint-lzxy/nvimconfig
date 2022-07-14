@@ -707,13 +707,6 @@ function config.indent_blankline()
 	vim.cmd("autocmd CursorMoved * IndentBlanklineRefresh")
 end
 
-function config.clock()
-	-- vim.g.clockn_enable = 1
-	vim.g.clockn_winblend = 0
-	vim.cmd([[au VimEnter * highlight ClockNormal guifg=#a0caf7]])
-	vim.g.clockn_to_top = 2
-end
-
 function config.scrollview()
 	require("scrollview").setup({})
 end

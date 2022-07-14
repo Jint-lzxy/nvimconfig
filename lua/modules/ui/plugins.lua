@@ -60,15 +60,6 @@ ui["mbbill/undotree"] = {
 	opt = true,
 	cmd = "UndotreeToggle",
 }
-ui["iamcco/sran.nvim"] = {
-	opt = true,
-	event = "BufWinEnter",
-}
-ui["iamcco/clock.nvim"] = {
-	opt = true,
-	after = "sran.nvim",
-	config = conf.clock,
-} -- Remember to call command < :call sran#util#install() > (within <>)
 ui["j-hui/fidget.nvim"] = {
 	opt = true,
 	event = "BufReadPost",
