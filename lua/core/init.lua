@@ -70,6 +70,8 @@ local bg_config = function()
 	vim.cmd([[au VimEnter * highlight LspFloatWinNormal guibg='#1E1E2E']])
 	vim.cmd([[au VimEnter * highlight SagaShadow guibg='#1E1E2E']])
 	vim.cmd([[au VimEnter * highlight CmpPmenu guibg='#1E1E2E']])
+	vim.cmd([[au VimEnter * highlight BqfPreviewFloat guibg='#1E1E2E']])
+	vim.cmd([[au VimEnter * highlight BqfPreviewBorder guibg='#1E1E2E']])
 	-- vim.cmd([[au VimEnter * highlight NvimTreeNormal guibg='#2A3036']])
 	vim.cmd([[au VimEnter * highlight NormalFloat guibg='#1E1E2E']])
 end
