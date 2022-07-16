@@ -69,11 +69,12 @@ end
 local bg_config = function()
 	vim.cmd([[au VimEnter * highlight LspFloatWinNormal guibg='#1E1E2E']])
 	vim.cmd([[au VimEnter * highlight SagaShadow guibg='#1E1E2E']])
-	vim.cmd([[au VimEnter * highlight CmpPmenu guibg='#1E1E2E']])
+	vim.cmd([[au VimEnter * highlight CmpPmenu guibg='#2D2E3D']])
+	vim.cmd([[au VimEnter * highlight CmpPmenuSel guibg='#42435C']])
+	vim.cmd([[au VimEnter * highlight CmpDocBorder guibg='#2D2E3D']])
+	vim.cmd([[au VimEnter * highlight NormalFloat guibg='#2D2E3D']])
 	vim.cmd([[au VimEnter * highlight BqfPreviewFloat guibg='#1E1E2E']])
 	vim.cmd([[au VimEnter * highlight BqfPreviewBorder guibg='#1E1E2E']])
-	-- vim.cmd([[au VimEnter * highlight NvimTreeNormal guibg='#2A3036']])
-	vim.cmd([[au VimEnter * highlight NormalFloat guibg='#1E1E2E']])
 end
 
 local check_conda = function()

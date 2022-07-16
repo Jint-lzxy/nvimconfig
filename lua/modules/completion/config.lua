@@ -35,6 +35,19 @@ function config.cmp()
 		}
 	end
 
+	local spaceSeparator = function(hl) -- Only have space separator between.
+		return {
+			{ "", hl },
+			{ "", hl },
+			{ "", hl },
+			{ " ", hl },
+			{ "", hl },
+			{ "", hl },
+			{ "", hl },
+			{ " ", hl },
+		}
+	end
+
 	local cmp_window = require("cmp.utils.window")
 
 	function cmp_window:has_scrollbar()
@@ -47,11 +60,11 @@ function config.cmp()
 	cmp.setup({
 		window = {
 			completion = {
-				border = border("CmpBorder"),
-				winhighlight = "Normal:CmpPmenu",
+				-- border = border("CmpBorder"),
+				winhighlight = "Normal:CmpPmenu,CursorLine:CmpPmenuSel",
 			},
 			documentation = {
-				border = border("CmpDocBorder"),
+				border = spaceSeparator("CmpDocBorder"),
 				winhighlight = "Normal:CmpPmenu",
 			},
 		},
