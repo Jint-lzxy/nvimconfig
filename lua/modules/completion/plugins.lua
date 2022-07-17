@@ -32,7 +32,11 @@ completion["kosayoda/nvim-lightbulb"] = {
 	after = "nvim-lspconfig",
 	config = conf.lightbulb,
 }
-completion["ray-x/lsp_signature.nvim"] = { opt = true, after = "nvim-lspconfig" }
+completion["ray-x/lsp_signature.nvim"] = {
+	opt = true,
+	after = "nvim-lspconfig",
+	config = conf.lsp_signature,
+}
 completion["hrsh7th/nvim-cmp"] = {
 	config = conf.cmp,
 	event = "InsertEnter",

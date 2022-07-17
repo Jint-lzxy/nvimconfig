@@ -12,6 +12,13 @@ function config.aerial()
 	require("aerial").setup({})
 end
 
+function config.lsp_signature()
+	require("lsp_signature").setup({
+		zindex = 45, -- avoid conflicts with nvim.cmp
+		transparency = 100,
+	})
+end
+
 function config.cmp()
 	-- vim.cmd([[packadd cmp-tabnine]])
 	local t = function(str)
