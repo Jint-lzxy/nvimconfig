@@ -262,7 +262,11 @@ local clangfmt = {
             AlignTrailingComments: true, AllowShortBlocksOnASingleLine: Always, \z
             AllowShortCaseLabelsOnASingleLine: true, AllowShortEnumsOnASingleLine: true, \z
             AllowShortFunctionsOnASingleLine: Inline, AllowShortLoopsOnASingleLine: true, \z
-            BitFieldColonSpacing: Both, BreakBeforeBraces: Linux, \z
+            BitFieldColonSpacing: Both, BreakBeforeBraces: Custom, BraceWrapping: {\z
+            AfterCaseLabel: false, AfterClass: false, AfterEnum: true, AfterFunction: true, \z
+            AfterNamespace: true, AfterStruct: true, AfterUnion: true, AfterExternBlock: false, \z
+            BeforeCatch: true, BeforeElse: false, BeforeLambdaBody: false, BeforeWhile: false, \z
+            SplitEmptyFunction: false, SplitEmptyRecord: false, SplitEmptyNamespace: false}, \z
             FixNamespaceComments: true, ShortNamespaceLines: 3, ColumnLimit: 100, \z
             BreakBeforeTernaryOperators: true, BreakConstructorInitializers: BeforeColon, \z
             BreakInheritanceList: BeforeColon, BreakStringLiterals: true, \z
