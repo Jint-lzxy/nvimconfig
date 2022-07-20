@@ -52,7 +52,7 @@ local def_map = {
 	["n|<Down>"] = map_cr("resize +2"):with_silent():with_noremap(),
 	["n|<Left>"] = map_cr("vertical resize +2"):with_silent():with_noremap(),
 	["n|<Right>"] = map_cr("vertical resize -2"):with_silent():with_noremap(),
-	["n|ø"] = map_cmd("<Esc>:only<CR>"),
+	["n|ø"] = map_cmd("<Esc><C-w>q"),
 }
 
 bind.nvim_load_mapping(def_map)
