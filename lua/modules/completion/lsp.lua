@@ -263,7 +263,7 @@ local clangfmt = {
             AllowShortCaseLabelsOnASingleLine: true, AllowShortEnumsOnASingleLine: true, \z
             AllowShortFunctionsOnASingleLine: Inline, AllowShortLoopsOnASingleLine: true, \z
             BitFieldColonSpacing: Both, BreakBeforeBraces: Custom, BraceWrapping: {\z
-            AfterCaseLabel: false, AfterClass: false, AfterEnum: true, AfterFunction: true, \z
+            AfterCaseLabel: false, AfterClass: false, AfterEnum: false, AfterFunction: true, \z
             AfterNamespace: true, AfterStruct: true, AfterUnion: true, AfterExternBlock: false, \z
             BeforeCatch: true, BeforeElse: false, BeforeLambdaBody: false, BeforeWhile: false, \z
             SplitEmptyFunction: false, SplitEmptyRecord: false, SplitEmptyNamespace: false}, \z
