@@ -77,13 +77,6 @@ local bg_config = function()
 	vim.cmd([[au VimEnter * highlight BqfPreviewBorder guibg='#1E1E2E']])
 end
 
-local check_conda = function()
-	local venv = os.getenv("CONDA_PREFIX")
-	if venv then
-		vim.g.python3_host_prog = venv .. "/bin/python"
-	end
-end
-
 local clipboard_config = function()
 	vim.cmd([[
     let g:clipboard = {
@@ -120,7 +113,6 @@ local load_core = function()
 	pack.ensure_plugins()
 	neovide_config()
 	bg_config()
-	check_conda()
 	if global.is_windows then
 		clipboard_config()
 	end
