@@ -96,7 +96,7 @@ editor["mfussenegger/nvim-dap"] = {
 	config = conf.dap,
 }
 editor["rcarriga/nvim-dap-ui"] = {
-	opt = true,
+	opt = false,
 	config = conf.dapui,
 }
 editor["theHamsta/nvim-dap-virtual-text"] = {
