@@ -92,8 +92,7 @@ editor["max397574/better-escape.nvim"] = {
 	config = conf.better_escape,
 }
 editor["mfussenegger/nvim-dap"] = {
-	opt = true,
-	cmd = "DapToggleBreakpoint",
+	opt = false,
 	config = conf.dap,
 }
 editor["rcarriga/nvim-dap-ui"] = {
