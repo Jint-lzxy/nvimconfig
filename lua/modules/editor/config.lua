@@ -248,10 +248,6 @@ function config.dap()
 		numhl = "",
 	})--]]
 
-	vim.cmd([[au VimEnter * highlight DapBreakpoint guifg = #993939]])
-	vim.cmd([[au VimEnter * highlight DapLogPoint guifg = #61afef]])
-	vim.cmd([[au VimEnter * highlight DapStopped guifg = #98c379]])
-
 	vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
 	vim.fn.sign_define("DapBreakpointCondition", { text = "ﳁ", texthl = "DapBreakpoint", linehl = "", numhl = "" })
 	vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
