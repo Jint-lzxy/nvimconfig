@@ -20,6 +20,10 @@ function config.lsp_signature()
 end
 
 function config.cmp()
+	vim.api.nvim_set_hl(0, "CmpPmenu", { bg = "#2D2E3D" })
+	vim.api.nvim_set_hl(0, "CmpPmenuSel", { bg = "#42435C" })
+	vim.api.nvim_set_hl(0, "CmpDocBorder", { bg = "#2D2E3D" })
+
 	-- vim.cmd([[packadd cmp-tabnine]])
 	local t = function(str)
 		return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -240,10 +244,9 @@ function config.autopairs()
 end
 
 function config.bqf()
-	vim.cmd([[
-        hi BqfPreviewBorder guifg=#F2CDCD ctermfg=71
-        hi link BqfPreviewRange Search
-    ]])
+	vim.api.nvim_set_hl(0, "BqfPreviewFloat", { bg = "#1E1E2E" })
+	vim.api.nvim_set_hl(0, "BqfPreviewBorder", { fg = "#F2CDCD", bg = "#1E1E2E", ctermfg = 71 })
+	vim.api.nvim_set_hl(0, "BqfPreviewRange", { link = "Search" })
 
 	require("bqf").setup({
 		auto_enable = true,
@@ -283,6 +286,11 @@ function config.bqf()
 			},
 		},
 	})
+end
+
+function config.saga()
+	vim.api.nvim_set_hl(0, "LspFloatWinNormal", { bg = "#1E1E2E" })
+	vim.api.nvim_set_hl(0, "SagaShadow", { bg = "#1E1E2E" })
 end
 
 function config.mason_install()

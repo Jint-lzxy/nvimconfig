@@ -25,6 +25,7 @@ completion["kevinhwang91/nvim-bqf"] = {
 completion["tami5/lspsaga.nvim"] = {
 	opt = true,
 	after = "nvim-lspconfig",
+	config = conf.saga,
 }
 completion["stevearc/aerial.nvim"] = {
 	opt = true,

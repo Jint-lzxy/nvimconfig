@@ -66,20 +66,6 @@ local neovide_config = function()
 	vim.g.neovide_cursor_vfx_particle_density = 5.0
 end
 
-local color_config = function()
-	vim.cmd([[au VimEnter * highlight LspFloatWinNormal guibg='#1E1E2E']])
-	vim.cmd([[au VimEnter * highlight SagaShadow guibg='#1E1E2E']])
-	vim.cmd([[au VimEnter * highlight CmpPmenu guibg='#2D2E3D']])
-	vim.cmd([[au VimEnter * highlight CmpPmenuSel guibg='#42435C']])
-	vim.cmd([[au VimEnter * highlight CmpDocBorder guibg='#2D2E3D']])
-	vim.cmd([[au VimEnter * highlight NormalFloat guibg='#2D2E3D']])
-	vim.cmd([[au VimEnter * highlight BqfPreviewFloat guibg='#1E1E2E']])
-	vim.cmd([[au VimEnter * highlight BqfPreviewBorder guibg='#1E1E2E']])
-	vim.cmd([[au VimEnter * highlight DapBreakpoint guifg='#993939']])
-	vim.cmd([[au VimEnter * highlight DapLogPoint guifg='#61afef']])
-	vim.cmd([[au VimEnter * highlight DapStopped guifg='#98c379']])
-end
-
 local clipboard_config = function()
 	vim.cmd([[
     let g:clipboard = {
@@ -97,16 +83,6 @@ local clipboard_config = function()
     ]])
 end
 
-local catppuccin_config = function()
-	vim.cmd([[au VimEnter * highlight DiagnosticError guibg=NONE]])
-	vim.cmd([[au VimEnter * highlight DiagnosticInfo guibg=NONE]])
-	vim.cmd([[au VimEnter * highlight DiagnosticHint guibg=NONE]])
-	vim.cmd([[au VimEnter * highlight DiagnosticWarn guibg=NONE]])
-
-	-- vim.cmd([[set background=light]])
-	vim.cmd([[colorscheme catppuccin]])
-end
-
 local load_core = function()
 	local pack = require("core.pack")
 	createdir()
@@ -115,7 +91,6 @@ local load_core = function()
 
 	pack.ensure_plugins()
 	neovide_config()
-	color_config()
 	if global.is_windows then
 		clipboard_config()
 	end
@@ -126,7 +101,8 @@ local load_core = function()
 	require("core.event")
 	pack.load_compile()
 
-	catppuccin_config()
+	-- vim.cmd([[set background=light]])
+	vim.cmd([[colorscheme catppuccin]])
 end
 
 load_core()

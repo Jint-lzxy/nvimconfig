@@ -11,7 +11,9 @@ local saga = require("lspsaga")
 local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
 
-mason.setup({})
+mason.setup({
+	vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#D9E0EE", bg = "#2D2E3D" }) -- Set highlight
+})
 
 mason_lsp.setup({
 	ensure_installed = {
