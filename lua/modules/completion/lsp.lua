@@ -120,6 +120,8 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 			on_attach = custom_attach,
 			args = {
 				"-Wall",
+				"-Wextra",
+				"-pedantic",
 				"--background-index",
 				"-std=c++17",
 				"--pch-storage=memory",
@@ -209,6 +211,10 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 					},
 				},
 			},
+		})
+	elseif server == "asm_lsp" then
+		nvim_lsp.asm_lsp.setup({
+			filetypes = { "asm", "nasm", "vmasm" },
 		})
 	else
 		nvim_lsp[server].setup({
