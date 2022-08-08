@@ -112,7 +112,7 @@ function config.nord()
 end
 
 function config.catppuccin()
-	local function getModifiedPalette()
+	local function get_modified_palette()
 		-- We need to explicitly declare our new color.
 		-- (Because colors haven't been set yet when we pass them to the setup function.)
 
@@ -152,25 +152,29 @@ function config.catppuccin()
 		return cp
 	end
 
-	vim.g.catppuccin_flavour = "mocha" -- Set flavour here
-	local cp = getModifiedPalette()
+	local function set_auto_compile(enable_compile)
+		-- Setting auto-compile for catppuccin.
+		if enable_compile then
+			local packer = vim.api.nvim_create_augroup("Catppuccin", { clear = true })
 
-	-- Setting auto-compile for catppuccin.
-	local enable_compile = true -- Set to false if you would like to disable catppuccin cache. (Not recommended)
-	if enable_compile then
-		local packer = vim.api.nvim_create_augroup("Catppuccin", { clear = true })
-
-		vim.api.nvim_create_autocmd("User", {
-			group = packer,
-			pattern = "PackerCompileDone",
-			callback = function()
-				require("catppuccin").compile()
-				vim.defer_fn(function()
-					vim.cmd("colorscheme catppuccin")
-				end, 0)
-			end,
-		})
+			vim.api.nvim_create_autocmd("User", {
+				group = packer,
+				pattern = "PackerCompileDone",
+				callback = function()
+					require("catppuccin").compile()
+					vim.defer_fn(function()
+						vim.cmd([[colorscheme catppuccin]])
+					end, 0)
+				end,
+			})
+		end
 	end
+
+	vim.g.catppuccin_flavour = "mocha" -- Set flavour here
+	local cp = get_modified_palette()
+
+	local enable_compile = true -- Set to false if you would like to disable catppuccin cache. (Not recommended)
+	set_auto_compile(enable_compile)
 
 	require("catppuccin").setup({
 		dim_inactive = {
