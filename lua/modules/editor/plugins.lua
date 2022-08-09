@@ -69,11 +69,13 @@ editor["karb94/neoscroll.nvim"] = {
 	event = "BufReadPost",
 	config = conf.neoscroll,
 }
+editor["vimlab/split-term.vim"] = { opt = true, cmd = { "Term", "VTerm" } }
 editor["akinsho/toggleterm.nvim"] = {
 	opt = true,
-	event = "UIEnter",
+	event = "BufReadPost",
 	config = conf.toggleterm,
 }
+editor["numtostr/FTerm.nvim"] = { opt = true, event = "BufReadPost" }
 editor["norcalli/nvim-colorizer.lua"] = {
 	opt = true,
 	event = "BufReadPost",
