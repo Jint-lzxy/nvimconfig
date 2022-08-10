@@ -75,7 +75,11 @@ editor["akinsho/toggleterm.nvim"] = {
 	event = "BufReadPost",
 	config = conf.toggleterm,
 }
-editor["numtostr/FTerm.nvim"] = { opt = true, event = "BufReadPost" }
+editor["numtostr/FTerm.nvim"] = {
+	opt = true,
+	event = "BufReadPost",
+	config = conf.fterm,
+}
 editor["norcalli/nvim-colorizer.lua"] = {
 	opt = true,
 	event = "BufReadPost",

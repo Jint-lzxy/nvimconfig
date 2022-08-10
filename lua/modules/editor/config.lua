@@ -118,6 +118,15 @@ function config.autotag()
 	})
 end
 
+function config.fterm()
+	require("FTerm").setup({
+		dimensions = {
+			height = 0.9,
+			width = 0.9,
+		},
+	})
+end
+
 function config.nvim_colorizer()
 	require("colorizer").setup()
 end
