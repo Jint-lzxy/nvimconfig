@@ -345,7 +345,7 @@ function config.catppuccin()
 
 				-- TSLabel = { fg = cp.blue },
 				TSMethod = { style = { "italic" } },
-				TSNamespace = { fg = cp.rosewater },
+				TSNamespace = { fg = cp.rosewater, style = {} },
 
 				TSPunctDelimiter = { fg = cp.teal },
 				TSPunctBracket = { fg = cp.overlay2 },
