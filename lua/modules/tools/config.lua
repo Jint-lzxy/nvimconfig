@@ -13,7 +13,7 @@ function config.telescope()
 		attach_mappings = function(_)
 			telescope_actions.select:enhance({
 				post = function()
-					vim.cmd(":normal! zx")
+					vim.cmd([[:normal! zx]])
 				end,
 			})
 			return true
