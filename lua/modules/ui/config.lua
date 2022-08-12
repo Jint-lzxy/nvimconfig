@@ -184,7 +184,7 @@ function config.catppuccin()
 			shade = "dark",
 			percentage = 0.15,
 		},
-		transparent_background = true,
+		transparent_background = false,
 		term_colors = true,
 		compile = {
 			enabled = enable_compile,
@@ -307,6 +307,14 @@ function config.catppuccin()
 				LspDiagnosticsVirtualTextHint = { fg = cp.rosewater },
 				LspDiagnosticsUnderlineHint = { sp = cp.rosewater },
 
+				-- For Ts-Rainbow
+				rainbowcol1 = { bg = cp.none },
+				rainbowcol2 = { bg = cp.none },
+				rainbowcol3 = { bg = cp.none },
+				rainbowcol4 = { bg = cp.none },
+				rainbowcol5 = { bg = cp.none },
+				rainbowcol6 = { bg = cp.none },
+				rainbowcol7 = { bg = cp.none },
 				-- For treesitter.
 				TSField = { fg = cp.rosewater },
 				TSProperty = { fg = cp.yellow },
