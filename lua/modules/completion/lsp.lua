@@ -12,7 +12,25 @@ local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
 
 mason.setup({
-	vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#D9E0EE", bg = "#2D2E3D" }) -- Set highlight
+	vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#D9E0EE", bg = "#2D2E3D" }), -- Set highlight
+	ui = {
+		icons = {
+			package_pending = " ",
+			package_installed = " ",
+			package_uninstalled = " ",
+		},
+
+		keymaps = {
+			toggle_server_expand = "<CR>",
+			install_server = "i",
+			update_server = "u",
+			check_server_version = "c",
+			update_all_servers = "U",
+			check_outdated_servers = "C",
+			uninstall_server = "X",
+			cancel_installation = "<C-c>",
+		},
+	},
 })
 
 mason_lsp.setup({
