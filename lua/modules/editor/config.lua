@@ -121,7 +121,7 @@ end
 function config.fterm()
 	require("FTerm").setup({
 		dimensions = {
-			height = 0.9,
+			height = 0.88,
 			width = 0.9,
 		},
 	})
