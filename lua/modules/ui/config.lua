@@ -315,6 +315,7 @@ function config.catppuccin()
 				rainbowcol5 = { bg = cp.none },
 				rainbowcol6 = { bg = cp.none },
 				rainbowcol7 = { bg = cp.none },
+
 				-- For treesitter.
 				TSField = { fg = cp.rosewater },
 				TSProperty = { fg = cp.yellow },
