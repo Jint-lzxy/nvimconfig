@@ -118,15 +118,6 @@ function config.autotag()
 	})
 end
 
-function config.fterm()
-	require("FTerm").setup({
-		dimensions = {
-			height = 0.88,
-			width = 0.9,
-		},
-	})
-end
-
 function config.nvim_colorizer()
 	require("colorizer").setup()
 end
@@ -202,6 +193,20 @@ function config.toggleterm()
 		direction = "horizontal",
 		close_on_exit = true, -- close the terminal window when the process exits
 		shell = vim.o.shell, -- change the default shell
+	})
+end
+
+function config.fterm()
+	-- Prevent infinite calls from freezing neovim.
+	-- Only set these options specific to the terminal buffer.
+	vim.cmd([[autocmd FileType FTerm setlocal foldmethod=manual foldexpr=0]])
+
+	require("FTerm").setup({
+		ft = "FTerm",
+		dimensions = {
+			height = 0.88,
+			width = 0.9,
+		},
 	})
 end
 
