@@ -180,11 +180,16 @@ function config.toggleterm()
 				return vim.o.columns * 0.40
 			end
 		end,
+		highlights = {
+			FloatBorder = {
+				guifg = "#96CDFB",
+			},
+		},
 		on_open = function()
 			vim.api.nvim_set_option_value("foldmethod", "manual", { scope = "local" })
 			vim.api.nvim_set_option_value("foldexpr", "0", { scope = "local" })
 		end,
-		open_mapping = false, -- [[<c-\>]],
+		open_mapping = nil, -- [[<c-\>]],
 		hide_numbers = true, -- hide the number column in toggleterm buffers
 		shade_filetypes = {},
 		shade_terminals = false,
