@@ -120,6 +120,18 @@ function config.cmp()
 					Event = "",
 					Operator = "",
 					TypeParameter = "",
+					Namespace = "",
+					Table = "",
+					Object = " ",
+					Tag = "",
+					Array = "[]",
+					Boolean = "",
+					Number = "",
+					Null = "ﳠ",
+					String = "",
+					Calendar = "",
+					Watch = "",
+					Package = "",
 				}
 				-- load lspkind icons
 				vim_item.kind = string.format("%s %s", lspkind_icons[vim_item.kind], vim_item.kind)
