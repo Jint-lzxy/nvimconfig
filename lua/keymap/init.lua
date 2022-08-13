@@ -11,6 +11,7 @@ local plug_map = {
 	["n|∆"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent(),
 	["n|Ô"] = map_cr("BufferLineMoveNext"):with_noremap():with_silent(),
 	["n|"] = map_cr("BufferLineMovePrev"):with_noremap():with_silent(),
+	["n|π"] = map_cr("BufferLineTogglePin"):with_noremap():with_silent(),
 	["n|<leader>be"] = map_cr("BufferLineSortByExtension"):with_noremap(),
 	["n|<leader>bd"] = map_cr("BufferLineSortByDirectory"):with_noremap(),
 	["n|¡"] = map_cr("BufferLineGoToBuffer 1"):with_noremap():with_silent(),

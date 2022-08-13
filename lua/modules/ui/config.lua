@@ -704,8 +704,8 @@ end
 function config.nvim_bufferline()
 	require("bufferline").setup({
 		options = {
-			number = "none",
-			modified_icon = "",
+			numbers = nil,
+			modified_icon = "",
 			buffer_close_icon = "",
 			left_trunc_marker = "",
 			right_trunc_marker = "",
@@ -717,7 +717,7 @@ function config.nvim_bufferline()
 			show_tab_indicators = true,
 			diagnostics = "nvim_lsp",
 			always_show_bufferline = true,
-			separator_style = "thin",
+			separator_style = "slant",
 			offsets = {
 				{
 					filetype = "NvimTree",
