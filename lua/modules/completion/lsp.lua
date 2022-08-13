@@ -7,6 +7,7 @@ vim.cmd([[packadd aerial.nvim]])
 vim.cmd([[packadd vim-illuminate]])
 
 local nvim_lsp = require("lspconfig")
+local saga = require("lspsaga")
 local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
 
@@ -41,6 +42,15 @@ mason_lsp.setup({
 		"gopls",
 		"pyright",
 	},
+})
+
+-- Override diagnostics symbol
+
+saga.init_lsp_saga({
+	error_sign = "",
+	warn_sign = "",
+	hint_sign = "",
+	infor_sign = "",
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
