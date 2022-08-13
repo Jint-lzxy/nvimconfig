@@ -17,25 +17,15 @@ completion["williamboman/mason.nvim"] = {
 		{ "WhoIsSethDaniel/mason-tool-installer.nvim", config = conf.mason_install },
 	},
 }
-completion["kevinhwang91/nvim-bqf"] = {
-	opt = true,
-	ft = "qf",
-	config = conf.bqf,
-}
-completion["tami5/lspsaga.nvim"] = {
+completion["glepnir/lspsaga.nvim"] = {
 	opt = true,
 	after = "nvim-lspconfig",
-	config = conf.saga,
+	config = conf.lspsaga,
 }
 completion["stevearc/aerial.nvim"] = {
 	opt = true,
 	after = "nvim-lspconfig",
 	config = conf.aerial,
-}
-completion["kosayoda/nvim-lightbulb"] = {
-	opt = true,
-	after = "nvim-lspconfig",
-	config = conf.lightbulb,
 }
 completion["ray-x/lsp_signature.nvim"] = {
 	opt = true,
