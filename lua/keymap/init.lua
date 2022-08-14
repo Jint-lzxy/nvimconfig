@@ -52,13 +52,13 @@ local plug_map = {
 	-- Floating
 	["n|∂"] = map_cu("lua require('FTerm').toggle()"):with_noremap():with_silent(),
 	["i|∂"] = map_cmd("<Esc><Cmd>lua require('FTerm').toggle()<CR>"):with_noremap():with_silent(),
-	["t|∂"] = map_cu("<C-><C-n><CMD>lua require('FTerm').toggle()"):with_noremap():with_silent(),
-	["t|≈"] = map_cu("<C-><C-n><CMD>lua require('FTerm').exit()"):with_noremap():with_silent(),
+	["t|∂"] = map_cu("<C-\\><C-n><CMD>lua require('FTerm').toggle()"):with_noremap():with_silent(),
+	["t|≈"] = map_cu("<C-\\><C-n><CMD>lua require('FTerm').exit()"):with_noremap():with_silent(),
 	["n|<leader>g"] = map_cu("lua toggle_lazygit()"):with_noremap():with_silent(),
 	-- Horizontal / Vertical
-	["n|<C-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]]):with_noremap():with_silent(),
-	["i|<C-\\>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=horizontal<CR>"):with_noremap():with_silent(),
-	["t|<C-\\>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>"):with_noremap():with_silent(),
+	["n|»"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]]):with_noremap():with_silent(),
+	["i|»"] = map_cmd("<Esc><Cmd>ToggleTerm direction=horizontal<CR>"):with_noremap():with_silent(),
+	["t|»"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>"):with_noremap():with_silent(),
 	["n|<C-w>t"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]]):with_noremap():with_silent(),
 	["i|<C-w>t"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>"):with_noremap():with_silent(),
 	["t|<C-w>t"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>"):with_noremap():with_silent(),
