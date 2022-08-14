@@ -48,6 +48,7 @@ ui["akinsho/bufferline.nvim"] = {
 	opt = true,
 	tag = "*",
 	event = "BufReadPost",
+	commit = "7ca869",
 	config = conf.nvim_bufferline,
 }
 ui["dstein64/nvim-scrollview"] = {
