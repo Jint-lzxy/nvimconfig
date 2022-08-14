@@ -197,10 +197,6 @@ function config.toggleterm()
 end
 
 function config.fterm()
-	-- Prevent infinite calls from freezing neovim.
-	-- Only set these options specific to the terminal buffer.
-	vim.cmd([[autocmd FileType FTerm setlocal foldmethod=manual foldexpr=0]])
-
 	require("FTerm").setup({
 		ft = "FTerm",
 		dimensions = {
