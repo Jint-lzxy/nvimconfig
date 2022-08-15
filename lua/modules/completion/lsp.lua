@@ -5,6 +5,7 @@ vim.cmd([[packadd lspsaga.nvim]])
 vim.cmd([[packadd cmp-nvim-lsp]])
 vim.cmd([[packadd aerial.nvim]])
 vim.cmd([[packadd vim-illuminate]])
+vim.cmd([[packadd nvim-navic]])
 
 local nvim_lsp = require("lspconfig")
 local saga = require("lspsaga")
@@ -56,7 +57,7 @@ saga.init_lsp_saga({
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-local function custom_attach(client)
+local function custom_attach(client, bufnr)
 	require("lsp_signature").on_attach({
 		bind = true,
 		use_lspsaga = false,
@@ -68,6 +69,7 @@ local function custom_attach(client)
 	})
 	require("aerial").on_attach(client)
 	require("illuminate").on_attach(client)
+	require("nvim-navic").attach(client, bufnr)
 end
 
 local function switch_source_header_splitcmd(bufnr, splitcmd)
