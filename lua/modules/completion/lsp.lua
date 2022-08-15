@@ -119,7 +119,7 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 			on_attach = custom_attach,
 			settings = {
 				Lua = {
-					runtime = { version = { "LuaJIT" } },
+					runtime = { version = "LuaJIT" },
 					diagnostics = { globals = { "vim", "packer_plugins" } },
 					workspace = {
 						library = {
