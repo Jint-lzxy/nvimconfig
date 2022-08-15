@@ -44,7 +44,7 @@ function autocmd.load_autocmds()
 			{
 				"BufEnter",
 				"*",
-				[[++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]],
+				[[if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]],
 			},
 			{
 				"BufReadPost",
