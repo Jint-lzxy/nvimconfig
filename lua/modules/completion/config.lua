@@ -4,14 +4,6 @@ function config.nvim_lsp()
 	require("modules.completion.lsp")
 end
 
-function config.lightbulb()
-	vim.cmd([[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]])
-end
-
-function config.aerial()
-	require("aerial").setup({})
-end
-
 function config.lsp_signature()
 	require("lsp_signature").setup({
 		zindex = 45, -- avoid conflicts with nvim.cmp
@@ -124,7 +116,7 @@ function config.cmp()
 					Table = "",
 					Object = " ",
 					Tag = "",
-					Array = "[]",
+					Array = " ",
 					Boolean = "",
 					Number = "",
 					Null = "ﳠ",
@@ -300,9 +292,96 @@ function config.bqf()
 	})
 end
 
-function config.saga()
+function config.lspsaga()
 	vim.api.nvim_set_hl(0, "LspFloatWinNormal", { bg = "#1E1E2E" })
 	vim.api.nvim_set_hl(0, "SagaShadow", { bg = "#1E1E2E" })
+
+	-- Set icons for sidebar.
+	local diagnostic_icons = {
+		Error = " ",
+		Warn = " ",
+		Info = " ",
+		Hint = " ",
+	}
+	for type, icon in pairs(diagnostic_icons) do
+		local hl = "DiagnosticSign" .. type
+		vim.fn.sign_define(hl, { text = icon, texthl = hl })
+	end
+
+	local kind = require("lspsaga.lspkind")
+	kind[2][2] = " "
+	kind[4][2] = " "
+	kind[5][2] = "ﴯ "
+	kind[6][2] = " "
+	kind[7][2] = "ﰠ "
+	kind[8][2] = " "
+	kind[9][2] = " "
+	kind[10][2] = " "
+	kind[11][2] = " "
+	kind[12][2] = " "
+	kind[13][2] = " "
+	kind[15][2] = " "
+	kind[16][2] = " "
+	kind[23][2] = " "
+	kind[26][2] = " "
+
+	require("lspsaga").init_lsp_saga({
+		border_style = "single",
+		saga_winblend = 0,
+		move_in_saga = { prev = "<C-j>", next = "<C-k>" },
+		diagnostic_header = { " ", " ", " ", " " },
+		show_diagnostic_source = true,
+		max_preview_lines = 15,
+		code_action_icon = "",
+		code_action_num_shortcut = true,
+		code_action_lightbulb = {
+			enable = true,
+			sign = true,
+			enable_in_insert = true,
+			sign_priority = 20,
+			virtual_text = false,
+		},
+		finder_icons = {
+			def = "  ",
+			ref = "諭 ",
+			link = "  ",
+		},
+		finder_action_keys = {
+			open = "o",
+			vsplit = "s",
+			split = "i",
+			tabe = "t",
+			quit = "q",
+			scroll_down = "<C-f>",
+			scroll_up = "<C-b>",
+		},
+		code_action_keys = {
+			quit = "q",
+			exec = "<CR>",
+		},
+		rename_action_quit = "<C-c>",
+		rename_in_select = true,
+		definition_preview_icon = "  ",
+		-- REQUIRES nvim-nightly.
+		symbol_in_winbar = {
+			in_custom = false,
+			enable = false,
+			separator = " ",
+			show_file = true,
+			click_support = false,
+		},
+		show_outline = {
+			win_position = "right",
+			win_with = "_sagaoutline",
+			win_width = 50,
+			auto_enter = true,
+			auto_preview = false,
+			virt_text = "┃",
+			jump_key = "o",
+			-- auto refresh when change buffer
+			auto_refresh = true,
+		},
+	})
 end
 
 function config.mason_install()

@@ -29,5 +29,6 @@ lang["gauteh/vim-cppman"] = {
 	opt = true,
 	ft = { "c", "cpp" },
 	keys = "K", -- only activate this plugin when we're searching for documentation.
+	disable = true,
 }
 return lang

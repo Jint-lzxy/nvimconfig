@@ -31,6 +31,7 @@ local plug_map = {
 	-- Lsp map work when insertenter and lsp start
 	["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
 	["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
+	["n|†"] = map_cr("LSoutlineToggle"):with_noremap():with_silent(),
 	["n|g["] = map_cr("Lspsaga diagnostic_jump_next"):with_noremap():with_silent(),
 	["n|g]"] = map_cr("Lspsaga diagnostic_jump_prev"):with_noremap():with_silent(),
 	["n|gs"] = map_cr("Lspsaga signature_help"):with_noremap():with_silent(),
@@ -76,8 +77,6 @@ local plug_map = {
 	["n|<C-n>"] = map_cr("NvimTreeToggle"):with_noremap():with_silent(),
 	["n|<leader>nf"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent(),
 	["n|<leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent(),
-	-- Plugin Aerial
-	["n|†"] = map_cr("AerialToggle! right"):with_noremap():with_silent(),
 	-- Plugin Undotree
 	["n|<leader>u"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
 	-- Plugin Telescope

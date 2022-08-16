@@ -22,20 +22,10 @@ completion["kevinhwang91/nvim-bqf"] = {
 	ft = "qf",
 	config = conf.bqf,
 }
-completion["tami5/lspsaga.nvim"] = {
+completion["glepnir/lspsaga.nvim"] = {
 	opt = true,
 	after = "nvim-lspconfig",
-	config = conf.saga,
-}
-completion["stevearc/aerial.nvim"] = {
-	opt = true,
-	after = "nvim-lspconfig",
-	config = conf.aerial,
-}
-completion["kosayoda/nvim-lightbulb"] = {
-	opt = true,
-	after = "nvim-lspconfig",
-	config = conf.lightbulb,
+	config = conf.lspsaga,
 }
 completion["ray-x/lsp_signature.nvim"] = {
 	opt = true,
