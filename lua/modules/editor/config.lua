@@ -455,7 +455,7 @@ function config.specs()
 			blend = 10, -- starting blend, between 0-100 (fully transparent), see :h winblend
 			width = 10,
 			winhl = "PMenu",
-			fader = require("specs").pulse_fader,
+			fader = require("specs").exp_fader,
 			resizer = require("specs").shrink_resizer,
 		},
 		ignore_filetypes = {},
