@@ -434,6 +434,7 @@ end
 function config.lualine()
 	local gps = require("nvim-gps")
 	local navic = require("nvim-navic")
+	local cp = require("catppuccin.palettes").get_palette()
 
 	local function escape_status()
 		local ok, m = pcall(require, "better_escape")
@@ -450,6 +451,41 @@ function config.lualine()
 		end
 	end
 
+	local function show_lsp()
+		local msg = "No Active LSP"
+		local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+		local clients = vim.lsp.get_active_clients()
+		if next(clients) == nil then
+			return msg -- No server available
+		end
+		msg = "" -- LSP available
+		for _, client in ipairs(clients) do
+			local filetypes = client.config.filetypes
+			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+				msg = msg .. client.name .. ", "
+			end
+		end
+		return msg:sub(1, -3) -- Remove last comma.
+	end
+
+	local edit_status = {
+		function()
+			if vim.bo.modified then
+				return ""
+			elseif not vim.bo.modifiable or vim.bo.readonly then
+				return ""
+			end
+			return ""
+		end,
+		color = function()
+			return {
+				fg = vim.bo.modified and cp.green or ((not vim.bo.modifiable or vim.bo.readonly) and cp.red or cp.blue),
+				bg = cp.surface0,
+			}
+		end,
+		padding = { left = 1.8, right = 2 },
+	}
+
 	local conditions = {
 		check_code_context = function()
 			return gps.is_available() or navic.is_available()
@@ -465,16 +501,16 @@ function config.lualine()
 		lualine_z = { "location" },
 	}
 	local simple_sections = {
-		lualine_a = { "mode" },
+		lualine_a = { { "mode", icon = "" } },
 		lualine_b = { "filetype" },
 		lualine_c = {},
 		lualine_x = {},
 		lualine_y = {},
 		lualine_z = { "location" },
 	}
-	local aerial = {
+	local outline = {
 		sections = mini_sections,
-		filetypes = { "aerial" },
+		filetypes = { "lspsagaoutline" },
 	}
 	local dapui_scopes = {
 		sections = simple_sections,
@@ -527,22 +563,32 @@ function config.lualine()
 			theme = "catppuccin",
 			disabled_filetypes = {},
 			component_separators = "|",
-			section_separators = { left = "", right = "" },
+			section_separators = { left = "", right = "" },
 			-- section_separators = { left = "", right = "" },
 		},
 		sections = {
-			lualine_a = { "mode" },
-			lualine_b = { { "branch" }, { "diff" } },
+			lualine_a = { { "mode", icon = "" } },
+			lualine_b = {
+				{ "branch", icon = "" },
+				{
+					"diff",
+					symbols = { added = "  ", modified = "  ", removed = "  " },
+					padding = { right = 1 },
+				},
+			},
 			lualine_c = {
+				edit_status,
 				{ code_context, cond = conditions.check_code_context },
 			},
 			lualine_x = {
-				{ escape_status },
+				{ escape_status, separator = "" },
 				{
 					"diagnostics",
 					sources = { "nvim_diagnostic" },
 					symbols = { error = " ", warn = " ", info = " " },
+					separator = "",
 				},
+				{ show_lsp, icon = " LSP ~", color = { fg = cp.lavender }, separator = "" },
 			},
 			lualine_y = {
 				{
@@ -558,7 +604,7 @@ function config.lualine()
 					symbols = {
 						unix = "LF",
 						dos = "CRLF",
-						mac = "CR",
+						mac = "LF",
 					},
 				},
 			},
