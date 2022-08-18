@@ -902,11 +902,6 @@ function config.nvim_bufferline()
 				return "(" .. count .. ")"
 			end,
 		},
-		highlights = {
-			close_button_selected = {
-				fg = "#F28FAD",
-			},
-		},
 	})
 end
 
