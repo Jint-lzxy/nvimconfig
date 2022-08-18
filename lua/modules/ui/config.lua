@@ -849,7 +849,7 @@ function config.nvim_tree()
 			timeout = 400,
 		},
 		trash = {
-			cmd = "gio trash",
+			cmd = "trash -F",
 			require_confirm = true,
 		},
 		live_filter = {
