@@ -293,6 +293,7 @@ function config.bqf()
 end
 
 function config.lspsaga()
+	vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#D9E0EE", bg = "#2D2E3D" })
 	vim.api.nvim_set_hl(0, "LspFloatWinNormal", { bg = "#1E1E2E" })
 	vim.api.nvim_set_hl(0, "SagaShadow", { bg = "#1E1E2E" })
 
