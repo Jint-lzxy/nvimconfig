@@ -332,7 +332,7 @@ function config.lspsaga()
 		diagnostic_header = { " ", " ", " ", " " },
 		show_diagnostic_source = true,
 		max_preview_lines = 15,
-		code_action_icon = "",
+		code_action_icon = " ",
 		code_action_num_shortcut = true,
 		code_action_lightbulb = {
 			enable = true,
