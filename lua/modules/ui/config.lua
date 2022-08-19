@@ -434,7 +434,61 @@ end
 function config.lualine()
 	local gps = require("nvim-gps")
 	local navic = require("nvim-navic")
+
 	local cp = require("catppuccin.palettes").get_palette()
+	cp.maroon = "#EA999D"
+	cp.flamingo = "#EEBEBE"
+
+	local global = require("core.global")
+
+	local custom_theme = {
+		normal = {
+			a = { bg = cp.lavender, fg = cp.mantle, gui = "bold" },
+			b = { bg = cp.surface1, fg = cp.lavender },
+			c = { bg = cp.mantle, fg = cp.text },
+
+			-- y = { bg = cp.maroon, fg = cp.surface0 },
+			-- z = { bg = cp.flamingo, fg = cp.surface0, gui = "bold" },
+		},
+
+		insert = {
+			a = { bg = cp.green, fg = cp.base, gui = "bold" },
+			b = { bg = cp.surface1, fg = cp.teal },
+
+			-- y = { bg = cp.maroon, fg = cp.surface0 },
+			-- z = { bg = cp.flamingo, fg = cp.surface0, gui = "bold" },
+		},
+
+		command = {
+			a = { bg = cp.peach, fg = cp.base, gui = "bold" },
+			b = { bg = cp.surface1, fg = cp.peach },
+
+			-- y = { bg = cp.maroon, fg = cp.surface0 },
+			-- z = { bg = cp.flamingo, fg = cp.surface0, gui = "bold" },
+		},
+
+		visual = {
+			a = { bg = cp.flamingo, fg = cp.base, gui = "bold" },
+			b = { bg = cp.surface1, fg = cp.flamingo },
+
+			-- y = { bg = cp.maroon, fg = cp.surface0 },
+			-- z = { bg = cp.flamingo, fg = cp.surface0, gui = "bold" },
+		},
+
+		replace = {
+			a = { bg = cp.maroon, fg = cp.base, gui = "bold" },
+			b = { bg = cp.surface1, fg = cp.maroon },
+
+			-- y = { bg = cp.maroon, fg = cp.surface0 },
+			-- z = { bg = cp.flamingo, fg = cp.surface0, gui = "bold" },
+		},
+
+		inactive = {
+			a = { bg = cp.mantle, fg = cp.lavender },
+			b = { bg = cp.mantle, fg = cp.surface1, gui = "bold" },
+			c = { bg = cp.mantle, fg = cp.overlay0 },
+		},
+	}
 
 	local function escape_status()
 		local ok, m = pcall(require, "better_escape")
@@ -468,6 +522,18 @@ function config.lualine()
 		return msg:sub(1, -3) -- Remove last comma.
 	end
 
+	local function get_os_icon()
+		if global.is_linux then
+			return ""
+		elseif global.is_mac then
+			return ""
+		elseif global.is_windows then
+			return ""
+		else
+			return ""
+		end
+	end
+
 	local edit_status = {
 		function()
 			if vim.bo.modified then
@@ -479,7 +545,8 @@ function config.lualine()
 		end,
 		color = function()
 			return {
-				fg = vim.bo.modified and cp.green or ((not vim.bo.modifiable or vim.bo.readonly) and cp.red or cp.blue),
+				fg = vim.bo.modified and cp.green
+					or ((not vim.bo.modifiable or vim.bo.readonly) and cp.red or cp.lavender),
 				bg = cp.surface0,
 			}
 		end,
@@ -560,7 +627,7 @@ function config.lualine()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "catppuccin",
+			theme = custom_theme,
 			disabled_filetypes = {},
 			component_separators = "|",
 			section_separators = { left = "", right = "" },
@@ -598,15 +665,7 @@ function config.lualine()
 				},
 				{ python_venv },
 				{ "encoding" },
-				{
-					"fileformat",
-					icons_enabled = true,
-					symbols = {
-						unix = "LF",
-						dos = "CRLF",
-						mac = "LF",
-					},
-				},
+				{ get_os_icon },
 			},
 			lualine_z = { "progress", "location" },
 		},
