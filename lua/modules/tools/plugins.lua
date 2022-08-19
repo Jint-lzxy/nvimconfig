@@ -53,7 +53,18 @@ tools["nathom/filetype.nvim"] = {
 	config = conf.filetype,
 }
 tools["cdelledonne/vim-cmake"] = {
-	opt = false,
+	opt = true,
+	cmd = {
+		"CMakeGenerate",
+		"CMakeClean",
+		"CMakeBuild",
+		"CMakeInstall",
+		"CMakeTest",
+		"CMakeSwitch",
+		"CMakeOpen",
+		"CMakeClose",
+		"CMakeStop",
+	},
 	config = conf.vim_cmake,
 }
 

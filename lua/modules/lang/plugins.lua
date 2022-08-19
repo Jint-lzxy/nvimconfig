@@ -26,9 +26,9 @@ lang["iamcco/markdown-preview.nvim"] = {
 }
 lang["chrisbra/csv.vim"] = { opt = true, ft = "csv" }
 lang["gauteh/vim-cppman"] = {
+	disable = true,
 	opt = true,
 	ft = { "c", "cpp" },
 	keys = "K", -- only activate this plugin when we're searching for documentation.
-	disable = true,
 }
 return lang
