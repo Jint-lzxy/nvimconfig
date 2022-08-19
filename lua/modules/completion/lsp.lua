@@ -313,6 +313,10 @@ local shfmt = require("efmls-configs.formatters.shfmt")
 -- Add your own config for formatter and linter here
 
 -- local rustfmt = require("modules.completion.efm.formatters.rustfmt")
+local asmfmt = {
+	formatCommand = "asmfmt",
+	formatStdin = true,
+}
 
 -- Override default config here
 
@@ -327,6 +331,7 @@ flake8 = vim.tbl_extend("force", flake8, {
 -- Setup formatter and linter for efmls here
 
 efmls.setup({
+	asm = { formatter = asmfmt },
 	vim = { formatter = vint },
 	lua = { formatter = luafmt },
 	c = { formatter = clangfmt },
