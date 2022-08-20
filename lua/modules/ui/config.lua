@@ -492,6 +492,18 @@ function config.lualine()
 		},
 	}
 
+	local function trunc(trunc_width, trunc_len, hide_width, no_ellipsis)
+		return function(str)
+			local win_width = vim.fn.winwidth(0)
+			if hide_width and win_width < hide_width then
+				return ""
+			elseif trunc_width and trunc_len and win_width < trunc_width and #str > trunc_len then
+				return str:sub(1, trunc_len) .. (no_ellipsis and "" or "...")
+			end
+			return str
+		end
+	end
+
 	local function escape_status()
 		local ok, m = pcall(require, "better_escape")
 		return ok and m.waiting and "✺ " or ""
@@ -657,7 +669,13 @@ function config.lualine()
 					symbols = { error = " ", warn = " ", info = " " },
 					separator = "",
 				},
-				{ show_lsp, icon = " LSP ~", color = { fg = cp.lavender }, separator = "" },
+				{
+					show_lsp,
+					icon = " LSP ~",
+					color = { fg = cp.lavender },
+					separator = "",
+					fmt = trunc(145, 5, 120, false),
+				},
 			},
 			lualine_y = {
 				{
