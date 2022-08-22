@@ -140,6 +140,8 @@ function config.cmp()
 					spell = "[SPELL]",
 				})[entry.source.name]
 
+				vim_item.abbr = string.sub(vim_item.abbr, 1, 100)
+
 				return vim_item
 			end,
 		},
