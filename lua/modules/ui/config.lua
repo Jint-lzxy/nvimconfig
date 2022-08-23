@@ -523,14 +523,22 @@ function config.lualine()
 		local msg = "No Active LSP"
 		local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
 		local clients = vim.lsp.get_active_clients()
+		local lsp_lists = {}
 		if next(clients) == nil then
 			return msg -- No server available
 		end
 		msg = "" -- LSP available
 		for _, client in ipairs(clients) do
 			local filetypes = client.config.filetypes
+			local client_name = client.name
 			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-				msg = msg .. client.name .. ", "
+				-- Avoid adding servers that already exists.
+				if lsp_lists.client_name ~= true then
+					lsp_lists.client_name = true
+					msg = msg .. client_name .. ", "
+				else
+					-- Do nothing.
+				end
 			end
 		end
 		return msg:sub(1, -3) -- Remove last comma.
