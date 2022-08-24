@@ -533,11 +533,9 @@ function config.lualine()
 			local client_name = client.name
 			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
 				-- Avoid adding servers that already exists.
-				if lsp_lists.client_name ~= true then
-					lsp_lists.client_name = true
+				if not lsp_lists[client_name] then
+					lsp_lists[client_name] = true
 					msg = msg .. client_name .. ", "
-				else
-					-- Do nothing.
 				end
 			end
 		end
