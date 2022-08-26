@@ -448,6 +448,8 @@ function config.notify()
 		background_colour = "#1E1E2E",
 		---@usage minimum width for notification windows
 		minimum_width = 50,
+		---@usage notifications with level lower than this would be ignored. [ERROR > WARN > INFO > DEBUG > TRACE]
+		level = "TRACE",
 		---@usage Icons for the different levels
 		icons = {
 			ERROR = "",
