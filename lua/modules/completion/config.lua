@@ -303,8 +303,8 @@ function config.lspsaga()
 	local diagnostic_icons = {
 		Error = " ",
 		Warn = " ",
-		Info = " ",
-		Hint = " ",
+		Info = " ",
+		Hint = " ",
 	}
 	for type, icon in pairs(diagnostic_icons) do
 		local hl = "DiagnosticSign" .. type
@@ -332,7 +332,7 @@ function config.lspsaga()
 		border_style = "single",
 		saga_winblend = 0,
 		move_in_saga = { prev = "<C-j>", next = "<C-k>" },
-		diagnostic_header = { " ", " ", " ", " " },
+		diagnostic_header = { " ", " ", "  ", " " },
 		show_diagnostic_source = true,
 		max_preview_lines = 15,
 		code_action_icon = " ",
