@@ -452,9 +452,9 @@ function config.notify()
 		level = "TRACE",
 		---@usage Icons for the different levels
 		icons = {
-			ERROR = "",
-			WARN = "",
-			INFO = "",
+			ERROR = "",
+			WARN = "",
+			INFO = "",
 			DEBUG = "",
 			TRACE = "✎",
 		},
