@@ -250,7 +250,7 @@ function config.catppuccin()
 			aerial = false,
 			vimwiki = true,
 			beacon = false,
-			navic = true,
+			navic = { enabled = true, custom_bg = "NONE" },
 			overseer = false,
 		},
 		color_overrides = {
@@ -318,6 +318,19 @@ function config.catppuccin()
 				rainbowcol6 = { bg = cp.none },
 				rainbowcol7 = { bg = cp.none },
 
+				-- For telescope
+				TelescopeBorder = { fg = cp.mantle, bg = cp.mantle },
+				TelescopePromptBorder = { fg = cp.surface0, bg = cp.surface0 },
+				TelescopePromptNormal = { fg = cp.white, bg = cp.surface0 },
+				TelescopePromptPrefix = { fg = cp.flamingo, bg = cp.surface0 },
+				TelescopeNormal = { bg = cp.mantle },
+				TelescopePreviewTitle = { fg = cp.base, bg = cp.green },
+				TelescopePromptTitle = { fg = cp.base, bg = cp.red },
+				TelescopeResultsTitle = { fg = cp.mantle, bg = cp.mantle },
+				TelescopeSelection = { fg = cp.text, bg = cp.surface0 },
+				TelescopeResultsDiffAdd = { fg = cp.green },
+				TelescopeResultsDiffChange = { fg = cp.yellow },
+				TelescopeResultsDiffDelete = { fg = cp.red },
 
 				-- For nvim-tree
 				NvimTreeRootFolder = { fg = cp.pink },
