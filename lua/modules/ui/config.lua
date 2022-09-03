@@ -309,14 +309,6 @@ function config.catppuccin()
 				LspDiagnosticsVirtualTextHint = { fg = cp.rosewater },
 				LspDiagnosticsUnderlineHint = { sp = cp.rosewater },
 
-				-- For Ts-Rainbow
-				rainbowcol1 = { bg = cp.none },
-				rainbowcol2 = { bg = cp.none },
-				rainbowcol3 = { bg = cp.none },
-				rainbowcol4 = { bg = cp.none },
-				rainbowcol5 = { bg = cp.none },
-				rainbowcol6 = { bg = cp.none },
-				rainbowcol7 = { bg = cp.none },
 
 				-- For telescope
 				TelescopeBorder = { fg = cp.mantle, bg = cp.mantle },
