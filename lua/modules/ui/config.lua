@@ -252,6 +252,7 @@ function config.catppuccin()
 			beacon = false,
 			navic = { enabled = true, custom_bg = "NONE" },
 			overseer = false,
+			fidget = true,
 		},
 		color_overrides = {
 			mocha = {
@@ -309,6 +310,9 @@ function config.catppuccin()
 				LspDiagnosticsVirtualTextHint = { fg = cp.rosewater },
 				LspDiagnosticsUnderlineHint = { sp = cp.rosewater },
 
+				-- For fidget.
+				FidgetTask = { bg = cp.none, fg = cp.surface2 },
+				FidgetTitle = { fg = cp.blue, style = { "bold" } },
 
 				-- For telescope
 				TelescopeBorder = { fg = cp.mantle, bg = cp.mantle },
