@@ -20,7 +20,6 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 editor["nvim-treesitter/nvim-treesitter-textobjects"] = {
 	opt = true,
 	after = "nvim-treesitter",
-	commit = "761e28",
 }
 editor["p00f/nvim-ts-rainbow"] = {
 	opt = true,
