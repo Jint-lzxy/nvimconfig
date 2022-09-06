@@ -12,7 +12,7 @@ function config.alpha()
 		[[ ╚█████╔╝██║██║ ╚████║   ██║      ███████╗███████╗██╔╝ ██╗   ██║    ]],
 		[[  ╚════╝ ╚═╝╚═╝  ╚═══╝   ╚═╝      ╚══════╝╚══════╝╚═╝  ╚═╝   ╚═╝    ]],
 		[[                                                                    ]],
-		[[    Configuration By 冷酔閑吟                       ver 2022.08     ]],
+		[[    Configuration By 冷酔閑吟                       ver 2022.09     ]],
 	}
 
 	local function button(sc, txt, leader_txt, keybind, keybind_opts)
