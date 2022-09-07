@@ -145,7 +145,7 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 				"--header-insertion=iwyu",
 				"--include-ineligible-results",
 				"--limit-references=3000",
-				"--limit-results=350",
+				"--limit-results=500",
 				"--pch-storage=memory",
 			},
 			commands = {
