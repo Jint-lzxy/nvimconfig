@@ -267,64 +267,20 @@ efmls.init({
 -- Require `efmls-configs-nvim`'s config here
 
 local vint = require("efmls-configs.linters.vint")
---[[
-local clangtidy = {
-	prefix = "clang-tidy",
-	lintStdin = false,
-	lintCommand = string.format(
-		"%s -extra-arg=-I/Library/Developer/CommandLineTools/usr/include/c++/v1 ${INPUT}",
-		"/usr/local/bin/clang-tidy"
-	),
-	lintFormats = { "%f:%l:%c: %trror: %m", "%f:%l:%c: %tarning: %m", "%f:%l:%c: %tote: %m" },
-	rootMarkers = {},
-}
---]]
 local eslint = require("efmls-configs.linters.eslint")
 local flake8 = require("efmls-configs.linters.flake8")
 local shellcheck = require("efmls-configs.linters.shellcheck")
 
 local black = require("efmls-configs.formatters.black")
 local luafmt = require("efmls-configs.formatters.stylua")
-local clangfmt = {
-	formatCommand = "clang-format -style='{ \z
-            BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: ForIndentation, \z
-            NamespaceIndentation: All, AccessModifierOffset: -4, \z
-            AlignArrayOfStructures: Right, AlignEscapedNewlines: Left, \z
-            AlignTrailingComments: true, AllowShortBlocksOnASingleLine: Always, \z
-            AllowShortCaseLabelsOnASingleLine: true, AllowShortEnumsOnASingleLine: true, \z
-            AllowShortFunctionsOnASingleLine: Inline, AllowShortLoopsOnASingleLine: true, \z
-            BitFieldColonSpacing: Both, BreakBeforeBraces: Custom, BraceWrapping: {\z
-            AfterCaseLabel: false, AfterClass: false, AfterEnum: false, AfterFunction: true, \z
-            AfterNamespace: true, AfterStruct: true, AfterUnion: true, AfterExternBlock: false, \z
-            BeforeCatch: true, BeforeElse: false, BeforeLambdaBody: false, BeforeWhile: false, \z
-            SplitEmptyFunction: false, SplitEmptyRecord: false, SplitEmptyNamespace: false}, \z
-            FixNamespaceComments: true, ShortNamespaceLines: 3, ColumnLimit: 100, \z
-            BreakBeforeTernaryOperators: true, BreakConstructorInitializers: BeforeColon, \z
-            BreakInheritanceList: BeforeColon, BreakStringLiterals: true, \z
-            Cpp11BracedListStyle: true, EmptyLineAfterAccessModifier: Leave, \z
-            IncludeBlocks: Regroup, IndentPPDirectives: BeforeHash, \z
-            IndentWrappedFunctionNames: true, PointerAlignment: Left, \z
-            ReferenceAlignment: Pointer, SeparateDefinitionBlocks: Always, \z
-            SortIncludes: CaseSensitive, SortUsingDeclarations: true, \z
-            SpaceAfterCStyleCast: true, SpaceBeforeCaseColon: false, \z
-            AllowShortLambdasOnASingleLine: All, PackConstructorInitializers: Never, \z
-            SpaceBeforeRangeBasedForLoopColon: false, AlignConsecutiveAssignments: Consecutive, \z
-            AlwaysBreakTemplateDeclarations: Yes, IndentCaseLabels: true, \z
-            SpaceBeforeSquareBrackets: false, SpaceBeforeRangeBasedForLoopColon: true, \z
-            EmptyLineBeforeAccessModifier: Leave, Standard: Auto \z
-        }'",
-	formatStdin = true,
-}
 local prettier = require("efmls-configs.formatters.prettier")
 local shfmt = require("efmls-configs.formatters.shfmt")
 
 -- Add your own config for formatter and linter here
 
--- local rustfmt = require("modules.completion.efm.formatters.rustfmt")
-local asmfmt = {
-	formatCommand = "asmfmt",
-	formatStdin = true,
-}
+-- local clangtidy = require("modules.completion.efm.formatters.clangtidy")
+local asmfmt = require("modules.completion.efm.formatters.asmfmt")
+local clangfmt = require("modules.completion.efm.formatters.clangfmt")
 
 -- Override default config here
 
