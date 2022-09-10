@@ -340,7 +340,6 @@ function config.lspsaga()
 		saga_winblend = 0,
 		move_in_saga = { prev = "<C-j>", next = "<C-k>" },
 		diagnostic_header = { " ", " ", "  ", " " },
-		show_diagnostic_source = true,
 		max_preview_lines = 15,
 		code_action_icon = " ",
 		code_action_num_shortcut = true,
@@ -371,7 +370,6 @@ function config.lspsaga()
 		},
 		rename_action_quit = "<C-c>",
 		rename_in_select = true,
-		definition_preview_icon = "  ",
 		-- REQUIRES nvim-nightly.
 		symbol_in_winbar = {
 			in_custom = false,
