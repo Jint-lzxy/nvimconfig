@@ -448,7 +448,7 @@ function config.dap()
 	}
 end
 
-function config.dapvirtualtext()
+function config.dap_virtual_text()
 	require("nvim-dap-virtual-text").setup({
 		enabled = true,
 		enabled_commands = true,

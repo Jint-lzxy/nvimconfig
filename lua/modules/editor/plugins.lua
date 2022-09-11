@@ -120,13 +120,13 @@ editor["rcarriga/nvim-dap-ui"] = {
 	config = conf.dapui,
 }
 editor["theHamsta/nvim-dap-virtual-text"] = {
-	opt = false,
-	config = conf.dapvirtualtext,
+	opt = true,
+	config = conf.dap_virtual_text,
 	after = "nvim-dap-ui",
 }
 editor["jbyuki/one-small-step-for-vimkind"] = {
 	opt = true,
-	event = "BufWinEnter",
+	after = "nvim-dap",
 }
 editor["tpope/vim-fugitive"] = { opt = true, cmd = { "Git", "G" } }
 editor["famiu/bufdelete.nvim"] = {
