@@ -253,16 +253,16 @@ function config.dapui()
 					-- Provide as ID strings or tables with "id" and "size" keys
 					{
 						id = "scopes",
-						size = 0.55, -- Can be float or integer > 1
+						size = 0.45, -- Can be float or integer > 1
 					},
-					{ id = "stacks", size = 0.2 },
+					{ id = "stacks", size = 0.25 },
 					{ id = "watches", size = 0.2 },
-					{ id = "breakpoints", size = 0.05 },
+					{ id = "breakpoints", size = 0.1 },
 				},
-				size = 40,
+				size = 0.55,
 				position = "left",
 			},
-			{ elements = { "repl" }, size = 10, position = "bottom" },
+			{ elements = { "repl" }, size = 15, position = "bottom" },
 		},
 		floating = {
 			max_height = nil, -- These can be integers or a float between 0 and 1.
