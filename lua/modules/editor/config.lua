@@ -311,12 +311,13 @@ function config.dap()
 			name = "Launch",
 			type = "lldb",
 			request = "launch",
-			program = vim.fn.getcwd() .. "/progout",
-			--[[
-			function()
-				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+			program = function()
+				return vim.fn.input(
+					'Path to executable (default to "progout"): ',
+					vim.fn.getcwd() .. "/progout",
+					"file"
+				)
 			end,
-			--]]
 			cwd = "${workspaceFolder}",
 			args = function()
 				local argument_string = vim.fn.input("Program arg(s) (enter nothing to leave it null): ")
