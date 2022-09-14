@@ -113,6 +113,7 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 						library = {
 							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
 							[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+							[vim.fn.stdpath("config") .. "/lua"] = true,
 						},
 						maxPreload = 100000,
 						preloadFileSize = 10000,
