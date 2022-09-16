@@ -39,7 +39,7 @@ function config.cmp()
 		}
 	end
 
-	local spaceSeparator = function(hl) -- Only have space separator between.
+	local space_separator = function(hl) -- Only have space separator between.
 		return {
 			{ "", hl },
 			{ "", hl },
@@ -68,7 +68,7 @@ function config.cmp()
 				winhighlight = "Normal:CmpPmenu,CursorLine:CmpPmenuSel",
 			},
 			documentation = {
-				border = spaceSeparator("CmpDocBorder"),
+				border = space_separator("CmpDocBorder"),
 				winhighlight = "Normal:CmpPmenu",
 			},
 		},
