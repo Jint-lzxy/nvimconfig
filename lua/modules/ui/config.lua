@@ -584,8 +584,9 @@ function config.lualine()
 				return ""
 			elseif not vim.bo.modifiable or vim.bo.readonly then
 				return ""
+			else
+				return ""
 			end
-			return ""
 		end,
 		color = function()
 			return {
