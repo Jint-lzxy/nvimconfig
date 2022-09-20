@@ -12,7 +12,7 @@ function config.alpha()
 		[[ ╚█████╔╝██║██║ ╚████║   ██║      ███████╗███████╗██╔╝ ██╗   ██║    ]],
 		[[  ╚════╝ ╚═╝╚═╝  ╚═══╝   ╚═╝      ╚══════╝╚══════╝╚═╝  ╚═╝   ╚═╝    ]],
 		[[                                                                    ]],
-		[[    Configuration By 冷酔閑吟                       ver 2022.09     ]],
+		[[    Configuration By 冷酔閑吟                       ver ]] .. os.date("%Y.%m") .. [[     ]],
 	}
 
 	local function button(sc, txt, leader_txt, keybind, keybind_opts)
@@ -28,7 +28,7 @@ function config.alpha()
 			hl_shortcut = "Keyword",
 		}
 
-		if nil == keybind then
+		if keybind == nil then
 			keybind = sc_after
 		end
 		keybind_opts = vim.F.if_nil(keybind_opts, { noremap = true, silent = true, nowait = true })
