@@ -418,6 +418,7 @@ function config.notify()
 		---@usage Function called when a new window is opened, use for changing win settings/config
 		on_open = function(win)
 			vim.api.nvim_win_set_option(win, "winblend", 0)
+			vim.api.nvim_win_set_config(win, { zindex = 70 })
 		end,
 		---@usage Function called when a window is closed
 		on_close = nil,
