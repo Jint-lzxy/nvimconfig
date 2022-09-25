@@ -141,7 +141,6 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 				"--completion-parse=auto",
 				"--completion-style=detailed",
 				"--cross-file-rename",
-				"--function-arg-placeholders=false",
 				"--header-insertion-decorators",
 				"--header-insertion=iwyu",
 				"--include-ineligible-results",
