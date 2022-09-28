@@ -108,16 +108,6 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 			settings = {
 				Lua = {
 					runtime = { version = "LuaJIT" },
-					diagnostics = { globals = { "vim", "packer_plugins" } },
-					workspace = {
-						library = {
-							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-							[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-							[vim.fn.stdpath("config") .. "/lua"] = true,
-						},
-						maxPreload = 100000,
-						preloadFileSize = 10000,
-					},
 					telemetry = { enable = false },
 				},
 			},
