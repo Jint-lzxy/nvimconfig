@@ -1,7 +1,7 @@
 local global = require("core.global")
 local vim = vim
 
--- Create cache dir and subs dir
+-- Create cache dir and data dirs
 local createdir = function()
 	local data_dir = {
 		global.cache_dir .. "backup",
@@ -10,8 +10,7 @@ local createdir = function()
 		global.cache_dir .. "tags",
 		global.cache_dir .. "undo",
 	}
-	-- There only check once that If cache_dir exists
-	-- Then I don't want to check subs dir exists
+	-- Only check whether cache_dir exists, this would be enough.
 	if vim.fn.isdirectory(global.cache_dir) == 0 then
 		os.execute("mkdir -p " .. global.cache_dir)
 		for _, v in pairs(data_dir) do
