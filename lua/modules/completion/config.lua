@@ -141,7 +141,11 @@ function config.cmp()
 					spell = "[SPELL]",
 				})[entry.source.name]
 
-				vim_item.abbr = string.sub(vim_item.abbr, 1, 100)
+				local label = vim_item.abbr
+				local truncated_label = vim.fn.strcharpart(label, 0, 80)
+				if truncated_label ~= label then
+					vim_item.abbr = truncated_label .. "..."
+				end
 
 				return vim_item
 			end,
