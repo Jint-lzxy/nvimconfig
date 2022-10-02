@@ -27,7 +27,11 @@ function config.nvim_treesitter()
 			"vue",
 			"css",
 		},
-		highlight = { enable = true, disable = { "vim" } },
+		highlight = {
+			enable = true,
+			disable = { "vim" },
+			additional_vim_regex_highlighting = false,
+		},
 		textobjects = {
 			select = {
 				enable = true,
