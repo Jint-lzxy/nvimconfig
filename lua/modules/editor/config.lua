@@ -257,8 +257,9 @@ function config.dapui()
 			},
 			{ elements = { "repl" }, size = 15, position = "bottom" },
 		},
+		-- Requires Nvim version >= 0.8
 		controls = {
-			enabled = false,
+			enabled = true,
 			-- Display controls in this session
 			element = "repl",
 			icons = {
