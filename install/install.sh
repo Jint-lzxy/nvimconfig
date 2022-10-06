@@ -162,7 +162,7 @@ if is_latest; then
 else
 	warn "You have outdated Nvim installed (< ${REQUIRED_NVIM_VERSION})."
 	prompt "Automatically redirecting you to legacy version..."
-	execute "git" "clone" "-b" "legacy" "git@github.com:Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
+	execute "git" "clone" "-b" "legacy-0.7" "git@github.com:Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
 fi
 
 cd "${DEST_DIR}" || return
