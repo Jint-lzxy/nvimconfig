@@ -1174,8 +1174,6 @@ function config.indent_blankline()
 		},
 		space_char_blankline = " ",
 	})
-	-- because lazy load indent-blankline so need readd this autocmd
-	vim.cmd("autocmd CursorMoved * IndentBlanklineRefresh")
 end
 
 function config.scrollview()

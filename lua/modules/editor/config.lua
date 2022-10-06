@@ -29,7 +29,7 @@ function config.nvim_treesitter()
 		},
 		highlight = {
 			enable = true,
-			disable = { "vim" },
+			disable = { "vim", "help" },
 			additional_vim_regex_highlighting = false,
 		},
 		textobjects = {
@@ -127,7 +127,7 @@ function config.hop()
 end
 
 function config.matchup()
-	vim.cmd([[let g:matchup_matchparen_offscreen = {'method': 'popup'}]])
+	vim.g.matchup_matchparen_offscreen = { method = "popup" }
 end
 
 function config.autotag()
