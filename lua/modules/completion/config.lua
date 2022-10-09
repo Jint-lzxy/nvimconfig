@@ -16,7 +16,7 @@ function config.cmp()
 	vim.api.nvim_set_hl(0, "CmpPmenuSel", { bg = "#42435C" })
 	vim.api.nvim_set_hl(0, "CmpDocBorder", { bg = "#2B2C3B" })
 
-	-- vim.cmd([[packadd cmp-tabnine]])
+	-- vim.api.nvim_command([[packadd cmp-tabnine]])
 	local t = function(str)
 		return vim.api.nvim_replace_termcodes(str, true, true, true)
 	end
