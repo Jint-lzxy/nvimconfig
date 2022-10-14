@@ -3,7 +3,6 @@ local global = require("core.global")
 local function load_options()
 	local global_local = {
 		termguicolors = true,
-		mouse = "a",
 		errorbells = true,
 		visualbell = true,
 		hidden = true,
@@ -58,6 +57,7 @@ local function load_options()
 		shortmess = "aoOTIcF",
 		scrolloff = 3,
 		sidescrolloff = 5,
+		mousescroll = "ver:3,hor:6",
 		foldlevelstart = 99,
 		ruler = true,
 		cursorline = true,
@@ -70,7 +70,7 @@ local function load_options()
 		helpheight = 12,
 		previewheight = 12,
 		showcmd = false,
-		cmdheight = 2,
+		cmdheight = 2, -- 0, 1, 2
 		cmdwinheight = 5,
 		equalalways = false,
 		laststatus = 2,
