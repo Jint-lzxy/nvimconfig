@@ -83,7 +83,7 @@ editor["numtostr/FTerm.nvim"] = {
 	event = "UIEnter",
 	config = conf.fterm,
 }
-editor["norcalli/nvim-colorizer.lua"] = {
+editor["NvChad/nvim-colorizer.lua"] = {
 	opt = true,
 	event = "BufReadPost",
 	config = conf.nvim_colorizer,
