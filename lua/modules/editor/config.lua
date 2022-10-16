@@ -230,8 +230,13 @@ function config.fterm()
 end
 
 function config.dapui()
+	local icons = {
+		ui = require("modules.ui.icons").get("ui"),
+		dap = require("modules.ui.icons").get("dap"),
+	}
+
 	require("dapui").setup({
-		icons = { expanded = "▾", collapsed = "▸" },
+		icons = { expanded = icons.ui.ArrowOpen, collapsed = icons.ui.ArrowClosed, current_frame = icons.ui.Indicator },
 		mappings = {
 			-- Use a table to apply multiple mappings
 			expand = { "<CR>", "<2-LeftMouse>" },
@@ -263,14 +268,14 @@ function config.dapui()
 			-- Display controls in this session
 			element = "repl",
 			icons = {
-				pause = "",
-				play = "",
-				step_into = "",
-				step_over = "",
-				step_out = "",
-				step_back = "",
-				run_last = "↻",
-				terminate = "ﱢ",
+				pause = icons.dap.Pause,
+				play = icons.dap.Play,
+				step_into = icons.dap.StepInto,
+				step_over = icons.dap.StepOver,
+				step_out = icons.dap.StepOut,
+				step_back = icons.dap.StepBack,
+				run_last = icons.dap.RunLast,
+				terminate = icons.dap.Terminate,
 			},
 		},
 		floating = {
@@ -289,6 +294,7 @@ function config.dap()
 	vim.api.nvim_command([[packadd nvim-dap-ui]])
 	local dap = require("dap")
 	local dapui = require("dapui")
+	local icons = { dap = require("modules.ui.icons").get("dap") }
 
 	-- dap.set_log_level("TRACE")
 	dap.listeners.after.event_initialized["dapui_config"] = function()
@@ -304,11 +310,20 @@ function config.dap()
 	-- We need to override nvim-dap's default highlight groups, AFTER requiring nvim-dap for catppuccin.
 	vim.api.nvim_set_hl(0, "DapStopped", { fg = "#ABE9B3" })
 
-	vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-	vim.fn.sign_define("DapBreakpointCondition", { text = "ﳁ", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-	vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-	vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapLogPoint", linehl = "", numhl = "" })
-	vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", linehl = "", numhl = "" })
+	vim.fn.sign_define(
+		"DapBreakpoint",
+		{ text = icons.dap.Breakpoint, texthl = "DapBreakpoint", linehl = "", numhl = "" }
+	)
+	vim.fn.sign_define(
+		"DapBreakpointCondition",
+		{ text = icons.dap.BreakpointCondition, texthl = "DapBreakpoint", linehl = "", numhl = "" }
+	)
+	vim.fn.sign_define("DapStopped", { text = icons.dap.Stopped, texthl = "DapStopped", linehl = "", numhl = "" })
+	vim.fn.sign_define(
+		"DapBreakpointRejected",
+		{ text = icons.dap.BreakpointRejected, texthl = "DapBreakpoint", linehl = "", numhl = "" }
+	)
+	vim.fn.sign_define("DapLogPoint", { text = icons.dap.LogPoint, texthl = "DapLogPoint", linehl = "", numhl = "" })
 
 	dap.adapters.lldb = {
 		type = "executable",

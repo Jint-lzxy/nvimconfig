@@ -8,12 +8,17 @@ local nvim_lsp = require("lspconfig")
 local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
 
+local icons = {
+	ui = require("modules.ui.icons").get("ui", true),
+	misc = require("modules.ui.icons").get("misc", true),
+}
+
 mason.setup({
 	ui = {
 		icons = {
-			package_pending = " ",
-			package_installed = " ",
-			package_uninstalled = " ",
+			package_pending = icons.ui.Modified_alt,
+			package_installed = icons.ui.Check,
+			package_uninstalled = icons.misc.Ghost,
 		},
 
 		keymaps = {

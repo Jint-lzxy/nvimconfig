@@ -399,6 +399,10 @@ end
 
 function config.notify()
 	local notify = require("notify")
+	local icons = {
+		diagnostics = require("modules.ui.icons").get("diagnostics"),
+		ui = require("modules.ui.icons").get("ui"),
+	}
 
 	notify.setup({
 		---@usage Animation style one of { "fade", "slide", "fade_in_slide_out", "static" }
@@ -424,11 +428,11 @@ function config.notify()
 		level = "TRACE",
 		---@usage Icons for the different levels
 		icons = {
-			ERROR = "",
-			WARN = "",
-			INFO = "",
-			DEBUG = "",
-			TRACE = "✎",
+			ERROR = icons.diagnostics.Error,
+			WARN = icons.diagnostics.Warning,
+			INFO = icons.diagnostics.Information,
+			DEBUG = icons.ui.Bug,
+			TRACE = icons.ui.Pencil,
 		},
 	})
 
@@ -438,6 +442,11 @@ end
 function config.lualine()
 	local gps = require("nvim-gps")
 	local navic = require("nvim-navic")
+	local icons = {
+		diagnostics = require("modules.ui.icons").get("diagnostics", true),
+		misc = require("modules.ui.icons").get("misc", true),
+		cmp = require("modules.ui.icons").get("cmp", true),
+	}
 
 	local cp = require("catppuccin.palettes").get_palette()
 	cp.maroon = "#EA999D"
@@ -508,7 +517,7 @@ function config.lualine()
 
 	local function escape_status()
 		local ok, m = pcall(require, "better_escape")
-		return ok and m.waiting and "✺ " or ""
+		return ok and m.waiting and icons.misc.EscapeST or ""
 	end
 
 	local function code_context()
@@ -668,9 +677,9 @@ function config.lualine()
 			-- section_separators = { left = "", right = "" },
 		},
 		sections = {
-			lualine_a = { { "mode", icon = "" } },
+			lualine_a = { { "mode", icon = icons.misc.ManUp } },
 			lualine_b = {
-				{ "branch", icon = "" },
+				{ "branch", icon = icons.cmp.Copilot },
 				{
 					"diff",
 					symbols = { added = "  ", modified = "  ", removed = "  " },
@@ -687,7 +696,11 @@ function config.lualine()
 				{
 					"diagnostics",
 					sources = { "nvim_diagnostic" },
-					symbols = { error = " ", warn = " ", info = " " },
+					symbols = {
+						error = icons.diagnostics.Error,
+						warn = icons.diagnostics.Warning,
+						info = icons.diagnostics.Information,
+					},
 					separator = "",
 				},
 				{
@@ -734,11 +747,16 @@ function config.lualine()
 end
 
 function config.nvim_gps()
+	local icons = {
+		ui = require("modules.ui.icons").get("ui", true),
+		kind = require("modules.ui.icons").get("kind", true),
+	}
+
 	require("nvim-gps").setup({
 		icons = {
-			["class-name"] = " ", -- Classes and class-like objects
-			["function-name"] = " ", -- Functions
-			["method-name"] = " ", -- Methods (functions inside class-like objects)
+			["class-name"] = icons.kind.Namespace, -- Classes and class-like objects
+			["function-name"] = icons.kind.Function, -- Functions
+			["method-name"] = icons.kind.Method, -- Methods (functions inside class-like objects)
 		},
 		languages = {
 			-- You can disable any language individually here
@@ -751,50 +769,62 @@ function config.nvim_gps()
 			["rust"] = true,
 			["python"] = false,
 		},
-		separator = " > ",
+		separator = " " .. icons.ui.Separator,
 	})
 end
 
 function config.nvim_navic()
+	local icons = {
+		ui = require("modules.ui.icons").get("ui", true),
+		kind = require("modules.ui.icons").get("kind", true),
+		type = require("modules.ui.icons").get("type", true),
+	}
 	vim.g.navic_silence = true
 
 	require("nvim-navic").setup({
 		icons = {
-			Method = " ",
-			Function = " ",
-			Constructor = " ",
-			Field = " ",
-			Variable = " ",
-			Class = "ﴯ ",
-			Interface = " ",
-			Module = " ",
-			Property = "ﰠ ",
-			Enum = " ",
-			File = " ",
-			EnumMember = " ",
-			Constant = " ",
-			Struct = " ",
-			Event = " ",
-			Operator = " ",
-			TypeParameter = " ",
-			Namespace = " ",
-			Object = " ",
-			Array = " ",
-			Boolean = " ",
-			Number = " ",
-			Null = "ﳠ ",
-			Key = " ",
-			String = " ",
-			Package = " ",
+			Method = icons.kind.Method,
+			Function = icons.kind.Function,
+			Constructor = icons.kind.Constructor,
+			Field = icons.kind.Field,
+			Variable = icons.kind.Variable,
+			Class = icons.kind.Class,
+			Interface = icons.kind.Interface,
+			Module = icons.kind.Module,
+			Property = icons.kind.Property,
+			Enum = icons.kind.Enum,
+			File = icons.kind.File,
+			EnumMember = icons.kind.EnumMember,
+			Constant = icons.kind.Constant,
+			Struct = icons.kind.Struct,
+			Event = icons.kind.Event,
+			Operator = icons.kind.Operator,
+			TypeParameter = icons.kind.TypeParameter,
+			Namespace = icons.kind.Namespace,
+			Object = icons.type.Object,
+			Array = icons.type.Array,
+			Boolean = icons.type.Boolean,
+			Number = icons.type.Number,
+			Null = icons.type.Null,
+			Key = icons.kind.Keyword,
+			String = icons.type.String,
+			Package = icons.kind.Package,
 		},
 		highlight = true,
-		separator = " > ",
 		depth_limit = 5,
+		separator = " " .. icons.ui.Separator,
 		depth_limit_indicator = "..",
 	})
 end
 
 function config.nvim_tree()
+	local icons = {
+		diagnostics = require("modules.ui.icons").get("diagnostics"),
+		documents = require("modules.ui.icons").get("documents"),
+		git = require("modules.ui.icons").get("git"),
+		ui = require("modules.ui.icons").get("ui"),
+	}
+
 	require("nvim-tree").setup({
 		create_in_closed_folder = false,
 		respect_buf_cwd = false,
@@ -862,29 +892,29 @@ function config.nvim_tree()
 				padding = " ",
 				symlink_arrow = "  ",
 				glyphs = {
-					default = "", --
-					symlink = "",
-					bookmark = "",
+					default = icons.documents.Default, --
+					symlink = icons.documents.Symlink, --
+					bookmark = icons.ui.Bookmark,
 					git = {
-						unstaged = "",
-						staged = "", --
-						unmerged = "שׂ",
-						renamed = "", --
-						untracked = "ﲉ",
-						deleted = "",
-						ignored = "", --◌
+						unstaged = icons.git.Mod_alt,
+						staged = icons.git.Add, --
+						unmerged = icons.git.Unmerged,
+						renamed = icons.git.Rename, --
+						untracked = icons.git.Untracked, -- "ﲉ"
+						deleted = icons.git.Remove, --
+						ignored = icons.git.Ignore, --◌
 					},
 					folder = {
-						arrow_open = "",
-						arrow_closed = "",
+						arrow_open = icons.ui.ArrowOpen,
+						arrow_closed = icons.ui.ArrowClosed,
 						-- arrow_open = "",
 						-- arrow_closed = "",
-						default = "",
-						open = "",
-						empty = "",
-						empty_open = "",
-						symlink = "",
-						symlink_open = "",
+						default = icons.ui.Folder,
+						open = icons.ui.FolderOpen,
+						empty = icons.ui.EmptyFolder,
+						empty_open = icons.ui.EmptyFolderOpen,
+						symlink = icons.ui.SymlinkFolder,
+						symlink_open = icons.ui.FolderOpen,
 					},
 				},
 			},
@@ -931,10 +961,10 @@ function config.nvim_tree()
 			show_on_dirs = false,
 			debounce_delay = 50,
 			icons = {
-				hint = "",
-				info = "",
-				warning = "",
-				error = "",
+				hint = icons.diagnostics.Hint_alt,
+				info = icons.diagnostics.Information_alt,
+				warning = icons.diagnostics.Warning_alt,
+				error = icons.diagnostics.Error_alt,
 			},
 		},
 		filesystem_watchers = {
@@ -973,13 +1003,15 @@ function config.nvim_tree()
 end
 
 function config.nvim_bufferline()
+	local icons = { ui = require("modules.ui.icons").get("ui") }
+
 	local opts = {
 		options = {
 			numbers = nil,
-			modified_icon = "",
-			buffer_close_icon = "",
-			left_trunc_marker = "",
-			right_trunc_marker = "",
+			modified_icon = icons.ui.Modified_alt,
+			buffer_close_icon = icons.ui.Close,
+			left_trunc_marker = icons.ui.Left,
+			right_trunc_marker = icons.ui.Right,
 			max_name_length = 14,
 			max_prefix_length = 13,
 			tab_size = 20,
@@ -995,6 +1027,13 @@ function config.nvim_bufferline()
 					text = "File Explorer",
 					text_align = "center",
 					padding = 1,
+				},
+				{
+					filetype = "undotree",
+					text = "Undo Tree",
+					text_align = "center",
+					highlight = "Directory",
+					separator = true,
 				},
 			},
 			diagnostics_indicator = function(count)

@@ -87,45 +87,7 @@ function config.cmp()
 		},
 		formatting = {
 			format = function(entry, vim_item)
-				local lspkind_icons = {
-					Text = "",
-					Method = "",
-					Function = "",
-					Constructor = "",
-					Field = "",
-					Variable = "",
-					Class = "ﴯ",
-					Interface = "",
-					Module = "",
-					Property = "ﰠ",
-					Unit = "",
-					Value = "",
-					Enum = "",
-					Keyword = "",
-					Snippet = "",
-					Color = "",
-					File = "",
-					Reference = "",
-					Folder = "",
-					EnumMember = "",
-					Constant = "",
-					Struct = "",
-					Event = "",
-					Operator = "",
-					TypeParameter = "",
-					Namespace = "",
-					Table = "",
-					Object = " ",
-					Tag = "",
-					Array = " ",
-					Boolean = "",
-					Number = "",
-					Null = "ﳠ",
-					String = "",
-					Calendar = "",
-					Watch = "",
-					Package = "",
-				}
+				local lspkind_icons = require("modules.ui.icons").get("kind")
 				-- load lspkind icons
 				vim_item.kind = string.format("%s %s", lspkind_icons[vim_item.kind], vim_item.kind)
 
@@ -298,13 +260,20 @@ function config.lspsaga()
 	vim.api.nvim_set_hl(0, "LspFloatWinNormal", { bg = "#1E1E2E" })
 	vim.api.nvim_set_hl(0, "SagaShadow", { bg = "#1E1E2E" })
 
+	local icons = {
+		diagnostics = require("modules.ui.icons").get("diagnostics", true),
+		kind = require("modules.ui.icons").get("kind", true),
+		type = require("modules.ui.icons").get("type", true),
+		ui = require("modules.ui.icons").get("ui", true),
+	}
+
 	local function set_sidebar_icons()
 		-- Set icons for sidebar.
 		local diagnostic_icons = {
-			Error = " ",
-			Warn = " ",
-			Info = " ",
-			Hint = " ",
+			Error = icons.diagnostics.Error_alt,
+			Warn = icons.diagnostics.Warning_alt,
+			Info = icons.diagnostics.Information_alt,
+			Hint = icons.diagnostics.Hint_alt,
 		}
 		for type, icon in pairs(diagnostic_icons) do
 			local hl = "DiagnosticSign" .. type
@@ -338,9 +307,14 @@ function config.lspsaga()
 		border_style = "single",
 		saga_winblend = 0,
 		move_in_saga = { prev = "<C-j>", next = "<C-k>" },
-		diagnostic_header = { " ", " ", "  ", " " },
+		diagnostic_header = {
+			icons.diagnostics.Error_alt,
+			icons.diagnostics.Warning_alt,
+			icons.diagnostics.Information_alt,
+			icons.diagnostics.Hint_alt,
+		},
 		max_preview_lines = 15,
-		code_action_icon = " ",
+		code_action_icon = icons.ui.CodeAction,
 		code_action_num_shortcut = true,
 		code_action_lightbulb = {
 			enable = true,
@@ -348,11 +322,6 @@ function config.lspsaga()
 			enable_in_insert = true,
 			sign_priority = 20,
 			virtual_text = true,
-		},
-		finder_icons = {
-			def = "  ",
-			ref = "諭 ",
-			link = "  ",
 		},
 		finder_action_keys = {
 			open = "o",
@@ -372,7 +341,7 @@ function config.lspsaga()
 		symbol_in_winbar = {
 			in_custom = false,
 			enable = false,
-			separator = " ",
+			separator = " " .. icons.ui.Separator,
 			show_file = true,
 			click_support = false,
 		},
@@ -388,37 +357,38 @@ function config.lspsaga()
 			auto_refresh = true,
 		},
 		custom_kind = {
-			File = { " ", colors.rosewater },
-			Module = { " ", colors.blue },
-			Namespace = { " ", colors.blue },
-			Package = { " ", colors.blue },
-			Class = { "ﴯ ", colors.yellow },
-			Method = { " ", colors.blue },
-			Property = { "ﰠ ", colors.teal },
-			Field = { " ", colors.teal },
-			Constructor = { " ", colors.sapphire },
-			Enum = { " ", colors.yellow },
-			Interface = { " ", colors.yellow },
-			Function = { " ", colors.blue },
-			Variable = { " ", colors.peach },
-			Constant = { " ", colors.peach },
-			String = { " ", colors.green },
-			Number = { " ", colors.peach },
-			Boolean = { " ", colors.peach },
-			Array = { " ", colors.peach },
-			Object = { " ", colors.yellow },
-			Key = { " ", colors.red },
-			Null = { "ﳠ ", colors.yellow },
-			EnumMember = { " ", colors.teal },
-			Struct = { " ", colors.yellow },
-			Event = { " ", colors.yellow },
-			Operator = { " ", colors.sky },
-			TypeParameter = { " ", colors.maroon },
-			-- ccls-specific icons.
-			TypeAlias = { " ", colors.green },
-			Parameter = { " ", colors.blue },
-			StaticMethod = { "ﴂ ", colors.peach },
-			Macro = { " ", colors.red },
+			-- Kind
+			Class = { icons.kind.Class, colors.yellow },
+			Constant = { icons.kind.Constant, colors.peach },
+			Constructor = { icons.kind.Constructor, colors.sapphire },
+			Enum = { icons.kind.Enum, colors.yellow },
+			EnumMember = { icons.kind.EnumMember, colors.teal },
+			Event = { icons.kind.Event, colors.yellow },
+			Field = { icons.kind.Field, colors.teal },
+			File = { icons.kind.File, colors.rosewater },
+			Function = { icons.kind.Function, colors.blue },
+			Interface = { icons.kind.Interface, colors.yellow },
+			Key = { icons.kind.Keyword, colors.red },
+			Method = { icons.kind.Method, colors.blue },
+			Module = { icons.kind.Module, colors.blue },
+			Namespace = { icons.kind.Namespace, colors.blue },
+			Number = { icons.kind.Number, colors.peach },
+			Operator = { icons.kind.Operator, colors.sky },
+			Package = { icons.kind.Package, colors.blue },
+			Property = { icons.kind.Property, colors.teal },
+			Struct = { icons.kind.Struct, colors.yellow },
+			TypeParameter = { icons.kind.TypeParameter, colors.maroon },
+			Variable = { icons.kind.Variable, colors.peach },
+			-- Type
+			Array = { icons.type.Array, colors.peach },
+			Boolean = { icons.type.Boolean, colors.peach },
+			Null = { icons.type.Null, colors.yellow },
+			Object = { icons.type.Object, colors.yellow },
+			String = { icons.type.String, colors.green },
+			-- ccls-specific iconss.
+			TypeAlias = { icons.kind.TypeAlias, colors.green },
+			Parameter = { icons.kind.Parameter, colors.blue },
+			StaticMethod = { icons.kind.StaticMethod, colors.peach },
 		},
 	})
 end
