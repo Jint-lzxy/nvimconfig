@@ -444,8 +444,8 @@ function config.lualine()
 	local navic = require("nvim-navic")
 	local icons = {
 		diagnostics = require("modules.ui.icons").get("diagnostics", true),
-		misc = require("modules.ui.icons").get("misc", true),
-		cmp = require("modules.ui.icons").get("cmp", true),
+		misc = require("modules.ui.icons").get("misc"),
+		cmp = require("modules.ui.icons").get("cmp"),
 	}
 
 	local cp = require("catppuccin.palettes").get_palette()
@@ -517,7 +517,7 @@ function config.lualine()
 
 	local function escape_status()
 		local ok, m = pcall(require, "better_escape")
-		return ok and m.waiting and icons.misc.EscapeST or ""
+		return ok and m.waiting and icons.misc.EscapeST .. " " or ""
 	end
 
 	local function code_context()
