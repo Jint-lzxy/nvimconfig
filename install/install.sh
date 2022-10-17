@@ -9,6 +9,7 @@ set -u
 # global vars
 DEST_DIR="${HOME}/.config/nvim"
 REQUIRED_NVIM_VERSION=0.8
+USE_SSH=1
 
 abort() {
 	printf "%s\n" "$@" >&2
@@ -103,6 +104,23 @@ version_ge() {
 	[[ "${1%.*}" -gt "${2%.*}" ]] || [[ "${1%.*}" -eq "${2%.*}" && "${1#*.}" -ge "${2#*.}" ]]
 }
 
+check_ssh() {
+	prompt "Validating SSH connection..."
+	ssh -T git@github.com &>/dev/null
+	if ! [ $? -eq 1 ]; then
+		prompt "We'll use HTTPS to fetch and update plugins."
+		return 0
+	else
+		printf "Do you prefer to use SSH to fetch and update plugins? (otherwise HTTPS) [Y/n] "
+		read -r USR_CHOICE
+		if [[ $USR_CHOICE == [nN] || $USR_CHOICE == [Nn][Oo] ]]; then
+			return 0
+		else
+			return 1
+		fi
+	fi
+}
+
 is_latest() {
 	local nvim_version
 	nvim_version=$(nvim --version | head -n1 | sed -e 's|^[^0-9]*||' -e 's| .*||')
@@ -131,17 +149,6 @@ EOABORT
 	)"
 fi
 
-ssh -T git@github.com &>/dev/null
-if ! [ $? -eq 1 ]; then
-	abort "$(
-		cat <<EOABORT
-You must have SSH key prepared and registered at GitHub before
-installing this Nvim config. See:
-  ${tty_underline}https://docs.github.com/en/authentication/connecting-to-github-with-ssh${tty_reset}
-EOABORT
-	)"
-fi
-
 prompt "This script will install Jint-lzxy/nvimconfig to:"
 echo "${DEST_DIR}"
 
@@ -152,20 +159,41 @@ fi
 ring_bell
 wait_for_user
 
+if check_ssh; then
+	wait_for_user
+	USE_SSH=0
+fi
+
 if [[ -d "${DEST_DIR}" ]]; then
-	execute "mv" "-f" "${DEST_DIR}" "${DEST_DIR}_$(date +%Y%m%dT%H%M%S)"
+	mv -f "${DEST_DIR}" "${DEST_DIR}_$(date +%Y%m%dT%H%M%S)"
 fi
 
 prompt "Fetching in progress..."
-if is_latest; then
-	execute "git" "clone" "-b" "master" "git@github.com:Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
+if [ "$USE_SSH" -eq "1" ]; then
+	if is_latest; then
+		execute "git" "clone" "-b" "master" "git@github.com:Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
+	else
+		warn "You have outdated Nvim installed (< ${REQUIRED_NVIM_VERSION})."
+		prompt "Automatically redirecting you to legacy version..."
+		execute "git" "clone" "-b" "legacy-0.7" "git@github.com:Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
+	fi
 else
-	warn "You have outdated Nvim installed (< ${REQUIRED_NVIM_VERSION})."
-	prompt "Automatically redirecting you to legacy version..."
-	execute "git" "clone" "-b" "legacy-0.7" "git@github.com:Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
+	if is_latest; then
+		execute "git" "clone" "-b" "master" "https://github.com/Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
+	else
+		warn "You have outdated Nvim installed (< ${REQUIRED_NVIM_VERSION})."
+		prompt "Automatically redirecting you to legacy version..."
+		execute "git" "clone" "-b" "legacy-0.7" "https://github.com/Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
+	fi
 fi
 
 cd "${DEST_DIR}" || return
+
+if [ "$USE_SSH" -eq "0" ]; then
+	prompt "Changing default fetching method to HTTPS..."
+	sed -i '' -e 's/\[\"use_ssh\"\] \= true/\[\"use_ssh\"\] \= false/g' "./lua/core/settings.lua"
+	# The -i argument for sed command is a GNU extension. Compatibility issues need to be addressed in the future.
+fi
 
 prompt "Spawning neovim and fetching plugins... (You'll be redirected shortly)"
 prompt "If packer failed to fetch any plugin(s), maunally execute \`nvim +PackerSync\` until everything is up-to-date."
