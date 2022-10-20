@@ -261,18 +261,6 @@ function config.wilder()
 	)
 end
 
-function config.filetype()
-	-- In init.lua or filetype.nvim's config file
-	require("filetype").setup({
-		overrides = {
-			shebang = {
-				-- Set the filetype of files with a dash shebang to sh
-				dash = "sh",
-			},
-		},
-	})
-end
-
 function config.vim_cmake()
 	vim.g.cmake_default_config = "Debug"
 	vim.g.cmake_root_markers = { ".git", ".svn", "src" }
