@@ -211,51 +211,6 @@ function config.autopairs()
 	)
 end
 
-function config.bqf()
-	vim.api.nvim_set_hl(0, "BqfPreviewFloat", { bg = "#1E1E2E" })
-	vim.api.nvim_set_hl(0, "BqfPreviewBorder", { fg = "#F2CDCD", bg = "#1E1E2E", ctermfg = 71 })
-	vim.api.nvim_set_hl(0, "BqfPreviewRange", { link = "Search" })
-
-	require("bqf").setup({
-		auto_enable = true,
-		auto_resize_height = true, -- highly recommended enable
-		preview = {
-			win_height = 12,
-			win_vheight = 12,
-			delay_syntax = 80,
-			border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
-			should_preview_cb = function(bufnr, qwinid)
-				local ret = true
-				local bufname = vim.api.nvim_buf_get_name(bufnr)
-				local fsize = vim.fn.getfsize(bufname)
-				if fsize > 100 * 1024 then
-					-- skip file size greater than 100k
-					ret = false
-				elseif bufname:match("^fugitive://") then
-					-- skip fugitive buffer
-					ret = false
-				end
-				return ret
-			end,
-		},
-		-- make `drop` and `tab drop` to become preferred
-		func_map = {
-			drop = "o",
-			openc = "O",
-			split = "<C-s>",
-			tabdrop = "<C-t>",
-			tabc = "",
-			ptogglemode = "z,",
-		},
-		filter = {
-			fzf = {
-				action_for = { ["ctrl-s"] = "split", ["ctrl-t"] = "tab drop" },
-				extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
-			},
-		},
-	})
-end
-
 function config.lspsaga()
 	vim.api.nvim_set_hl(0, "LspFloatWinNormal", { bg = "#1E1E2E" })
 	vim.api.nvim_set_hl(0, "SagaShadow", { bg = "#1E1E2E" })
