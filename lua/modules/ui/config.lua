@@ -232,8 +232,6 @@ function config.catppuccin()
 					-- ====================================================
 
 					-- For base configs.
-					NormalFloat = { fg = cp.text, bg = "#2D2E3D" },
-					-- FloatBorder = { fg = cp.blue },
 					CursorLineNr = { fg = cp.green },
 					Search = { bg = cp.surface1, fg = cp.pink, style = { "bold" } },
 					IncSearch = { bg = cp.pink, fg = cp.surface1 },
