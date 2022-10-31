@@ -19,7 +19,7 @@ completion["williamboman/mason.nvim"] = {
 }
 completion["glepnir/lspsaga.nvim"] = {
 	opt = true,
-	after = "nvim-lspconfig",
+	event = "LspAttach",
 	config = conf.lspsaga,
 }
 completion["ray-x/lsp_signature.nvim"] = {
