@@ -46,6 +46,12 @@ function autocmd.load_autocmds()
 				"*",
 				[[if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]],
 			},
+			-- Change cursor to vertical bar after leaving neovim.
+			{
+				"VimLeave",
+				"*",
+				"set guicursor=a:ver2",
+			},
 			-- Auto toggle fcitx5
 			-- {"InsertLeave", "* :silent", "!fcitx5-remote -c"},
 			-- {"BufCreate", "*", ":silent !fcitx5-remote -c"},
