@@ -1,7 +1,7 @@
 local tools = {}
 local conf = require("modules.tools.config")
 
-tools["nvim-lua/plenary.nvim"] = { opt = false }
+tools["nvim-lua/plenary.nvim"] = { opt = true, module = "plenary" }
 tools["nvim-telescope/telescope.nvim"] = {
 	opt = true,
 	module = "telescope",
