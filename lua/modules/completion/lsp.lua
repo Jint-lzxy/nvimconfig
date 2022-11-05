@@ -138,7 +138,6 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 				"--cross-file-rename",
 				"--header-insertion-decorators",
 				"--header-insertion=iwyu",
-				"--include-ineligible-results",
 				"--limit-references=3000",
 				"--limit-results=500",
 				"--pch-storage=memory",
