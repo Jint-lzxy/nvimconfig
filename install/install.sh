@@ -123,7 +123,7 @@ check_ssh() {
 
 is_latest() {
 	local nvim_version
-	nvim_version=$(nvim --version | head -n1 | sed -e 's|^[^0-9]*||' -e 's| .*||')
+	nvim_version="$(nvim --version | head -n1 | sed -e 's|^[^0-9]*||' -e 's| .*||')"
 	if version_ge "$(major_minor "${nvim_version##* }")" "$(major_minor "${REQUIRED_NVIM_VERSION}")"; then
 		return 0
 	else
