@@ -7,7 +7,6 @@ vim.api.nvim_command([[packadd nvim-navic]])
 local nvim_lsp = require("lspconfig")
 local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
-require("lspconfig.ui.windows").default_options.border = "single"
 
 local icons = {
 	ui = require("modules.ui.icons").get("ui", true),
