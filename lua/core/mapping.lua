@@ -47,8 +47,8 @@ local def_map = {
 	["v|<"] = map_cmd("<gv"),
 	["v|>"] = map_cmd(">gv"),
 	-- Accoustomed Settings
-	["n|<Up>"] = map_cr("resize -1"):with_silent():with_noremap(),
-	["n|<Down>"] = map_cr("resize +1"):with_silent():with_noremap(),
+	["n|<Up>"] = map_cr("resize +1"):with_silent():with_noremap(),
+	["n|<Down>"] = map_cr("resize -1"):with_silent():with_noremap(),
 	["n|<Left>"] = map_cr("vertical resize +2"):with_silent():with_noremap(),
 	["n|<Right>"] = map_cr("vertical resize -2"):with_silent():with_noremap(),
 	["n|ø"] = map_cmd("<Esc><C-w>q"),
