@@ -52,12 +52,6 @@ function config.cmp()
 		}
 	end
 
-	local cmp_window = require("cmp.utils.window")
-
-	function cmp_window:has_scrollbar()
-		return false
-	end
-
 	local compare = require("cmp.config.compare")
 
 	local cmp = require("cmp")
@@ -66,6 +60,7 @@ function config.cmp()
 			completion = {
 				-- border = border("CmpBorder"),
 				winhighlight = "Normal:CmpPmenu,CursorLine:CmpPmenuSel",
+				scrollbar = true,
 			},
 			documentation = {
 				border = space_separator("CmpDocBorder"),
