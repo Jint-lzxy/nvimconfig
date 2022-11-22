@@ -248,6 +248,11 @@ nvim_lsp.html.setup({
 	on_attach = custom_attach,
 })
 
+nvim_lsp.sourcekit.setup({
+	cmd = { "sourcekit-lsp", "--completion-max-results=500" },
+	filetypes = { "swift", "objective-c", "objective-cpp" },
+})
+
 local efmls = require("efmls-configs")
 
 -- Init `efm-langserver` here.
