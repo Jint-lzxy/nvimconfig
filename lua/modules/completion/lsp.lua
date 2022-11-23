@@ -234,24 +234,28 @@ end
 
 -- https://github.com/vscode-langservers/vscode-html-languageserver-bin
 
-nvim_lsp.html.setup({
-	cmd = { "html-languageserver", "--stdio" },
-	filetypes = { "html" },
-	init_options = {
-		configurationSection = { "html", "css", "javascript" },
-		embeddedLanguages = { css = true, javascript = true },
-	},
-	settings = {},
-	single_file_support = true,
-	flags = { debounce_text_changes = 500 },
-	capabilities = capabilities,
-	on_attach = custom_attach,
-})
+if vim.fn.executable("html-languageserver") then
+	nvim_lsp.html.setup({
+		cmd = { "html-languageserver", "--stdio" },
+		filetypes = { "html" },
+		init_options = {
+			configurationSection = { "html", "css", "javascript" },
+			embeddedLanguages = { css = true, javascript = true },
+		},
+		settings = {},
+		single_file_support = true,
+		flags = { debounce_text_changes = 500 },
+		capabilities = capabilities,
+		on_attach = custom_attach,
+	})
+end
 
-nvim_lsp.sourcekit.setup({
-	cmd = { "sourcekit-lsp", "--completion-max-results=500" },
-	filetypes = { "swift", "objective-c", "objective-cpp" },
-})
+if vim.fn.executable("sourcekit-lsp") then
+	nvim_lsp.sourcekit.setup({
+		cmd = { "sourcekit-lsp", "--completion-max-results=500" },
+		filetypes = { "swift", "objective-c", "objective-cpp" },
+	})
+end
 
 local efmls = require("efmls-configs")
 
