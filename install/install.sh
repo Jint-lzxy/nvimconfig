@@ -174,7 +174,7 @@ if check_ssh; then
 fi
 
 if [[ -d "${DEST_DIR}" ]]; then
-	mv -f "${DEST_DIR}" "${DEST_DIR}_$(date +%Y%m%dT%H%M%S)"
+	execute "mv" "-f" "${DEST_DIR}" "${DEST_DIR}_$(date +%Y%m%dT%H%M%S)"
 fi
 
 prompt "Fetching in progress..."
