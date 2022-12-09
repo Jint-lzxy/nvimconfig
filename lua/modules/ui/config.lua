@@ -626,6 +626,11 @@ function config.lualine()
 		filetypes = { "dapui_watches" },
 	}
 
+	local diffview = {
+		sections = mini_sections,
+		filetypes = { "DiffviewFiles" },
+	}
+
 	local function python_venv()
 		local function env_cleanup(venv)
 			if string.find(venv, "/") then
@@ -722,6 +727,7 @@ function config.lualine()
 			"toggleterm",
 			"fugitive",
 			outline,
+			diffview,
 			dapui_scopes,
 			dapui_breakpoints,
 			dapui_stacks,
