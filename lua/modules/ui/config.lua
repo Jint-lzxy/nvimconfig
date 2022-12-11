@@ -369,7 +369,7 @@ end
 
 function config.neodim()
 	require("neodim").setup({
-		alpha = 0.35,
+		alpha = 0.45,
 		blend_color = string.format("#%06x", vim.api.nvim_get_hl_by_name("Normal", true).background),
 		update_in_insert = {
 			enable = true,
