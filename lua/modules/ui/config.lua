@@ -368,9 +368,11 @@ function config.catppuccin()
 end
 
 function config.neodim()
+	local bg = vim.api.nvim_get_hl_by_name("Normal", true).background
+	local blend_color = bg ~= nil and string.format("#%06x", bg) or "#000000"
 	require("neodim").setup({
 		alpha = 0.45,
-		blend_color = string.format("#%06x", vim.api.nvim_get_hl_by_name("Normal", true).background),
+		blend_color = blend_color,
 		update_in_insert = {
 			enable = true,
 			delay = 100,
