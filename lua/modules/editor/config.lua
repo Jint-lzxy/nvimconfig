@@ -403,7 +403,7 @@ function config.dap()
 		callback({ type = "server", host = config.host, port = config.port })
 	end
 
-	dap.adapters.go = function(callback, config)
+	dap.adapters.go = function(callback)
 		local stdout = vim.loop.new_pipe(false)
 		local handle
 		local pid_or_err
