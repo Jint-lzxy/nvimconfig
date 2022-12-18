@@ -121,9 +121,7 @@ local load_core = function()
 
 	pack.ensure_plugins()
 	neovide_config()
-	if global.is_windows then
-		clipboard_config()
-	end
+	clipboard_config()
 
 	require("core.options")
 	require("core.mapping")
