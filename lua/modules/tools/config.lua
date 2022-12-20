@@ -2,8 +2,8 @@ local config = {}
 
 function config.telescope()
 	vim.api.nvim_command([[packadd sqlite.lua]])
+	vim.api.nvim_command([[packadd project.nvim]])
 	vim.api.nvim_command([[packadd telescope-fzf-native.nvim]])
-	vim.api.nvim_command([[packadd telescope-project.nvim]])
 	vim.api.nvim_command([[packadd telescope-frecency.nvim]])
 	vim.api.nvim_command([[packadd telescope-zoxide]])
 
@@ -88,10 +88,24 @@ function config.telescope()
 	})
 
 	require("telescope").load_extension("fzf")
-	require("telescope").load_extension("project")
+	require("telescope").load_extension("projects")
 	require("telescope").load_extension("notify")
 	require("telescope").load_extension("zoxide")
 	require("telescope").load_extension("frecency")
+end
+
+function config.project()
+	require("project_nvim").setup({
+		manual_mode = false,
+		detection_methods = { "lsp", "pattern" },
+		patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+		ignore_lsp = { "efm", "copilot" },
+		exclude_dirs = {},
+		show_hidden = false,
+		silent_chdir = true,
+		scope_chdir = "global",
+		datapath = vim.fn.stdpath("data"),
+	})
 end
 
 function config.trouble()

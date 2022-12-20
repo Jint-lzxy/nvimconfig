@@ -78,7 +78,7 @@ local plug_map = {
 	-- Plugin Undotree
 	["n|<leader>u"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
 	-- Plugin Telescope
-	["n|<leader>fp"] = map_cu("lua require('telescope').extensions.project.project{}"):with_noremap():with_silent(),
+	["n|<Leader>fp"] = map_cu("lua require('telescope').extensions.projects.projects{}"):with_noremap():with_silent(),
 	["n|<leader>fr"] = map_cu("lua require('telescope').extensions.frecency.frecency{}"):with_noremap():with_silent(),
 	["n|<leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent(),
 	["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
