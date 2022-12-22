@@ -6,6 +6,7 @@ function config.telescope()
 	vim.api.nvim_command([[packadd telescope-fzf-native.nvim]])
 	vim.api.nvim_command([[packadd telescope-frecency.nvim]])
 	vim.api.nvim_command([[packadd telescope-zoxide]])
+	vim.api.nvim_command([[packadd telescope-undo.nvim]])
 
 	local icons = { ui = require("modules.ui.icons").get("ui", true) }
 	local telescope_actions = require("telescope.actions.set")
@@ -76,6 +77,23 @@ function config.telescope()
 				show_unindexed = true,
 				ignore_patterns = { "*.git/*", "*/tmp/*" },
 			},
+			undo = {
+				side_by_side = true,
+				layout_config = {
+					preview_height = 0.8,
+				},
+				mappings = {
+					i = {
+						-- IMPORTANT: Note that telescope-undo must be available when telescope is configured if
+						-- you want to use the following actions. This means installing as a dependency of
+						-- telescope in it's `requirements` and loading this extension from there instead of
+						-- having the separate plugin definition as outlined above. See issue #6.
+						["<CR>"] = require("telescope-undo.actions").yank_additions,
+						["<S-CR>"] = require("telescope-undo.actions").yank_deletions,
+						["<C-CR>"] = require("telescope-undo.actions").restore,
+					},
+				},
+			},
 		},
 		pickers = {
 			buffers = fixfolds,
@@ -92,6 +110,7 @@ function config.telescope()
 	require("telescope").load_extension("notify")
 	require("telescope").load_extension("zoxide")
 	require("telescope").load_extension("frecency")
+	require("telescope").load_extension("undo")
 end
 
 function config.project()

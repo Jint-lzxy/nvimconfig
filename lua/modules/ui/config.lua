@@ -1022,13 +1022,6 @@ function config.nvim_bufferline()
 					text_align = "center",
 					padding = 1,
 				},
-				{
-					filetype = "undotree",
-					text = "Undo Tree",
-					text_align = "center",
-					highlight = "Directory",
-					separator = true,
-				},
 			},
 			diagnostics_indicator = function(count)
 				return "(" .. count .. ")"
@@ -1158,7 +1151,6 @@ function config.indent_blankline()
 			"peekaboo",
 			"git",
 			"TelescopePrompt",
-			"undotree",
 			"flutterToolsOutline",
 			"", -- for all buffers without a file type
 		},
