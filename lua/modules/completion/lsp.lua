@@ -128,14 +128,13 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 				"clangd",
 				"-j=12",
 				"--enable-config",
-				-- You MUST set this arg ↓ to your clangd executable location (if not included)!
+				-- You MUST set this arg ↓ to your c/cpp compiler location (if not included)!
 				"--query-driver=/usr/bin/clang++,/usr/bin/**/clang-*,/bin/clang,/bin/clang++,/usr/bin/gcc,/usr/bin/g++",
 				"--all-scopes-completion",
 				"--background-index",
 				"--clang-tidy",
 				"--completion-parse=auto",
 				"--completion-style=detailed",
-				"--cross-file-rename",
 				"--header-insertion-decorators",
 				"--header-insertion=iwyu",
 				"--limit-references=3000",
