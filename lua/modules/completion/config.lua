@@ -68,7 +68,10 @@ function config.cmp()
 			},
 		},
 		sorting = {
+			priority_weight = 2,
 			comparators = {
+				-- require("copilot_cmp.comparators").prioritize,
+				-- require("copilot_cmp.comparators").score,
 				-- require("cmp_tabnine.compare"),
 				compare.offset,
 				compare.exact,
@@ -88,6 +91,7 @@ function config.cmp()
 
 				vim_item.menu = ({
 					cmp_tabnine = "[TN]",
+					copilot = "[CPLT]",
 					buffer = "[BUF]",
 					orgmode = "[ORG]",
 					nvim_lsp = "[LSP]",
@@ -152,6 +156,7 @@ function config.cmp()
 			{ name = "orgmode" },
 			{ name = "buffer" },
 			{ name = "latex_symbols" },
+			-- { name = "copilot" },
 			-- { name = "cmp_tabnine" },
 		},
 	})
@@ -368,5 +373,15 @@ function config.mason_install()
 		run_on_start = true,
 	})
 end
+
+-- function config.copilot()
+-- 	vim.defer_fn(function()
+-- 		require("copilot").setup({
+-- 			filetypes = {
+-- 				["dap-repl"] = false,
+-- 			},
+-- 		})
+-- 	end, 100)
+-- end
 
 return config
