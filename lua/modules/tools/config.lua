@@ -7,6 +7,7 @@ function config.telescope()
 	vim.api.nvim_command([[packadd telescope-frecency.nvim]])
 	vim.api.nvim_command([[packadd telescope-zoxide]])
 	vim.api.nvim_command([[packadd telescope-undo.nvim]])
+	vim.api.nvim_command([[packadd telescope-live-grep-args.nvim]])
 
 	local icons = { ui = require("modules.ui.icons").get("ui", true) }
 	local telescope_actions = require("telescope.actions.set")
@@ -21,6 +22,7 @@ function config.telescope()
 			return true
 		end,
 	}
+	local lga_actions = require("telescope-live-grep-args.actions")
 
 	require("telescope").setup({
 		defaults = {
@@ -79,9 +81,6 @@ function config.telescope()
 			},
 			undo = {
 				side_by_side = true,
-				layout_config = {
-					preview_height = 0.8,
-				},
 				mappings = {
 					i = {
 						-- IMPORTANT: Note that telescope-undo must be available when telescope is configured if
@@ -91,6 +90,16 @@ function config.telescope()
 						["<CR>"] = require("telescope-undo.actions").yank_additions,
 						["<S-CR>"] = require("telescope-undo.actions").yank_deletions,
 						["<C-CR>"] = require("telescope-undo.actions").restore,
+					},
+				},
+			},
+			live_grep_args = {
+				auto_quoting = true, -- enable/disable auto-quoting
+				-- define mappings, e.g.
+				mappings = { -- extend mappings
+					i = {
+						["<C-k>"] = lga_actions.quote_prompt(),
+						["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
 					},
 				},
 			},
@@ -111,6 +120,7 @@ function config.telescope()
 	require("telescope").load_extension("zoxide")
 	require("telescope").load_extension("frecency")
 	require("telescope").load_extension("undo")
+	require("telescope").load_extension("live_grep_args")
 end
 
 function config.project()
