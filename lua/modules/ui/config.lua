@@ -374,6 +374,7 @@ end
 function config.neodim()
 	local bg = vim.api.nvim_get_hl_by_name("Normal", true).background
 	local blend_color = bg ~= nil and string.format("#%06x", bg) or "#000000"
+
 	require("neodim").setup({
 		alpha = 0.45,
 		blend_color = blend_color,
@@ -408,12 +409,12 @@ function config.notify()
 		on_close = nil,
 		---@usage timeout for notifications in ms, default 5000
 		timeout = 2000,
-		-- User render fps value
+		-- @usage User render fps value
 		fps = 30,
 		-- Render function for notifications. See notify-render()
 		render = "default",
 		---@usage highlight behind the window for stages that change opacity
-		background_colour = "#1E1E2E",
+		background_colour = "Normal",
 		---@usage minimum width for notification windows
 		minimum_width = 50,
 		---@usage notifications with level lower than this would be ignored. [ERROR > WARN > INFO > DEBUG > TRACE]
