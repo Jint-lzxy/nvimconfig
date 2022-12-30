@@ -319,4 +319,160 @@ function config.vim_cmake()
 	vim.g.cmake_root_markers = { ".git", ".svn", "src" }
 end
 
+function config.legendary()
+	require("legendary").setup({
+		select_prompt = " legendary.nvim ",
+		which_key = {
+			auto_register = true,
+			do_binding = false,
+		},
+		scratchpad = {
+			view = "float",
+			results_view = "float",
+			keep_contents = true,
+		},
+		sort = {
+			-- sort most recently used item to the top
+			most_recent_first = true,
+			-- sort user-defined items before built-in items
+			user_items_first = true,
+			frecency = {
+				-- the directory to store the database in
+				db_root = string.format("%s/legendary/", vim.fn.stdpath("data")),
+				max_timestamps = 10,
+			},
+		},
+		cache_path = string.format("%s/legendary/", vim.fn.stdpath("cache")),
+		log_level = "info",
+	})
+
+	require("which-key").register({
+		["<leader>"] = {
+			b = {
+				name = "Bufferline commands",
+				d = "buffer: Sort by directory",
+				e = "buffer: Sort by extension",
+			},
+			d = {
+				name = "Dap commands",
+				b = "debug: Toggle breakpoint",
+				bl = "debug: List breakpoint(s)",
+				B = "debug: Toggle breakpoint with condition",
+				d = "debug: Terminate debug session",
+				r = "debug: Continue",
+				rc = "debug: Run to cursor",
+				rl = "debug: Do last run again",
+				R = "debug: Start Lua debugger",
+				l = "debug: Open repl",
+				i = "debug: Step in",
+				o = "debug: Step out",
+				v = "debug: Step over",
+			},
+			f = {
+				name = "Telescope commands",
+				p = "find: Project",
+				w = "find: Word",
+				r = "find: File by frecency",
+				e = "find: File by history",
+				c = "ui: Change colorscheme",
+				z = "edit: Change current directory by zoxide",
+				f = "find: File under current work directory",
+				g = "find: File under current git directory",
+				b = "find: Buffers",
+				h = "find: Nvim help tags",
+				n = "edit: New file",
+			},
+			h = {
+				name = "Gitsigns commands",
+				b = "git: Blame line",
+				p = "git: Preview hunk",
+				s = "git: Stage hunk",
+				u = "git: Undo stage hunk",
+				r = "git: Reset hunk",
+				R = "git: Reset buffer",
+			},
+			l = {
+				name = "LSP commands",
+				i = "lsp: LSP Info",
+				r = "lsp: LSP Restart",
+			},
+			n = {
+				name = "NvimTree commands",
+				f = "filetree: NvimTree find file",
+				r = "filetree: NvimTree refresh",
+			},
+			p = {
+				name = "Packer commands",
+				s = "packer: PackerSync",
+				i = "packer: PackerInstall",
+				c = "packer: PackerClean",
+				u = "packer: PackerUpdate",
+			},
+			s = {
+				name = "Session commands",
+				s = "sesson: Save session",
+				r = "sesson: Restore session",
+				d = "sesson: Delete session",
+			},
+			c = {
+				name = "Trouble commands",
+				a = "lsp: Code action",
+				d = "lsp: Show document diagnostics",
+				w = "lsp: Show workspace diagnostics",
+				q = "lsp: Show quickfix list",
+				l = "lsp: Show loclist",
+			},
+		},
+		g = {
+			d = "lsp: Preview definition",
+			D = "lsp: Goto definition",
+			h = "lsp: Show reference",
+			o = "lsp: Toggle outline",
+			r = "lsp: Rename",
+			s = "lsp: Signature help",
+			t = "lsp: Toggle trouble list",
+			b = "buffer: Buffer pick",
+			p = {
+				name = "git commands",
+				s = "git: Push",
+				l = "git: Pull",
+			},
+		},
+		["<leader>G"] = "git: Show fugitive",
+		["<leader>g"] = "git: Show lazygit",
+		["<leader>D"] = "git: Show diff",
+		["<leader><leader>D"] = "git: Close diff",
+		["]g"] = "git: Goto next hunk",
+		["[g"] = "git: Goto prev hunk",
+		["g["] = "lsp: Goto prev diagnostic",
+		["g]"] = "lsp: Goto next diagnostic",
+		["<leader>w"] = "jump: Goto word",
+		["<leader>j"] = "jump: Goto line",
+		["<leader>k"] = "jump: Goto line",
+		["<leader>c"] = "jump: Goto one char",
+		["<leader>cc"] = "jump: Goto two chars",
+		["<leader>o"] = "edit: Check spell",
+		["<leader>u"] = "edit: Show undo history",
+		["<leader>r"] = "tool: Code snip run",
+		["<F12>"] = "tool: Markdown preview",
+	})
+end
+
+function config.dressing()
+	require("dressing").setup({
+		input = {
+			enabled = true,
+			default_prompt = "Input:",
+			insert_only = true,
+			start_in_insert = true,
+			prefer_width = 45,
+		},
+		select = {
+			enabled = true,
+			backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui" },
+			trim_prompt = true,
+		},
+	})
+end
+
 return config

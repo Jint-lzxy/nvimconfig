@@ -84,7 +84,7 @@ local plug_map = {
 		:with_silent(),
 	["n|<leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent(),
 	["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
-	["n|<Leader>fc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
+	["n|<leader>fc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
 	["n|<leader>fn"] = map_cu(":enew"):with_noremap():with_silent(),
 	["n|<leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
@@ -105,8 +105,8 @@ local plug_map = {
 	["n|<leader>c"] = map_cu("HopChar1"):with_noremap(),
 	["n|<leader>cc"] = map_cu("HopChar2"):with_noremap(),
 	-- Plugin EasyAlign
-	["n|ga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
-	["x|ga"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),
+	["n|gea"] = map_cmd("v:lua.enhance_align('nea')"):with_expr(),
+	["x|gea"] = map_cmd("v:lua.enhance_align('xea')"):with_expr(),
 	-- Plugin MarkdownPreview
 	["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent(),
 	-- Plugin auto_session
@@ -142,6 +142,8 @@ local plug_map = {
 	-- Plugin Diffview
 	["n|<leader>D"] = map_cr("DiffviewOpen"):with_silent():with_noremap(),
 	["n|<leader><leader>D"] = map_cr("DiffviewClose"):with_silent():with_noremap(),
+	-- Plugin Legendary
+	["n|<C-p>"] = map_cr("Legendary"):with_silent():with_noremap(),
 }
 
 bind.nvim_load_mapping(plug_map)

@@ -39,8 +39,7 @@ tools["michaelb/sniprun"] = {
 	cmd = { "SnipRun", "'<,'>SnipRun" },
 }
 tools["folke/which-key.nvim"] = {
-	opt = true,
-	keys = "<leader>",
+	opt = false,
 	config = conf.which_key,
 }
 tools["folke/trouble.nvim"] = {
@@ -68,6 +67,14 @@ tools["cdelledonne/vim-cmake"] = {
 		"CMakeStop",
 	},
 	config = conf.vim_cmake,
+}
+tools["mrjones2014/legendary.nvim"] = {
+	opt = true,
+	cmd = "Legendary",
+	config = conf.legendary,
+	requires = {
+		{ "stevearc/dressing.nvim", config = conf.dressing },
+	},
 }
 
 return tools
