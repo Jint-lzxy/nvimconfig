@@ -94,7 +94,7 @@ local plug_map = {
 	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
 	["n|k"] = map_cmd("v:lua.enhance_jk_move('k')"):with_silent():with_expr(),
 	-- Plugin bufdelete.nvim
-	["n|œ"] = map_cmd(":Bwipeout<CR>"),
+	["n|œ"] = map_cmd(":Bwipeout<CR>"):with_noremap():with_silent(),
 	-- Plugin clever-f
 	["n|;"] = map_cmd("v:lua.enhance_ft_move(';')"):with_expr(),
 	["n|,"] = map_cmd("v:lua.enhance_ft_move(',')"):with_expr(),
@@ -114,6 +114,7 @@ local plug_map = {
 	["n|<leader>sr"] = map_cu("RestoreSession"):with_noremap():with_silent(),
 	["n|<leader>sd"] = map_cu("DeleteSession"):with_noremap():with_silent(),
 	-- Plugin SnipRun
+	["n|<leader>r"] = map_cu([[%SnipRun]]):with_noremap():with_silent(),
 	["v|<leader>r"] = map_cr("SnipRun"):with_noremap():with_silent(),
 	-- Plugin dap
 	["n|<F6>"] = map_cr("lua require('dap').continue()"):with_noremap():with_silent(),
@@ -135,7 +136,6 @@ local plug_map = {
 	["n|<leader>do"] = map_cr("lua require('dap').step_out()"):with_noremap():with_silent(),
 	["n|<leader>dl"] = map_cr("lua require('dap').repl.open()"):with_noremap():with_silent(),
 	["o|m"] = map_cu("lua require('tsht').nodes()"):with_silent(),
-	["c|Q"] = map_cu("%SnipRun"):with_silent(),
 	-- Plugin Tabout
 	["i|¬"] = map_cmd("<Plug>(TaboutMulti)"):with_silent(),
 	["i|˙"] = map_cmd("<Plug>(TaboutBackMulti)"):with_silent(),
