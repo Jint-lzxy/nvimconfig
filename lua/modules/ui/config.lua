@@ -434,7 +434,6 @@ end
 
 function config.lualine()
 	local gps = require("nvim-gps")
-	local navic = require("nvim-navic")
 	local icons = {
 		diagnostics = require("modules.ui.icons").get("diagnostics", true),
 		misc = require("modules.ui.icons").get("misc"),
@@ -510,12 +509,35 @@ function config.lualine()
 
 	local function escape_status()
 		local ok, m = pcall(require, "better_escape")
-		return ok and m.waiting and icons.misc.EscapeST .. " " or ""
+		return ok and m.waiting and icons.misc.EscapeST or ""
+	end
+
+	local function lspsaga_symbols()
+		local exclude = {
+			["terminal"] = true,
+			["FTerm"] = true,
+			["toggleterm"] = true,
+			["prompt"] = true,
+			["NvimTree"] = true,
+			["help"] = true,
+		}
+		if vim.api.nvim_win_get_config(0).zindex or exclude[vim.bo.filetype] then
+			return "" -- Excluded filetypes
+		else
+			local ok, lspsaga = pcall(require, "lspsaga.symbolwinbar")
+			if ok then
+				if lspsaga.get_symbol_node() ~= nil then
+					return lspsaga.get_symbol_node()
+				else
+					return "" -- Cannot get node
+				end
+			end
+		end
 	end
 
 	local function code_context()
-		if navic.is_available() and navic.get_location() ~= "" then
-			return navic.get_location()
+		if lspsaga_symbols() ~= "" then
+			return lspsaga_symbols()
 		elseif gps.is_available() then
 			return gps.get_location()
 		else
@@ -591,7 +613,7 @@ function config.lualine()
 
 	local conditions = {
 		check_code_context = function()
-			return gps.is_available() or navic.is_available()
+			return gps.is_available() or lspsaga_symbols() ~= ""
 		end,
 	}
 
@@ -669,10 +691,9 @@ function config.lualine()
 		options = {
 			icons_enabled = true,
 			theme = custom_theme,
-			disabled_filetypes = {},
+			disabled_filetypes = { "disabled_big_file" },
 			component_separators = "|",
 			section_separators = { left = "", right = "" },
-			-- section_separators = { left = "", right = "" },
 		},
 		sections = {
 			lualine_a = { { "mode", icon = icons.misc.ManUp } },
@@ -743,6 +764,13 @@ function config.lualine()
 			dapui_watches,
 		},
 	})
+
+	-- Properly set background color for lspsaga
+	local winbar_bg = require("modules.utils").hl_to_rgb("StatusLine", true, "#000000")
+	require("modules.utils").extend_hl("LspSagaWinbarSep", { bg = winbar_bg })
+	for _, hlGroup in pairs(require("lspsaga.lspkind")) do
+		require("modules.utils").extend_hl("LspSagaWinbar" .. hlGroup[1], { bg = winbar_bg })
+	end
 end
 
 function config.nvim_gps()
@@ -769,50 +797,6 @@ function config.nvim_gps()
 			["python"] = false,
 		},
 		separator = " " .. icons.ui.Separator,
-	})
-end
-
-function config.nvim_navic()
-	local icons = {
-		ui = require("modules.ui.icons").get("ui", true),
-		kind = require("modules.ui.icons").get("kind", true),
-		type = require("modules.ui.icons").get("type", true),
-	}
-	vim.g.navic_silence = true
-
-	require("nvim-navic").setup({
-		icons = {
-			Method = icons.kind.Method,
-			Function = icons.kind.Function,
-			Constructor = icons.kind.Constructor,
-			Field = icons.kind.Field,
-			Variable = icons.kind.Variable,
-			Class = icons.kind.Class,
-			Interface = icons.kind.Interface,
-			Module = icons.kind.Module,
-			Property = icons.kind.Property,
-			Enum = icons.kind.Enum,
-			File = icons.kind.File,
-			EnumMember = icons.kind.EnumMember,
-			Constant = icons.kind.Constant,
-			Struct = icons.kind.Struct,
-			Event = icons.kind.Event,
-			Operator = icons.kind.Operator,
-			TypeParameter = icons.kind.TypeParameter,
-			Namespace = icons.kind.Namespace,
-			Object = icons.type.Object,
-			Array = icons.type.Array,
-			Boolean = icons.type.Boolean,
-			Number = icons.type.Number,
-			Null = icons.type.Null,
-			Key = icons.kind.Keyword,
-			String = icons.type.String,
-			Package = icons.kind.Package,
-		},
-		highlight = true,
-		depth_limit = 5,
-		separator = " " .. icons.ui.Separator,
-		depth_limit_indicator = "..",
 	})
 end
 

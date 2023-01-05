@@ -294,11 +294,31 @@ function config.lspsaga()
 		rename_action_quit = "<C-c>",
 		rename_in_select = true,
 		symbol_in_winbar = {
-			in_custom = false,
-			enable = false,
+			in_custom = true,
+			enable = true,
 			separator = " " .. icons.ui.Separator,
-			show_file = true,
-			click_support = false,
+			show_file = false,
+			click_support = function(node, clicks, button, modifiers)
+				local st = node.range.start
+				local en = node.range["end"]
+				if button == "l" then
+					if clicks == 2 then
+					-- double left click to do nothing
+					else -- jump to node's starting line+char
+						vim.fn.cursor(st.line + 1, st.character + 1)
+					end
+				elseif button == "r" then
+					if modifiers == "s" then
+						print("symbol_winbar")
+					end
+					vim.fn.cursor(en.line + 1, en.character + 1)
+				elseif button == "m" then
+					-- middle click to visual select node
+					vim.fn.cursor(st.line + 1, st.character + 1)
+					vim.api.nvim_command([[normal v]])
+					vim.fn.cursor(en.line + 1, en.character + 1)
+				end
+			end,
 		},
 		show_outline = {
 			win_position = "right",
