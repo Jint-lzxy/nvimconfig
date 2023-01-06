@@ -16,6 +16,12 @@ function config.cmp()
 	vim.api.nvim_set_hl(0, "CmpPmenuSel", { bg = "#42435C" })
 	vim.api.nvim_set_hl(0, "CmpDocBorder", { bg = "#2B2C3B" })
 
+	local icons = {
+		kind = require("modules.ui.icons").get("kind"),
+		type = require("modules.ui.icons").get("type"),
+		cmp = require("modules.ui.icons").get("cmp"),
+	}
+
 	-- vim.api.nvim_command([[packadd cmp-tabnine]])
 	local t = function(str)
 		return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -53,6 +59,7 @@ function config.cmp()
 	end
 
 	local compare = require("cmp.config.compare")
+	local lspkind = require("lspkind")
 
 	local cmp = require("cmp")
 	cmp.setup({
@@ -84,32 +91,27 @@ function config.cmp()
 			},
 		},
 		formatting = {
-			format = function(entry, vim_item)
-				local lspkind_icons = require("modules.ui.icons").get("kind")
-				-- load lspkind icons
-				vim_item.kind = string.format("%s %s", lspkind_icons[vim_item.kind], vim_item.kind)
-
-				vim_item.menu = ({
-					cmp_tabnine = "[TN]",
-					copilot = "[CPLT]",
-					buffer = "[BUF]",
-					orgmode = "[ORG]",
-					nvim_lsp = "[LSP]",
-					nvim_lua = "[LUA]",
-					path = "[PATH]",
-					tmux = "[TMUX]",
-					luasnip = "[SNIP]",
-					spell = "[SPELL]",
-				})[entry.source.name]
-
-				local label = vim_item.abbr
-				local truncated_label = vim.fn.strcharpart(label, 0, 80)
-				if truncated_label ~= label then
-					vim_item.abbr = truncated_label .. "..."
-				end
-
-				return vim_item
-			end,
+			format = lspkind.cmp_format({
+				mode = "symbol_text",
+				maxwidth = 60,
+				ellipsis_char = "...",
+				symbol_map = vim.tbl_deep_extend("force", icons.kind, icons.type, icons.cmp),
+				before = function(entry, vim_item)
+					vim_item.menu = ({
+						cmp_tabnine = "[TN]",
+						copilot = "[CPLT]",
+						buffer = "[BUF]",
+						orgmode = "[ORG]",
+						nvim_lsp = "[LSP]",
+						nvim_lua = "[LUA]",
+						path = "[PATH]",
+						tmux = "[TMUX]",
+						luasnip = "[SNIP]",
+						spell = "[SPELL]",
+					})[entry.source.name]
+					return vim_item
+				end,
+			}),
 		},
 		-- You can set mappings if you want
 		mapping = cmp.mapping.preset.insert({
