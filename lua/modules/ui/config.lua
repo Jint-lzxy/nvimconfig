@@ -693,7 +693,7 @@ function config.lualine()
 			theme = custom_theme,
 			disabled_filetypes = { "disabled_big_file" },
 			component_separators = "|",
-			section_separators = { left = "", right = "" },
+			section_separators = { left = "", right = "" },
 		},
 		sections = {
 			lualine_a = { { "mode", icon = icons.misc.ManUp } },
