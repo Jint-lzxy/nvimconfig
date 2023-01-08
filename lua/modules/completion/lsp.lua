@@ -6,6 +6,7 @@ vim.api.nvim_command([[packadd cmp-nvim-lsp]])
 local nvim_lsp = require("lspconfig")
 local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
+require("lspconfig.ui.windows").default_options.border = "single"
 
 local icons = {
 	ui = require("modules.ui.icons").get("ui", true),
@@ -14,12 +15,12 @@ local icons = {
 
 mason.setup({
 	ui = {
+		border = "single",
 		icons = {
 			package_pending = icons.ui.Modified_alt,
 			package_installed = icons.ui.Check,
 			package_uninstalled = icons.misc.Ghost,
 		},
-
 		keymaps = {
 			toggle_server_expand = "<CR>",
 			install_server = "i",
@@ -55,7 +56,9 @@ local function custom_attach(client, bufnr)
 		fix_pos = true,
 		hint_enable = true,
 		hi_parameter = "Search",
-		handler_opts = { "double" },
+		handler_opts = {
+			border = "rounded",
+		},
 	})
 end
 
