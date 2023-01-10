@@ -133,9 +133,9 @@ editor["jbyuki/one-small-step-for-vimkind"] = {
 	after = "nvim-dap",
 }
 editor["tpope/vim-fugitive"] = { opt = true, cmd = { "Git", "G" } }
-editor["famiu/bufdelete.nvim"] = {
+editor["ojroques/nvim-bufdel"] = {
 	opt = true,
-	cmd = { "Bdelete", "Bwipeout", "Bdelete!", "Bwipeout!" },
+	event = "BufReadPost",
 }
 editor["edluffy/specs.nvim"] = {
 	opt = true,

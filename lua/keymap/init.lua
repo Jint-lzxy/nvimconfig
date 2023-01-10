@@ -93,8 +93,8 @@ local plug_map = {
 	-- Plugin accelerate-jk
 	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
 	["n|k"] = map_cmd("v:lua.enhance_jk_move('k')"):with_silent():with_expr(),
-	-- Plugin bufdelete.nvim
-	["n|œ"] = map_cmd(":Bwipeout<CR>"):with_noremap():with_silent(),
+	-- Plugin nvim-bufdel
+	["n|œ"] = map_cr("BufDel"):with_noremap():with_silent(),
 	-- Plugin clever-f
 	["n|;"] = map_cmd("v:lua.enhance_ft_move(';')"):with_expr(),
 	["n|,"] = map_cmd("v:lua.enhance_ft_move(',')"):with_expr(),
