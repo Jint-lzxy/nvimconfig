@@ -265,6 +265,9 @@ function config.catppuccin()
 					FidgetTask = { bg = cp.none, fg = cp.surface2 },
 					FidgetTitle = { fg = cp.blue, style = { "bold" } },
 
+					-- For trouble.nvim
+					TroubleNormal = { bg = cp.base },
+
 					-- For telescope
 					TelescopeBorder = { fg = cp.mantle, bg = cp.mantle },
 					TelescopePromptBorder = { fg = cp.surface0, bg = cp.surface0 },
@@ -531,8 +534,8 @@ function config.lualine()
 		else
 			local ok, lspsaga = pcall(require, "lspsaga.symbolwinbar")
 			if ok then
-				if lspsaga.get_symbol_node() ~= nil then
-					return lspsaga.get_symbol_node()
+				if lspsaga:get_winbar() ~= nil then
+					return lspsaga:get_winbar()
 				else
 					return "" -- Cannot get node
 				end
@@ -773,7 +776,7 @@ function config.lualine()
 	-- Properly set background color for lspsaga
 	local winbar_bg = require("modules.utils").hl_to_rgb("StatusLine", true, "#000000")
 	require("modules.utils").extend_hl("LspSagaWinbarSep", { bg = winbar_bg })
-	for _, hlGroup in pairs(require("lspsaga.lspkind")) do
+	for _, hlGroup in pairs(require("lspsaga.highlight").get_kind()) do
 		require("modules.utils").extend_hl("LspSagaWinbar" .. hlGroup[1], { bg = winbar_bg })
 	end
 end
@@ -1016,6 +1019,12 @@ function config.nvim_bufferline()
 					text_align = "center",
 					padding = 1,
 				},
+				{
+					filetype = "lspsagaoutline",
+					text = "Lspsaga Outline",
+					text_align = "center",
+					padding = 1,
+				},
 			},
 			diagnostics_indicator = function(count)
 				return "(" .. count .. ")"
@@ -1027,8 +1036,7 @@ function config.nvim_bufferline()
 	}
 
 	if vim.g.colors_name == "catppuccin" then
-		local cp = require("catppuccin.palettes").get_palette() -- Get the palette.
-		cp.none = "NONE" -- Special setting for complete transparent fg/bg.
+		local cp = require("modules.utils").get_palette() -- Get the palette.
 
 		local catppuccin_hl_overwrite = {
 			highlights = require("catppuccin.groups.integrations.bufferline").get({

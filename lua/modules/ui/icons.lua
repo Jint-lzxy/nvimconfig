@@ -94,6 +94,7 @@ local data = {
 		FolderOpen = "",
 		Gear = "",
 		History = "",
+		Incoming = "",
 		Indicator = "",
 		Left = "",
 		List = "",
@@ -102,12 +103,15 @@ local data = {
 		Modified = "✥",
 		Modified_alt = "",
 		NewFile = "",
+		Newspaper = "",
 		Note = "",
+		Outcoming = "",
 		Package = "",
 		Pencil = "",
 		Perf = "",
 		Project = "",
 		Right = "",
+		RootFolderOpened = "",
 		Search = "",
 		Separator = "",
 		DoubleSeparator = "",
@@ -179,7 +183,6 @@ local data = {
 }
 
 ---Get a specific icon set.
----Returns the corrosponding icon set if the user enable icons.
 ---@param category string|"kind"|"type"|"documents"|"git"|"ui"|"diagnostics"|"misc"|"cmp"|"dap"
 ---@param add_space? boolean @Add trailing space after the icon.
 function icons.get(category, add_space)
