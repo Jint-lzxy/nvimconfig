@@ -448,7 +448,7 @@ function config.legendary()
 		["g["] = "lsp: Goto prev diagnostic",
 		["g]"] = "lsp: Goto next diagnostic",
 		["<leader>ci"] = "lsp: Incoming calls",
-		["<leader>co"] = "lsp: Outcoming calls",
+		["<leader>co"] = "lsp: Outgoing calls",
 		["<leader>w"] = "jump: Goto word",
 		["<leader>j"] = "jump: Goto line",
 		["<leader>k"] = "jump: Goto line",
