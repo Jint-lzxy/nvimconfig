@@ -214,8 +214,10 @@ function config.autopairs()
 end
 
 function config.lspsaga()
-	vim.api.nvim_set_hl(0, "LspFloatWinNormal", { bg = "#1E1E2E" })
-	vim.api.nvim_set_hl(0, "SagaShadow", { bg = "#1E1E2E" })
+	local colors = require("modules.utils").get_palette()
+
+	vim.api.nvim_set_hl(0, "LspFloatWinNormal", { bg = colors.base })
+	vim.api.nvim_set_hl(0, "SagaShadow", { bg = colors.base })
 
 	local icons = {
 		diagnostics = require("modules.ui.icons").get("diagnostics", true),
@@ -239,8 +241,6 @@ function config.lspsaga()
 	end
 
 	set_sidebar_icons()
-
-	local colors = require("modules.utils").get_palette()
 
 	require("lspsaga").setup({
 		preview = {
@@ -293,6 +293,9 @@ function config.lspsaga()
 		},
 		rename = {
 			quit = "<C-c>",
+			mark = "x",
+			confirm = "<CR>",
+			whole_project = true,
 			exec = "<CR>",
 			in_select = true,
 		},
@@ -316,6 +319,7 @@ function config.lspsaga()
 			separator = " " .. icons.ui.Separator,
 			hide_keyword = true,
 			show_file = false,
+			color_mode = true,
 		},
 		ui = {
 			theme = "round",
