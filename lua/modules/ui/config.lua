@@ -387,8 +387,8 @@ function config.catppuccin()
 end
 
 function config.neodim()
-	local bg = vim.api.nvim_get_hl_by_name("Normal", true).background
-	local blend_color = bg ~= nil and string.format("#%06x", bg) or "#000000"
+	vim.api.nvim_command([[packadd nvim-treesitter]])
+	local blend_color = require("modules.utils").hl_to_rgb("Normal", true)
 
 	require("neodim").setup({
 		alpha = 0.45,
@@ -449,64 +449,61 @@ end
 
 function config.lualine()
 	local gps = require("nvim-gps")
+	local global = require("core.global")
+
+	local colors = require("modules.utils").get_palette({ maroon = "#EA999D", flamingo = "#EEBEBE" })
 	local icons = {
 		diagnostics = require("modules.ui.icons").get("diagnostics", true),
 		misc = require("modules.ui.icons").get("misc"),
 		cmp = require("modules.ui.icons").get("cmp"),
 	}
 
-	local cp = require("catppuccin.palettes").get_palette()
-	cp.maroon = "#EA999D"
-	cp.flamingo = "#EEBEBE"
-
-	local global = require("core.global")
-
 	local custom_theme = {
 		normal = {
-			a = { bg = cp.lavender, fg = cp.mantle, gui = "bold" },
-			b = { bg = cp.surface1, fg = cp.lavender },
-			c = { bg = cp.mantle, fg = cp.text },
+			a = { bg = colors.lavender, fg = colors.mantle, gui = "bold" },
+			b = { bg = colors.surface1, fg = colors.lavender },
+			c = { bg = colors.mantle, fg = colors.text },
 
 			-- y = { bg = cp.maroon, fg = cp.surface0 },
 			-- z = { bg = cp.flamingo, fg = cp.surface0, gui = "bold" },
 		},
 
 		insert = {
-			a = { bg = cp.green, fg = cp.base, gui = "bold" },
-			b = { bg = cp.surface1, fg = cp.teal },
+			a = { bg = colors.green, fg = colors.base, gui = "bold" },
+			b = { bg = colors.surface1, fg = colors.teal },
 
 			-- y = { bg = cp.maroon, fg = cp.surface0 },
 			-- z = { bg = cp.flamingo, fg = cp.surface0, gui = "bold" },
 		},
 
 		command = {
-			a = { bg = cp.peach, fg = cp.base, gui = "bold" },
-			b = { bg = cp.surface1, fg = cp.peach },
+			a = { bg = colors.peach, fg = colors.base, gui = "bold" },
+			b = { bg = colors.surface1, fg = colors.peach },
 
 			-- y = { bg = cp.maroon, fg = cp.surface0 },
 			-- z = { bg = cp.flamingo, fg = cp.surface0, gui = "bold" },
 		},
 
 		visual = {
-			a = { bg = cp.flamingo, fg = cp.base, gui = "bold" },
-			b = { bg = cp.surface1, fg = cp.flamingo },
+			a = { bg = colors.flamingo, fg = colors.base, gui = "bold" },
+			b = { bg = colors.surface1, fg = colors.flamingo },
 
 			-- y = { bg = cp.maroon, fg = cp.surface0 },
 			-- z = { bg = cp.flamingo, fg = cp.surface0, gui = "bold" },
 		},
 
 		replace = {
-			a = { bg = cp.maroon, fg = cp.base, gui = "bold" },
-			b = { bg = cp.surface1, fg = cp.maroon },
+			a = { bg = colors.maroon, fg = colors.base, gui = "bold" },
+			b = { bg = colors.surface1, fg = colors.maroon },
 
 			-- y = { bg = cp.maroon, fg = cp.surface0 },
 			-- z = { bg = cp.flamingo, fg = cp.surface0, gui = "bold" },
 		},
 
 		inactive = {
-			a = { bg = cp.mantle, fg = cp.lavender },
-			b = { bg = cp.mantle, fg = cp.surface1, gui = "bold" },
-			c = { bg = cp.mantle, fg = cp.overlay0 },
+			a = { bg = colors.mantle, fg = colors.lavender },
+			b = { bg = colors.mantle, fg = colors.surface1, gui = "bold" },
+			c = { bg = colors.mantle, fg = colors.overlay0 },
 		},
 	}
 
@@ -618,9 +615,9 @@ function config.lualine()
 		end,
 		color = function()
 			return {
-				fg = vim.bo.modified and cp.green
-					or ((not vim.bo.modifiable or vim.bo.readonly) and cp.red or cp.lavender),
-				bg = cp.surface0,
+				fg = vim.bo.modified and colors.green
+					or ((not vim.bo.modifiable or vim.bo.readonly) and colors.red or colors.lavender),
+				bg = colors.surface0,
 			}
 		end,
 		padding = { left = 1.8, right = 2 },
@@ -740,7 +737,7 @@ function config.lualine()
 				{
 					show_lsp,
 					icon = " LSP ~",
-					color = { fg = cp.lavender },
+					color = { fg = colors.lavender },
 					separator = "",
 					fmt = trunc(145, 5, 120, false),
 				},
@@ -923,7 +920,7 @@ function config.nvim_tree()
 		},
 		update_focused_file = {
 			enable = true,
-			update_root = false,
+			update_root = true,
 			ignore_list = {},
 		},
 		ignore_ft_on_setup = {},
