@@ -448,7 +448,6 @@ function config.notify()
 end
 
 function config.lualine()
-	local gps = require("nvim-gps")
 	local global = require("core.global")
 
 	local colors = require("modules.utils").get_palette({ maroon = "#EA999D", flamingo = "#EEBEBE" })
@@ -550,8 +549,6 @@ function config.lualine()
 	local function code_context()
 		if lspsaga_symbols() ~= "" then
 			return lspsaga_symbols()
-		elseif gps.is_available() then
-			return gps.get_location()
 		else
 			return ""
 		end
@@ -621,12 +618,6 @@ function config.lualine()
 			}
 		end,
 		padding = { left = 1.8, right = 2 },
-	}
-
-	local conditions = {
-		check_code_context = function()
-			return gps.is_available() or lspsaga_symbols() ~= ""
-		end,
 	}
 
 	local mini_sections = {
@@ -720,7 +711,7 @@ function config.lualine()
 			},
 			lualine_c = {
 				edit_status,
-				{ code_context, cond = conditions.check_code_context },
+				code_context,
 			},
 			lualine_x = {
 				{ escape_status, separator = "" },
@@ -779,37 +770,10 @@ function config.lualine()
 
 	-- Properly set background color for lspsaga
 	local winbar_bg = require("modules.utils").hl_to_rgb("StatusLine", true, "#000000")
-	require("modules.utils").extend_hl("LspSagaWinbarSep", { bg = winbar_bg })
 	for _, hlGroup in pairs(require("lspsaga.highlight").get_kind()) do
 		require("modules.utils").extend_hl("LspSagaWinbar" .. hlGroup[1], { bg = winbar_bg })
 	end
-end
-
-function config.nvim_gps()
-	local icons = {
-		ui = require("modules.ui.icons").get("ui", true),
-		kind = require("modules.ui.icons").get("kind", true),
-	}
-
-	require("nvim-gps").setup({
-		icons = {
-			["class-name"] = icons.kind.Namespace, -- Classes and class-like objects
-			["function-name"] = icons.kind.Function, -- Functions
-			["method-name"] = icons.kind.Method, -- Methods (functions inside class-like objects)
-		},
-		languages = {
-			-- You can disable any language individually here
-			["c"] = true,
-			["cpp"] = true,
-			["go"] = true,
-			["java"] = true,
-			["javascript"] = true,
-			["lua"] = true,
-			["rust"] = true,
-			["python"] = false,
-		},
-		separator = " " .. icons.ui.Separator,
-	})
+	require("modules.utils").extend_hl("LspSagaWinbarSep", { bg = winbar_bg })
 end
 
 function config.nvim_tree()

@@ -20,13 +20,8 @@ ui["rcarriga/nvim-notify"] = {
 }
 ui["hoob3rt/lualine.nvim"] = {
 	opt = true,
-	after = { "nvim-gps", "lspsaga.nvim" },
+	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = conf.lualine,
-}
-ui["SmiteshP/nvim-gps"] = {
-	opt = true,
-	after = "nvim-treesitter",
-	config = conf.nvim_gps,
 }
 ui["goolord/alpha-nvim"] = {
 	opt = true,
