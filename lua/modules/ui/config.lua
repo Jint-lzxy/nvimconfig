@@ -62,8 +62,8 @@ function config.alpha()
 	dashboard.section.buttons.opts.hl = "String"
 
 	local function footer()
-		local total_plugins = #vim.tbl_keys(packer_plugins)
-		return " 🥰  Have Fun with neovim"
+		local stats = require("lazy").stats()
+		return " 💝  Have Fun with neovim"
 			.. "   v"
 			.. vim.version().major
 			.. "."
@@ -71,7 +71,7 @@ function config.alpha()
 			.. "."
 			.. vim.version().patch
 			.. "   "
-			.. total_plugins
+			.. stats.count
 			.. " plugins"
 	end
 
@@ -330,7 +330,7 @@ function config.catppuccin()
 					-- ["@constant.macro"] = { fg = cp.mauve },
 
 					-- ["@label"] = { fg = cp.blue },
-					["@method"] = { style = { "italic" } },
+					["@method"] = { fg = cp.blue, style = { "italic" } },
 					["@namespace"] = { fg = cp.rosewater, style = {} },
 
 					["@punctuation.delimiter"] = { fg = cp.teal },
@@ -387,7 +387,6 @@ function config.catppuccin()
 end
 
 function config.neodim()
-	vim.api.nvim_command([[packadd nvim-treesitter]])
 	local blend_color = require("modules.utils").hl_to_rgb("Normal", true)
 
 	require("neodim").setup({
@@ -906,7 +905,7 @@ function config.nvim_tree()
 					enable = true,
 					chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
 					exclude = {
-						filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+						filetype = { "notify", "qf", "diff", "fugitive", "fugitiveblame" },
 						buftype = { "nofile", "terminal", "help" },
 					},
 				},
@@ -1109,7 +1108,6 @@ function config.indent_blankline()
 			"log",
 			"fugitive",
 			"gitcommit",
-			"packer",
 			"vimwiki",
 			"markdown",
 			"json",

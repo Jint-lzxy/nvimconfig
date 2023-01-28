@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema-zh-cn.json",
   "diagnostics": {
-    "globals": ["vim", "packer_plugins"]
+    "globals": ["vim"]
   },
   "runtime": {
     "version": "LuaJIT"

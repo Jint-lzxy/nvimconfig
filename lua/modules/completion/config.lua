@@ -22,7 +22,6 @@ function config.cmp()
 		cmp = require("modules.ui.icons").get("cmp"),
 	}
 
-	-- vim.api.nvim_command([[packadd cmp-tabnine]])
 	local t = function(str)
 		return vim.api.nvim_replace_termcodes(str, true, true, true)
 	end

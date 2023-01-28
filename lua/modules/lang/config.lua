@@ -1,8 +1,6 @@
 local config = {}
 
 function config.rust_tools()
-	vim.api.nvim_command([[packadd nvim-lspconfig]])
-
 	local opts = {
 		tools = { -- rust-tools options
 

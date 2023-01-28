@@ -1,7 +1,5 @@
 local M = {}
 
-local home = os.getenv("HOME")
-
 local settings = require("core.settings")
 local disabled_workspaces = settings.format_disabled_dirs
 local format_on_save = settings.format_on_save

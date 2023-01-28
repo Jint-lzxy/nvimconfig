@@ -1,35 +1,35 @@
 local ui = {}
 local conf = require("modules.ui.config")
 
-ui["nvim-tree/nvim-web-devicons"] = { opt = false }
-ui["shaunsingh/nord.nvim"] = { opt = false, config = conf.nord }
-ui["sainnhe/edge"] = { opt = false, config = conf.edge }
+ui["shaunsingh/nord.nvim"] = { lazy = true, config = conf.nord }
+ui["sainnhe/edge"] = { lazy = true, config = conf.edge }
 ui["catppuccin/nvim"] = {
-	opt = false,
-	as = "catppuccin",
+	lazy = false,
+	name = "catppuccin",
 	config = conf.catppuccin, -- see config.lua for more information
 }
 ui["zbirenbaum/neodim"] = {
-	opt = true,
+	lazy = true,
 	event = "LspAttach",
 	config = conf.neodim,
 }
 ui["rcarriga/nvim-notify"] = {
-	opt = false,
+	lazy = true,
+	event = "VeryLazy",
 	config = conf.notify,
 }
-ui["hoob3rt/lualine.nvim"] = {
-	opt = true,
+ui["nvim-lualine/lualine.nvim"] = {
+	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = conf.lualine,
 }
 ui["goolord/alpha-nvim"] = {
-	opt = true,
+	lazy = true,
 	event = "BufWinEnter",
 	config = conf.alpha,
 }
 ui["nvim-tree/nvim-tree.lua"] = {
-	opt = true,
+	lazy = true,
 	cmd = {
 		"NvimTreeToggle",
 		"NvimTreeOpen",
@@ -40,28 +40,27 @@ ui["nvim-tree/nvim-tree.lua"] = {
 	config = conf.nvim_tree,
 }
 ui["lewis6991/gitsigns.nvim"] = {
-	opt = true,
+	lazy = true,
 	event = { "BufReadPost", "BufNewFile" },
 	config = conf.gitsigns,
 }
 ui["lukas-reineke/indent-blankline.nvim"] = {
-	opt = true,
+	lazy = true,
 	event = "BufReadPost",
 	config = conf.indent_blankline,
 }
 ui["akinsho/bufferline.nvim"] = {
-	opt = true,
-	tag = "*",
-	event = "BufReadPost",
+	lazy = true,
+	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = conf.nvim_bufferline,
 }
 ui["dstein64/nvim-scrollview"] = {
-	opt = true,
+	lazy = true,
 	event = "BufReadPost",
 	config = conf.scrollview,
 }
 ui["j-hui/fidget.nvim"] = {
-	opt = true,
+	lazy = true,
 	event = "BufReadPost",
 	config = conf.fidget,
 }

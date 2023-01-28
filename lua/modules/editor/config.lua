@@ -100,7 +100,6 @@ function config.illuminate()
 			"norg",
 			"NvimTree",
 			"Outline",
-			"packer",
 			"toggleterm",
 		},
 		under_cursor = false,
@@ -308,7 +307,6 @@ function config.dapui()
 end
 
 function config.dap()
-	vim.api.nvim_command([[packadd nvim-dap-ui]])
 	local dap = require("dap")
 	local dapui = require("dapui")
 	local icons = { dap = require("modules.ui.icons").get("dap") }

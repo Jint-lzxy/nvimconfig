@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # We don't need return codes for "$(command)", only stdout is needed.
 # Allow `[[ -n "$(command)" ]]`, `func "$(command)"`, pipes, etc.
@@ -8,6 +8,7 @@ set -u
 
 # global vars
 DEST_DIR="${HOME}/.config/nvim"
+BACKUP_DIR="${DEST_DIR}_backup-$(date +%Y%m%dT%H%M%S)"
 REQUIRED_NVIM_VERSION=0.8
 USE_SSH=1
 
@@ -21,6 +22,11 @@ abort() {
 # shellcheck disable=SC2292
 if [ -z "${BASH_VERSION:-}" ]; then
 	abort "Bash is required to interpret this script."
+fi
+
+# Check if script is run with force-interactive mode in CI
+if [[ -n "${CI-}" && -n "${INTERACTIVE-}" ]]; then
+	abort "Cannot run force-interactive mode in CI."
 fi
 
 # string formatters
@@ -71,6 +77,10 @@ prompt() {
 
 warn() {
 	printf "${tty_yellow}Warning${tty_reset}: %s\n" "$(chomp "$1")"
+}
+
+warn_ext() {
+	printf "         %s\n" "$(chomp "$1")"
 }
 
 getc() {
@@ -131,6 +141,33 @@ is_latest() {
 	fi
 }
 
+# Check if both `INTERACTIVE` and `NONINTERACTIVE` are set
+# Always use single-quoted strings with `exp` expressions
+# shellcheck disable=SC2016
+if [[ -n "${INTERACTIVE-}" && -n "${NONINTERACTIVE-}" ]]; then
+	abort 'Both `$INTERACTIVE` and `$NONINTERACTIVE` are set. Please unset at least one variable and try again.'
+fi
+
+# Check if script is run non-interactively (e.g. CI)
+# If it is run non-interactively we should not prompt for confirmation.
+# Always use single-quoted strings with `exp` expressions
+# shellcheck disable=SC2016
+if [[ -z "${NONINTERACTIVE-}" ]]; then
+	if [[ -n "${CI-}" ]]; then
+		warn 'Running in non-interactive mode because `$CI` is set.'
+		NONINTERACTIVE=1
+	elif [[ ! -t 0 ]]; then
+		if [[ -z "${INTERACTIVE-}" ]]; then
+			warn 'Running in non-interactive mode because `stdin` is not a TTY.'
+			NONINTERACTIVE=1
+		else
+			warn 'Running in interactive mode despite `stdin` not being a TTY because `$INTERACTIVE` is set.'
+		fi
+	fi
+else
+	prompt 'Running in non-interactive mode because `$NONINTERACTIVE` is set.'
+fi
+
 if ! command -v perl >/dev/null; then
 	abort "$(
 		cat <<EOABORT
@@ -158,23 +195,30 @@ EOABORT
 	)"
 fi
 
+# Always use HTTPS when this script is run non-interactively (e.g. CI)
+if [[ -n "${NONINTERACTIVE-}" ]]; then
+	USE_SSH=0
+fi
+
 prompt "This script will install Jint-lzxy/nvimconfig to:"
 echo "${DEST_DIR}"
 
 if [[ -d "${DEST_DIR}" ]]; then
-	warn "The destination folder: \"${DEST_DIR}\" already exists. We will make a backup for you under the same folder."
+	warn "The destination folder: \"${DEST_DIR}\" already exists."
+	warn_ext "We will make a backup for you at \"${BACKUP_DIR}\"."
 fi
 
-ring_bell
-wait_for_user
-
-if check_ssh; then
+if [[ -z "${NONINTERACTIVE-}" ]]; then
+	ring_bell
 	wait_for_user
-	USE_SSH=0
+
+	if check_ssh; then
+		USE_SSH=0
+	fi
 fi
 
 if [[ -d "${DEST_DIR}" ]]; then
-	execute "mv" "-f" "${DEST_DIR}" "${DEST_DIR}_$(date +%Y%m%dT%H%M%S)"
+	execute "mv" "-f" "${DEST_DIR}" "${BACKUP_DIR}"
 fi
 
 prompt "Fetching in progress..."
@@ -204,13 +248,15 @@ if [ "$USE_SSH" -eq "0" ]; then
 fi
 
 prompt "Spawning neovim and fetching plugins... (You'll be redirected shortly)"
-prompt "If packer failed to fetch any plugin(s), maunally execute \`nvim +PackerSync\` until everything is up-to-date."
+prompt "If lazy.nvim failed to fetch any plugin(s), maunally execute \`nvim \"+Lazy sync\"\` until everything is up-to-date."
 cat <<EOS
 
 Thank you for using this set of configuration!
 - Project Homepage:
     ${tty_underline}https://github.com/Jint-lzxy/nvimconfig${tty_reset}
 EOS
-wait_for_user
 
-nvim +PackerSync
+if [[ -z "${NONINTERACTIVE-}" ]]; then
+	wait_for_user
+	nvim "+Lazy sync"
+fi

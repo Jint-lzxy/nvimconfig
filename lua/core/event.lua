@@ -31,7 +31,7 @@ end
 
 function autocmd.load_autocmds()
 	local definitions = {
-		packer = {},
+		lazy = {},
 		bufs = {
 			-- Reload vim config automatically
 			{
