@@ -26,11 +26,6 @@ function config.cmp()
 		return vim.api.nvim_replace_termcodes(str, true, true, true)
 	end
 
-	local has_words_before = function()
-		local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-		return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-	end
-
 	local border = function(hl)
 		return {
 			{ "╭", hl },
@@ -125,8 +120,6 @@ function config.cmp()
 					cmp.select_next_item()
 				elseif require("luasnip").expand_or_jumpable() then
 					vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"), "")
-				elseif has_words_before() then
-					cmp.complete()
 				else
 					fallback()
 				end
@@ -216,7 +209,6 @@ function config.lspsaga()
 	local colors = require("modules.utils").get_palette()
 
 	vim.api.nvim_set_hl(0, "LspFloatWinNormal", { bg = colors.base })
-	vim.api.nvim_set_hl(0, "SagaShadow", { bg = colors.base })
 
 	local icons = {
 		diagnostics = require("modules.ui.icons").get("diagnostics", true),
@@ -281,9 +273,9 @@ function config.lspsaga()
 			virtual_text = true,
 		},
 		diagnostic = {
-			twice_into = false,
-			show_code_action = false,
+			show_code_action = true,
 			show_source = true,
+			jump_num_shortcut = true,
 			keys = {
 				exec_action = "<CR>",
 				quit = "q",
@@ -294,9 +286,8 @@ function config.lspsaga()
 			quit = "<C-c>",
 			mark = "x",
 			confirm = "<CR>",
-			whole_project = true,
 			exec = "<CR>",
-			in_select = true,
+			in_select = false,
 		},
 		outline = {
 			win_position = "right",
@@ -320,6 +311,10 @@ function config.lspsaga()
 			show_file = false,
 			color_mode = true,
 		},
+		beacon = {
+			enable = true,
+			frequency = 12,
+		},
 		ui = {
 			theme = "round",
 			border = "single", -- Can be single, double, rounded, solid, shadow.
@@ -331,21 +326,6 @@ function config.lspsaga()
 			diagnostic = icons.ui.Bug,
 			incoming = icons.ui.Incoming,
 			outgoing = icons.ui.Outgoing,
-			colors = {
-				normal_bg = colors.base,
-				title_bg = colors.base,
-				red = colors.red,
-				megenta = colors.maroon,
-				orange = colors.peach,
-				yellow = colors.yellow,
-				green = colors.green,
-				cyan = colors.sapphire,
-				blue = colors.blue,
-				purple = colors.mauve,
-				fg = colors.text,
-				white = colors.text,
-				black = colors.mantle,
-			},
 			kind = {
 				-- Kind
 				Class = { icons.kind.Class, colors.yellow },
