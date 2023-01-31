@@ -97,9 +97,6 @@ function autocmd.load_autocmds()
 			{ "FileType", "markdown", "set wrap" },
 			{ "FileType", "make", "set noexpandtab shiftwidth=8 softtabstop=0" },
 			{ "FileType", "dap-repl", "lua require('dap.ext.autocompl').attach()" },
-			-- Prevent infinite calls from freezing neovim.
-			-- Only set these options specific to the terminal buffer.
-			{ "FileType", "FTerm", "setlocal foldmethod=manual foldexpr=0" },
 			{
 				"FileType",
 				"*",

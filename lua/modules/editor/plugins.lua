@@ -67,11 +67,6 @@ editor["akinsho/toggleterm.nvim"] = {
 	event = "UIEnter",
 	config = conf.toggleterm,
 }
-editor["numtostr/FTerm.nvim"] = {
-	lazy = true,
-	event = "UIEnter",
-	config = conf.fterm,
-}
 editor["rmagatti/auto-session"] = {
 	lazy = true,
 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },

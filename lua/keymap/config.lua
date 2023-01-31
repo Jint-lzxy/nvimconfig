@@ -25,14 +25,12 @@ end
 local _lazygit = nil
 _G.toggle_lazygit = function()
 	if not _lazygit then
-		local Terminal = require("FTerm")
+		local Terminal = require("toggleterm.terminal").Terminal
 		_lazygit = Terminal:new({
-			ft = "FTerm_lazygit",
 			cmd = "lazygit",
-			dimensions = {
-				height = 0.88,
-				width = 0.9,
-			},
+			direction = "float",
+			close_on_exit = true,
+			hidden = true,
 		})
 	end
 	_lazygit:toggle()

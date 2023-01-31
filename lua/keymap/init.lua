@@ -58,12 +58,11 @@ local plug_map = {
 	["n|gpl"] = map_cr("G pull"):with_noremap():with_silent(),
 	-- Toggle Terminal
 	-- Global
-	-- ["t|<Esc><Esc>"] = map_cmd("<C-\><C-n>"), -- switch to normal mode in terminal.
+	["t|≈"] = map_cmd("<C-\\><C-n>"):with_noremap():with_silent(), -- switch to normal mode in terminal.
 	-- Floating
-	["n|∂"] = map_cu("lua require('FTerm').toggle()"):with_noremap():with_silent(),
-	["i|∂"] = map_cmd("<Esc><Cmd>lua require('FTerm').toggle()<CR>"):with_noremap():with_silent(),
-	["t|∂"] = map_cu("<C-\\><C-n><CMD>lua require('FTerm').toggle()"):with_noremap():with_silent(),
-	["t|≈"] = map_cu("<C-\\><C-n><CMD>lua require('FTerm').exit()"):with_noremap():with_silent(),
+	["n|∂"] = map_cr([[execute v:count . "ToggleTerm direction=float"]]):with_noremap():with_silent(),
+	["i|∂"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>"):with_noremap():with_silent(),
+	["t|∂"] = map_cu("<C-\\><C-n><CMD>ToggleTerm"):with_noremap():with_silent(),
 	["n|<leader>g"] = map_cu("lua toggle_lazygit()"):with_noremap():with_silent(),
 	-- Horizontal / Vertical
 	["n|»"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]]):with_noremap():with_silent(),

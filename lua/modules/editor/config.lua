@@ -201,18 +201,20 @@ function config.auto_session()
 end
 
 function config.toggleterm()
+	local colors = require("modules.utils").get_palette()
+
 	require("toggleterm").setup({
 		-- size can be a number or function which is passed the current terminal
 		size = function(term)
 			if term.direction == "horizontal" then
 				return 15
 			elseif term.direction == "vertical" then
-				return vim.o.columns * 0.40
+				return vim.o.columns * 0.35
 			end
 		end,
 		highlights = {
 			FloatBorder = {
-				guifg = "#96CDFB",
+				guifg = colors.blue,
 			},
 		},
 		on_open = function()
@@ -221,7 +223,7 @@ function config.toggleterm()
 			vim.api.nvim_set_option_value("foldmethod", "manual", { scope = "local" })
 			vim.api.nvim_set_option_value("foldexpr", "0", { scope = "local" })
 		end,
-		open_mapping = nil, -- [[<c-\>]],
+		open_mapping = nil,
 		hide_numbers = true, -- hide the number column in toggleterm buffers
 		shade_filetypes = {},
 		shade_terminals = false,
@@ -232,16 +234,6 @@ function config.toggleterm()
 		direction = "horizontal",
 		close_on_exit = true, -- close the terminal window when the process exits
 		shell = vim.o.shell, -- change the default shell
-	})
-end
-
-function config.fterm()
-	require("FTerm").setup({
-		ft = "FTerm",
-		dimensions = {
-			height = 0.88,
-			width = 0.9,
-		},
 	})
 end
 
