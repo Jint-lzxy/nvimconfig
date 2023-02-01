@@ -29,9 +29,9 @@
   "indent-blankline.nvim": { "branch": "master", "commit": "8299fe7703dfff4b1752aeed271c3b95281a952d" },
   "lazy.nvim": { "branch": "main", "commit": "15fe46a728b7473d4cae368838bbc1c79c3a3f48" },
   "legendary.nvim": { "branch": "master", "commit": "3008ed68c8f309ced07587684c8af53884791d35" },
-  "lsp_signature.nvim": { "branch": "master", "commit": "b86f249cba85ec2f0f74c62b65898bade00b4413" },
+  "lsp_signature.nvim": { "branch": "master", "commit": "c15369260448d81cb65e5c6965850232ed22fbbc" },
   "lspkind.nvim": { "branch": "master", "commit": "c68b3a003483cf382428a43035079f78474cd11e" },
-  "lspsaga.nvim": { "branch": "main", "commit": "54725e87bdc3adf6cd609a5f54c03ef08091b1f2" },
+  "lspsaga.nvim": { "branch": "main", "commit": "f514660f65983d33613bf605bfd0adf583c06a8b" },
   "lualine.nvim": { "branch": "master", "commit": "0050b308552e45f7128f399886c86afefc3eb988" },
   "markdown-preview.nvim": { "branch": "master", "commit": "02cc3874738bc0f86e4b91f09b8a0ac88aef8e96" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "53f3a8bdcb77d4a95b082fd57e12173f353c6c3e" },
@@ -85,7 +85,7 @@
   "vim-illuminate": { "branch": "master", "commit": "d6ca7f77eeaf61b3e6ce9f0e5a978d606df44298" },
   "vim-im-select": { "branch": "master", "commit": "706d05e5c92aa048f5baa01b03f3822869c913de" },
   "vim-matchup": { "branch": "master", "commit": "959e0e79ea240cdee29efbdd0d2e2e718931ccec" },
-  "vim-startuptime": { "branch": "master", "commit": "239567602a6decf9e28a691b8d96b50c379ccf95" },
+  "vim-startuptime": { "branch": "master", "commit": "c7021c332e615a9ef6f50381dbf9f04bec6245aa" },
   "which-key.nvim": { "branch": "main", "commit": "684e96c5e8477f1ee9b3f2e9a12d802fd12c5531" },
   "wilder.nvim": { "branch": "master", "commit": "679f348dc90d80ff9ba0e7c470c40a4d038dcecf" }
 }
