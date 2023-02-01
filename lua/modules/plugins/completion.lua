@@ -42,14 +42,14 @@ completion["hrsh7th/nvim-cmp"] = {
 			"windwp/nvim-autopairs",
 			config = require("completion.autopairs"),
 		},
-		-- { "tzachar/cmp-tabnine", build = "./install.sh", config = conf.tabnine },
+		-- { "tzachar/cmp-tabnine", build = "./install.sh", config = require("completion.tabnine") },
 	},
 }
 --[[
 completion["zbirenbaum/copilot.lua"] = {
 	cmd = "Copilot",
 	event = "InsertEnter",
-	config = require("completion.copilot_nvim"),
+	config = require("completion.copilot"),
 	dependencies = {
 		{
 			"zbirenbaum/copilot-cmp",

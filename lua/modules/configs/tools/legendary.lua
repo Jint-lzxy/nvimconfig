@@ -18,6 +18,8 @@ return function()
 			frecency = {
 				-- the directory to store the database in
 				db_root = string.format("%s/legendary/", vim.fn.stdpath("data")),
+				-- the maximum number of timestamps for a single item
+				-- to store in the database
 				max_timestamps = 10,
 			},
 		},
@@ -57,7 +59,7 @@ return function()
 				z = "edit: Change current directory by zoxide",
 				f = "find: File under current work directory",
 				g = "find: File under current git directory",
-				b = "find: Buffers",
+				b = "find: Buffer opened",
 				h = "find: Nvim help tags",
 				n = "edit: New file",
 			},

@@ -53,7 +53,7 @@ tools["gelguy/wilder.nvim"] = {
 	lazy = true,
 	event = "CmdlineEnter",
 	config = require("tools.wilder"),
-	dependencies = { { "romgrk/fzy-lua-native" } },
+	dependencies = { "romgrk/fzy-lua-native" },
 }
 tools["mrjones2014/legendary.nvim"] = {
 	lazy = true,

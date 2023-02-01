@@ -93,7 +93,7 @@ return function()
 		end,
 
 		efm = function()
-			-- do nothing
+			-- Do not setup efm
 		end,
 
 		gopls = function()
