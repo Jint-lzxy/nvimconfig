@@ -3,4 +3,3 @@ return {
 	cmd = { "sourcekit-lsp", "--completion-max-results=500" },
 	filetypes = { "swift", "objective-c", "objective-cpp" },
 }
-
