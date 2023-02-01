@@ -10,23 +10,23 @@ completion["neovim/nvim-lspconfig"] = {
 		{ "williamboman/mason-lspconfig.nvim" },
 		{
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			config = require("completion.mason_installer"),
+			config = require("completion.mason-tool-installer"),
 		},
 		{
 			"glepnir/lspsaga.nvim",
-			config = require("completion.lsp_saga"),
+			config = require("completion.lspsaga"),
 		},
 		{ "ray-x/lsp_signature.nvim" },
 	},
 }
 completion["hrsh7th/nvim-cmp"] = {
 	event = "InsertEnter",
-	config = require("completion.nvim-cmp"),
+	config = require("completion.cmp"),
 	dependencies = {
 		{
 			"L3MON4D3/LuaSnip",
 			dependencies = { "rafamadriz/friendly-snippets" },
-			config = require("completion.cmp_luasnip"),
+			config = require("completion.luasnip"),
 		},
 		{ "onsails/lspkind.nvim" },
 		{ "lukas-reineke/cmp-under-comparator" },

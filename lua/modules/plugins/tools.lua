@@ -3,7 +3,7 @@ local tools = {}
 tools["nvim-telescope/telescope.nvim"] = {
 	lazy = true,
 	cmd = "Telescope",
-	config = require("tools.telescope_nvim"),
+	config = require("tools.telescope"),
 	dependencies = {
 		{ "nvim-tree/nvim-web-devicons" },
 		{ "nvim-lua/plenary.nvim" },
@@ -26,12 +26,12 @@ tools["michaelb/sniprun"] = {
 	lazy = true,
 	build = "bash ./install.sh",
 	cmd = { "SnipRun" },
-	config = require("tools.snip-run"),
+	config = require("tools.sniprun"),
 }
 tools["folke/trouble.nvim"] = {
 	lazy = true,
 	cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
-	config = require("tools.trouble_nvim"),
+	config = require("tools.trouble"),
 }
 tools["cdelledonne/vim-cmake"] = {
 	lazy = true,
@@ -52,25 +52,25 @@ tools["dstein64/vim-startuptime"] = { lazy = true, cmd = "StartupTime" }
 tools["gelguy/wilder.nvim"] = {
 	lazy = true,
 	event = "CmdlineEnter",
-	config = require("tools.wilder_nvim"),
+	config = require("tools.wilder"),
 	dependencies = { { "romgrk/fzy-lua-native" } },
 }
 tools["mrjones2014/legendary.nvim"] = {
 	lazy = true,
 	cmd = "Legendary",
-	config = require("tools.legendary_nvim"),
+	config = require("tools.legendary"),
 	dependencies = {
 		{ "kkharji/sqlite.lua" },
 		{
 			"stevearc/dressing.nvim",
 			event = "VeryLazy",
-			config = require("tools.dressing_nvim"),
+			config = require("tools.dressing"),
 		},
 		-- Please don't remove which-key.nvim otherwise you need to set timeoutlen=300 at `lua/core/options.lua`
 		{
 			"folke/which-key.nvim",
 			event = "VeryLazy",
-			config = require("tools.whichkey"),
+			config = require("tools.which-key"),
 		},
 	},
 }

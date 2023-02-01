@@ -36,7 +36,7 @@ return function()
 
 	-- Configure language-specific adapters
 	require("editor.dap.dap-lldb")
-	require("editor.dap.dap-lua")
-	require("editor.dap.dap-python")
-	require("editor.dap.dap-go")
+	require("editor.dap.dap-osv")
+	require("editor.dap.dap-debugpy")
+	require("editor.dap.dap-dlv")
 end

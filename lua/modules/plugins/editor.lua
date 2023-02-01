@@ -3,12 +3,12 @@ local editor = {}
 editor["rainbowhxch/accelerated-jk.nvim"] = {
 	lazy = true,
 	event = "VeryLazy",
-	config = require("editor.acc-jk"),
+	config = require("editor.accelerated-jk"),
 }
 editor["rmagatti/auto-session"] = {
 	lazy = true,
 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
-	config = require("editor.au-session"),
+	config = require("editor.auto-session"),
 }
 editor["max397574/better-escape.nvim"] = {
 	lazy = true,
@@ -17,7 +17,7 @@ editor["max397574/better-escape.nvim"] = {
 }
 editor["LunarVim/bigfile.nvim"] = {
 	lazy = false,
-	config = require("editor.bigfile_nvim"),
+	config = require("editor.bigfile"),
 	cond = require("core.settings").load_big_files_faster,
 }
 editor["ojroques/nvim-bufdel"] = {
@@ -46,17 +46,17 @@ editor["phaazon/hop.nvim"] = {
 	},--]]
 	branch = "v2",
 	event = "BufReadPost",
-	config = require("editor.hop_nvim"),
+	config = require("editor.hop"),
 }
 editor["karb94/neoscroll.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
-	config = require("editor.neoscroll_nvim"),
+	config = require("editor.neoscroll"),
 }
 editor["edluffy/specs.nvim"] = {
 	lazy = true,
 	event = "CursorMoved",
-	config = require("editor.specs_nvim"),
+	config = require("editor.specs"),
 }
 editor["luukvbaal/stabilize.nvim"] = {
 	lazy = true,
@@ -65,7 +65,7 @@ editor["luukvbaal/stabilize.nvim"] = {
 editor["akinsho/toggleterm.nvim"] = {
 	lazy = true,
 	event = "UIEnter",
-	config = require("editor.toggleterm_nvim"),
+	config = require("editor.toggleterm"),
 }
 editor["romainl/vim-cool"] = {
 	lazy = true,
@@ -115,11 +115,11 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		},
 		{
 			"NvChad/nvim-colorizer.lua",
-			config = require("editor.nvim-colorizer"),
+			config = require("editor.colorizer"),
 		},
 		{
 			"abecodes/tabout.nvim",
-			config = require("editor.tabout_nvim"),
+			config = require("editor.tabout"),
 		},
 	},
 }

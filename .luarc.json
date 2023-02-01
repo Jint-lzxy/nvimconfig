@@ -18,5 +18,8 @@
   },
   "telemetry": {
     "enable": false
-  }
+  },
+    "diagnostics.disable": [
+        "different-requires"
+    ]
 }
