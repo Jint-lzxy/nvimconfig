@@ -35,8 +35,8 @@ return function()
 	vim.fn.sign_define("DapLogPoint", { text = icons.dap.LogPoint, texthl = "DapLogPoint", linehl = "", numhl = "" })
 
 	-- Configure language-specific adapters
-	require("modules.configs.editor.dap.dap-lldb")
-	require("modules.configs.editor.dap.dap-lua")
-	require("modules.configs.editor.dap.dap-python")
-	require("modules.configs.editor.dap.dap-go")
+	require("editor.dap.dap-lldb")
+	require("editor.dap.dap-lua")
+	require("editor.dap.dap-python")
+	require("editor.dap.dap-go")
 end

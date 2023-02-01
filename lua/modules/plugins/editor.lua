@@ -3,21 +3,21 @@ local editor = {}
 editor["rainbowhxch/accelerated-jk.nvim"] = {
 	lazy = true,
 	event = "VeryLazy",
-	config = require("modules.configs.editor.acc-jk"),
+	config = require("editor.acc-jk"),
 }
 editor["rmagatti/auto-session"] = {
 	lazy = true,
 	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
-	config = require("modules.configs.editor.au-session"),
+	config = require("editor.au-session"),
 }
 editor["max397574/better-escape.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
-	config = require("modules.configs.editor.better-escape"),
+	config = require("editor.better-escape"),
 }
 editor["LunarVim/bigfile.nvim"] = {
 	lazy = false,
-	config = require("modules.configs.editor.bigfile_nvim"),
+	config = require("editor.bigfile_nvim"),
 	cond = require("core.settings").load_big_files_faster,
 }
 editor["ojroques/nvim-bufdel"] = {
@@ -27,7 +27,7 @@ editor["ojroques/nvim-bufdel"] = {
 editor["rhysd/clever-f.vim"] = {
 	lazy = true,
 	event = "BufReadPost",
-	config = require("modules.configs.editor.cleverf"),
+	config = require("editor.cleverf"),
 }
 editor["sindrets/diffview.nvim"] = {
 	lazy = true,
@@ -46,17 +46,17 @@ editor["phaazon/hop.nvim"] = {
 	},--]]
 	branch = "v2",
 	event = "BufReadPost",
-	config = require("modules.configs.editor.hop_nvim"),
+	config = require("editor.hop_nvim"),
 }
 editor["karb94/neoscroll.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
-	config = require("modules.configs.editor.neoscroll_nvim"),
+	config = require("editor.neoscroll_nvim"),
 }
 editor["edluffy/specs.nvim"] = {
 	lazy = true,
 	event = "CursorMoved",
-	config = require("modules.configs.editor.specs_nvim"),
+	config = require("editor.specs_nvim"),
 }
 editor["luukvbaal/stabilize.nvim"] = {
 	lazy = true,
@@ -65,7 +65,7 @@ editor["luukvbaal/stabilize.nvim"] = {
 editor["akinsho/toggleterm.nvim"] = {
 	lazy = true,
 	event = "UIEnter",
-	config = require("modules.configs.editor.toggleterm_nvim"),
+	config = require("editor.toggleterm_nvim"),
 }
 editor["romainl/vim-cool"] = {
 	lazy = true,
@@ -74,7 +74,7 @@ editor["romainl/vim-cool"] = {
 editor["terrortylor/nvim-comment"] = {
 	lazy = true,
 	event = { "BufNewFile", "BufReadPre" },
-	config = require("modules.configs.editor.nvim-comment"),
+	config = require("editor.nvim-comment"),
 }
 editor["junegunn/vim-easy-align"] = {
 	lazy = true,
@@ -87,12 +87,12 @@ editor["tpope/vim-fugitive"] = {
 editor["RRethy/vim-illuminate"] = {
 	lazy = true,
 	event = "BufReadPost",
-	config = require("modules.configs.editor.vim-illuminate"),
+	config = require("editor.vim-illuminate"),
 }
 editor["brglng/vim-im-select"] = {
 	lazy = true,
 	event = "BufReadPost",
-	config = require("modules.configs.editor.imselect"),
+	config = require("editor.imselect"),
 }
 
 ----------------------------------------------------------------------
@@ -102,24 +102,24 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	lazy = true,
 	build = ":TSUpdate",
 	event = "BufReadPost",
-	config = require("modules.configs.editor.treesitter"),
+	config = require("editor.treesitter"),
 	dependencies = {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		{ "p00f/nvim-ts-rainbow" },
 		{ "JoosepAlviste/nvim-ts-context-commentstring" },
 		{ "mfussenegger/nvim-ts-hint-textobject" },
-		{ "andymass/vim-matchup", config = require("modules.configs.editor.matchup") },
+		{ "andymass/vim-matchup", config = require("editor.matchup") },
 		{
 			"windwp/nvim-ts-autotag",
-			config = require("modules.configs.editor.autotag"),
+			config = require("editor.autotag"),
 		},
 		{
 			"NvChad/nvim-colorizer.lua",
-			config = require("modules.configs.editor.nvim-colorizer"),
+			config = require("editor.nvim-colorizer"),
 		},
 		{
 			"abecodes/tabout.nvim",
-			config = require("modules.configs.editor.tabout_nvim"),
+			config = require("editor.tabout_nvim"),
 		},
 	},
 }
@@ -140,13 +140,13 @@ editor["mfussenegger/nvim-dap"] = {
 		"DapStepOut",
 		"DapTerminate",
 	},
-	config = require("modules.configs.editor.nvim_dap"),
+	config = require("editor.dap"),
 	dependencies = {
 		{
 			"rcarriga/nvim-dap-ui",
-			config = require("modules.configs.editor.nvim_dap.dapui"),
+			config = require("editor.dap.dapui"),
 		},
-		{ "theHamsta/nvim-dap-virtual-text", config = require("modules.configs.editor.nvim_dap.dap-virtual-text") },
+		{ "theHamsta/nvim-dap-virtual-text", config = require("editor.dap.dap-virtual-text") },
 		{ "jbyuki/one-small-step-for-vimkind" },
 	},
 }

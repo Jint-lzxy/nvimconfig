@@ -1,5 +1,5 @@
 return function()
-	local formatting = require("modules.configs.completion.formatting")
+	local formatting = require("completion.formatting")
 
 	local nvim_lsp = require("lspconfig")
 	local mason = require("mason")
@@ -73,20 +73,20 @@ return function()
 		end,
 
 		asm_lsp = function()
-			local _opts = require("modules.configs.completion.servers.asm_lsp")
+			local _opts = require("completion.servers.asm_lsp")
 			local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
 			nvim_lsp.asm_lsp.setup(final_opts)
 		end,
 
 		bashls = function()
-			local _opts = require("modules.configs.completion.servers.bashls")
+			local _opts = require("completion.servers.bashls")
 			local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
 			nvim_lsp.bashls.setup(final_opts)
 		end,
 
 		clangd = function()
 			local _capabilities = vim.tbl_deep_extend("keep", { offsetEncoding = { "utf-16", "utf-8" } }, capabilities)
-			local _opts = require("modules.configs.completion.servers.clangd")
+			local _opts = require("completion.servers.clangd")
 			local final_opts =
 				vim.tbl_deep_extend("keep", _opts, { on_attach = opts.on_attach, capabilities = _capabilities })
 			nvim_lsp.clangd.setup(final_opts)
@@ -97,32 +97,32 @@ return function()
 		end,
 
 		gopls = function()
-			local _opts = require("modules.configs.completion.servers.gopls")
+			local _opts = require("completion.servers.gopls")
 			local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
 			nvim_lsp.gopls.setup(final_opts)
 		end,
 
 		jsonls = function()
-			local _opts = require("modules.configs.completion.servers.jsonls")
+			local _opts = require("completion.servers.jsonls")
 			local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
 			nvim_lsp.jsonls.setup(final_opts)
 		end,
 
 		sumneko_lua = function()
-			local _opts = require("modules.configs.completion.servers.sumneko_lua")
+			local _opts = require("completion.servers.sumneko_lua")
 			local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
 			nvim_lsp.sumneko_lua.setup(final_opts)
 		end,
 	})
 
 	if vim.fn.executable("html-languageserver") then
-		local _opts = require("modules.configs.completion.servers.html")
+		local _opts = require("completion.servers.html")
 		local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
 		nvim_lsp.html.setup(final_opts)
 	end
 
 	if vim.fn.executable("sourcekit-lsp") then
-		local _opts = require("modules.configs.completion.servers.sourcekit")
+		local _opts = require("completion.servers.sourcekit")
 		local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
 		nvim_lsp.sourcekit.setup(final_opts)
 	end
@@ -151,9 +151,9 @@ return function()
 
 	-- Add your own config for formatter and linter here
 
-	local asmfmt = require("modules.configs.completion.efm.formatters.asmfmt")
-	-- local clangtidy = require("modules.configs.completion.efm.formatters.clangtidy")
-	local clangfmt = require("modules.configs.completion.efm.formatters.clangfmt")
+	local asmfmt = require("completion.efm.formatters.asmfmt")
+	-- local clangtidy = require("completion.efm.formatters.clangtidy")
+	local clangfmt = require("completion.efm.formatters.clangfmt")
 
 	-- Override default config here
 

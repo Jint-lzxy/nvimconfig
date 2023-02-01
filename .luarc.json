@@ -13,7 +13,7 @@
     "library": [
       "/usr/local/opt/neovim/share/nvim/runtime/lua",
       "/usr/local/opt/neovim/share/nvim/runtime/lua/vim/lsp",
-      "~/Desktop/nvim/lua"
+      "~/.config/nvim/lua"
     ]
   },
   "telemetry": {

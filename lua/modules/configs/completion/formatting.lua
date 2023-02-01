@@ -66,7 +66,7 @@ function M.enable_format_on_save(is_configured)
 		group = "format_on_save",
 		pattern = opts.pattern,
 		callback = function()
-			require("modules.configs.completion.formatting").format({
+			require("completion.formatting").format({
 				timeout_ms = opts.timeout,
 				filter = M.format_filter,
 			})
