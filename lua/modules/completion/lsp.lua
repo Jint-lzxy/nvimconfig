@@ -45,7 +45,7 @@ mason_lsp.setup({
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-local function custom_attach(client, bufnr)
+local function custom_attach()
 	require("lsp_signature").on_attach({
 		bind = true,
 		use_lspsaga = false,
