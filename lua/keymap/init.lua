@@ -85,8 +85,9 @@ local plug_map = {
 	["n|<C-n>"] = map_cr("NvimTreeToggle"):with_noremap():with_silent(),
 	["n|<leader>nf"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent(),
 	["n|<leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent(),
+	-- Plugin Undotree
+	["n|<Leader>u"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
 	-- Plugin Telescope
-	["n|<leader>u"] = map_cr("lua require('telescope').extensions.undo.undo{}"):with_noremap():with_silent(),
 	["n|<leader>fp"] = map_cu("lua require('telescope').extensions.projects.projects{}"):with_noremap():with_silent(),
 	["n|<leader>fr"] = map_cu("lua require('telescope').extensions.frecency.frecency{}"):with_noremap():with_silent(),
 	["n|<leader>fw"] = map_cu("lua require('telescope').extensions.live_grep_args.live_grep_args{}")

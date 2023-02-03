@@ -981,6 +981,13 @@ function config.nvim_bufferline()
 					padding = 1,
 				},
 				{
+					filetype = "undotree",
+					text = "Undo Tree",
+					text_align = "center",
+					highlight = "Directory",
+					separator = true,
+				},
+				{
 					filetype = "lspsagaoutline",
 					text = "Lspsaga Outline",
 					text_align = "center",
@@ -1112,6 +1119,7 @@ function config.indent_blankline()
 			"NvimTree",
 			"peekaboo",
 			"git",
+			"undotree",
 			"TelescopePrompt",
 			"flutterToolsOutline",
 			"", -- for all buffers without a file type

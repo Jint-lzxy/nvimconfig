@@ -9,7 +9,6 @@ tools["nvim-telescope/telescope.nvim"] = {
 		{ "nvim-tree/nvim-web-devicons" },
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-lua/popup.nvim" },
-		{ "debugloop/telescope-undo.nvim" },
 		{ "ahmedkhalf/project.nvim", event = "BufReadPost", config = conf.project },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		{ "nvim-telescope/telescope-frecency.nvim", dependencies = {
@@ -22,7 +21,7 @@ tools["nvim-telescope/telescope.nvim"] = {
 tools["michaelb/sniprun"] = {
 	lazy = true,
 	build = "bash ./install.sh",
-	cmd = { "SnipRun" },
+	cmd = "SnipRun",
 }
 tools["folke/trouble.nvim"] = {
 	lazy = true,
@@ -34,7 +33,7 @@ tools["gelguy/wilder.nvim"] = {
 	lazy = true,
 	event = "CmdlineEnter",
 	config = conf.wilder,
-	dependencies = { { "romgrk/fzy-lua-native" } },
+	dependencies = { "romgrk/fzy-lua-native" },
 }
 tools["cdelledonne/vim-cmake"] = {
 	lazy = true,
