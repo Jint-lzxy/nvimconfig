@@ -248,7 +248,7 @@ fi
 prompt "Fetching in progress..."
 if [[ "$USE_SSH" -eq "1" ]]; then
 	if is_latest; then
-		execute "git" "clone" "-b" "main" "${CLONE_ATTR[@]}" "git@github.com:Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
+		execute "git" "clone" "-b" "master" "${CLONE_ATTR[@]}" "git@github.com:Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
 	else
 		warn "You have outdated Nvim installed (< ${REQUIRED_NVIM_VERSION})."
 		prompt "Automatically redirecting you to legacy version..."
@@ -256,7 +256,7 @@ if [[ "$USE_SSH" -eq "1" ]]; then
 	fi
 else
 	if is_latest; then
-		execute "git" "clone" "-b" "main" "${CLONE_ATTR[@]}" "https://github.com/Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
+		execute "git" "clone" "-b" "master" "${CLONE_ATTR[@]}" "https://github.com/Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
 	else
 		warn "You have outdated Nvim installed (< ${REQUIRED_NVIM_VERSION})."
 		prompt "Automatically redirecting you to legacy version..."
