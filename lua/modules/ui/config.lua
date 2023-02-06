@@ -516,10 +516,10 @@ function config.lualine()
 		return ok and m.waiting and icons.misc.EscapeST or ""
 	end
 
+	local _cache = { context = "", bufnr = -1 }
 	local function lspsaga_symbols()
 		local exclude = {
 			["terminal"] = true,
-			["FTerm"] = true,
 			["toggleterm"] = true,
 			["prompt"] = true,
 			["NvimTree"] = true,
@@ -528,22 +528,16 @@ function config.lualine()
 		if vim.api.nvim_win_get_config(0).zindex or exclude[vim.bo.filetype] then
 			return "" -- Excluded filetypes
 		else
+			local currbuf = vim.api.nvim_get_current_buf()
 			local ok, lspsaga = pcall(require, "lspsaga.symbolwinbar")
-			if ok then
-				if lspsaga:get_winbar() ~= nil then
-					return lspsaga:get_winbar()
-				else
-					return "" -- Cannot get node
-				end
+			if ok and lspsaga:get_winbar() ~= nil then
+				_cache.context = lspsaga:get_winbar()
+				_cache.bufnr = currbuf
+			elseif _cache.bufnr ~= currbuf then
+				_cache.context = "" -- Reset [invalid] cache (usually from another buffer)
 			end
-		end
-	end
 
-	local function code_context()
-		if lspsaga_symbols() ~= "" then
-			return lspsaga_symbols()
-		else
-			return ""
+			return _cache.context
 		end
 	end
 
@@ -567,7 +561,7 @@ function config.lualine()
 				end
 			end
 		end
-		return msg:sub(1, -3) -- Remove last comma.
+		return msg == "" and "No Active LSP" or msg:sub(1, -3) -- Remove last comma.
 	end
 
 	local function get_os_icon()
@@ -704,7 +698,7 @@ function config.lualine()
 			},
 			lualine_c = {
 				edit_status,
-				code_context,
+				lspsaga_symbols,
 			},
 			lualine_x = {
 				{ escape_status, separator = "" },
@@ -762,7 +756,7 @@ function config.lualine()
 	})
 
 	-- Properly set background color for lspsaga
-	local winbar_bg = require("modules.utils").hl_to_rgb("StatusLine", true, "#000000")
+	local winbar_bg = require("modules.utils").hl_to_rgb("StatusLine", true, colors.mantle)
 	for _, hlGroup in pairs(require("lspsaga.lspkind").get_kind()) do
 		require("modules.utils").extend_hl("LspSagaWinbar" .. hlGroup[1], { bg = winbar_bg })
 	end
