@@ -35,8 +35,8 @@ return function()
 	vim.fn.sign_define("DapLogPoint", { text = icons.dap.LogPoint, texthl = "DapLogPoint", linehl = "", numhl = "" })
 
 	-- Configure language-specific adapters
-	require("editor.dap.dap-lldb")
-	require("editor.dap.dap-osv")
-	require("editor.dap.dap-debugpy")
-	require("editor.dap.dap-dlv")
+	require("tool.dap.dap-lldb")
+	require("tool.dap.dap-osv")
+	require("tool.dap.dap-debugpy")
+	require("tool.dap.dap-dlv")
 end

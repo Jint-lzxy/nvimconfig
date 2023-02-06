@@ -1,39 +1,33 @@
-local tools = {}
+local tool = {}
 
-tools["nvim-telescope/telescope.nvim"] = {
+tool["nvim-tree/nvim-tree.lua"] = {
 	lazy = true,
-	cmd = "Telescope",
-	config = require("tools.telescope"),
-	dependencies = {
-		{ "nvim-tree/nvim-web-devicons" },
-		{ "nvim-lua/plenary.nvim" },
-		{ "nvim-lua/popup.nvim" },
-		{ "debugloop/telescope-undo.nvim" },
-		{
-			"ahmedkhalf/project.nvim",
-			event = "BufReadPost",
-			config = require("tools.project"),
-		},
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		{ "nvim-telescope/telescope-frecency.nvim", dependencies = {
-			{ "kkharji/sqlite.lua" },
-		} },
-		{ "jvgrootveld/telescope-zoxide" },
-		{ "nvim-telescope/telescope-live-grep-args.nvim" },
+	cmd = {
+		"NvimTreeToggle",
+		"NvimTreeOpen",
+		"NvimTreeFindFile",
+		"NvimTreeFindFileToggle",
+		"NvimTreeRefresh",
 	},
+	config = require("tool.nvim-tree"),
 }
-tools["michaelb/sniprun"] = {
+tool["michaelb/sniprun"] = {
 	lazy = true,
 	build = "bash ./install.sh",
 	cmd = { "SnipRun" },
-	config = require("tools.sniprun"),
+	config = require("tool.sniprun"),
 }
-tools["folke/trouble.nvim"] = {
+tool["akinsho/toggleterm.nvim"] = {
+	lazy = true,
+	event = "UIEnter",
+	config = require("tool.toggleterm"),
+}
+tool["folke/trouble.nvim"] = {
 	lazy = true,
 	cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
-	config = require("tools.trouble"),
+	config = require("tool.trouble"),
 }
-tools["cdelledonne/vim-cmake"] = {
+tool["cdelledonne/vim-cmake"] = {
 	lazy = true,
 	cmd = {
 		"CMakeGenerate",
@@ -46,33 +40,95 @@ tools["cdelledonne/vim-cmake"] = {
 		"CMakeClose",
 		"CMakeStop",
 	},
-	config = require("tools.cmake"),
+	config = require("tool.cmake"),
 }
-tools["dstein64/vim-startuptime"] = { lazy = true, cmd = "StartupTime" }
-tools["gelguy/wilder.nvim"] = {
+tool["tpope/vim-fugitive"] = {
+	lazy = true,
+	cmd = { "Git", "G" },
+}
+tool["brglng/vim-im-select"] = {
+	lazy = true,
+	event = "BufReadPost",
+	config = require("tool.imselect"),
+}
+tool["dstein64/vim-startuptime"] = { lazy = true, cmd = "StartupTime" }
+tool["gelguy/wilder.nvim"] = {
 	lazy = true,
 	event = "CmdlineEnter",
-	config = require("tools.wilder"),
+	config = require("tool.wilder"),
 	dependencies = { "romgrk/fzy-lua-native" },
 }
-tools["mrjones2014/legendary.nvim"] = {
+tool["mrjones2014/legendary.nvim"] = {
 	lazy = true,
 	cmd = "Legendary",
-	config = require("tools.legendary"),
+	config = require("tool.legendary"),
 	dependencies = {
 		{ "kkharji/sqlite.lua" },
 		{
 			"stevearc/dressing.nvim",
 			event = "VeryLazy",
-			config = require("tools.dressing"),
+			config = require("tool.dressing"),
 		},
 		-- Please don't remove which-key.nvim otherwise you need to set timeoutlen=300 at `lua/core/options.lua`
 		{
 			"folke/which-key.nvim",
 			event = "VeryLazy",
-			config = require("tools.which-key"),
+			config = require("tool.which-key"),
 		},
 	},
 }
 
-return tools
+----------------------------------------------------------------------
+--                        Telescope Plugins                         --
+----------------------------------------------------------------------
+tool["nvim-telescope/telescope.nvim"] = {
+	lazy = true,
+	cmd = "Telescope",
+	config = require("tool.telescope"),
+	dependencies = {
+		{ "nvim-tree/nvim-web-devicons" },
+		{ "nvim-lua/plenary.nvim" },
+		{ "nvim-lua/popup.nvim" },
+		{ "debugloop/telescope-undo.nvim" },
+		{
+			"ahmedkhalf/project.nvim",
+			event = "BufReadPost",
+			config = require("tool.project"),
+		},
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{ "nvim-telescope/telescope-frecency.nvim", dependencies = {
+			{ "kkharji/sqlite.lua" },
+		} },
+		{ "jvgrootveld/telescope-zoxide" },
+		{ "nvim-telescope/telescope-live-grep-args.nvim" },
+	},
+}
+
+----------------------------------------------------------------------
+--                           DAP Plugins                            --
+----------------------------------------------------------------------
+tool["mfussenegger/nvim-dap"] = {
+	lazy = true,
+	cmd = {
+		"DapSetLogLevel",
+		"DapShowLog",
+		"DapContinue",
+		"DapToggleBreakpoint",
+		"DapToggleRepl",
+		"DapStepOver",
+		"DapStepInto",
+		"DapStepOut",
+		"DapTerminate",
+	},
+	config = require("tool.dap"),
+	dependencies = {
+		{
+			"rcarriga/nvim-dap-ui",
+			config = require("tool.dap.dapui"),
+		},
+		{ "theHamsta/nvim-dap-virtual-text", config = require("tool.dap.dap-virtual-text") },
+		{ "jbyuki/one-small-step-for-vimkind" },
+	},
+}
+
+return tool
