@@ -41,13 +41,10 @@
     "norm": {
         "prefix": "norm",
         "body": [
-            "#include <iostream>",
+            "$1",
             "",
-            "using std::cin;",
-            "using std::cout;",
-            "",
-            "int main(){",
-            "\t$1",
+            "int main() {",
+            "\t$2",
             "\treturn 0;",
             "}"
         ],
