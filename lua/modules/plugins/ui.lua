@@ -19,6 +19,10 @@ ui["sainnhe/edge"] = {
 	lazy = true,
 	config = require("ui.edge"),
 }
+ui["mbbill/undotree"] = {
+	lazy = true,
+	cmd = "UndotreeToggle",
+}
 ui["j-hui/fidget.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",

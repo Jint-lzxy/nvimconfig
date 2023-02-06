@@ -115,7 +115,7 @@ function autocmd.load_autocmds()
 			{
 				"FileType",
 				"c,cpp",
-				"nnoremap <leader>h :ClangdSwitchSourceHeaderVSplit<CR>",
+				"nnoremap <silent> <leader>h :ClangdSwitchSourceHeader<CR>",
 			},
 		},
 		yank = {
