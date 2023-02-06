@@ -14,7 +14,7 @@ tool["nvim-tree/nvim-tree.lua"] = {
 tool["michaelb/sniprun"] = {
 	lazy = true,
 	build = "bash ./install.sh",
-	cmd = { "SnipRun" },
+	cmd = "SnipRun",
 	config = require("tool.sniprun"),
 }
 tool["akinsho/toggleterm.nvim"] = {
@@ -89,7 +89,6 @@ tool["nvim-telescope/telescope.nvim"] = {
 		{ "nvim-tree/nvim-web-devicons" },
 		{ "nvim-lua/plenary.nvim" },
 		{ "nvim-lua/popup.nvim" },
-		{ "debugloop/telescope-undo.nvim" },
 		{
 			"ahmedkhalf/project.nvim",
 			event = "BufReadPost",

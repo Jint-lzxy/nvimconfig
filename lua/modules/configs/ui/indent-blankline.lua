@@ -19,6 +19,7 @@ return function()
 			"NvimTree",
 			"peekaboo",
 			"git",
+			"undotree",
 			"TelescopePrompt",
 			"flutterToolsOutline",
 			"", -- for all buffers without a file type

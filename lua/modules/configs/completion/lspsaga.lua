@@ -37,11 +37,15 @@ return function()
 		},
 		request_timeout = 3000,
 		finder = {
-			edit = { "o", "<CR>" },
-			vsplit = "s",
-			split = "i",
-			tabe = "t",
-			quit = { "q", "<ESC>" },
+			keys = {
+				jump_to = "e",
+				edit = { "o", "<CR>" },
+				vsplit = "s",
+				split = "i",
+				tabe = "t",
+				quit = { "q", "<ESC>" },
+				close_in_preview = "<ESC>",
+			},
 		},
 		definition = {
 			edit = "<C-c>o",
@@ -68,6 +72,7 @@ return function()
 		diagnostic = {
 			show_code_action = true,
 			show_source = true,
+			border_follow = true,
 			jump_num_shortcut = true,
 			keys = {
 				exec_action = "<CR>",
