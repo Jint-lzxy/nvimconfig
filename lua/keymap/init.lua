@@ -9,8 +9,8 @@ local plug_map = {
 	["n|gb"] = map_cr("BufferLinePick"):with_noremap():with_silent(),
 	["n|˚"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent(),
 	["n|∆"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent(),
-	["n|Ô"] = map_cr("BufferLineMoveNext"):with_noremap():with_silent(),
-	["n|"] = map_cr("BufferLineMovePrev"):with_noremap():with_silent(),
+	["n|Ô"] = map_cr("BufferLineMovePrev"):with_noremap():with_silent(),
+	["n|"] = map_cr("BufferLineMoveNext"):with_noremap():with_silent(),
 	["n|π"] = map_cr("BufferLineTogglePin"):with_noremap():with_silent(),
 	["n|<leader>be"] = map_cr("BufferLineSortByExtension"):with_noremap(),
 	["n|<leader>bd"] = map_cr("BufferLineSortByDirectory"):with_noremap(),
@@ -58,11 +58,11 @@ local plug_map = {
 	["n|gpl"] = map_cr("G pull"):with_noremap():with_silent(),
 	-- Toggle Terminal
 	-- Global
-	["t|≈"] = map_cmd("<C-\\><C-n>"):with_noremap():with_silent(), -- switch to normal mode in terminal.
+	["t|∑"] = map_cmd("<C-\\><C-n>"):with_noremap():with_silent(), -- switch to normal mode in terminal.
 	-- Floating
 	["n|∂"] = map_cr([[execute v:count . "ToggleTerm direction=float"]]):with_noremap():with_silent(),
 	["i|∂"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>"):with_noremap():with_silent(),
-	["t|∂"] = map_cu("<C-\\><C-n><CMD>ToggleTerm"):with_noremap():with_silent(),
+	["t|∂"] = map_cu("<C-\\><C-n><Cmd>ToggleTerm"):with_noremap():with_silent(),
 	["n|<leader>g"] = map_cu("lua toggle_lazygit()"):with_noremap():with_silent(),
 	-- Horizontal / Vertical
 	["n|»"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]]):with_noremap():with_silent(),
@@ -100,6 +100,7 @@ local plug_map = {
 	["n|<leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
 	["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent(),
+	["n|<leader>fk"] = map_cu("Telescope keymaps"):with_noremap():with_silent(),
 	["n|<leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
 	-- Plugin accelerate-jk
 	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
