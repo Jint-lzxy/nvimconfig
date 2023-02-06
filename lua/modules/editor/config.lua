@@ -32,8 +32,15 @@ function config.nvim_treesitter()
 		},
 		highlight = {
 			enable = true,
-			disable = { "vim" },
-			additional_vim_regex_highlighting = false,
+			disable = function(ft, bufnr)
+				if vim.tbl_contains({ "vim" }, ft) then
+					return true
+				end
+
+				local ok, is_large_file = pcall(vim.api.nvim_buf_get_var, bufnr, "bigfile_disable_treesitter")
+				return ok and is_large_file
+			end,
+			additional_vim_regex_highlighting = { "c", "cpp" },
 		},
 		textobjects = {
 			select = {
@@ -120,7 +127,6 @@ function config.accelerated_jk()
 		enable_deceleration = true,
 		acceleration_motions = { "w", "b", "e" },
 		acceleration_limit = 150,
-		acceleration_table = { 7, 12, 17, 21, 24, 26, 28, 30 },
 		-- when 'enable_deceleration = true', 'deceleration_table = { {200, 3}, {300, 7}, {450, 11}, {600, 15}, {750, 21}, {900, 9999} }'
 		deceleration_table = { { 150, 9999 } },
 	})
@@ -556,6 +562,39 @@ function config.imselect()
 		vim.g.im_select_get_im_cmd = "im-select"
 		vim.g.im_select_default = "com.apple.keylayout.US"
 	end
+end
+
+function config.bigfile()
+	local ftdetect = {
+		name = "ftdetect",
+		opts = { defer = true },
+		disable = function()
+			vim.api.nvim_set_option_value("filetype", "big_file_disabled_ft", { scope = "local" })
+		end,
+	}
+
+	local cmp = {
+		name = "nvim-cmp",
+		opts = { defer = true },
+		disable = function()
+			require("cmp").setup.buffer({ enabled = false })
+		end,
+	}
+
+	require("bigfile").config({
+		filesize = 1, -- size of the file in MiB
+		pattern = { "*" }, -- autocmd pattern
+		features = { -- features to disable
+			"indent_blankline",
+			"lsp",
+			"illuminate",
+			"treesitter",
+			"syntax",
+			"vimopts",
+			ftdetect,
+			cmp,
+		},
+	})
 end
 
 return config

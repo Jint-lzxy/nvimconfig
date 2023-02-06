@@ -681,7 +681,6 @@ function config.lualine()
 		options = {
 			icons_enabled = true,
 			theme = custom_theme,
-			disabled_filetypes = { "disabled_big_file" },
 			component_separators = "|",
 			section_separators = { left = "", right = "" },
 		},

@@ -120,5 +120,10 @@ editor["luukvbaal/stabilize.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
 }
+editor["LunarVim/bigfile.nvim"] = {
+	lazy = false,
+	config = conf.bigfile,
+	cond = require("core.settings").load_big_files_faster,
+}
 
 return editor
