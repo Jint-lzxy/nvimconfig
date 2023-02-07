@@ -893,7 +893,7 @@ function config.nvim_tree()
 					chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
 					exclude = {
 						filetype = { "notify", "qf", "diff", "fugitive", "fugitiveblame" },
-						buftype = { "nofile", "terminal", "help" },
+						buftype = { "terminal", "help" },
 					},
 				},
 			},
