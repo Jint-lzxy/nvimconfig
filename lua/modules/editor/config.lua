@@ -364,6 +364,13 @@ function config.dap()
 				local argument_string = vim.fn.input("Program arg(s) (enter nothing to leave it null): ")
 				return vim.fn.split(argument_string, " ", true)
 			end,
+			env = function()
+				local variables = {}
+				for k, v in pairs(vim.fn.environ()) do
+					table.insert(variables, string.format("%s=%s", k, v))
+				end
+				return variables
+			end,
 
 			-- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
 			--
