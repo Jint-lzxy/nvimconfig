@@ -1,7 +1,7 @@
 {
   "LuaSnip": { "branch": "master", "commit": "d404ec306bfa4cdb0c3605dbb17e8a93a9597337" },
   "accelerated-jk.nvim": { "branch": "main", "commit": "38bbbf9258aab876906588ea979901ed3ed569c6" },
-  "alpha-nvim": { "branch": "main", "commit": "21a0f2520ad3a7c32c0822f943368dc063a569fb" },
+  "alpha-nvim": { "branch": "main", "commit": "6fe3acadbcff62aa89ce753a8680a3843eaa35bd" },
   "auto-session": { "branch": "main", "commit": "c8b2f4048f846387361bd04cc185bf1aa7d2e3d1" },
   "better-escape.nvim": { "branch": "master", "commit": "6fed33809cde3b416087fc540ad9eb17ec470193" },
   "bigfile.nvim": { "branch": "main", "commit": "c1bad34ce742b4f360b67ca23c873fef998240fc" },
