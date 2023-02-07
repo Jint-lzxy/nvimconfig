@@ -204,102 +204,6 @@ function config.which_key()
 			winblend = 0,
 		},
 	})
-end
-
-function config.wilder()
-	local wilder = require("wilder")
-	local icons = { ui = require("modules.ui.icons").get("ui") }
-
-	wilder.setup({ modes = { ":", "/", "?" } })
-	wilder.set_option("use_python_remote_plugin", 0)
-	wilder.set_option("pipeline", {
-		wilder.branch(
-			wilder.cmdline_pipeline({ use_python = 0, fuzzy = 1, fuzzy_filter = wilder.lua_fzy_filter() }),
-			wilder.vim_search_pipeline(),
-			{
-				wilder.check(function(_, x)
-					return x == ""
-				end),
-				wilder.history(),
-				wilder.result({
-					draw = {
-						function(_, x)
-							return icons.ui.Calendar .. " " .. x
-						end,
-					},
-				}),
-			}
-		),
-	})
-
-	local match_hl = require("modules.utils").hl_to_rgb("String", false, "#ABE9B3")
-
-	local popupmenu_renderer = wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
-		border = "rounded",
-		highlights = {
-			border = "Title", -- highlight to use for the border
-			accent = wilder.make_hl("WilderAccent", "Pmenu", { { a = 0 }, { a = 0 }, { foreground = match_hl } }),
-		},
-		empty_message = wilder.popupmenu_empty_message_with_spinner(),
-		highlighter = wilder.lua_fzy_highlighter(),
-		left = {
-			" ",
-			wilder.popupmenu_devicons(),
-			wilder.popupmenu_buffer_flags({
-				flags = " a + ",
-				icons = { ["+"] = icons.ui.Pencil, a = icons.ui.Indicator, h = icons.ui.File },
-			}),
-		},
-		right = {
-			" ",
-			wilder.popupmenu_scrollbar(),
-		},
-	}))
-	local wildmenu_renderer = wilder.wildmenu_renderer({
-		highlighter = wilder.lua_fzy_highlighter(),
-		apply_incsearch_fix = true,
-	})
-	wilder.set_option(
-		"renderer",
-		wilder.renderer_mux({
-			[":"] = popupmenu_renderer,
-			["/"] = wildmenu_renderer,
-			substitute = wildmenu_renderer,
-		})
-	)
-end
-
-function config.vim_cmake()
-	vim.g.cmake_default_config = "Debug"
-	vim.g.cmake_root_markers = { ".git", ".svn", "src" }
-end
-
-function config.legendary()
-	require("legendary").setup({
-		select_prompt = " legendary.nvim ",
-		which_key = {
-			auto_register = true,
-			do_binding = false,
-		},
-		scratchpad = {
-			view = "float",
-			results_view = "float",
-			keep_contents = true,
-		},
-		sort = {
-			-- sort most recently used item to the top
-			most_recent_first = true,
-			-- sort user-defined items before built-in items
-			user_items_first = true,
-			frecency = {
-				-- the directory to store the database in
-				db_root = string.format("%s/legendary/", vim.fn.stdpath("data")),
-				max_timestamps = 10,
-			},
-		},
-		cache_path = string.format("%s/legendary/", vim.fn.stdpath("cache")),
-		log_level = "info",
-	})
 
 	require("which-key").register({
 		["<leader>"] = {
@@ -333,7 +237,7 @@ function config.legendary()
 				z = "edit: Change current directory by zoxide",
 				f = "find: File under current work directory",
 				g = "find: File under current git directory",
-				b = "find: Buffers",
+				b = "find: Buffer opened",
 				h = "find: Nvim help tags",
 				n = "edit: New file",
 			},
@@ -430,21 +334,73 @@ function config.legendary()
 	})
 end
 
-function config.dressing()
-	require("dressing").setup({
-		input = {
-			enabled = true,
-			default_prompt = "Input:",
-			insert_only = true,
-			start_in_insert = true,
-			prefer_width = 45,
-		},
-		select = {
-			enabled = true,
-			backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui" },
-			trim_prompt = true,
-		},
+function config.wilder()
+	local wilder = require("wilder")
+	local colors = require("modules.utils").get_palette()
+	local icons = { ui = require("modules.ui.icons").get("ui") }
+
+	wilder.setup({ modes = { ":", "/", "?" } })
+	wilder.set_option("use_python_remote_plugin", 0)
+	wilder.set_option("pipeline", {
+		wilder.branch(
+			wilder.cmdline_pipeline({ use_python = 0, fuzzy = 1, fuzzy_filter = wilder.lua_fzy_filter() }),
+			wilder.vim_search_pipeline(),
+			{
+				wilder.check(function(_, x)
+					return x == ""
+				end),
+				wilder.history(),
+				wilder.result({
+					draw = {
+						function(_, x)
+							return icons.ui.Calendar .. " " .. x
+						end,
+					},
+				}),
+			}
+		),
 	})
+
+	local match_hl = require("modules.utils").hl_to_rgb("String", false, colors.green)
+
+	local popupmenu_renderer = wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
+		border = "rounded",
+		highlights = {
+			border = "Title", -- highlight to use for the border
+			accent = wilder.make_hl("WilderAccent", "Pmenu", { { a = 0 }, { a = 0 }, { foreground = match_hl } }),
+		},
+		empty_message = wilder.popupmenu_empty_message_with_spinner(),
+		highlighter = wilder.lua_fzy_highlighter(),
+		left = {
+			" ",
+			wilder.popupmenu_devicons(),
+			wilder.popupmenu_buffer_flags({
+				flags = " a + ",
+				icons = { ["+"] = icons.ui.Pencil, a = icons.ui.Indicator, h = icons.ui.File },
+			}),
+		},
+		right = {
+			" ",
+			wilder.popupmenu_scrollbar(),
+		},
+	}))
+	local wildmenu_renderer = wilder.wildmenu_renderer({
+		highlighter = wilder.lua_fzy_highlighter(),
+		apply_incsearch_fix = true,
+	})
+	wilder.set_option(
+		"renderer",
+		wilder.renderer_mux({
+			[":"] = popupmenu_renderer,
+			["/"] = wildmenu_renderer,
+			substitute = wildmenu_renderer,
+		})
+	)
+end
+
+function config.vim_cmake()
+	vim.g.cmake_default_config = "Debug"
+	vim.g.cmake_root_markers = { ".git", ".svn", "src" }
 end
 
 return config

@@ -50,15 +50,10 @@ tools["cdelledonne/vim-cmake"] = {
 	},
 	config = conf.vim_cmake,
 }
-tools["mrjones2014/legendary.nvim"] = {
+tools["folke/which-key.nvim"] = {
 	lazy = true,
-	cmd = "Legendary",
-	config = conf.legendary,
-	dependencies = {
-		{ "kkharji/sqlite.lua" },
-		{ "stevearc/dressing.nvim", event = "VeryLazy", config = conf.dressing },
-		{ "folke/which-key.nvim", event = "VeryLazy", config = conf.which_key },
-	},
+	event = "VeryLazy",
+	config = conf.which_key,
 }
 
 return tools
