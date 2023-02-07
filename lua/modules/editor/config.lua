@@ -127,6 +127,7 @@ function config.accelerated_jk()
 		enable_deceleration = true,
 		acceleration_motions = { "w", "b", "e" },
 		acceleration_limit = 150,
+		acceleration_table = { 5, 9, 15, 21, 24, 26, 28, 30 },
 		-- when 'enable_deceleration = true', 'deceleration_table = { {200, 3}, {300, 7}, {450, 11}, {600, 15}, {750, 21}, {900, 9999} }'
 		deceleration_table = { { 150, 9999 } },
 	})
