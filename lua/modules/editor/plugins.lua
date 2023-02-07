@@ -19,6 +19,7 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	config = conf.nvim_treesitter,
 	dependencies = {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
+		{ "nvim-treesitter/nvim-treesitter-context" },
 		{ "p00f/nvim-ts-rainbow" },
 		{ "JoosepAlviste/nvim-ts-context-commentstring" },
 		{ "mfussenegger/nvim-ts-hint-textobject" },
