@@ -217,7 +217,9 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 		})
 	elseif server == "asm_lsp" then
 		nvim_lsp.asm_lsp.setup({
-			filetypes = { "asm", "nasm", "vmasm" },
+			capabilities = capabilities,
+			on_attach = custom_attach,
+			filetypes = { "asm", "nasm", "vmasm", "s", "S" },
 		})
 	elseif server ~= "efm" then
 		nvim_lsp[server].setup({
