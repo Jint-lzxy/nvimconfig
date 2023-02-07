@@ -73,10 +73,10 @@ local function switch_source_header_splitcmd(bufnr, splitcmd)
 				return
 			end
 			vim.api.nvim_command(splitcmd .. " " .. vim.uri_to_fname(result))
-		end)
+		end, bufnr)
 	else
 		vim.notify(
-			"Method textDocument/switchSourceHeader is not supported by any active server on this buffer",
+			"Method textDocument/switchSourceHeader is not supported by any active server attached to buffer",
 			vim.log.levels.ERROR,
 			{ title = "LSP Error!" }
 		)
@@ -267,7 +267,6 @@ efmls.init({
 local vint = require("efmls-configs.linters.vint")
 local eslint = require("efmls-configs.linters.eslint")
 local flake8 = require("efmls-configs.linters.flake8")
-local shellcheck = require("efmls-configs.linters.shellcheck")
 
 local black = require("efmls-configs.formatters.black")
 local stylua = require("efmls-configs.formatters.stylua")
@@ -277,7 +276,7 @@ local shfmt = require("efmls-configs.formatters.shfmt")
 -- Add your own config for formatter and linter here
 
 -- local clangtidy = require("modules.completion.efm.formatters.clangtidy")
-local asmfmt = require("modules.completion.efm.formatters.asmfmt")
+local nasmfmt = require("modules.completion.efm.formatters.asmfmt")
 local clangfmt = require("modules.completion.efm.formatters.clangfmt")
 
 -- Override default config here
@@ -293,7 +292,7 @@ flake8 = vim.tbl_extend("force", flake8, {
 -- Setup formatter and linter for efmls here
 
 efmls.setup({
-	asm = { formatter = asmfmt },
+	asm = { formatter = nasmfmt },
 	vim = { formatter = vint },
 	lua = { formatter = stylua },
 	c = { formatter = clangfmt },
@@ -310,7 +309,7 @@ efmls.setup({
 	html = { formatter = prettier },
 	css = { formatter = prettier },
 	scss = { formatter = prettier },
-	sh = { formatter = shfmt, linter = shellcheck },
+	sh = { formatter = shfmt },
 	markdown = { formatter = prettier },
 	-- rust = {formatter = rustfmt},
 })

@@ -114,12 +114,12 @@ function config.trouble()
 			-- map to {} to remove a mapping, for example:
 			-- close = {},
 			close = "q", -- close the list
-			cancel = "<esc>", -- cancel the preview and get back to your last window / buffer / cursor
+			cancel = "<ESC>", -- cancel the preview and get back to your last window / buffer / cursor
 			refresh = "r", -- manually refresh
-			jump = { "<cr>", "<tab>" }, -- jump to the diagnostic or open / close folds
-			open_split = { "<c-x>" }, -- open buffer in new split
-			open_vsplit = { "<c-v>" }, -- open buffer in new vsplit
-			open_tab = { "<c-t>" }, -- open buffer in new tab
+			jump = { "<CR>", "<TAB>" }, -- jump to the diagnostic or open / close folds
+			open_split = { "<C-x>" }, -- open buffer in new split
+			open_vsplit = { "<C-v>" }, -- open buffer in new vsplit
+			open_tab = { "<C-t>" }, -- open buffer in new tab
 			jump_close = { "o" }, -- jump to the diagnostic and close the list
 			toggle_mode = "m", -- toggle between "workspace" and "document" diagnostics mode
 			toggle_preview = "P", -- toggle auto_preview
@@ -168,7 +168,7 @@ function config.sniprun()
 		inline_messages = 0, -- " inline_message (0/1) is a one-line way to display messages
 		-- " to workaround sniprun not being able to display anything
 
-		borders = "shadow", -- " display borders around floating windows
+		borders = "single", -- " display borders around floating windows
 		-- " possible values are 'none', 'single', 'double', or 'shadow'
 	})
 end
