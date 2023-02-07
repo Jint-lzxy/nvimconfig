@@ -1,6 +1,6 @@
 -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/sumneko_lua.lua
 return {
-	cmd = { "lua-language-server", "--locale=zh_CN" },
+	cmd = { "lua-language-server" },
 	settings = {
 		Lua = {
 			runtime = { version = "LuaJIT" },

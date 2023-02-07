@@ -52,30 +52,16 @@ tool["brglng/vim-im-select"] = {
 	config = require("tool.imselect"),
 }
 tool["dstein64/vim-startuptime"] = { lazy = true, cmd = "StartupTime" }
+tool["folke/which-key.nvim"] = {
+	lazy = true,
+	event = "VeryLazy",
+	config = require("tool.which-key"),
+}
 tool["gelguy/wilder.nvim"] = {
 	lazy = true,
 	event = "CmdlineEnter",
 	config = require("tool.wilder"),
 	dependencies = { "romgrk/fzy-lua-native" },
-}
-tool["mrjones2014/legendary.nvim"] = {
-	lazy = true,
-	cmd = "Legendary",
-	config = require("tool.legendary"),
-	dependencies = {
-		{ "kkharji/sqlite.lua" },
-		{
-			"stevearc/dressing.nvim",
-			event = "VeryLazy",
-			config = require("tool.dressing"),
-		},
-		-- Please don't remove which-key.nvim otherwise you need to set timeoutlen=300 at `lua/core/options.lua`
-		{
-			"folke/which-key.nvim",
-			event = "VeryLazy",
-			config = require("tool.which-key"),
-		},
-	},
 }
 
 ----------------------------------------------------------------------

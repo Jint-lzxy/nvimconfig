@@ -81,7 +81,7 @@ return function()
 			symbols_outline = false,
 			telekasten = false,
 			telescope = true,
-			treesitter_context = false,
+			treesitter_context =true,
 			ts_rainbow = true,
 			vim_sneak = false,
 			vimwiki = false,

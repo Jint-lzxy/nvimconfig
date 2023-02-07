@@ -13,10 +13,10 @@ local function switch_source_header_splitcmd(bufnr, splitcmd)
 				return
 			end
 			vim.api.nvim_command(splitcmd .. " " .. vim.uri_to_fname(result))
-		end)
+		end, bufnr)
 	else
 		vim.notify(
-			"Method textDocument/switchSourceHeader is not supported by any active server on this buffer",
+			"Method textDocument/switchSourceHeader is not supported by any active server attached to buffer",
 			vim.log.levels.ERROR,
 			{ title = "LSP Error!" }
 		)

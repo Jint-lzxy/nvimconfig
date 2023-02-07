@@ -7,5 +7,6 @@ return function()
 	vim.g.clever_f_mark_char_color = "CleverChar"
 	vim.g.clever_f_mark_direct_color = "CleverChar"
 	vim.g.clever_f_mark_direct = true
+	vim.g.clever_f_fix_key_direction = true
 	vim.g.clever_f_timeout_ms = 1500
 end

@@ -3,7 +3,7 @@ local completion = {}
 completion["neovim/nvim-lspconfig"] = {
 	lazy = true,
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
-	config = require("completion.lsp"),
+	config = require("completion.lspconfig"),
 	dependencies = {
 		{ "creativenull/efmls-configs-nvim" },
 		{ "williamboman/mason.nvim" },
