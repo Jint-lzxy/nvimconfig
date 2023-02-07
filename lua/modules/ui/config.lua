@@ -63,7 +63,7 @@ function config.alpha()
 
 	local function footer()
 		local stats = require("lazy").stats()
-		return " 💝  Have Fun with neovim"
+		local greet = " 💝  Have Fun with neovim"
 			.. "   v"
 			.. vim.version().major
 			.. "."
@@ -73,6 +73,8 @@ function config.alpha()
 			.. "   "
 			.. stats.count
 			.. " plugins"
+		local quote = table.concat(require("alpha.fortune")(), "\n")
+		return greet .. "\n" .. quote
 	end
 
 	dashboard.section.footer.val = footer()
