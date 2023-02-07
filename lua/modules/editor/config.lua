@@ -210,6 +210,7 @@ end
 
 function config.toggleterm()
 	local colors = require("modules.utils").get_palette()
+	local floatborder_hl = require("modules.utils").hl_to_rgb("FloatBorder", false, colors.blue)
 
 	require("toggleterm").setup({
 		-- size can be a number or function which is passed the current terminal
@@ -222,7 +223,7 @@ function config.toggleterm()
 		end,
 		highlights = {
 			FloatBorder = {
-				guifg = colors.blue,
+				guifg = floatborder_hl,
 			},
 		},
 		on_open = function()
@@ -309,6 +310,7 @@ end
 function config.dap()
 	local dap = require("dap")
 	local dapui = require("dapui")
+	local colors = require("modules.utils").get_palette()
 	local icons = { dap = require("modules.ui.icons").get("dap") }
 
 	-- dap.set_log_level("TRACE")
@@ -323,7 +325,7 @@ function config.dap()
 	end
 
 	-- We need to override nvim-dap's default highlight groups, AFTER requiring nvim-dap for catppuccin.
-	vim.api.nvim_set_hl(0, "DapStopped", { fg = "#ABE9B3" })
+	vim.api.nvim_set_hl(0, "DapStopped", { fg = colors.green })
 
 	vim.fn.sign_define(
 		"DapBreakpoint",
