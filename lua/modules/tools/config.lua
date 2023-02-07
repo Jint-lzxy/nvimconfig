@@ -182,13 +182,7 @@ function config.which_key()
 	require("which-key").setup({
 		plugins = {
 			presets = {
-				operators = false,
-				motions = false,
-				text_objects = false,
-				windows = false,
 				nav = false,
-				z = true,
-				g = true,
 			},
 		},
 		icons = {
