@@ -20,9 +20,10 @@ editor["LunarVim/bigfile.nvim"] = {
 	config = require("editor.bigfile"),
 	cond = require("core.settings").load_big_files_faster,
 }
-editor["ojroques/nvim-bufdel"] = {
+editor["numToStr/Comment.nvim"] = {
 	lazy = true,
-	event = "BufReadPost",
+	event = { "BufNewFile", "BufReadPre" },
+	config = require("editor.comment_nvim"),
 }
 editor["rhysd/clever-f.vim"] = {
 	lazy = true,
@@ -48,6 +49,10 @@ editor["phaazon/hop.nvim"] = {
 	event = "BufReadPost",
 	config = require("editor.hop"),
 }
+editor["ojroques/nvim-bufdel"] = {
+	lazy = true,
+	event = "BufReadPost",
+}
 editor["luukvbaal/stabilize.nvim"] = {
 	lazy = true,
 	event = "BufReadPost",
@@ -55,11 +60,6 @@ editor["luukvbaal/stabilize.nvim"] = {
 editor["romainl/vim-cool"] = {
 	lazy = true,
 	event = { "CursorMoved", "InsertEnter" },
-}
-editor["terrortylor/nvim-comment"] = {
-	lazy = true,
-	event = { "BufNewFile", "BufReadPre" },
-	config = require("editor.nvim-comment"),
 }
 editor["junegunn/vim-easy-align"] = {
 	lazy = true,
