@@ -22,6 +22,14 @@ _G.enhance_align = function(key)
 	return t(map[key])
 end
 
+_G.command_panel = function()
+	require("telescope.builtin").keymaps({
+		lhs_filter = function(lhs)
+			return not string.find(lhs, "Þ")
+		end,
+	})
+end
+
 local _lazygit = nil
 _G.toggle_lazygit = function()
 	if not _lazygit then

@@ -100,7 +100,7 @@ local plug_map = {
 	["n|<leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
 	["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent(),
-	["n|<leader>fk"] = map_cu("Telescope keymaps"):with_noremap():with_silent(),
+	["n|<leader>fk"] = map_cu("lua command_panel()"):with_noremap():with_silent(),
 	["n|<leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
 	-- Plugin accelerate-jk
 	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
@@ -155,8 +155,6 @@ local plug_map = {
 	-- Plugin Diffview
 	["n|<leader>D"] = map_cr("DiffviewOpen"):with_silent():with_noremap(),
 	["n|<leader><leader>D"] = map_cr("DiffviewClose"):with_silent():with_noremap(),
-	-- Plugin Legendary
-	["n|<C-p>"] = map_cr("Legendary"):with_silent():with_noremap(),
 }
 
 bind.nvim_load_mapping(plug_map)
