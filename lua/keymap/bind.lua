@@ -42,6 +42,11 @@ function rhs_options:with_silent()
 	return self
 end
 
+function rhs_options:with_desc(desc_string)
+	self.options.desc = desc_string
+	return self
+end
+
 function rhs_options:with_noremap()
 	self.options.noremap = true
 	return self

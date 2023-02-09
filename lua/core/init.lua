@@ -1,5 +1,4 @@
 local global = require("core.global")
-local vim = vim
 
 local colorscheme = require("core.settings").colorscheme
 local background = require("core.settings").background

@@ -9,13 +9,18 @@ return function()
 		filetypes_denylist = {
 			"alpha",
 			"dashboard",
+			"dirvish",
 			"DoomInfo",
 			"fugitive",
 			"help",
+			"lsgsagaoutline",
+			"neogitstatus",
 			"norg",
 			"NvimTree",
 			"Outline",
+			"TelescopePrompt",
 			"toggleterm",
+			"Trouble",
 		},
 		under_cursor = false,
 	})

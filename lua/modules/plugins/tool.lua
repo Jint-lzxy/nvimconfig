@@ -54,7 +54,7 @@ tool["brglng/vim-im-select"] = {
 tool["dstein64/vim-startuptime"] = { lazy = true, cmd = "StartupTime" }
 tool["folke/which-key.nvim"] = {
 	lazy = true,
-	event = "VeryLazy",
+	event = "BufWinEnter",
 	config = require("tool.which-key"),
 }
 tool["gelguy/wilder.nvim"] = {

@@ -1,4 +1,3 @@
-local vim = vim
 local autocmd = {}
 
 -- auto close NvimTree

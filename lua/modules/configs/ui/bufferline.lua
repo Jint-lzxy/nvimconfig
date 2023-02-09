@@ -3,20 +3,17 @@ return function()
 
 	local opts = {
 		options = {
-			numbers = nil,
-			modified_icon = icons.ui.Modified_alt,
+			always_show_bufferline = true,
 			buffer_close_icon = icons.ui.Close,
+			diagnostics = "nvim_lsp",
+			diagnostics_indicator = function(count)
+				return "(" .. count .. ")"
+			end,
 			left_trunc_marker = icons.ui.Left,
-			right_trunc_marker = icons.ui.Right,
 			max_name_length = 14,
 			max_prefix_length = 13,
-			tab_size = 20,
-			show_buffer_close_icons = true,
-			show_buffer_icons = true,
-			show_tab_indicators = true,
-			diagnostics = "nvim_lsp",
-			always_show_bufferline = true,
-			separator_style = "slant",
+			modified_icon = icons.ui.Modified_alt,
+			numbers = nil,
 			offsets = {
 				{
 					filetype = "NvimTree",
@@ -38,9 +35,12 @@ return function()
 					padding = 1,
 				},
 			},
-			diagnostics_indicator = function(count)
-				return "(" .. count .. ")"
-			end,
+			right_trunc_marker = icons.ui.Right,
+			separator_style = "slant",
+			show_buffer_close_icons = true,
+			show_buffer_icons = true,
+			show_tab_indicators = true,
+			tab_size = 20,
 		},
 		-- Change bufferline's highlights here! See `:h bufferline-highlights` for detailed explanation.
 		-- Note: If you use catppuccin then modify the colors below!
