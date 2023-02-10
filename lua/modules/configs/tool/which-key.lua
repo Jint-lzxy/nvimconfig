@@ -7,7 +7,13 @@ return function()
 	require("which-key").setup({
 		plugins = {
 			presets = {
+				operators = false,
+				motions = false,
+				text_objects = false,
+				windows = false,
 				nav = false,
+				z = true,
+				g = true,
 			},
 		},
 		icons = {
@@ -51,6 +57,8 @@ return function()
 				p = "find: Project",
 				w = "find: Word",
 				r = "find: File by frecency",
+				k = "find: Keymaps",
+				s = "find: Word under cursor",
 				e = "find: File by history",
 				c = "ui: Change colorscheme",
 				z = "edit: Change current directory by zoxide",
