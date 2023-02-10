@@ -12,7 +12,7 @@ editor["rmagatti/auto-session"] = {
 }
 editor["max397574/better-escape.nvim"] = {
 	lazy = true,
-	event = "BufReadPost",
+	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.better-escape"),
 }
 editor["LunarVim/bigfile.nvim"] = {
@@ -22,12 +22,12 @@ editor["LunarVim/bigfile.nvim"] = {
 }
 editor["numToStr/Comment.nvim"] = {
 	lazy = true,
-	event = { "BufNewFile", "BufReadPre" },
+	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.comment_nvim"),
 }
 editor["rhysd/clever-f.vim"] = {
 	lazy = true,
-	event = "BufReadPost",
+	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("editor.cleverf"),
 }
 editor["sindrets/diffview.nvim"] = {
@@ -51,7 +51,7 @@ editor["phaazon/hop.nvim"] = {
 }
 editor["ojroques/nvim-bufdel"] = {
 	lazy = true,
-	event = "BufReadPost",
+	event = { "CursorHold", "CursorHoldI" },
 }
 editor["luukvbaal/stabilize.nvim"] = {
 	lazy = true,
@@ -67,7 +67,7 @@ editor["junegunn/vim-easy-align"] = {
 }
 editor["RRethy/vim-illuminate"] = {
 	lazy = true,
-	event = "BufReadPost",
+	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.vim-illuminate"),
 }
 
@@ -77,7 +77,7 @@ editor["RRethy/vim-illuminate"] = {
 editor["nvim-treesitter/nvim-treesitter"] = {
 	lazy = true,
 	build = ":TSUpdate",
-	event = "BufReadPost",
+	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.treesitter"),
 	dependencies = {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
