@@ -1,6 +1,4 @@
 return function()
-	local global = require("core.global")
-
 	local colors = require("modules.utils").get_palette({ maroon = "#EA999D", flamingo = "#EEBEBE" })
 	local icons = {
 		diagnostics = require("modules.utils.icons").get("diagnostics", true),
@@ -120,18 +118,6 @@ return function()
 			end
 		end
 		return msg == "" and "No Active LSP" or msg:sub(1, -3) -- Remove last comma.
-	end
-
-	local function get_os_icon()
-		if global.is_linux then
-			return ""
-		elseif global.is_mac then
-			return ""
-		elseif global.is_windows then
-			return ""
-		else
-			return ""
-		end
 	end
 
 	local function diff_source()
@@ -258,7 +244,7 @@ return function()
 				lspsaga_symbols,
 			},
 			lualine_x = {
-				{ escape_status, separator = "" },
+				{ escape_status, separator = "", color = { fg = colors.green } },
 				{
 					"diagnostics",
 					sources = { "nvim_diagnostic" },
@@ -285,7 +271,14 @@ return function()
 				},
 				{ python_venv },
 				{ "encoding" },
-				{ get_os_icon },
+				{
+					"fileformat",
+					symbols = {
+						unix = "LF",
+						dos = "CRLF",
+						mac = "CR", -- Legacy macOS
+					},
+				},
 			},
 			lualine_z = { "progress", "location" },
 		},
