@@ -76,15 +76,19 @@ editor["RRethy/vim-illuminate"] = {
 ----------------------------------------------------------------------
 editor["nvim-treesitter/nvim-treesitter"] = {
 	lazy = true,
-	build = ":TSUpdate",
+	build = function()
+		if #vim.api.nvim_list_uis() ~= 0 then
+			vim.api.nvim_command([[TSUpdate]])
+		end
+	end,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.treesitter"),
 	dependencies = {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		{ "nvim-treesitter/nvim-treesitter-context" },
-		{ "p00f/nvim-ts-rainbow" },
+		{ "mrjones2014/nvim-ts-rainbow" },
 		{ "JoosepAlviste/nvim-ts-context-commentstring" },
-		{ "mfussenegger/nvim-ts-hint-textobject" },
+		{ "mfussenegger/nvim-treehopper" },
 		{ "andymass/vim-matchup", config = require("editor.matchup") },
 		{
 			"windwp/nvim-ts-autotag",
