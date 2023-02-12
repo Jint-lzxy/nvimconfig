@@ -3,9 +3,6 @@ on:
   # Scheduled update (each day)
   schedule: [{ cron: "30 01 * * *" }]
   workflow_dispatch:
-  push:
-    branches:
-      - "master"
 
 jobs:
   update-lockfile:
