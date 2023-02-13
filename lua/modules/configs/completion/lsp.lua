@@ -38,7 +38,7 @@ mason_lspconfig.setup({
 		"efm",
 		"gopls",
 		"pyright",
-		"sumneko_lua",
+		"lua_ls",
 	},
 })
 
@@ -107,10 +107,10 @@ mason_lspconfig.setup_handlers({
 		nvim_lsp.jsonls.setup(final_opts)
 	end,
 
-	sumneko_lua = function()
-		local _opts = require("completion.servers.sumneko_lua")
+	lua_ls = function()
+		local _opts = require("completion.servers.lua_ls")
 		local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
-		nvim_lsp.sumneko_lua.setup(final_opts)
+		nvim_lsp.lua_ls.setup(final_opts)
 	end,
 })
 
