@@ -1,5 +1,5 @@
 return function()
-	require("comment").setup({
+	require("Comment").setup({
 		-- Lines to be ignored while (un)comment
 		ignore = "^$",
 		-- Function to call before (un)comment
