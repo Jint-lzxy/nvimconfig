@@ -98,6 +98,7 @@ return function()
 						path = "[PATH]",
 						tmux = "[TMUX]",
 						luasnip = "[SNIP]",
+						treesitter = "[TS]",
 						spell = "[SPELL]",
 					})[entry.source.name]
 					return vim_item
@@ -142,6 +143,7 @@ return function()
 			{ name = "nvim_lua" },
 			{ name = "luasnip" },
 			{ name = "path" },
+			{ name = "treesitter" },
 			{ name = "spell" },
 			{ name = "tmux" },
 			{ name = "orgmode" },
