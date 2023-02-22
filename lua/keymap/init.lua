@@ -99,6 +99,7 @@ local plug_map = {
 	["n|<leader>fn"] = map_cu(":enew"):with_noremap():with_silent(),
 	["n|<leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
+	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),
 	["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent(),
 	["n|<leader>fk"] = map_cu("lua command_panel()"):with_noremap():with_silent(),
 	["n|<leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
