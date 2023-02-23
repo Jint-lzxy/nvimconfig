@@ -105,6 +105,9 @@ return function()
 				end,
 			}),
 		},
+		matching = {
+			disallow_partial_fuzzy_matching = false,
+		},
 		-- You can set mappings if you want
 		mapping = cmp.mapping.preset.insert({
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
