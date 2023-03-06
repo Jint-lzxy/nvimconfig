@@ -48,45 +48,49 @@ local function get_binary_path_list(binaries)
 end
 
 -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/clangd.lua
-return {
-	single_file_support = true,
-	cmd = {
-		"clangd",
-		"-j=12",
-		"--enable-config",
-		-- You MUST set this arg ↓ to your c/cpp compiler location (if not included)!
-		"--query-driver=" .. get_binary_path_list({ "clang++", "clang", "gcc", "g++" }),
-		"--all-scopes-completion",
-		"--background-index",
-		"--clang-tidy",
-		"--completion-parse=auto",
-		"--completion-style=bundled",
-		"--function-arg-placeholders=false",
-		"--header-insertion-decorators",
-		"--header-insertion=iwyu",
-		"--include-cleaner-stdlib",
-		"--limit-references=3000",
-		"--limit-results=500",
-		"--pch-storage=memory",
-	},
-	commands = {
-		ClangdSwitchSourceHeader = {
-			function()
-				switch_source_header_splitcmd(0, "edit")
-			end,
-			description = "Open source/header in current buffer",
+return function(defaults)
+	require("lspconfig").clangd.setup({
+		on_attach = defaults.on_attach,
+		capabilities = vim.tbl_deep_extend("keep", { offsetEncoding = { "utf-16", "utf-8" } }, defaults.capabilities),
+		single_file_support = true,
+		cmd = {
+			"clangd",
+			"-j=12",
+			"--enable-config",
+			-- You MUST set this arg ↓ to your c/cpp compiler location (if not included)!
+			"--query-driver=" .. get_binary_path_list({ "clang++", "clang", "gcc", "g++" }),
+			"--all-scopes-completion",
+			"--background-index",
+			"--clang-tidy",
+			"--completion-parse=auto",
+			"--completion-style=bundled",
+			"--function-arg-placeholders=false",
+			"--header-insertion-decorators",
+			"--header-insertion=iwyu",
+			"--include-cleaner-stdlib",
+			"--limit-references=3000",
+			"--limit-results=500",
+			"--pch-storage=memory",
 		},
-		ClangdSwitchSourceHeaderVSplit = {
-			function()
-				switch_source_header_splitcmd(0, "vsplit")
-			end,
-			description = "Open source/header in a new vsplit",
+		commands = {
+			ClangdSwitchSourceHeader = {
+				function()
+					switch_source_header_splitcmd(0, "edit")
+				end,
+				description = "Open source/header in current buffer",
+			},
+			ClangdSwitchSourceHeaderVSplit = {
+				function()
+					switch_source_header_splitcmd(0, "vsplit")
+				end,
+				description = "Open source/header in a new vsplit",
+			},
+			ClangdSwitchSourceHeaderSplit = {
+				function()
+					switch_source_header_splitcmd(0, "split")
+				end,
+				description = "Open source/header in a new split",
+			},
 		},
-		ClangdSwitchSourceHeaderSplit = {
-			function()
-				switch_source_header_splitcmd(0, "split")
-			end,
-			description = "Open source/header in a new split",
-		},
-	},
-}
+	})
+end
