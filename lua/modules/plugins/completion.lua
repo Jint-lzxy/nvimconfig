@@ -5,18 +5,22 @@ completion["neovim/nvim-lspconfig"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("completion.lspconfig"),
 	dependencies = {
-		{ "creativenull/efmls-configs-nvim" },
 		{ "williamboman/mason.nvim" },
 		{ "williamboman/mason-lspconfig.nvim" },
-		{
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			config = require("completion.mason-tool-installer"),
-		},
 		{
 			"glepnir/lspsaga.nvim",
 			config = require("completion.lspsaga"),
 		},
 		{ "ray-x/lsp_signature.nvim" },
+	},
+}
+completion["jose-elias-alvarez/null-ls.nvim"] = {
+	lazy = true,
+	event = { "CursorHold", "CursorHoldI" },
+	config = require("completion.null-ls"),
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"jay-babu/mason-null-ls.nvim",
 	},
 }
 completion["hrsh7th/nvim-cmp"] = {
