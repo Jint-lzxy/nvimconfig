@@ -55,7 +55,6 @@ return function()
 			split = "<C-c>s",
 			tabe = "<C-c>t",
 			quit = "q",
-			close = "<Esc>",
 		},
 		code_action = {
 			num_shortcut = true,
