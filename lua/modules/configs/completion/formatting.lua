@@ -117,10 +117,10 @@ function M.format_filter(clients)
 		local status_ok, formatting_supported = pcall(function()
 			return client.supports_method("textDocument/formatting")
 		end)
-		elseif client.name ~= "sumneko_lua" and client.name ~= "tsserver" and client.name ~= "clangd" then
-			return status_ok and formatting_supported and client.name
 		if status_ok and formatting_supported and client.name == "null-ls" then
 			return "null-ls"
+		elseif client.name ~= "lua_ls" and client.name ~= "tsserver" and client.name ~= "clangd" then
+			return status_ok and formatting_supported and client.name
 		end
 	end, clients)
 end
