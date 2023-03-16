@@ -3,16 +3,17 @@ local M = {}
 local settings = require("core.settings")
 local disabled_workspaces = settings.format_disabled_dirs
 local format_on_save = settings.format_on_save
+local server_formatting_block_list = settings.server_formatting_block_list
 
 vim.api.nvim_create_user_command("FormatToggle", function()
 	M.toggle_format_on_save()
 end, {})
 
-local block_list = {}
-vim.api.nvim_create_user_command("FormatterToggle", function(opts)
+local block_list = require("core.settings").formatter_block_list
+vim.api.nvim_create_user_command("FormatterToggleFt", function(opts)
 	if block_list[opts.args] == nil then
 		vim.notify(
-			string.format("[LSP]Formatter for [%s] has been recorded in list and disabled.", opts.args),
+			string.format("[LSP] Formatter for [%s] has been recorded in list and disabled.", opts.args),
 			vim.log.levels.WARN,
 			{ title = "LSP Formatter Warning!" }
 		)
@@ -21,7 +22,7 @@ vim.api.nvim_create_user_command("FormatterToggle", function(opts)
 		block_list[opts.args] = not block_list[opts.args]
 		vim.notify(
 			string.format(
-				"[LSP]Formatter for [%s] has been %s.",
+				"[LSP] Formatter for [%s] has been %s.",
 				opts.args,
 				not block_list[opts.args] and "enabled" or "disabled"
 			),
@@ -29,35 +30,7 @@ vim.api.nvim_create_user_command("FormatterToggle", function(opts)
 			{ title = string.format("LSP Formatter %s", not block_list[opts.args] and "Info" or "Warning") }
 		)
 	end
-end, {
-	nargs = 1,
-	complete = function()
-		return {
-			"c",
-			"cpp",
-			"cs", -- c#
-			"css",
-			"go",
-			"html",
-			"javascript",
-			"latex",
-			"lua",
-			"markdown",
-			"python",
-			"ruby",
-			"rust",
-			"scss",
-			"sh",
-			"swift",
-			"toml",
-			"typescript",
-			"vim",
-			"vue",
-			"vue",
-			"yaml",
-		}
-	end,
-})
+end, { nargs = 1, complete = "filetype" })
 
 function M.enable_format_on_save(is_configured)
 	local opts = { pattern = "*", timeout = 1000 }
@@ -119,8 +92,8 @@ function M.format_filter(clients)
 		end)
 		if status_ok and formatting_supported and client.name == "null-ls" then
 			return "null-ls"
-		elseif client.name ~= "lua_ls" and client.name ~= "tsserver" and client.name ~= "clangd" then
-			return status_ok and formatting_supported and client.name
+		elseif not server_formatting_block_list[client.name] and status_ok and formatting_supported then
+			return client.name
 		end
 	end, clients)
 end
@@ -165,7 +138,7 @@ function M.format(opts)
 		if block_list[vim.bo.filetype] == true then
 			vim.notify(
 				string.format(
-					"[LSP][%s] formatter for [%s] has been disabled. The file is not being processed.",
+					"[LSP][%s] Formatter for [%s] has been disabled. This file is not being processed.",
 					client.name,
 					vim.bo.filetype
 				),
