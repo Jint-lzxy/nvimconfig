@@ -23,6 +23,7 @@ return function()
 				"javascript",
 				"typescriptreact",
 				"javascriptreact",
+				"json",
 				"yaml",
 				"html",
 				"css",
