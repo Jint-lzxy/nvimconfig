@@ -11,7 +11,7 @@ return {
         AfterNamespace: true, AfterStruct: true, AfterUnion: true, AfterExternBlock: false, \z
         BeforeCatch: true, BeforeElse: false, BeforeLambdaBody: false, BeforeWhile: false, \z
         SplitEmptyFunction: false, SplitEmptyRecord: false, SplitEmptyNamespace: false}, \z
-        FixNamespaceComments: true, ShortNamespaceLines: 3, ColumnLimit: 100, \z
+        FixNamespaceComments: true, ShortNamespaceLines: 1, ColumnLimit: 100, \z
         BreakBeforeTernaryOperators: true, BreakConstructorInitializers: BeforeColon, \z
         BreakInheritanceList: BeforeColon, BreakStringLiterals: true, \z
         Cpp11BracedListStyle: true, EmptyLineAfterAccessModifier: Leave, \z
