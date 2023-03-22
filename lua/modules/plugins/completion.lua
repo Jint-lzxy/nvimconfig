@@ -24,6 +24,7 @@ completion["jose-elias-alvarez/null-ls.nvim"] = {
 	},
 }
 completion["hrsh7th/nvim-cmp"] = {
+	lazy = true,
 	event = "InsertEnter",
 	config = require("completion.cmp"),
 	dependencies = {
@@ -48,6 +49,7 @@ completion["hrsh7th/nvim-cmp"] = {
 }
 --[[
 completion["zbirenbaum/copilot.lua"] = {
+	lazy = true,
 	cmd = "Copilot",
 	event = "InsertEnter",
 	config = require("completion.copilot"),
