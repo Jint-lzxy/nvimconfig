@@ -15,11 +15,11 @@ return {
         BreakBeforeTernaryOperators: true, BreakConstructorInitializers: BeforeColon, \z
         BreakInheritanceList: BeforeColon, BreakStringLiterals: true, \z
         Cpp11BracedListStyle: true, EmptyLineAfterAccessModifier: Leave, \z
-        IncludeBlocks: Regroup, IndentPPDirectives: AfterHash, \z
-        IndentWrappedFunctionNames: true, PointerAlignment: Left, \z
+        AlignConsecutiveMacros: Consecutive, IndentPPDirectives: AfterHash, \z
+        IncludeBlocks: Regroup, IndentWrappedFunctionNames: true, PointerAlignment: Left, \z
         ReferenceAlignment: Pointer, SeparateDefinitionBlocks: Always, \z
-        SortIncludes: CaseSensitive, SortUsingDeclarations: true, \z
-        SpaceAfterCStyleCast: true, SpaceBeforeCaseColon: false, \z
+        AlignConsecutiveAssignments: Consecutive, SortUsingDeclarations: true, \z
+        SortIncludes: CaseSensitive, SpaceAfterCStyleCast: true, SpaceBeforeCaseColon: false, \z
         AllowShortLambdasOnASingleLine: All, PackConstructorInitializers: Never, \z
         SpaceBeforeRangeBasedForLoopColon: false, AlignAfterOpenBracket: Align, \z
         AlwaysBreakTemplateDeclarations: Yes, IndentCaseLabels: true, \z
