@@ -45,8 +45,7 @@ local plug_map = {
 	["n|gr"] = map_cr("Lspsaga rename"):with_noremap():with_silent(),
 	["n|gR"] = map_cr("Lspsaga rename ++project"):with_noremap():with_silent(),
 	["n|K"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
-	["n|<leader>ca"] = map_cr("Lspsaga code_action"):with_noremap():with_silent(),
-	["v|<leader>ca"] = map_cu("Lspsaga code_action"):with_noremap():with_silent(),
+	["nv|<leader>ca"] = map_cr("Lspsaga code_action"):with_noremap():with_silent(),
 	["n|gd"] = map_cr("Lspsaga peek_definition"):with_noremap():with_silent(),
 	["n|gD"] = map_cr("Lspsaga goto_definition"):with_noremap():with_silent(),
 	["n|gh"] = map_cr("Lspsaga lsp_finder"):with_noremap():with_silent(),
@@ -111,14 +110,13 @@ local plug_map = {
 	["n|;"] = map_cmd("v:lua.enhance_ft_move(';')"):with_expr(),
 	["n|,"] = map_cmd("v:lua.enhance_ft_move(',')"):with_expr(),
 	-- Plugin Hop
-	["n|<leader>w"] = map_cu("HopWord"):with_noremap(),
-	["n|<leader>j"] = map_cu("HopLine"):with_noremap(),
-	["n|<leader>k"] = map_cu("HopLine"):with_noremap(),
-	["n|<leader>c"] = map_cu("HopChar1"):with_noremap(),
-	["n|<leader>cc"] = map_cu("HopChar2"):with_noremap(),
+	["nv|<leader>w"] = map_cmd("<Cmd>HopWord<CR>"):with_noremap(),
+	["nv|<leader>j"] = map_cmd("<Cmd>HopLine<CR>"):with_noremap(),
+	["nv|<leader>k"] = map_cmd("<Cmd>HopLine<CR>"):with_noremap(),
+	["nv|<leader>c"] = map_cmd("<Cmd>HopChar1<CR>"):with_noremap(),
+	["nv|<leader>cc"] = map_cmd("<Cmd>HopChar2<CR>"):with_noremap(),
 	-- Plugin EasyAlign
-	["n|gea"] = map_cmd("v:lua.enhance_align('nea')"):with_expr(),
-	["x|gea"] = map_cmd("v:lua.enhance_align('xea')"):with_expr(),
+	["nx|gea"] = map_cr("EasyAlign"):with_noremap():with_silent(),
 	-- Plugin MarkdownPreview
 	["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent(),
 	-- Plugin auto_session

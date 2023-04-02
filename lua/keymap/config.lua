@@ -17,11 +17,6 @@ _G.enhance_ft_move = function(key)
 	return t(map[key])
 end
 
-_G.enhance_align = function(key)
-	local map = { ["nea"] = "<Plug>(EasyAlign)", ["xea"] = "<Plug>(EasyAlign)" }
-	return t(map[key])
-end
-
 _G.command_panel = function()
 	require("telescope.builtin").keymaps({
 		lhs_filter = function(lhs)
