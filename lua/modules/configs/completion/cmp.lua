@@ -60,8 +60,6 @@ return function()
 		return (diff < 0)
 	end
 
-	local lspkind = require("lspkind")
-
 	local cmp = require("cmp")
 	cmp.setup({
 		window = {
@@ -93,7 +91,7 @@ return function()
 			},
 		},
 		formatting = {
-			format = lspkind.cmp_format({
+			format = require("lspkind").cmp_format({
 				mode = "symbol_text",
 				maxwidth = 60,
 				ellipsis_char = "...",
@@ -121,7 +119,7 @@ return function()
 		},
 		-- You can set mappings if you want
 		mapping = cmp.mapping.preset.insert({
-			["<CR>"] = cmp.mapping.confirm({ select = true }),
+			["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
 			["<C-p>"] = cmp.mapping.select_prev_item(),
 			["<C-n>"] = cmp.mapping.select_next_item(),
 			["<C-d>"] = cmp.mapping.scroll_docs(-4),
