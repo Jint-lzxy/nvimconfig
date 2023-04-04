@@ -81,7 +81,6 @@ tool["nvim-telescope/telescope.nvim"] = {
 	dependencies = {
 		{ "nvim-tree/nvim-web-devicons" },
 		{ "nvim-lua/plenary.nvim" },
-		{ "nvim-lua/popup.nvim" },
 		{
 			"ahmedkhalf/project.nvim",
 			event = "BufReadPost",
