@@ -23,7 +23,7 @@ return function()
 			selection_strategy = "reset",
 			sorting_strategy = "ascending",
 			color_devicons = true,
-			file_ignore_patterns = { ".git/", ".cache", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip" },
+			file_ignore_patterns = { ".git/", ".cache", "build/", "%.class", "%.pdf", "%.mkv", "%.mp4", "%.zip" },
 			layout_config = {
 				horizontal = {
 					prompt_position = "top",
