@@ -25,6 +25,7 @@ return vim.schedule_wrap(function()
 			"ruby",
 			"rust",
 			"typescript",
+			"vimdoc",
 			"vue",
 			"yaml",
 		},
