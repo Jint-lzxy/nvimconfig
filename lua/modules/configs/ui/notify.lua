@@ -7,7 +7,7 @@ return function()
 
 	notify.setup({
 		---@usage Animation style one of { "fade", "slide", "fade_in_slide_out", "static" }
-		stages = "fade",
+		stages = "slide",
 		---@usage Function called when a new window is opened, use for changing win settings/config
 		on_open = function(win)
 			vim.api.nvim_win_set_option(win, "winblend", 0)
