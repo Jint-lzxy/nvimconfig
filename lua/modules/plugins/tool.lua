@@ -53,11 +53,6 @@ tool["tpope/vim-fugitive"] = {
 	lazy = true,
 	cmd = { "Git", "G" },
 }
-tool["brglng/vim-im-select"] = {
-	lazy = true,
-	event = "BufReadPost",
-	config = require("tool.imselect"),
-}
 tool["dstein64/vim-startuptime"] = { lazy = true, cmd = "StartupTime" }
 tool["folke/which-key.nvim"] = {
 	lazy = true,
