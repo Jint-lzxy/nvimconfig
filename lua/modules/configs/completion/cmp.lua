@@ -38,17 +38,6 @@ return function()
 		}
 	end
 
-	---Handling situations where LuaSnip failed to perform any jumps
-	---@param r integer @Cursor position (row) before calling LuaSnip
-	---@param c integer @Cursor position (col) before calling LuaSnip
-	---@param fallback function @Fallback function inherited from cmp
-	local luasnip_fallback = vim.schedule_wrap(function(r, c, fallback)
-		local _r, _c = unpack(vim.api.nvim_win_get_cursor(0))
-		if _r == r and _c == c then
-			fallback()
-		end
-	end)
-
 	local compare = require("cmp.config.compare")
 	compare.lsp_scores = function(entry1, entry2)
 		local diff
@@ -129,9 +118,7 @@ return function()
 				if cmp.visible() then
 					cmp.select_next_item()
 				elseif require("luasnip").expand_or_locally_jumpable() then
-					local _r, _c = unpack(vim.api.nvim_win_get_cursor(0))
 					vim.fn.feedkeys(t("<Plug>luasnip-expand-or-jump"))
-					luasnip_fallback(_r, _c, fallback)
 				else
 					fallback()
 				end
