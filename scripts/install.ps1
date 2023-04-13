@@ -361,7 +361,7 @@ You must install Git before installing this Nvim config. See:
 		} else {
 			warn -Msg "You have outdated Nvim installed (< $REQUIRED_NVIM_VERSION_LEGACY)."
 			info -Msg "Automatically redirecting you to the latest compatible version..."
-			safe_execute -WithCmd { git clone --progress -b 0.7 "$env:CCLONE_ATTR" 'git@github.com:Jint-lzxy/nvimconfig.git' "$env:CCDEST_DIR" }
+			safe_execute -WithCmd { git clone --progress -b "legacy-0.7" "$env:CCLONE_ATTR" 'git@github.com:Jint-lzxy/nvimconfig.git' "$env:CCDEST_DIR" }
 		}
 	} else {
 		if ((check_nvim_version -RequiredVersionMin $REQUIRED_NVIM_VERSION)) {
@@ -373,7 +373,7 @@ You must install Git before installing this Nvim config. See:
 		} else {
 			warn -Msg "You have outdated Nvim installed (< $REQUIRED_NVIM_VERSION_LEGACY)."
 			info -Msg "Automatically redirecting you to the latest compatible version..."
-			safe_execute -WithCmd { git clone --progress -b 0.7 "$env:CCLONE_ATTR" 'https://github.com/Jint-lzxy/nvimconfig.git' "$env:CCDEST_DIR" }
+			safe_execute -WithCmd { git clone --progress -b "legacy-0.7" "$env:CCLONE_ATTR" 'https://github.com/Jint-lzxy/nvimconfig.git' "$env:CCDEST_DIR" }
 		}
 	}
 

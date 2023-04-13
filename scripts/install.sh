@@ -257,7 +257,7 @@ if [[ "${USE_SSH}" -eq "1" ]]; then
 	else
 		warn "You have outdated Nvim installed (< ${REQUIRED_NVIM_VERSION_LEGACY})."
 		info "Automatically redirecting you to the latest compatible version..."
-		execute "git" "clone" "-b" "0.7" "${CLONE_ATTR[@]}" "git@github.com:Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
+		execute "git" "clone" "-b" "legacy-0.7" "${CLONE_ATTR[@]}" "git@github.com:Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
 	fi
 else
 	if check_nvim_version "${REQUIRED_NVIM_VERSION}"; then
@@ -269,7 +269,7 @@ else
 	else
 		warn "You have outdated Nvim installed (< ${REQUIRED_NVIM_VERSION_LEGACY})."
 		info "Automatically redirecting you to legacy version..."
-		execute "git" "clone" "-b" "0.7" "${CLONE_ATTR[@]}" "https://github.com/Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
+		execute "git" "clone" "-b" "legacy-0.7" "${CLONE_ATTR[@]}" "https://github.com/Jint-lzxy/nvimconfig.git" "${DEST_DIR}"
 	fi
 fi
 
