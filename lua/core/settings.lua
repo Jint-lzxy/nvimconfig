@@ -76,7 +76,6 @@ settings["null_ls_deps"] = {
 	"asmfmt",
 	"black",
 	"clang_format",
-	"editorconfig_checker",
 	"prettier",
 	"rustfmt",
 	"shfmt",
