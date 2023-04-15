@@ -72,6 +72,8 @@ local plug_map = {
 	["n|<F5>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]]):with_noremap():with_silent(),
 	["i|<F5>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>"):with_noremap():with_silent(),
 	["t|<F5>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent(),
+	-- Plugin suda.vim
+	["n|<C-S-s>"] = map_cu("SudaWrite"):with_silent():with_noremap(),
 	-- Plugin trouble
 	["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent(),
 	["n|<leader>cr"] = map_cr("TroubleToggle lsp_references"):with_noremap():with_silent(),
