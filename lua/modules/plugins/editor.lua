@@ -58,10 +58,6 @@ editor["ojroques/nvim-bufdel"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
 }
-editor["luukvbaal/stabilize.nvim"] = {
-	lazy = true,
-	event = "BufReadPost",
-}
 editor["lambdalisue/suda.vim"] = {
 	lazy = true,
 	cmd = { "SudaRead", "SudaWrite" },
