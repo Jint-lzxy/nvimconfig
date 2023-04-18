@@ -77,7 +77,7 @@ return function()
 			nvimtree = true,
 			overseer = false,
 			pounce = false,
-			semantic_tokens = false,
+			semantic_tokens = true,
 			symbols_outline = false,
 			telekasten = false,
 			telescope = true,
@@ -172,6 +172,20 @@ return function()
 					-- For nvim-tree
 					NvimTreeRootFolder = { fg = cp.pink },
 
+					-- For lsp semantic tokens
+					["@lsp.type.comment"] = { fg = cp.overlay0 },
+					["@lsp.type.enum"] = { link = "@type" },
+					["@lsp.type.type"] = { link = "@type" },
+					["@lsp.type.property"] = { link = "@property" },
+					["@lsp.type.property.c"] = { link = "@property.cpp" },
+					["@lsp.type.property.cpp"] = { link = "@property.cpp" },
+					["@lsp.type.macro"] = { link = "@constant" },
+					["@lsp.typemod.function.defaultLibrary"] = { fg = cp.blue, style = { "bold", "italic" } },
+					["@lsp.typemod.function.defaultLibrary.c"] = { fg = cp.blue, style = { "bold" } },
+					["@lsp.typemod.function.defaultLibrary.cpp"] = { fg = cp.blue, style = { "bold" } },
+					["@lsp.typemod.method.defaultLibrary"] = { link = "@lsp.typemod.function.defaultLibrary" },
+					["@lsp.typemod.variable.defaultLibrary"] = { fg = cp.flamingo },
+
 					-- For treesitter.
 					["@field"] = { fg = cp.rosewater },
 					["@property"] = { fg = cp.yellow },
@@ -242,7 +256,7 @@ return function()
 
 					["@field.lua"] = { fg = cp.lavender },
 					["@constructor.lua"] = { fg = cp.flamingo },
-					["@variable.builtin.lua"] = { fg = cp.flamingo, style = { "italic" } },
+					["@variable.builtin.lua"] = { fg = cp.flamingo },
 
 					["@constant.java"] = { fg = cp.teal },
 
