@@ -9,6 +9,13 @@ return function()
 			diagnostics_indicator = function(count)
 				return "(" .. count .. ")"
 			end,
+			get_element_icon = function(buf)
+				return require("nvim-web-devicons").get_icon(
+					buf.name,
+					vim.bo.filetype,
+					{ default = true, strict = true }
+				)
+			end,
 			left_trunc_marker = icons.ui.Left,
 			max_name_length = 14,
 			max_prefix_length = 13,
