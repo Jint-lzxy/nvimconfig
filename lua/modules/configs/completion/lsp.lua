@@ -36,6 +36,13 @@ mason_lspconfig.setup({
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	signs = true,
+	underline = true,
+	virtual_text = require("core.settings").diagnostics_virtual_text,
+	update_in_insert = false,
+})
+
 local opts = {
 	on_attach = function()
 		require("lsp_signature").on_attach({
