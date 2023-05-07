@@ -52,9 +52,9 @@ return function()
 	dashboard.section.buttons.val = {
 		button("[leader] f c", " Scheme change", leader, "<Cmd>Telescope colorscheme<CR>"),
 		button("[leader] f r", " File frecency", leader, "<Cmd>Telescope frecency<CR>"),
-		button("[leader] f e", " File history", leader, "<Cmd>Telescope oldfiles<CR>"),
+		button("[leader] f e", "󰋚 File history", leader, "<Cmd>Telescope oldfiles<CR>"),
 		button("[leader] f p", " Project find", leader, "<Cmd>Telescope projects<CR>"),
-		button("[leader] f f", " File find", leader, "<Cmd>Telescope find_files<CR>"),
+		button("[leader] f f", "󰈞 File find", leader, "<Cmd>Telescope find_files<CR>"),
 		button("[leader] f n", " File new", leader, "<Cmd>enew<CR>"),
 		button("[leader] f w", " Word find", leader, "<Cmd>Telescope live_grep<CR>"),
 	}
@@ -63,13 +63,13 @@ return function()
 	local function footer()
 		local stats = require("lazy").stats()
 		local greet = " 💝  Have Fun with neovim"
-			.. "   v"
+			.. "  󰀨 v"
 			.. vim.version().major
 			.. "."
 			.. vim.version().minor
 			.. "."
 			.. vim.version().patch
-			.. "   "
+			.. "  󰂖 "
 			.. stats.count
 			.. " plugins"
 		local quote = table.concat(require("alpha.fortune")(), "\n")
