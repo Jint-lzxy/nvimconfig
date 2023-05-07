@@ -1,5 +1,5 @@
 return function()
-	local transparent_background = false -- Set background transparency here!
+	local transparent_background = require("core.settings").transparent_background
 
 	require("catppuccin").setup({
 		flavour = "mocha",
@@ -242,7 +242,7 @@ return function()
 
 					["@field.lua"] = { fg = cp.lavender },
 					["@constructor.lua"] = { fg = cp.flamingo },
-					["@variable.builtin.lua"] = { fg = cp.flamingo, style = { "italic" } },
+					["@variable.builtin.lua"] = { fg = cp.flamingo },
 
 					["@constant.java"] = { fg = cp.teal },
 

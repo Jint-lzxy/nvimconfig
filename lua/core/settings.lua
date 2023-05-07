@@ -1,4 +1,5 @@
 local settings = {}
+local home = require("core.global").home
 
 -- Set it to false if you want to use https to update plugins and treesitter parsers.
 ---@type boolean
@@ -8,9 +9,15 @@ settings["use_ssh"] = true
 ---@type boolean
 settings["format_on_save"] = true
 
+-- Set it to false if diagnostics virtual text is annoying for you
+---@type boolean
+settings["diagnostics_virtual_text"] = true
+
 -- Set the format disabled directories here, files under these dirs won't be formatted on save.
 ---@type string[]
-settings["format_disabled_dirs"] = {}
+settings["format_disabled_dirs"] = {
+	home .. "/Library/Rime",
+}
 
 -- Set it to false if you don't use nvim to open big files.
 ---@type boolean
@@ -27,6 +34,10 @@ settings["palette_overwrite"] = {}
 -- Valid values are: `catppuccin`, `edge`, `nord`.
 ---@type string
 settings["colorscheme"] = "catppuccin"
+
+-- Set it to true if your terminal has transparent background.
+---@type boolean
+settings["transparent_background"] = false
 
 -- Set background color to use here.
 -- Useful if you would like to use a colorscheme that has a light and dark variant like `edge`.

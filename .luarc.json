@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema-zh-cn.json",
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema-zh-tw.json",
   "diagnostics": {
     "globals": ["vim"],
     "disable": ["different-requires"]

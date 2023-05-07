@@ -231,7 +231,7 @@ return function()
 		sections = {
 			lualine_a = { { "mode", icon = icons.misc.ManUp } },
 			lualine_b = {
-				{ "branch", icon = icons.cmp.Copilot },
+				{ "branch", icon = icons.cmp.copilot },
 				{
 					"diff",
 					symbols = { added = "  ", modified = "  ", removed = "  " },
@@ -252,6 +252,7 @@ return function()
 						error = icons.diagnostics.Error,
 						warn = icons.diagnostics.Warning,
 						info = icons.diagnostics.Information,
+						hint = icons.diagnostics.Hint_alt,
 					},
 					separator = "",
 				},

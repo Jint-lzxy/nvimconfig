@@ -58,20 +58,16 @@ function autocmd.load_autocmds()
 			{ "BufWritePre", "MERGE_MSG", "setlocal noundofile" },
 			{ "BufWritePre", "*.tmp", "setlocal noundofile" },
 			{ "BufWritePre", "*.bak", "setlocal noundofile" },
-			-- auto change directory
-			{ "BufEnter", "*", "silent! lcd %:p:h" },
+			-- change cursor to vertical bar after leaving neovim.
+			{ "VimLeave", "*", "set guicursor=a:ver2" },
 			-- auto place to last edit
 			{
 				"BufReadPost",
 				"*",
 				[[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif]],
 			},
-			-- Change cursor to vertical bar after leaving neovim.
-			{
-				"VimLeave",
-				"*",
-				"set guicursor=a:ver2",
-			},
+			-- auto change directory
+			-- { "BufEnter", "*", "silent! lcd %:p:h" },
 			-- Auto toggle fcitx5
 			-- {"InsertLeave", "* :silent", "!fcitx5-remote -c"},
 			-- {"BufCreate", "*", ":silent !fcitx5-remote -c"},
