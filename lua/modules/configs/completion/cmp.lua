@@ -51,6 +51,7 @@ return function()
 
 	local cmp = require("cmp")
 	cmp.setup({
+		preselect = cmp.PreselectMode.Item,
 		window = {
 			completion = {
 				-- border = border("CmpBorder"),
