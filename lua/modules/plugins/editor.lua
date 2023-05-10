@@ -12,7 +12,7 @@ editor["m4xshen/autoclose.nvim"] = {
 }
 editor["rmagatti/auto-session"] = {
 	lazy = true,
-	cmd = { "SaveSession", "RestoreSession", "DeleteSession" },
+	cmd = { "SessionSession", "SessionRestore", "SessionDelete" },
 	config = require("editor.auto-session"),
 }
 editor["max397574/better-escape.nvim"] = {
