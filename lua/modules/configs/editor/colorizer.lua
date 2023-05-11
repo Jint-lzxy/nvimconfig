@@ -1,3 +1,3 @@
 return function()
-	require("colorizer").setup({})
+	require("colorizer").setup()
 end
