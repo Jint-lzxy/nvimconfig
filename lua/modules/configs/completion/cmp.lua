@@ -154,5 +154,10 @@ return function()
 			-- { name = "copilot" },
 			-- { name = "cmp_tabnine" },
 		},
+		experimental = {
+			ghost_text = {
+				hl_group = "Whitespace",
+			},
+		},
 	})
 end
