@@ -153,7 +153,7 @@ return function()
 					FidgetTitle = { fg = cp.blue, style = { "bold" } },
 
 					-- For trouble.nvim
-					TroubleNormal = { bg = cp.base },
+					TroubleNormal = { bg = transparent_background and cp.none or cp.base },
 
 					-- For telescope
 					TelescopeBorder = { fg = cp.mantle, bg = cp.mantle },
