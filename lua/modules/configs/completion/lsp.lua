@@ -91,7 +91,7 @@ end
 mason_lspconfig.setup_handlers({ mason_handler })
 
 -- Setup lsps that are not supported by `mason.nvim` but supported by `nvim-lspconfig` here.
-if vim.fn.executable("sourcekit-lsp") then
+if vim.fn.executable("sourcekit-lsp") == 1 then
 	local _opts = require("completion.servers.sourcekit")
 	local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
 	nvim_lsp.sourcekit.setup(final_opts)
