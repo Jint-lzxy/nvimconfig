@@ -128,7 +128,7 @@ PowerShell is either not installed, missing from PATH, or not executable;
 cmd.exe will be used instead for `:!` (shell bang) and toggleterm.nvim.
 You're recommended to install PowerShell for better experience.]],
 				vim.log.levels.WARN,
-				{ title = "[core] Runtime error" }
+				{ title = "[core] Runtime Warning" }
 			)
 			return
 		end
