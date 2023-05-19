@@ -71,11 +71,14 @@ return function()
 				-- require("cmp_tabnine.compare"),
 				compare.offset,
 				compare.exact,
+				-- compare.scopes,
 				compare.lsp_scores,
+				compare.sort_text,
 				compare.score,
+				compare.recently_used,
+				-- compare.locality, -- This conflicts with `offset`
 				require("cmp-under-comparator").under,
 				compare.kind,
-				compare.sort_text,
 				compare.length,
 				compare.order,
 			},
@@ -141,7 +144,7 @@ return function()
 		},
 		-- You should specify your *installed* sources.
 		sources = {
-			{ name = "nvim_lsp" },
+			{ name = "nvim_lsp", max_item_count = 350 },
 			{ name = "nvim_lua" },
 			{ name = "luasnip" },
 			{ name = "path" },
