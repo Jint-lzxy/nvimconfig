@@ -21,7 +21,7 @@ settings["format_disabled_dirs"] = {
 
 -- Set it to false if you don't use nvim to open big files.
 ---@type boolean
-settings["load_big_files_faster"] = true
+settings["load_big_files_faster"] = false
 
 -- Change the colors of the global palette here.
 -- Settings will complete their replacement at initialization.
