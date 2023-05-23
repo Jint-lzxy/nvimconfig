@@ -54,14 +54,14 @@ settings["background"] = "dark"
 ---@type string
 settings["external_browser"] = "chrome-cli open"
 
--- Filetypes in this list will skip lsp formatting if rhs is true
+-- Filetypes in this list will skip lsp formatting if rhs is true.
 ---@type table<string, boolean>
 settings["formatter_block_list"] = {
 	-- Example
 	lua = false,
 }
 
--- Servers in this list will skip setting formatting capabilities if rhs is true
+-- Servers in this list will skip setting formatting capabilities if rhs is true.
 ---@type table<string, boolean>
 settings["server_formatting_block_list"] = {
 	clangd = true,
@@ -70,8 +70,8 @@ settings["server_formatting_block_list"] = {
 	tsserver = true,
 }
 
--- Set the language servers that will be installed during bootstrap here
--- check the below link for all the supported LSPs:
+-- Set the language servers that will be installed during bootstrap here.
+-- Check the below link for all the supported LSPs:
 -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
 ---@type string[]
 settings["lsp_deps"] = {
@@ -84,8 +84,8 @@ settings["lsp_deps"] = {
 	"pylsp",
 }
 
--- Set the general-purpose servers that will be installed and configured during bootstrap here
--- check the below link for all supported sources
+-- Set the general-purpose servers that will be installed and configured during bootstrap here.
+-- Check the below link for all supported sources:
 -- in `code_actions`, `completion`, `diagnostics`, `formatting`, `hover` folders:
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins
 ---@type string[]
