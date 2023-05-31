@@ -66,7 +66,6 @@ settings["formatter_block_list"] = {
 settings["server_formatting_block_list"] = {
 	clangd = true,
 	lua_ls = true,
-	pylsp = true,
 	tsserver = true,
 }
 
@@ -91,7 +90,6 @@ settings["lsp_deps"] = {
 ---@type string[]
 settings["null_ls_deps"] = {
 	"asmfmt",
-	"black",
 	"clang_format",
 	"prettier",
 	"rustfmt",

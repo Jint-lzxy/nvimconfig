@@ -9,9 +9,6 @@ return function()
 		btns.formatting.asmfmt.with({
 			extra_filetypes = { "nasm" },
 		}),
-		btns.formatting.black.with({
-			extra_args = { "--fast" },
-		}),
 		btns.formatting.clang_format.with({
 			filetypes = { "c", "cpp" },
 			extra_args = require("completion.formatters.clang_format"),
