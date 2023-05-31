@@ -66,10 +66,10 @@ return function(defaults)
 			"--completion-style=bundled",
 			"--function-arg-placeholders",
 			"--header-insertion-decorators",
-			"--header-insertion=never",
+			"--header-insertion=iwyu",
 			"--include-cleaner-stdlib",
 			"--limit-references=3000",
-			"--limit-results=350",
+			"--limit-results=270",
 			"--pch-storage=memory",
 		},
 		commands = {

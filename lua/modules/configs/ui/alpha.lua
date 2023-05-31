@@ -24,8 +24,8 @@ return function()
 			cursor = 5,
 			width = 50,
 			align_shortcut = "right",
-			hl = "AlphaButton",
-			hl_shortcut = "AlphaAttr",
+			hl = "AlphaButtons",
+			hl_shortcut = "AlphaShortcut",
 		}
 
 		if keybind == nil then
@@ -58,7 +58,7 @@ return function()
 		button("[leader] f n", " File new", leader, "<Cmd>enew<CR>"),
 		button("[leader] f w", " Word find", leader, "<Cmd>Telescope live_grep<CR>"),
 	}
-	dashboard.section.buttons.opts.hl = "AlphaButton"
+	dashboard.section.buttons.opts.hl = "AlphaButtons"
 
 	local function footer()
 		local stats = require("lazy").stats()

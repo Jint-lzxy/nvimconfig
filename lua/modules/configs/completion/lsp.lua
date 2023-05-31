@@ -1,7 +1,7 @@
 local nvim_lsp = require("lspconfig")
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
-require("lspconfig.ui.windows").default_options.border = "single"
+require("lspconfig.ui.windows").default_options.border = "rounded"
 
 local icons = {
 	ui = require("modules.utils.icons").get("ui", true),

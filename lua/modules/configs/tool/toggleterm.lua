@@ -1,7 +1,4 @@
 return function()
-	local colors = require("modules.utils").get_palette()
-	local floatborder_hl = require("modules.utils").hl_to_rgb("FloatBorder", false, colors.blue)
-
 	require("toggleterm").setup({
 		-- size can be a number or function which is passed the current terminal
 		size = function(term)
@@ -12,8 +9,14 @@ return function()
 			end
 		end,
 		highlights = {
+			Normal = {
+				link = "Normal",
+			},
+			NormalFloat = {
+				link = "NormalFloat",
+			},
 			FloatBorder = {
-				guifg = floatborder_hl,
+				link = "FloatBorder",
 			},
 		},
 		on_open = function()
