@@ -6,11 +6,11 @@ return function()
 		interpreter_options = {}, -- " intepreter-specific options, consult docs / :SnipInfo <name>
 		-- " you can combo different display modes as desired
 		display = {
-			"Classic", -- "display results in the command-line  area
+			"Classic", -- "display results in the command-line area
 			"VirtualTextOk", -- "display ok results as virtual text (multiline is shortened)
 			"VirtualTextErr", -- "display error results as virtual text
-			-- "TempFloatingWindow",      -- "display results in a floating window
-			"LongTempFloatingWindow", -- "same as above, but only long results. To use with VirtualText
+			"TempFloatingWindow", -- "display results in a floating window
+			-- "LongTempFloatingWindow", -- "same as above, but only long results. To use with VirtualText
 			-- "Terminal"                 -- "display results in a vertical split
 		},
 		-- " miscellaneous compatibility/adjustement settings
