@@ -89,8 +89,7 @@ return function()
 			vimwiki = false,
 			which_key = true,
 		},
-		color_overrides = {
-		},
+		color_overrides = {},
 		highlight_overrides = {
 			---@param cp palette
 			all = function(cp)
