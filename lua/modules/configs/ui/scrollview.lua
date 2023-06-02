@@ -1,3 +1,3 @@
 return function()
-	require("scrollview").setup({})
+	require("scrollview").setup()
 end
