@@ -1,5 +1,6 @@
 local diagnostics_virtual_text = require("core.settings").diagnostics_virtual_text
 local diagnostics_level = require("core.settings").diagnostics_level
+local is_windows = require("core.global").is_windows
 
 local nvim_lsp = require("lspconfig")
 local mason = require("mason")
@@ -42,9 +43,13 @@ mason_registry:on(
 		end
 
 		local venv = vim.fn.stdpath("data") .. "/mason/packages/python-lsp-server/venv"
+		local python = is_windows and venv .. "/Scripts/python.exe" or venv .. "/bin/python"
+		local black = is_windows and venv .. "/Scripts/black.exe" or venv .. "/bin/black"
+		local ruff = is_windows and venv .. "/Scripts/ruff.exe" or venv .. "/bin/ruff"
+
 		require("plenary.job")
 			:new({
-				command = venv .. "/bin/python",
+				command = python,
 				args = {
 					"-m",
 					"pip",
@@ -58,13 +63,18 @@ mason_registry:on(
 				cwd = venv,
 				env = { VIRTUAL_ENV = venv },
 				on_exit = function()
-					if vim.fn.executable(venv .. "/bin/black") == 1 and vim.fn.executable(venv .. "/bin/ruff") == 1 then
+					if vim.fn.executable(black) == 1 and vim.fn.executable(ruff) == 1 then
 						vim.notify(
 							"Finished installing pylsp plugins",
 							vim.log.levels.INFO,
 							{ title = "[lsp] Install Status" }
 						)
-						return
+					else
+						vim.notify(
+							"Failed to install pylsp plugins. [Executable not found]",
+							vim.log.levels.ERROR,
+							{ title = "[lsp] Install Failure" }
+						)
 					end
 				end,
 				on_start = function()
