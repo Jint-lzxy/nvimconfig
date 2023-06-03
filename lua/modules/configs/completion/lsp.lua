@@ -1,3 +1,6 @@
+local diagnostics_virtual_text = require("core.settings").diagnostics_virtual_text
+local diagnostics_level = require("core.settings").diagnostics_level
+
 local nvim_lsp = require("lspconfig")
 local mason = require("mason")
 local mason_registry = require("mason-registry")
@@ -89,7 +92,9 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	signs = true,
 	underline = true,
-	virtual_text = require("core.settings").diagnostics_virtual_text,
+	virtual_text = diagnostics_virtual_text and {
+		severity_limit = diagnostics_level,
+	} or false,
 	update_in_insert = false,
 })
 
