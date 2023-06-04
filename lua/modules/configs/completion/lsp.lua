@@ -161,3 +161,9 @@ if vim.fn.executable("sourcekit-lsp") == 1 then
 	local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
 	nvim_lsp.sourcekit.setup(final_opts)
 end
+
+if vim.fn.executable("dart") == 1 then
+	local _opts = require("completion.servers.dartls")
+	local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
+	nvim_lsp.dartls.setup(final_opts)
+end
