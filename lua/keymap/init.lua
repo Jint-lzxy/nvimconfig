@@ -52,8 +52,8 @@ local plug_map = {
 	["n|<leader>ci"] = map_cr("Lspsaga incoming_calls"):with_noremap():with_silent(),
 	["n|<leader>co"] = map_cr("Lspsaga outgoing_calls"):with_noremap():with_silent(),
 	["n|<leader>G"] = map_cu("Git"):with_noremap():with_silent(),
-	["n|gps"] = map_cr("G push"):with_noremap():with_silent(),
-	["n|gpl"] = map_cr("G pull"):with_noremap():with_silent(),
+	["n|gpP"] = map_cr("G push"):with_noremap():with_silent(),
+	["n|gpp"] = map_cr("G pull"):with_noremap():with_silent(),
 	-- Toggle Terminal
 	-- Global
 	["t|∑"] = map_cmd("<C-\\><C-n>"):with_noremap():with_silent(), -- switch to normal mode in terminal.
@@ -86,7 +86,7 @@ local plug_map = {
 	["n|<leader>nf"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent(),
 	["n|<leader>nr"] = map_cr("NvimTreeRefresh"):with_noremap():with_silent(),
 	-- Plugin Undotree
-	["n|<Leader>u"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
+	["n|<leader>u"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
 	-- Plugin Telescope
 	["n|<leader>fp"] = map_cu("lua require('telescope').extensions.projects.projects{}"):with_noremap():with_silent(),
 	["n|<leader>fr"] = map_cu("lua require('telescope').extensions.frecency.frecency{}"):with_noremap():with_silent(),
