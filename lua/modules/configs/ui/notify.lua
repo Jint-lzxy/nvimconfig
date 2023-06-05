@@ -7,7 +7,7 @@ return function()
 
 	notify.setup({
 		---@usage Animation style one of { "fade", "slide", "fade_in_slide_out", "static" }
-		stages = "slide",
+		stages = "fade",
 		---@usage Function called when a new window is opened, use for changing win settings/config
 		on_open = function(win)
 			vim.api.nvim_win_set_option(win, "winblend", 0)
@@ -18,7 +18,7 @@ return function()
 		---@usage timeout for notifications in ms, default 5000
 		timeout = 2000,
 		-- @usage User render fps value
-		fps = 30,
+		fps = 20,
 		-- Render function for notifications. See notify-render()
 		render = "default",
 		---@usage highlight behind the window for stages that change opacity
