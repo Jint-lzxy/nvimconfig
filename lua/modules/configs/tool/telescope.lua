@@ -6,6 +6,7 @@ return function()
 		defaults = {
 			vimgrep_arguments = {
 				"rg",
+				"--color=never",
 				"--no-heading",
 				"--with-filename",
 				"--line-number",
