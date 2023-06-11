@@ -26,6 +26,7 @@ ui["mbbill/undotree"] = {
 }
 ui["j-hui/fidget.nvim"] = {
 	lazy = true,
+	branch = "legacy",
 	event = "LspAttach",
 	config = require("ui.fidget"),
 }
