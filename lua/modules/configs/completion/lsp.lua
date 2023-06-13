@@ -127,7 +127,7 @@ local opts = {
 
 ---A handler to setup all servers defined under `completion/servers/*.lua`
 ---@param lsp_name string
-local function mason_handler(lsp_name)
+local function mason_lsp_handler(lsp_name)
 	local ok, custom_handler = pcall(require, "completion.servers." .. lsp_name)
 	if not ok then
 		-- Default to use factory config for server(s) that doesn't include a spec
@@ -153,7 +153,7 @@ local function mason_handler(lsp_name)
 	end
 end
 
-mason_lspconfig.setup_handlers({ mason_handler })
+mason_lspconfig.setup_handlers({ mason_lsp_handler })
 
 -- Setup lsps that are not supported by `mason.nvim` but supported by `nvim-lspconfig` here.
 if vim.fn.executable("sourcekit-lsp") == 1 then

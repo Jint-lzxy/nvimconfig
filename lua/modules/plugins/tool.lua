@@ -111,6 +111,7 @@ tool["mfussenegger/nvim-dap"] = {
 			config = require("tool.dap.dapui"),
 		},
 		{ "theHamsta/nvim-dap-virtual-text", config = require("tool.dap.dap-virtual-text") },
+		{ "jay-babu/mason-nvim-dap.nvim" },
 		{ "jbyuki/one-small-step-for-vimkind" },
 	},
 }
