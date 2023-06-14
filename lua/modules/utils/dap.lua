@@ -6,7 +6,7 @@ function M.input_args()
 end
 
 function M.input_exec_path()
-	return vim.fn.input('Path to executable (default to "progout"): ', vim.fn.getcwd() .. "/progout", "file")
+	return vim.fn.input('Path to executable (default to "progout"): ', vim.fn.expand("%:p:h") .. "/progout", "file")
 end
 
 function M.get_env()
