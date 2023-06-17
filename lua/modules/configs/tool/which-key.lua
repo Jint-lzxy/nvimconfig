@@ -82,15 +82,6 @@ return function()
 			},
 			g = "git: Toggle lazygit",
 			G = "git: Toggle fugitive",
-			h = {
-				name = "Gitsigns commands",
-				b = "git: Blame line",
-				p = "git: Preview hunk",
-				s = "git: Stage hunk",
-				u = "git: Undo stage hunk",
-				r = "git: Reset hunk",
-				R = "git: Reset buffer",
-			},
 			j = "jump: Goto line",
 			k = "jump: Goto line",
 			l = {
@@ -257,7 +248,5 @@ return function()
 		["<leader>c"] = "jump: Goto one char",
 		["<leader>cc"] = "jump: Goto two chars",
 		["<leader><leader>D"] = "git: Close diff",
-		["[g"] = "git: Goto prev hunk",
-		["]g"] = "git: Goto next hunk",
 	})
 end
