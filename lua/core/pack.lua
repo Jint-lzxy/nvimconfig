@@ -116,7 +116,7 @@ function Lazy:load_lazy()
 			rtp = {
 				reset = true, -- reset the runtime path to $VIMRUNTIME and the config directory
 				---@type string[]
-				paths = {}, -- add any custom paths here that you want to indluce in the rtp
+				paths = {}, -- add any custom paths here that you want to include in the rtp
 			},
 		},
 	}
