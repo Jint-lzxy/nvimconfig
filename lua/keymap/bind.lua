@@ -57,6 +57,9 @@ function rhs_options:map_cu(cmd_string)
 	return self
 end
 
+---@param callback fun():nil
+--- Takes a callback that will be called when the key is pressed
+---@return map_rhs
 function rhs_options:map_callback(callback)
 	self.cmd = ""
 	self.options.callback = callback
@@ -131,6 +134,8 @@ function bind.map_args(cmd_string)
 	return ro:map_args(cmd_string)
 end
 
+---@param callback fun():nil
+---@return map_rhs
 function bind.map_callback(callback)
 	local ro = rhs_options:new()
 	return ro:map_callback(callback)
