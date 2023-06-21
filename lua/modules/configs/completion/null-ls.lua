@@ -31,7 +31,7 @@ return function()
 		}),
 	}
 	null_ls.setup({
-		border = "single",
+		border = "rounded",
 		debug = false,
 		log_level = "warn",
 		update_in_insert = false,

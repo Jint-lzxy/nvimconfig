@@ -8,7 +8,7 @@ return function()
 
 			-- callback to execute once rust-analyzer is done initializing the workspace
 			-- The callback receives one parameter indicating the `health` of the server: "ok" | "warning" | "error"
-			on_initialized = function(_)
+			on_initialized = function()
 				require("lsp_signature").on_attach({
 					bind = true,
 					use_lspsaga = false,
