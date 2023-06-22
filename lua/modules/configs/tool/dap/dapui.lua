@@ -20,16 +20,16 @@ return function()
 					-- Provide as ID strings or tables with "id" and "size" keys
 					{
 						id = "scopes",
-						size = 0.45, -- Can be float or integer > 1
+						size = 0.35, -- Can be float or integer > 1
 					},
 					{ id = "stacks", size = 0.25 },
 					{ id = "watches", size = 0.2 },
-					{ id = "breakpoints", size = 0.1 },
+					{ id = "breakpoints", size = 0.2 },
 				},
-				size = 0.55,
+				size = 0.45,
 				position = "left",
 			},
-			{ elements = { "repl" }, size = 15, position = "bottom" },
+			{ elements = { "repl" }, size = 10, position = "bottom" },
 		},
 		-- Requires Nvim version >= 0.8
 		controls = {
