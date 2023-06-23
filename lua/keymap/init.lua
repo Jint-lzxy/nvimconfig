@@ -100,6 +100,7 @@ local plug_map = {
 	["n|<leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),
+	["n|<leader>fd"] = map_cu("Telescope persisted"):with_noremap():with_silent(),
 	["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent(),
 	["n|<leader>fk"] = map_cu("lua command_panel()"):with_noremap():with_silent(),
 	["n|<leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
@@ -121,9 +122,9 @@ local plug_map = {
 	["nx|gea"] = map_cr("EasyAlign"):with_noremap():with_silent(),
 	-- Plugin MarkdownPreview
 	["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent(),
-	-- Plugin auto_session
+	-- Plugin persisted.nvim
 	["n|<leader>ss"] = map_cu("SessionSave"):with_noremap():with_silent(),
-	["n|<leader>sr"] = map_cu("SessionRestore"):with_noremap():with_silent(),
+	["n|<leader>sl"] = map_cu("SessionLoad"):with_noremap():with_silent(),
 	["n|<leader>sd"] = map_cu("SessionDelete"):with_noremap():with_silent(),
 	-- Plugin SnipRun
 	["n|<leader>r"] = map_cu([[%SnipRun]]):with_noremap():with_silent(),

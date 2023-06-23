@@ -10,11 +10,6 @@ editor["m4xshen/autoclose.nvim"] = {
 	event = "InsertEnter",
 	config = require("editor.autoclose"),
 }
-editor["rmagatti/auto-session"] = {
-	lazy = true,
-	cmd = { "SessionSession", "SessionRestore", "SessionDelete" },
-	config = require("editor.auto-session"),
-}
 editor["max397574/better-escape.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
@@ -57,6 +52,20 @@ editor["phaazon/hop.nvim"] = {
 editor["ojroques/nvim-bufdel"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
+}
+editor["olimorris/persisted.nvim"] = {
+	lazy = true,
+	cmd = {
+		"SessionToggle",
+		"SessionStart",
+		"SessionStop",
+		"SessionSave",
+		"SessionLoad",
+		"SessionLoadLast",
+		"SessionLoadFromFile",
+		"SessionDelete",
+	},
+	config = require("editor.persisted"),
 }
 editor["lambdalisue/suda.vim"] = {
 	lazy = true,
