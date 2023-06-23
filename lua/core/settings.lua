@@ -1,5 +1,4 @@
 local settings = {}
-local home = require("core.global").home
 
 -- Set it to false if you want to use https to update plugins and treesitter parsers.
 ---@type boolean
@@ -26,9 +25,11 @@ settings["diagnostics_virtual_text"] = true
 settings["diagnostics_level"] = "Hint"
 
 -- Set the format disabled directories here, files under these dirs won't be formatted on save.
+--- NOTE: String(s) may contain regular expressions (grammar: vim). |regexp|
+--- NOTE: Directories are automatically normalized. |vim.fs.normalize()|
 ---@type string[]
 settings["format_disabled_dirs"] = {
-	home .. "/Library/Rime",
+	"~/Library/Rime",
 }
 
 -- Set it to false if you don't use nvim to open big files.
