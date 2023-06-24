@@ -83,13 +83,17 @@ settings["server_formatting_block_list"] = {
 -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
 ---@type string[]
 settings["lsp_deps"] = {
+	"asm_lsp",
+	"awk_ls",
 	"bashls",
 	"clangd",
+	"cmake",
 	"gopls",
 	"html",
 	"jsonls",
 	"lua_ls",
 	"pylsp",
+	"yamlls",
 }
 
 -- Set the general-purpose servers that will be installed and configured during bootstrap here.
