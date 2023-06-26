@@ -186,6 +186,7 @@ return function()
 
 					-- For treesitter
 					["@keyword.return"] = { fg = cp.pink, style = clear },
+					["@error.cpp"] = { fg = cp.text, style = clear },
 				}
 			end,
 		},
