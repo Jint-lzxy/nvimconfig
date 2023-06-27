@@ -61,7 +61,7 @@ local plug_map = {
 	["n|∂"] = map_cr([[execute v:count . "ToggleTerm direction=float"]]):with_noremap():with_silent(),
 	["i|∂"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>"):with_noremap():with_silent(),
 	["t|∂"] = map_cu("<C-\\><C-n><Cmd>ToggleTerm"):with_noremap():with_silent(),
-	["n|<leader>g"] = map_cu("lua toggle_lazygit()"):with_noremap():with_silent(),
+	["n|<leader>g"] = map_cu("lua _toggle_lazygit()"):with_noremap():with_silent(),
 	-- Horizontal / Vertical
 	["n|«"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]]):with_noremap():with_silent(),
 	["i|«"] = map_cmd("<Esc><Cmd>ToggleTerm direction=horizontal<CR>"):with_noremap():with_silent(),
@@ -102,16 +102,16 @@ local plug_map = {
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),
 	["n|<leader>fd"] = map_cu("Telescope persisted"):with_noremap():with_silent(),
 	["n|<leader>fh"] = map_cu("Telescope help_tags"):with_noremap():with_silent(),
-	["n|<leader>fk"] = map_cu("lua command_panel()"):with_noremap():with_silent(),
+	["n|<leader>fk"] = map_cu("lua _command_panel()"):with_noremap():with_silent(),
 	["n|<leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
 	-- Plugin accelerate-jk
-	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
-	["n|k"] = map_cmd("v:lua.enhance_jk_move('k')"):with_silent():with_expr(),
+	["n|j"] = map_cmd("v:lua._enhance_jk_move('j')"):with_silent():with_expr(),
+	["n|k"] = map_cmd("v:lua._enhance_jk_move('k')"):with_silent():with_expr(),
 	-- Plugin nvim-bufdel
 	["n|œ"] = map_cr("BufDel"):with_noremap():with_silent(),
 	-- Plugin clever-f
-	["n|;"] = map_cmd("v:lua.enhance_ft_move(';')"):with_expr(),
-	["n|,"] = map_cmd("v:lua.enhance_ft_move(',')"):with_expr(),
+	["n|;"] = map_cmd("v:lua._enhance_ft_move(';')"):with_expr(),
+	["n|,"] = map_cmd("v:lua._enhance_ft_move(',')"):with_expr(),
 	-- Plugin Hop
 	["nv|<leader>w"] = map_cmd("<Cmd>HopWord<CR>"):with_noremap(),
 	["nv|<leader>j"] = map_cmd("<Cmd>HopLine<CR>"):with_noremap(),
