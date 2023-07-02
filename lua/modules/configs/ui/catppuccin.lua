@@ -143,7 +143,6 @@ return function()
 					-- For trouble.nvim
 					TroubleNormal = { bg = transparent_background and cp.none or cp.base },
 
-					-- For telescope
 					-- For telescope.nvim
 					TelescopeBorder = {
 						fg = transparent_background and cp.blue or cp.mantle,
@@ -177,7 +176,7 @@ return function()
 						bg = transparent_background and cp.none or cp.mantle,
 					},
 					TelescopeSelection = {
-						fg = cp.text,
+						fg = transparent_background and cp.subtext0 or cp.text,
 						bg = transparent_background and cp.none or cp.surface0,
 					},
 					TelescopeResultsDiffAdd = { fg = cp.green },
