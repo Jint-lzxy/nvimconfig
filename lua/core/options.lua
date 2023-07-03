@@ -59,7 +59,7 @@ local function load_options()
 		smartcase = true,
 		smarttab = true,
 		splitbelow = true,
-		splitkeep = "cursor",
+		splitkeep = "screen",
 		splitright = true,
 		startofline = false,
 		swapfile = false,
