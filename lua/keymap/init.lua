@@ -37,6 +37,8 @@ local plug_map = {
 	-- Lsp map work when insertenter and lsp start
 	["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
 	["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
+	["n|<leader>lp"] = map_cr("LspStop"):with_noremap():with_silent():with_nowait(),
+	["n|<leader>ls"] = map_cr("LspStart"):with_noremap():with_silent():with_nowait(),
 	["n|†"] = map_cr("Lspsaga outline"):with_noremap():with_silent(),
 	["n|g["] = map_cr("Lspsaga diagnostic_jump_prev"):with_noremap():with_silent(),
 	["n|g]"] = map_cr("Lspsaga diagnostic_jump_next"):with_noremap():with_silent(),
