@@ -152,6 +152,7 @@ local plug_map = {
 	["n|<leader>dR"] = map_cr("lua require('osv').run_this()"):with_noremap():with_silent(),
 	["n|<leader>dv"] = map_cr("lua require('dap').step_over()"):with_noremap():with_silent(),
 	["o|m"] = map_cu("lua require('tsht').nodes()"):with_silent(),
+	["x|m"] = map_cr("lua require('tsht').nodes()"):with_noremap():with_silent(),
 	-- Plugin Tabout
 	["i|¬"] = map_cmd("<Plug>(TaboutMulti)"):with_silent(),
 	["i|˙"] = map_cmd("<Plug>(TaboutBackMulti)"):with_silent(),
