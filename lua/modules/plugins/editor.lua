@@ -34,8 +34,9 @@ editor["sindrets/diffview.nvim"] = {
 	lazy = true,
 	cmd = { "DiffviewOpen", "DiffviewClose" },
 }
-editor["phaazon/hop.nvim"] = {
+editor["smoka7/hop.nvim"] = {
 	lazy = true,
+	version = "*",
 	--Old Config
 	--[[cmd = {
 		"HopLine",
@@ -45,8 +46,7 @@ editor["phaazon/hop.nvim"] = {
 		"HopChar1",
 		"HopChar2",
 	},--]]
-	branch = "v2",
-	event = "BufReadPost",
+	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.hop"),
 }
 editor["ojroques/nvim-bufdel"] = {
@@ -96,13 +96,13 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 			vim.api.nvim_command([[TSUpdate]])
 		end
 	end,
-	event = { "CursorHold", "CursorHoldI" },
+	event = "BufReadPre",
 	config = require("editor.treesitter"),
 	dependencies = {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
-		{ "mrjones2014/nvim-ts-rainbow" },
 		{ "JoosepAlviste/nvim-ts-context-commentstring" },
 		{ "mfussenegger/nvim-treehopper" },
+		{ "hiphish/rainbow-delimiters.nvim", config = require("editor.rainbow_delims") },
 		{ "andymass/vim-matchup", config = require("editor.matchup") },
 		{ "nvim-treesitter/nvim-treesitter-context", config = require("editor.ts-context") },
 		{ "windwp/nvim-ts-autotag", config = require("editor.autotag") },
