@@ -105,7 +105,6 @@ settings["null_ls_deps"] = {
 	"asmfmt",
 	"clang_format",
 	"prettier",
-	"rustfmt",
 	"shfmt",
 	"stylua",
 	"vint",

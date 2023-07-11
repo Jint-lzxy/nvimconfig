@@ -29,6 +29,7 @@ return function()
 				"markdown",
 			},
 		}),
+		btns.formatting.rustfmt,
 	}
 	null_ls.setup({
 		border = "rounded",
