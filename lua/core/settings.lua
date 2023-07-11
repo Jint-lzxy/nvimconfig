@@ -88,11 +88,17 @@ settings["lsp_deps"] = {
 	"bashls",
 	"clangd",
 	"cmake",
+	"eslint",
 	"gopls",
 	"html",
+	"jdtls",
 	"jsonls",
+	"ltex",
 	"lua_ls",
 	"pylsp",
+	"rust_analyzer",
+	"taplo",
+	"vimls",
 	"yamlls",
 }
 
@@ -102,8 +108,10 @@ settings["lsp_deps"] = {
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins
 ---@type string[]
 settings["null_ls_deps"] = {
+	"actionlint",
 	"asmfmt",
 	"clang_format",
+	"gitlint",
 	"prettier",
 	"shfmt",
 	"stylua",
@@ -115,8 +123,10 @@ settings["null_ls_deps"] = {
 -- https://github.com/jay-babu/mason-nvim-dap.nvim/blob/main/lua/mason-nvim-dap/mappings/source.lua
 ---@type string[]
 settings["dap_deps"] = {
+	"bash", -- Bash
 	"codelldb", -- C-Family
 	"delve", -- Go
+	"php", -- PHP
 	"python", -- Python (debugpy)
 }
 
