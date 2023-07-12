@@ -73,9 +73,13 @@ return function()
 			return vim.bo.filetype ~= ""
 		end,
 		has_git = function()
-			local filepath = vim.fn.expand("%:p:h")
-			local gitdir = vim.fn.finddir(".git", filepath .. ";")
-			return gitdir and #gitdir > 0 and #gitdir < #filepath
+			local gitdir = vim.fs.find(".git", {
+				limit = 1,
+				upward = true,
+				type = "directory",
+				path = vim.fn.expand("%:p:h"),
+			})
+			return #gitdir > 0
 		end,
 	}
 
@@ -279,6 +283,7 @@ return function()
 					"branch",
 					icon = icons.git_nosep.Branch,
 					color = utils.gen_hl("subtext0", true, true, nil, "bold"),
+					cond = conditionals.has_git,
 				},
 				{
 					"diff",
@@ -290,6 +295,7 @@ return function()
 					source = diff_source,
 					colored = false,
 					color = utils.gen_hl("subtext0", true, true),
+					cond = conditionals.has_git,
 					padding = { right = 1 },
 				},
 
