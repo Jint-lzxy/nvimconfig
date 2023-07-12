@@ -95,6 +95,7 @@ settings["lsp_deps"] = {
 	"jsonls",
 	"ltex",
 	"lua_ls",
+	"marksman",
 	"pylsp",
 	"rust_analyzer",
 	"taplo",
