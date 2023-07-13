@@ -19,7 +19,7 @@ return function()
 			-- map to {} to remove a mapping, for example:
 			-- close = {},
 			close = "q", -- close the list
-			cancel = "<ESC>", -- cancel the preview and get back to your last window / buffer / cursor
+			cancel = "<Esc>", -- cancel the preview and get back to your last window / buffer / cursor
 			refresh = "r", -- manually refresh
 			jump = { "<CR>", "<TAB>" }, -- jump to the diagnostic or open / close folds
 			open_split = { "<C-x>" }, -- open buffer in new split
@@ -39,7 +39,7 @@ return function()
 		indent_lines = true, -- add an indent guide below the fold icons
 		auto_open = false, -- automatically open the list when you have diagnostics
 		auto_close = false, -- automatically close the list when you have no diagnostics
-		auto_preview = true, -- automatically preview the location of the diagnostic. <esc> to close preview and go back to last window
+		auto_preview = true, -- automatically preview the location of the diagnostic. <Esc> to close preview and go back to last window
 		auto_fold = false, -- automatically fold a file trouble list at creation
 		auto_jump = { "lsp_definitions" }, -- for the given modes, automatically jump if there is only a single result
 		signs = {
