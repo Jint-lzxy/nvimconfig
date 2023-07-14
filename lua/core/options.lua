@@ -24,6 +24,7 @@ local function load_options()
 		encoding = "utf-8",
 		equalalways = false,
 		errorbells = true,
+		fileencodings = "ucs-bom,utf-8,default,big5,latin1",
 		fileformats = "unix,mac,dos",
 		foldlevelstart = 99,
 		grepformat = "%f:%l:%c:%m",
