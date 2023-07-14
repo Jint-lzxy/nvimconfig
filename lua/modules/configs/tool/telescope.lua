@@ -1,6 +1,10 @@
 return function()
-	local icons = { ui = require("modules.utils.icons").get("ui", true) }
+	local icons = {
+		ui = require("modules.utils.icons").get("ui", true),
+		ui_nosep = require("modules.utils.icons").get("ui", true),
+	}
 	local lga_actions = require("telescope-live-grep-args.actions")
+	local fb_actions = require("telescope._extensions.file_browser.actions")
 
 	require("telescope").setup({
 		defaults = {
@@ -66,9 +70,55 @@ return function()
 					},
 				},
 			},
+			file_browser = {
+				cwd_to_path = true,
+				grouped = true,
+				prompt_path = false,
+				quiet = false,
+				dir_icon = icons.ui_nosep.Folder,
+				dir_icon_hl = "NvimTreeFolderIcon",
+				display_stat = { date = true, size = true, mode = true },
+				use_fd = true,
+				git_status = true,
+				mappings = {
+					["i"] = {
+						["<C-c>"] = fb_actions.create,
+						["<S-CR>"] = fb_actions.create_from_prompt,
+						["<C-S-r>"] = fb_actions.rename,
+						["<C-m>"] = fb_actions.move,
+						["<C-y>"] = fb_actions.copy,
+						["<C-d>"] = fb_actions.remove,
+						["<C-o>"] = fb_actions.open,
+						["<C-g>"] = fb_actions.goto_parent_dir,
+						["<C-e>"] = fb_actions.goto_home_dir,
+						["<C-w>"] = fb_actions.goto_cwd,
+						["<C-t>"] = fb_actions.change_cwd,
+						["<C-f>"] = fb_actions.toggle_browser,
+						["<C-h>"] = fb_actions.toggle_hidden,
+						["<C-s>"] = fb_actions.toggle_all,
+						["<BS>"] = fb_actions.backspace,
+					},
+					["n"] = {
+						["c"] = fb_actions.create,
+						["r"] = fb_actions.rename,
+						["m"] = fb_actions.move,
+						["y"] = fb_actions.copy,
+						["d"] = fb_actions.remove,
+						["o"] = fb_actions.open,
+						["g"] = fb_actions.goto_parent_dir,
+						["e"] = fb_actions.goto_home_dir,
+						["w"] = fb_actions.goto_cwd,
+						["t"] = fb_actions.change_cwd,
+						["f"] = fb_actions.toggle_browser,
+						["h"] = fb_actions.toggle_hidden,
+						["s"] = fb_actions.toggle_all,
+					},
+				},
+			},
 		},
 	})
 
+	require("telescope").load_extension("file_browser")
 	require("telescope").load_extension("frecency")
 	require("telescope").load_extension("fzf")
 	require("telescope").load_extension("live_grep_args")

@@ -76,15 +76,16 @@ tool["nvim-telescope/telescope.nvim"] = {
 	dependencies = {
 		{ "nvim-tree/nvim-web-devicons" },
 		{ "nvim-lua/plenary.nvim" },
+		{ "jvgrootveld/telescope-zoxide" },
+		{ "nvim-telescope/telescope-file-browser.nvim" },
+		{ "nvim-telescope/telescope-live-grep-args.nvim" },
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{ "nvim-telescope/telescope-frecency.nvim", dependencies = "kkharji/sqlite.lua" },
 		{
 			"ahmedkhalf/project.nvim",
 			event = "BufReadPost",
 			config = require("tool.project"),
 		},
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		{ "nvim-telescope/telescope-frecency.nvim", dependencies = { "kkharji/sqlite.lua" } },
-		{ "jvgrootveld/telescope-zoxide" },
-		{ "nvim-telescope/telescope-live-grep-args.nvim" },
 	},
 }
 

@@ -97,6 +97,7 @@ local plug_map = {
 		:with_silent(),
 	["n|<leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent(),
 	["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
+	["n|<leader>ft"] = map_cu("Telescope file_browser path=%:p:h"):with_noremap():with_silent(),
 	["n|<leader>fc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
 	["n|<leader>fn"] = map_cu(":enew"):with_noremap():with_silent(),
 	["n|<leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),

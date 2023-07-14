@@ -76,6 +76,7 @@ return function()
 				z = "edit: Change cwd using zoxide",
 				f = "find: File under cwd",
 				g = "find: File under current git directory",
+				t = "find: Open filetree browser",
 				b = "find: Buffer opened",
 				h = "find: Nvim help tags",
 				n = "edit: New file",
