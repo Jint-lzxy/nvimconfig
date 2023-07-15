@@ -20,10 +20,6 @@ ui["sainnhe/edge"] = {
 	lazy = true,
 	config = require("ui.edge"),
 }
-ui["mbbill/undotree"] = {
-	lazy = true,
-	cmd = "UndotreeToggle",
-}
 ui["j-hui/fidget.nvim"] = {
 	lazy = true,
 	branch = "legacy",
@@ -69,6 +65,11 @@ ui["dstein64/nvim-scrollview"] = {
 	event = "BufReadPost",
 	config = require("ui.scrollview"),
 }
+ui["folke/paint.nvim"] = {
+	lazy = true,
+	event = { "CursorHold", "CursorHoldI" },
+	config = require("ui.paint"),
+}
 ui["edluffy/specs.nvim"] = {
 	lazy = true,
 	event = "CursorMoved",
@@ -79,6 +80,10 @@ ui["folke/todo-comments.nvim"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("ui.todo"),
 	dependencies = { "nvim-lua/plenary.nvim" },
+}
+ui["mbbill/undotree"] = {
+	lazy = true,
+	cmd = "UndotreeToggle",
 }
 
 return ui
