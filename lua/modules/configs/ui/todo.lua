@@ -25,7 +25,7 @@ return function()
 		merge_keywords = true,
 		highlight = {
 			multiline = false,
-			keyword = "wide", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
+			keyword = "wide", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty.
 			after = "fg",
 			comments_only = true,
 			max_line_len = 500,
