@@ -80,7 +80,7 @@ tool["nvim-telescope/telescope.nvim"] = {
 		{ "nvim-telescope/telescope-file-browser.nvim" },
 		{ "nvim-telescope/telescope-live-grep-args.nvim" },
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-		{ "nvim-telescope/telescope-frecency.nvim", dependencies = "kkharji/sqlite.lua" },
+		{ "nvim-telescope/telescope-frecency.nvim", dependencies = { "kkharji/sqlite.lua" } },
 		{
 			"ahmedkhalf/project.nvim",
 			event = "BufReadPost",

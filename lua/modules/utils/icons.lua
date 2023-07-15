@@ -71,6 +71,7 @@ local data = {
 		Conflict = "",
 	},
 	ui = {
+		Accepted = "",
 		ArrowClosed = "",
 		ArrowOpen = "",
 		BigCircle = "",
@@ -146,7 +147,6 @@ local data = {
 	misc = {
 		Campass = "󰀹",
 		Code = "",
-		EscapeST = "",
 		Gavel = "",
 		Glass = "󰂖",
 		NoActiveLsp = "󱚧",
