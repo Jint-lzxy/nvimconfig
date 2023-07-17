@@ -35,7 +35,7 @@ return function()
 				},
 			},
 			right_trunc_marker = icons.ui.Right,
-			separator_style = "slant",
+			separator_style = "thin",
 			show_buffer_close_icons = true,
 			show_buffer_icons = true,
 			show_tab_indicators = true,
@@ -53,7 +53,7 @@ return function()
 			highlights = require("catppuccin.groups.integrations.bufferline").get({
 				styles = { "italic", "bold" },
 				custom = {
-					mocha = {
+					all = {
 						-- Hint
 						hint = { fg = cp.rosewater },
 						hint_visible = { fg = cp.rosewater },
