@@ -100,7 +100,7 @@ return function()
 			},
 		},
 		hover = {
-			max_width = 0.3,
+			max_width = 0.45,
 			max_height = 0.7,
 			open_link = "gl",
 			open_browser = "silent !" .. require("core.settings").external_browser,
