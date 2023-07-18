@@ -83,7 +83,7 @@ tool["nvim-telescope/telescope.nvim"] = {
 		{ "nvim-telescope/telescope-frecency.nvim", dependencies = { "kkharji/sqlite.lua" } },
 		{
 			"ahmedkhalf/project.nvim",
-			event = "BufReadPost",
+			event = { "CursorHold", "CursorHoldI" },
 			config = require("tool.project"),
 		},
 	},

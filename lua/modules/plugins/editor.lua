@@ -27,7 +27,7 @@ editor["numToStr/Comment.nvim"] = {
 }
 editor["rhysd/clever-f.vim"] = {
 	lazy = true,
-	event = { "BufReadPost", "BufAdd", "BufNewFile" },
+	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.cleverf"),
 }
 editor["sindrets/diffview.nvim"] = {
@@ -51,7 +51,7 @@ editor["smoka7/hop.nvim"] = {
 }
 editor["ojroques/nvim-bufdel"] = {
 	lazy = true,
-	event = { "CursorHold", "CursorHoldI" },
+	cmd = { "BufDel", "BufDelAll", "BufDelOthers" },
 }
 editor["olimorris/persisted.nvim"] = {
 	lazy = true,
