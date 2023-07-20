@@ -56,13 +56,17 @@ return function()
 		lualine_y = {},
 		lualine_z = {},
 	}
+	local diffview = {
+		sections = mini_sections,
+		filetypes = { "DiffviewFiles" },
+	}
 	local outline = {
 		sections = mini_sections,
 		filetypes = { "lspsagaoutline" },
 	}
-	local diffview = {
+	local undotree = {
 		sections = mini_sections,
-		filetypes = { "DiffviewFiles" },
+		filetypes = { "diff", "undotree" },
 	}
 
 	local conditionals = {
@@ -353,8 +357,9 @@ return function()
 			"nvim-dap-ui",
 			"toggleterm",
 			"fugitive",
-			outline,
 			diffview,
+			outline,
+			undotree,
 		},
 	})
 end
