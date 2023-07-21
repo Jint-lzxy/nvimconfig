@@ -58,7 +58,7 @@ local plug_map = {
 	["n|gpp"] = map_cr("G pull"):with_noremap():with_silent(),
 	-- Toggle Terminal
 	-- Global
-	["t|∑"] = map_cmd("<C-\\><C-n>"):with_noremap():with_silent(), -- switch to normal mode in terminal.
+	["t|œ"] = map_cmd("<C-\\><C-n>"):with_noremap():with_silent(), -- switch to normal mode in terminal.
 	-- Floating
 	["n|∂"] = map_cr([[execute v:count . "ToggleTerm direction=float"]]):with_noremap():with_silent(),
 	["i|∂"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>"):with_noremap():with_silent(),

@@ -208,7 +208,10 @@ return function()
 
 		-- UI
 		["gb"] = "buffer: Pick current buffer",
-		["<A-q>"] = "buffer: Close",
+		["<A-q>"] = {
+			{ mode = "n", "buffer: Close" },
+			{ mode = "t", "terminal: Back to normal mode" },
+		},
 		["<A-p>"] = "buffer: Pin current buffer",
 		["<A-k>"] = "buffer: Cycle Next",
 		["<A-j>"] = "buffer: Cycle Prev",
