@@ -28,6 +28,10 @@ lang["iamcco/markdown-preview.nvim"] = {
 	ft = "markdown",
 	build = ":call mkdp#util#install()",
 }
+lang["barreiroleo/ltex_extra.nvim"] = {
+	lazy = true,
+	ft = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc" },
+}
 lang["chrisbra/csv.vim"] = {
 	lazy = true,
 	ft = "csv",
