@@ -127,6 +127,14 @@ return function()
 				l = "sesson: Load current",
 				d = "sesson: Delete session",
 			},
+			t = {
+				name = "Managing tab pages",
+				c = "tab: Close current tab",
+				j = "tab: Move to previous tab",
+				k = "tab: Move to next tab",
+				n = "tab: Create a new tab",
+				o = "tab: Only keep current tab",
+			},
 			u = "edit: Show undo history",
 			w = "jump: Goto word",
 		},
@@ -185,10 +193,6 @@ return function()
 			{ mode = "c", "edit: Far left" },
 			{ mode = "i", "edit: Move cursor to line start" },
 		},
-		["tn"] = "tab: Create a new window",
-		["tk"] = "tab: Move to next window",
-		["tj"] = "tab: Move to previous window",
-		["to"] = "tab: Only keep current window",
 		["<C-u>"] = { mode = "i", "edit: Delete previous block" },
 		["<C-b>"] = { mode = { "c", "i" }, "edit: Move cursor one char left" },
 		["<C-f>"] = { mode = "c", "edit: Right" },
@@ -222,17 +226,8 @@ return function()
 
 		-- LSP
 		["<A-t>"] = "lsp: Toggle outline",
-		["n|gs"] = "lsp: Signature help",
-		["n|gr"] = "lsp: Rename in file range",
-		["n|gR"] = "lsp: Rename in project range",
-		["n|K"] = "lsp: Show doc",
-		["nv|ga"] = "lsp: Code action for cursor",
-		["n|gd"] = "lsp: Preview definition",
-		["n|gD"] = "lsp: Goto definition",
-		["n|gh"] = "lsp: Show reference",
 
 		-- Terminals
-		["<A-w>"] = { mode = "t", "terminal: Back to normal mode" },
 		["<A-d>"] = { mode = { "n", "i", "t" }, "terminal: Toggle float" },
 		["<A-\\>"] = { mode = { "n", "i", "t" }, "terminal: Toggle horizontal" },
 		["<A-S-\\>"] = { mode = { "n", "i", "t" }, "terminal: Toggle vertical" },
