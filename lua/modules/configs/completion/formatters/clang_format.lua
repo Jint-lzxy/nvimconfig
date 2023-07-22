@@ -5,7 +5,7 @@ return {
         AlignArrayOfStructures: Right, AlignEscapedNewlines: Left, \z
         AlignTrailingComments: true, AllowShortBlocksOnASingleLine: Always, \z
         AllowShortCaseLabelsOnASingleLine: true, AllowShortEnumsOnASingleLine: true, \z
-        AllowShortFunctionsOnASingleLine: Inline, AllowShortLoopsOnASingleLine: true, \z
+        AllowShortFunctionsOnASingleLine: Inline, AllowShortLoopsOnASingleLine: false, \z
         BitFieldColonSpacing: Both, BreakBeforeBraces: Custom, BraceWrapping: {\z
         AfterCaseLabel: false, AfterClass: false, AfterEnum: false, AfterFunction: true, \z
         AfterNamespace: true, AfterStruct: true, AfterUnion: true, AfterExternBlock: false, \z
