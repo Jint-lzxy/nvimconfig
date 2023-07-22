@@ -11,7 +11,7 @@ local function load_options()
 		backspace = "indent,eol,start",
 		backup = false,
 		backupskip = "/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*,.vault.vim",
-		breakat = [[\ \	;:,!?]],
+		breakat = [[\ \	;:,!?@*-+/]],
 		clipboard = "unnamedplus",
 		cmdheight = 1, -- 0, 1, 2
 		cmdwinheight = 5,
