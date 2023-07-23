@@ -3,6 +3,7 @@ return function()
 		ui = require("modules.utils.icons").get("ui", true),
 		ui_nosep = require("modules.utils.icons").get("ui", true),
 	}
+	local default_actions = require("telescope.actions")
 	local lga_actions = require("telescope-live-grep-args.actions")
 	local fb_actions = require("telescope._extensions.file_browser.actions")
 
@@ -83,6 +84,7 @@ return function()
 				mappings = {
 					["i"] = {
 						["<C-c>"] = fb_actions.create,
+						["<CR>"] = default_actions.select_default,
 						["<S-CR>"] = fb_actions.create_from_prompt,
 						["<C-S-r>"] = fb_actions.rename,
 						["<C-m>"] = fb_actions.move,
@@ -99,6 +101,7 @@ return function()
 						["<BS>"] = fb_actions.backspace,
 					},
 					["n"] = {
+						["<CR>"] = default_actions.select_default,
 						["c"] = fb_actions.create,
 						["r"] = fb_actions.rename,
 						["m"] = fb_actions.move,
