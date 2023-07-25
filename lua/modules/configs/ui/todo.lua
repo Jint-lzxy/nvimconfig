@@ -26,7 +26,7 @@ return function()
 		highlight = {
 			multiline = false,
 			keyword = "wide", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty.
-			after = "fg",
+			after = "",
 			comments_only = true,
 			max_line_len = 500,
 			exclude = { "big_file_disabled_ft" },
