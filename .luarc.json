@@ -13,7 +13,7 @@
     "ignoreDir": [".vscode", ".git"],
     "library": [
       "/usr/local/opt/neovim/share/nvim/runtime/lua",
-      "/usr/local/opt/neovim/share/nvim/runtime/lua/vim/lsp"
+      "/usr/local/opt/neovim/share/nvim/runtime/plugin"
     ]
   },
   "telemetry": {
