@@ -9,6 +9,10 @@ function M.input_exec_path()
 	return vim.fn.input('Path to executable (default to "progout"): ', vim.fn.expand("%:p:h") .. "/progout", "file")
 end
 
+function M.input_file_path()
+	return vim.fn.input("Path to debuggee (default to the current file): ", vim.fn.expand("%:p"), "file")
+end
+
 function M.get_env()
 	local variables = {}
 	for k, v in pairs(vim.fn.environ()) do
