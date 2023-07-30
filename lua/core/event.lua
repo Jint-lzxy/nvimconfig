@@ -93,7 +93,7 @@ function autocmd.load_autocmds()
 				[[if has('nvim') | wshada | else | wviminfo! | endif]],
 			},
 			-- Check if file changed when its window is focus, more eager than 'autoread'
-			{ "FocusGained", "* checktime" },
+			{ "FocusGained", "*", "checktime" },
 			-- Equalize window dimensions when resizing vim window
 			{ "VimResized", "*", [[tabdo wincmd =]] },
 		},
@@ -117,7 +117,15 @@ function autocmd.load_autocmds()
 			{
 				"TextYankPost",
 				"*",
-				[[silent! lua vim.highlight.on_yank({higroup="IncSearch", timeout=300})]],
+				[[silent! lua vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 300 })]],
+			},
+		},
+		workaround = {
+			-- Workaround for neovim/neovim#21856
+			{
+				"VimLeave",
+				"*",
+				[[call jobstart('', { 'detach': v:true })]],
 			},
 		},
 	}
