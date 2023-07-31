@@ -70,7 +70,7 @@ local function load_options()
 		timeoutlen = 300,
 		ttimeout = true,
 		ttimeoutlen = 0,
-		undodir = global.cache_dir .. "undo/",
+		undodir = global.cache_dir .. "undo//",
 		updatetime = 200,
 		viewoptions = "folds,cursor,curdir,slash,unix",
 		virtualedit = "block",
