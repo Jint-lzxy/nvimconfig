@@ -112,11 +112,16 @@ settings["null_ls_deps"] = {
 	"actionlint",
 	"asmfmt",
 	"clang_format",
+	"cmakelang",
+	"cmakelint",
+	"editorconfig-checker",
 	"gitlint",
+	"jq",
 	"prettier",
 	"shfmt",
 	"stylua",
 	"vint",
+	"yamlfmt",
 }
 
 -- Set the Debug Adapter Protocol (DAP) clients that will be installed and configured during bootstrap here.
