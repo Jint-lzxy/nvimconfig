@@ -26,28 +26,39 @@ return function()
 	set_sidebar_icons()
 
 	require("lspsaga").setup({
-		scroll_preview = {
-			scroll_down = "<C-j>",
-			scroll_up = "<C-k>",
+		-- Breadcrumbs: https://dev.neovim.pro/lspsaga/breadcrumbs/
+		symbol_in_winbar = {
+			enable = true,
+			separator = " " .. icons.ui.Separator,
+			hide_keyword = false,
+			show_file = false,
+			color_mode = true,
 		},
-		request_timeout = 3000,
-		finder = {
-			silent = true,
-			default = "def+ref+imp",
+		-- https://dev.neovim.pro/lspsaga/callhierarchy/
+		callhierarchy = {
 			layout = "float",
-			filter = {},
 			keys = {
-				shuttle = "[]",
-				toggle_or_open = "<CR>",
-				jump_to = "e",
+				edit = "e",
 				vsplit = "v",
 				split = "s",
 				tabe = "t",
-				tabnew = "n",
 				quit = "q",
+				shuttle = "[]",
+				toggle_or_req = "u",
 				close = "<Esc>",
 			},
 		},
+		-- https://dev.neovim.pro/lspsaga/codeaction/
+		code_action = {
+			num_shortcut = true,
+			show_server_name = true,
+			extend_gitsigns = false,
+			keys = {
+				quit = "q",
+				exec = "<CR>",
+			},
+		},
+		-- https://dev.neovim.pro/lspsaga/definition/
 		definition = {
 			keys = {
 				edit = "<C-c>o",
@@ -58,21 +69,7 @@ return function()
 				quit = "q",
 			},
 		},
-		code_action = {
-			num_shortcut = true,
-			show_server_name = true,
-			extend_gitsigns = false,
-			keys = {
-				quit = "q",
-				exec = "<CR>",
-			},
-		},
-		lightbulb = {
-			enable = true,
-			sign = true,
-			sign_priority = 20,
-			virtual_text = false,
-		},
+		-- https://dev.neovim.pro/lspsaga/diagnostic/
 		diagnostic = {
 			max_width = 0.5,
 			max_height = 0.6,
@@ -90,21 +87,45 @@ return function()
 				quit_in_show = { "q", "<Esc>" },
 			},
 		},
-		rename = {
-			in_select = false,
-			auto_save = false,
+		-- https://dev.neovim.pro/lspsaga/finder/
+		finder = {
+			silent = true,
+			default = "def+ref+imp",
+			layout = "float",
+			filter = {},
 			keys = {
-				quit = "<C-c>",
-				select = "x",
-				exec = "<CR>",
+				shuttle = "[]",
+				toggle_or_open = "<CR>",
+				jump_to = "e",
+				vsplit = "v",
+				split = "s",
+				tabe = "t",
+				tabnew = "n",
+				quit = "q",
+				close = "<Esc>",
 			},
 		},
+		-- https://dev.neovim.pro/lspsaga/hover/
 		hover = {
 			max_width = 0.45,
 			max_height = 0.7,
 			open_link = "gl",
 			open_browser = "silent !" .. require("core.settings").external_browser,
 		},
+		-- https://dev.neovim.pro/lspsaga/implement/
+		implement = {
+			enable = true,
+			sign = true,
+			virtual_text = false,
+		},
+		-- https://dev.neovim.pro/lspsaga/lightbulb/
+		lightbulb = {
+			enable = true,
+			sign = true,
+			sign_priority = 20,
+			virtual_text = false,
+		},
+		-- https://dev.neovim.pro/lspsaga/outline/
 		outline = {
 			win_position = "right",
 			win_width = 30,
@@ -119,35 +140,22 @@ return function()
 				quit = "q",
 			},
 		},
-		symbol_in_winbar = {
-			enable = true,
-			separator = " " .. icons.ui.Separator,
-			hide_keyword = false,
-			show_file = false,
-			color_mode = true,
-		},
-		implement = {
-			enable = true,
-			sign = true,
-			virtual_text = false,
-		},
-		callhierarchy = {
-			layout = "float",
+		-- https://dev.neovim.pro/lspsaga/rename/
+		rename = {
+			in_select = false,
+			auto_save = false,
 			keys = {
-				edit = "e",
-				vsplit = "v",
-				split = "s",
-				tabe = "t",
-				quit = "q",
-				shuttle = "[]",
-				toggle_or_req = "u",
-				close = "<Esc>",
+				quit = "<C-c>",
+				select = "x",
+				exec = "<CR>",
 			},
 		},
+		-- https://dev.neovim.pro/lspsaga/misc/#beacon
 		beacon = {
 			enable = true,
 			frequency = 12,
 		},
+		-- https://dev.neovim.pro/lspsaga/misc/#generic-ui-options
 		ui = {
 			title = true,
 			devicon = true,
@@ -197,6 +205,11 @@ return function()
 				Unit = { icons.kind.Unit, "LspKindUnit" },
 				Value = { icons.kind.Value, "LspKindValue" },
 			},
+		},
+		request_timeout = 3000,
+		scroll_preview = {
+			scroll_down = "<C-j>",
+			scroll_up = "<C-k>",
 		},
 	})
 end
