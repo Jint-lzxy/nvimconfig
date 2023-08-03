@@ -28,8 +28,8 @@ return function()
 					separator = true,
 				},
 				{
-					filetype = "lspsagaoutline",
-					text = "Lspsaga Outline",
+					filetype = "Outline",
+					text = "Symbol Outline",
 					text_align = "center",
 					padding = 0,
 				},

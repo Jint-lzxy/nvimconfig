@@ -62,7 +62,7 @@ return function()
 	}
 	local outline = {
 		sections = mini_sections,
-		filetypes = { "lspsagaoutline" },
+		filetypes = { "Outline" },
 	}
 	local undotree = {
 		sections = mini_sections,

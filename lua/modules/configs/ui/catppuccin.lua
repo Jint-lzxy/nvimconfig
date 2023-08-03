@@ -81,7 +81,7 @@ return function()
 			pounce = false,
 			rainbow_delimiters = true,
 			semantic_tokens = true,
-			symbols_outline = false,
+			symbols_outline = true,
 			telekasten = false,
 			telescope = { enabled = true, style = "nvchad" },
 			treesitter_context = true,

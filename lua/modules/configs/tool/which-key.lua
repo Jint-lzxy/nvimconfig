@@ -145,7 +145,6 @@ return function()
 			D = "lsp: Goto definition",
 			ea = "edit: Align with delimiter",
 			h = "lsp: Show reference(s)",
-			o = "lsp: Toggle outline",
 			r = "lsp: Rename in file range",
 			R = "lsp: Rename in project range",
 			s = "lsp: Signature help",

@@ -12,6 +12,7 @@ local data = {
 		Field = "󰇽",
 		File = "󰈙",
 		Folder = "󰉋",
+		Fragment = "",
 		Function = "󰊕",
 		Interface = "",
 		Implementation = "",

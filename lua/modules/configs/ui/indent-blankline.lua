@@ -16,6 +16,7 @@ return function()
 			"log",
 			"markdown",
 			"NvimTree",
+			"Outline",
 			"peekaboo",
 			"startify",
 			"TelescopePrompt",
