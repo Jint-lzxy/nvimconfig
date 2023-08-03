@@ -21,6 +21,7 @@ return function()
 			"TelescopePrompt",
 			"toggleterm",
 			"Trouble",
+			"undotree",
 		},
 		under_cursor = false,
 	})
