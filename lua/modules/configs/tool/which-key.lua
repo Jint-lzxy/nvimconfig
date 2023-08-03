@@ -9,9 +9,9 @@ return function()
 			presets = {
 				operators = false,
 				motions = false,
-				text_objects = false,
-				windows = false,
-				nav = false,
+				text_objects = true,
+				windows = true,
+				nav = true,
 				z = true,
 				g = true,
 			},
