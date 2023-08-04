@@ -102,7 +102,10 @@ return function()
 				f = "filetree: NvimTree find file",
 				r = "filetree: NvimTree refresh",
 			},
-			o = "edit: Toggle spell check",
+			o = {
+				"jump: Goto one char",
+				o = "jump: Goto two chars",
+			},
 			p = {
 				{ mode = "x", "edit: Replacement using blackhole reg" },
 
@@ -248,8 +251,7 @@ return function()
 		["<C-S-s>"] = "edit: Save file using sudo",
 		["<A-h>"] = "edit: Goto begin of pair",
 		["<A-l>"] = "edit: Goto end of pair",
-		["<leader>c"] = "jump: Goto one char",
-		["<leader>cc"] = "jump: Goto two chars",
+		["<leader>c"] = "edit: Toggle spell check",
 		["<leader><leader>D"] = "git: Close diff",
 	})
 end

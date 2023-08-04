@@ -25,7 +25,7 @@ local core_map = {
 	["n|æ"] = map_cr("resize +2"):with_silent(),
 	["n|<C-q>"] = map_cr("wq"),
 	["n|Œ"] = map_cr("q!"),
-	["n|<leader>o"] = map_cr("setlocal spell! spelllang=en_us"),
+	["n|<leader>c"] = map_cr("setlocal spell! spelllang=en_US"),
 	["x|<leader>p"] = map_cmd('"_dP'):with_silent():with_noremap(),
 	["n|+"] = map_cmd("<C-a>"):with_noremap():with_silent(),
 	["n|-"] = map_cmd("<C-x>"):with_noremap():with_silent(),
@@ -37,7 +37,7 @@ local core_map = {
 	["n|<leader>tn"] = map_cr("tabnew"):with_noremap():with_silent(),
 	["n|<leader>to"] = map_cr("tabonly"):with_noremap():with_silent(),
 	-- Insert mode
-	["i|<C-u>"] = map_cmd("<C-G>u<C-U>"):with_noremap(),
+	["i|<C-u>"] = map_cmd("<C-g>u<C-u>"):with_noremap(),
 	["i|<C-b>"] = map_cmd("<Left>"):with_noremap(),
 	["i|<C-a>"] = map_cmd("<Esc>^i"):with_noremap(),
 	["i|<C-s>"] = map_cmd("<Esc>:w<CR>"),

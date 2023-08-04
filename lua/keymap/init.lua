@@ -122,8 +122,8 @@ local plug_map = {
 	["nv|<leader>w"] = map_cmd("<Cmd>HopWord<CR>"):with_noremap(),
 	["nv|<leader>j"] = map_cmd("<Cmd>HopLine<CR>"):with_noremap(),
 	["nv|<leader>k"] = map_cmd("<Cmd>HopLine<CR>"):with_noremap(),
-	["nv|<leader>c"] = map_cmd("<Cmd>HopChar1<CR>"):with_noremap(),
-	["nv|<leader>cc"] = map_cmd("<Cmd>HopChar2<CR>"):with_noremap(),
+	["nv|<leader>o"] = map_cmd("<Cmd>HopChar1<CR>"):with_noremap(),
+	["nv|<leader>oo"] = map_cmd("<Cmd>HopChar2<CR>"):with_noremap(),
 	-- Plugin EasyAlign
 	["nx|gea"] = map_cr("EasyAlign"):with_noremap():with_silent(),
 	-- Plugin MarkdownPreview
