@@ -83,7 +83,7 @@ return vim.schedule_wrap(function()
 			},
 		},
 		context_commentstring = { enable = true, enable_autocmd = false },
-		matchup = { enable = true },
+		matchup = { enable = true, include_match_words = { "c", "cpp" } },
 	})
 	require("nvim-treesitter.install").prefer_git = true
 	if use_ssh then
