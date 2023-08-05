@@ -102,6 +102,7 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		{ "JoosepAlviste/nvim-ts-context-commentstring" },
 		{ "mfussenegger/nvim-treehopper" },
+		{ "tpope/vim-surround" },
 		{ "hiphish/rainbow-delimiters.nvim", config = require("editor.rainbow_delims") },
 		{ "andymass/vim-matchup", config = require("editor.matchup") },
 		{ "nvim-treesitter/nvim-treesitter-context", config = require("editor.ts-context") },
