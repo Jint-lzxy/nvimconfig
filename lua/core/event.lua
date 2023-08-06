@@ -112,6 +112,13 @@ function autocmd.load_autocmds()
 				"c,cpp",
 				"nnoremap <silent> <buffer> <leader>h :ClangdSwitchSourceHeader<CR>",
 			},
+			{
+				"FileType",
+				"cmake",
+				"nnoremap <silent> <nowait> <buffer> K <Cmd>lua vim.lsp.buf.hover()<CR>"
+					.. "|"
+					.. "lua vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' })",
+			},
 		},
 		yank = {
 			{

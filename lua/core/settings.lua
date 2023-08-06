@@ -74,7 +74,9 @@ settings["formatter_block_list"] = {
 ---@type table<string, boolean>
 settings["server_formatting_block_list"] = {
 	clangd = true,
+	jsonls = true,
 	lua_ls = true,
+	neocmake = true,
 	tsserver = true,
 }
 
@@ -87,7 +89,6 @@ settings["lsp_deps"] = {
 	"awk_ls",
 	"bashls",
 	"clangd",
-	"cmake",
 	"eslint",
 	"gopls",
 	"html",
@@ -96,6 +97,7 @@ settings["lsp_deps"] = {
 	"ltex",
 	"lua_ls",
 	"marksman",
+	"neocmake",
 	"pylsp",
 	"rust_analyzer",
 	"taplo",
@@ -112,8 +114,7 @@ settings["null_ls_deps"] = {
 	"actionlint",
 	"asmfmt",
 	"clang_format",
-	"cmakelang",
-	"cmakelint",
+	"cmake_format",
 	"editorconfig-checker",
 	"gitlint",
 	"jq",

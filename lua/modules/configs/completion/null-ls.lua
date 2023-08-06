@@ -13,6 +13,10 @@ return function()
 			filetypes = { "c", "cpp" },
 			extra_args = require("completion.formatters.clang_format"),
 		}),
+		btns.formatting.cmake_format.with({
+			filetypes = { "cmake" },
+			extra_args = require("completion.formatters.cmake_format"),
+		}),
 		btns.formatting.prettier.with({
 			filetypes = {
 				"vue",
