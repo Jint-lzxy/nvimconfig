@@ -58,17 +58,6 @@ return function()
 				exec = "<CR>",
 			},
 		},
-		-- https://dev.neovim.pro/lspsaga/definition/
-		definition = {
-			keys = {
-				edit = "<C-c>o",
-				vsplit = "<C-c>v",
-				split = "<C-c>s",
-				tabe = "<C-c>t",
-				close = "<C-c>q",
-				quit = "q",
-			},
-		},
 		-- https://dev.neovim.pro/lspsaga/diagnostic/
 		diagnostic = {
 			max_width = 0.5,
@@ -87,30 +76,12 @@ return function()
 				quit_in_show = { "q", "<Esc>" },
 			},
 		},
-		-- https://dev.neovim.pro/lspsaga/finder/
-		finder = {
-			silent = true,
-			default = "def+ref+imp",
-			layout = "float",
-			filter = {},
-			keys = {
-				shuttle = "[]",
-				toggle_or_open = "<CR>",
-				jump_to = "e",
-				vsplit = "v",
-				split = "s",
-				tabe = "t",
-				tabnew = "n",
-				quit = "q",
-				close = "<Esc>",
-			},
-		},
 		-- https://dev.neovim.pro/lspsaga/hover/
 		hover = {
 			max_width = 0.45,
 			max_height = 0.7,
 			open_link = "gl",
-			open_browser = "silent !" .. require("core.settings").external_browser,
+			open_cmd = "silent !" .. require("core.settings").external_browser,
 		},
 		-- https://dev.neovim.pro/lspsaga/implement/
 		implement = {
@@ -124,21 +95,6 @@ return function()
 			sign = true,
 			sign_priority = 20,
 			virtual_text = false,
-		},
-		-- https://dev.neovim.pro/lspsaga/outline/
-		outline = {
-			win_position = "right",
-			win_width = 30,
-			auto_preview = false,
-			auto_close = true,
-			close_after_jump = true,
-			detail = false,
-			layout = "normal",
-			keys = {
-				toggle_or_jump = "<CR>",
-				jump = "o",
-				quit = "q",
-			},
 		},
 		-- https://dev.neovim.pro/lspsaga/rename/
 		rename = {
@@ -208,8 +164,8 @@ return function()
 		},
 		request_timeout = 3000,
 		scroll_preview = {
-			scroll_down = "<C-j>",
-			scroll_up = "<C-k>",
+			scroll_down = "<C-d>",
+			scroll_up = "<C-u>",
 		},
 	})
 end

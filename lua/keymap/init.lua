@@ -34,7 +34,7 @@ local plug_map = {
 	["n|<leader>pp"] = map_cr("Lazy profile"):with_silent():with_noremap():with_nowait(),
 	["n|<leader>pr"] = map_cr("Lazy restore"):with_silent():with_noremap():with_nowait(),
 	["n|<leader>px"] = map_cr("Lazy clean"):with_silent():with_noremap():with_nowait(),
-	-- Lsp map work when insertenter and lsp start
+	-- Lsp
 	["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
 	["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
 	["n|<leader>lp"] = map_cr("LspStop"):with_noremap():with_silent():with_nowait(),
@@ -48,9 +48,11 @@ local plug_map = {
 	["n|gR"] = map_cr("Lspsaga rename ++project"):with_noremap():with_silent(),
 	["n|K"] = map_cmd("<Cmd>Lspsaga hover_doc<CR>"):with_noremap():with_silent(),
 	["nv|<leader>ca"] = map_cr("Lspsaga code_action"):with_noremap():with_silent(),
-	["n|gd"] = map_cr("Lspsaga peek_definition"):with_noremap():with_silent(),
+	["n|gd"] = map_cr("Glance definitions"):with_noremap():with_silent(),
 	["n|gD"] = map_cr("Lspsaga goto_definition"):with_noremap():with_silent(),
-	["n|gh"] = map_cr("Lspsaga finder"):with_noremap():with_silent(),
+	["n|gh"] = map_cr("Glance references"):with_noremap():with_silent(),
+	["n|gt"] = map_cr("Glance type_definitions"):with_noremap():with_silent(),
+	["n|gm"] = map_cr("Glance implementations"):with_noremap():with_silent(),
 	["n|<leader>ci"] = map_cr("Lspsaga incoming_calls"):with_noremap():with_silent(),
 	["n|<leader>co"] = map_cr("Lspsaga outgoing_calls"):with_noremap():with_silent(),
 	["n|<leader>G"] = map_cu("Git"):with_noremap():with_silent(),
@@ -77,7 +79,6 @@ local plug_map = {
 	-- Plugin suda.vim
 	["n|<C-S-s>"] = map_cu("SudaWrite"):with_silent():with_noremap(),
 	-- Plugin trouble
-	["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent(),
 	["n|<leader>cr"] = map_cr("TroubleToggle lsp_references"):with_noremap():with_silent(),
 	["n|<leader>cd"] = map_cr("TroubleToggle document_diagnostics"):with_noremap():with_silent(),
 	["n|<leader>cw"] = map_cr("TroubleToggle workspace_diagnostics"):with_noremap():with_silent(),

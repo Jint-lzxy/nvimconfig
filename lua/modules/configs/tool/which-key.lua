@@ -144,14 +144,15 @@ return function()
 		},
 		g = {
 			name = "LSP commands",
-			d = "lsp: Preview definition",
+			d = "lsp: Preview definition(s)",
 			D = "lsp: Goto definition",
 			ea = "edit: Align with delimiter",
 			h = "lsp: Show reference(s)",
 			r = "lsp: Rename in file range",
 			R = "lsp: Rename in project range",
 			s = "lsp: Signature help",
-			t = "lsp: Toggle trouble list",
+			t = "lsp: Preview type definition(s)",
+			m = "lsp: Show implementation(s)",
 			p = {
 				name = "Git commands",
 				P = "git: Push",

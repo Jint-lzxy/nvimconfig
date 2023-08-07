@@ -55,11 +55,14 @@ return function()
 			coc_nvim = false,
 			dap = { enabled = true, enable_ui = true },
 			dashboard = false,
+			dropbar = { enabled = true, color_mode = true },
 			fern = false,
 			fidget = true,
+			flash = true,
 			gitgutter = false,
 			gitsigns = true,
 			harpoon = false,
+			headlines = false,
 			hop = true,
 			illuminate = true,
 			indent_blankline = { enabled = true, colored_indent_levels = false },
@@ -80,6 +83,7 @@ return function()
 			overseer = false,
 			pounce = false,
 			rainbow_delimiters = true,
+			sandwich = false,
 			semantic_tokens = true,
 			symbols_outline = true,
 			telekasten = false,
@@ -149,6 +153,16 @@ return function()
 					TelescopeResultsDiffAdd = { fg = cp.green },
 					TelescopeResultsDiffChange = { fg = cp.yellow },
 					TelescopeResultsDiffDelete = { fg = cp.red },
+
+					-- For glance.nvim
+					GlanceWinBarFilename = { fg = cp.subtext1, style = { "bold" } },
+					GlanceWinBarFilepath = { fg = cp.subtext0, style = { "italic" } },
+					GlanceWinBarTitle = { fg = cp.teal, style = { "bold" } },
+					GlanceListCount = { fg = cp.lavender },
+					GlanceListFilepath = { link = "Comment" },
+					GlanceListFilename = { fg = cp.blue },
+					GlanceListMatch = { fg = cp.lavender, style = { "bold" } },
+					GlanceFoldIcon = { fg = cp.green },
 
 					-- For nvim-treehopper
 					TSNodeKey = {
