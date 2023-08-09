@@ -22,7 +22,7 @@ return function()
 		keymaps = {
 			close = { "<Esc>", "q" },
 			goto_location = "<CR>",
-			focus_location = "o",
+			focus_location = "e",
 			hover_symbol = "gs",
 			toggle_preview = "K",
 			rename_symbol = "r",
