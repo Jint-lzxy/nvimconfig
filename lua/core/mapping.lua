@@ -25,7 +25,7 @@ local core_map = {
 	["n|æ"] = map_cr("resize +2"):with_silent(),
 	["n|<C-q>"] = map_cr("wq"),
 	["n|Œ"] = map_cr("q!"),
-	["n|<leader>c"] = map_cr("setlocal spell! spelllang=en_US"),
+	["n|<leader>c"] = map_cr("setlocal spell! spelllang=en_us"),
 	["x|<leader>p"] = map_cmd('"_dP'):with_silent():with_noremap(),
 	["n|+"] = map_cmd("<C-a>"):with_noremap():with_silent(),
 	["n|-"] = map_cmd("<C-x>"):with_noremap():with_silent(),
