@@ -115,6 +115,7 @@ settings["null_ls_deps"] = {
 	"asmfmt",
 	"clang_format",
 	"cmake_format",
+	"cmake_lint",
 	"editorconfig-checker",
 	"gitlint",
 	"jq",
