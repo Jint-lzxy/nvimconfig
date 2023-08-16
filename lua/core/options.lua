@@ -8,7 +8,7 @@ local function load_options()
 		autowrite = true,
 		backspace = "indent,eol,start",
 		backup = false,
-		backupdir = ".," .. global.cache_dir .. "backup//",
+		backupdir = global.cache_dir .. "backup//,.",
 		backupskip = "/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*,.vault.vim",
 		breakat = [[\ \	;:,!?@*-+/]],
 		clipboard = "unnamedplus",
