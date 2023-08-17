@@ -17,8 +17,8 @@ editor["max397574/better-escape.nvim"] = {
 }
 editor["LunarVim/bigfile.nvim"] = {
 	lazy = false,
-	config = require("editor.bigfile"),
 	cond = require("core.settings").load_big_files_faster,
+	config = require("editor.bigfile"),
 }
 editor["numToStr/Comment.nvim"] = {
 	lazy = true,
@@ -48,6 +48,11 @@ editor["smoka7/hop.nvim"] = {
 	},--]]
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.hop"),
+}
+editor["echasnovski/mini.surround"] = {
+	lazy = true,
+	event = { "CursorHold", "CursorHoldI" },
+	config = require("editor.surround"),
 }
 editor["ojroques/nvim-bufdel"] = {
 	lazy = true,
@@ -102,7 +107,6 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		{ "JoosepAlviste/nvim-ts-context-commentstring" },
 		{ "mfussenegger/nvim-treehopper" },
-		{ "tpope/vim-surround" },
 		{ "hiphish/rainbow-delimiters.nvim", config = require("editor.rainbow_delims") },
 		{ "andymass/vim-matchup", config = require("editor.matchup") },
 		{ "nvim-treesitter/nvim-treesitter-context", config = require("editor.ts-context") },
