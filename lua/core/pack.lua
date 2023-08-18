@@ -42,8 +42,7 @@ function Lazy:load_plugins()
 
 	append_nativertp()
 
-	local plugins_file = get_plugins_list()
-	for _, m in ipairs(plugins_file) do
+	for _, m in ipairs(get_plugins_list()) do
 		-- require modules which returned in previous operation like this:
 		-- local modules = require("modules/plugins/completion.lua")
 		local modules = require(m:sub(0, #m - 4))
