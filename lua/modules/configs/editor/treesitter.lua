@@ -17,6 +17,7 @@ return vim.schedule_wrap(function()
 			"gitignore",
 			"go",
 			"gomod",
+			"gpg",
 			"hlsl",
 			"html",
 			"java",
