@@ -18,7 +18,7 @@ return function()
 		"settings set use-color false",
 		"settings set target.default-arch x86_64",
 		"settings set target.experimental.inject-local-vars true",
-		-- "settings set target.import-std-module true",
+		"settings set target.import-std-module true",
 		"settings set target.x86-disassembly-flavor intel",
 	}
 	dap.configurations.c = {
