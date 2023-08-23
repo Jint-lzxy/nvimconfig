@@ -7,8 +7,6 @@ return {
 	"use-space",
 	"--tab-size",
 	"4",
-	"--line-width",
-	"80",
 	"--command-case",
 	"canonical",
 }
