@@ -18,11 +18,6 @@ lang["Saecki/crates.nvim"] = {
 	config = require("lang.crates"),
 	dependencies = { "nvim-lua/plenary.nvim" },
 }
--- lang["kristijanhusak/orgmode.nvim"] = {
--- 	lazy = true,
--- 	ft = "org",
--- 	config = require("lang.orgmode"),
--- }
 lang["iamcco/markdown-preview.nvim"] = {
 	lazy = true,
 	ft = "markdown",
