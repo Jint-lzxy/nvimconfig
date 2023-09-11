@@ -51,10 +51,6 @@ ui["zbirenbaum/neodim"] = {
 	event = "LspAttach",
 	config = require("ui.neodim"),
 }
-ui["shaunsingh/nord.nvim"] = {
-	lazy = true,
-	config = require("ui.nord"),
-}
 ui["rcarriga/nvim-notify"] = {
 	lazy = true,
 	event = "VeryLazy",
