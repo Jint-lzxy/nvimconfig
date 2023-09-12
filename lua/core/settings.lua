@@ -138,4 +138,44 @@ settings["dap_deps"] = {
 	"python", -- Python (debugpy)
 }
 
+-- Set the Treesitter parsers that will be installed during bootstrap here.
+-- Check the below link for all supported languages:
+-- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
+---@type string[]
+settings["treesitter_deps"] = {
+	"bash",
+	"c",
+	"cmake",
+	"cpp",
+	"c_sharp",
+	"css",
+	"git_rebase",
+	"gitattributes",
+	"gitignore",
+	"go",
+	"gomod",
+	"gpg",
+	"hlsl",
+	"html",
+	"java",
+	"javascript",
+	"json",
+	"latex",
+	"lua",
+	"make",
+	"markdown",
+	"markdown_inline",
+	"objc",
+	"python",
+	"query",
+	"ruby",
+	"rust",
+	"swift",
+	"typescript",
+	"vim",
+	"vimdoc",
+	"vue",
+	"yaml",
+}
+
 return settings
