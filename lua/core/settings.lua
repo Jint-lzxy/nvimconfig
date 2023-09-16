@@ -53,7 +53,7 @@ settings["colorscheme"] = "catppuccin"
 settings["transparent_background"] = false
 
 -- Set background color to use here.
--- Useful if you would like to use a colorscheme that has a light and dark variant like `edge`.
+-- Useful if you would like to use a colorscheme that has a light and dark variant like `catppuccin`.
 -- Valid values are: `dark`, `light`.
 ---@type "dark"|"light"
 settings["background"] = "dark"
