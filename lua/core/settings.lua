@@ -118,6 +118,8 @@ settings["null_ls_deps"] = {
 	"cmake_lint",
 	"editorconfig-checker",
 	"gitlint",
+	"gofumpt",
+	"goimports",
 	"jq",
 	"prettier",
 	"shfmt",
