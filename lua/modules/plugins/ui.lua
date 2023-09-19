@@ -16,10 +16,6 @@ ui["Jint-lzxy/nvim"] = {
 	name = "catppuccin",
 	config = require("ui.catppuccin"),
 }
-ui["sainnhe/edge"] = {
-	lazy = true,
-	config = require("ui.edge"),
-}
 ui["j-hui/fidget.nvim"] = {
 	lazy = true,
 	branch = "legacy",
