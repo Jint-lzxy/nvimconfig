@@ -100,6 +100,7 @@ settings["lsp_deps"] = {
 	"neocmake",
 	"pylsp",
 	"rust_analyzer",
+	"sorbet",
 	"taplo",
 	"vimls",
 	"yamlls",
