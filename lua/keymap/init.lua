@@ -62,18 +62,18 @@ local plug_map = {
 	-- Global
 	["t|œ"] = map_cmd("<C-\\><C-n>"):with_noremap():with_silent(), -- switch to normal mode in terminal.
 	-- Floating
-	["n|∂"] = map_cr([[execute v:count . "ToggleTerm direction=float"]]):with_noremap():with_silent(),
+	["n|∂"] = map_cr("ToggleTerm direction=float"):with_noremap():with_silent(),
 	["i|∂"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>"):with_noremap():with_silent(),
 	["t|∂"] = map_cu("<C-\\><C-n><Cmd>ToggleTerm"):with_noremap():with_silent(),
 	["n|<leader>g"] = map_cu("lua _toggle_lazygit()"):with_noremap():with_silent(),
 	-- Horizontal / Vertical
-	["n|«"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]]):with_noremap():with_silent(),
+	["n|«"] = map_cr("ToggleTerm direction=horizontal"):with_noremap():with_silent(),
 	["i|«"] = map_cmd("<Esc><Cmd>ToggleTerm direction=horizontal<CR>"):with_noremap():with_silent(),
 	["t|«"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent(),
-	["n|»"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]]):with_noremap():with_silent(),
+	["n|»"] = map_cr("ToggleTerm direction=vertical"):with_noremap():with_silent(),
 	["i|»"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>"):with_noremap():with_silent(),
 	["t|»"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent(),
-	["n|<F5>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]]):with_noremap():with_silent(),
+	["n|<F5>"] = map_cr("ToggleTerm direction=vertical"):with_noremap():with_silent(),
 	["i|<F5>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>"):with_noremap():with_silent(),
 	["t|<F5>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent(),
 	-- Plugin suda.vim
