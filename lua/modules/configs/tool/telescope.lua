@@ -42,6 +42,11 @@ return function()
 				height = 0.92,
 				preview_cutoff = 120,
 			},
+			preview = {
+				timeout = 300,
+				filesize_limit = 25,
+				highlight_limit = 1,
+			},
 			file_previewer = require("telescope.previewers").vim_buffer_cat.new,
 			grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 			qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
