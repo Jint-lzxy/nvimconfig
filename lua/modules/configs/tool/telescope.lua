@@ -44,7 +44,7 @@ return function()
 			},
 			preview = {
 				timeout = 300,
-				filesize_limit = 25,
+				filesize_limit = 30,
 				highlight_limit = 1,
 			},
 			file_previewer = require("telescope.previewers").vim_buffer_cat.new,
