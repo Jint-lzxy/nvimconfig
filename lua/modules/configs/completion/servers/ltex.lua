@@ -1,4 +1,5 @@
 -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/ltex.lua
+-- https://github.com/barreiroleo/ltex_extra.nvim/blob/master/README.md
 return function(defaults)
 	require("ltex_extra").setup({
 		init_check = true,
