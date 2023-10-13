@@ -62,7 +62,6 @@ return function()
 				case_mode = "smart_case",
 			},
 			frecency = {
-				use_sqlite = true,
 				show_scores = true,
 				show_unindexed = true,
 				ignore_patterns = { "*.git/*", "*/tmp/*" },
