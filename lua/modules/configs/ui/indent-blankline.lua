@@ -26,7 +26,6 @@ return function()
 						"assignment_statement",
 						"Block",
 						"catch_clause",
-						"chunk",
 						"class",
 						"ContainerDecl",
 						"dictionary",
