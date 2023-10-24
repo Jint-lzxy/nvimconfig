@@ -176,6 +176,7 @@ settings["treesitter_deps"] = {
 	"markdown",
 	"markdown_inline",
 	"objc",
+	"perl",
 	"python",
 	"query",
 	"ruby",
