@@ -118,8 +118,10 @@ local shell_config = function()
 			vim.notify(
 				[[
 Failed to setup terminal config
+
 PowerShell is either not installed, missing from PATH, or not executable;
 cmd.exe will be used instead for `:!` (shell bang) and toggleterm.nvim.
+
 You're recommended to install PowerShell for better experience.]],
 				vim.log.levels.WARN,
 				{ title = "[core] Runtime Warning" }
