@@ -25,14 +25,14 @@ editor["numToStr/Comment.nvim"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.comment_nvim"),
 }
-editor["rhysd/clever-f.vim"] = {
-	lazy = true,
-	event = { "CursorHold", "CursorHoldI" },
-	config = require("editor.cleverf"),
-}
 editor["sindrets/diffview.nvim"] = {
 	lazy = true,
 	cmd = { "DiffviewOpen", "DiffviewClose" },
+}
+editor["folke/flash.nvim"] = {
+	lazy = true,
+	event = { "CursorHold", "CursorHoldI" },
+	config = require("editor.flash"),
 }
 editor["smoka7/hop.nvim"] = {
 	lazy = true,

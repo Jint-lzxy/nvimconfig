@@ -116,9 +116,6 @@ local plug_map = {
 	["n|k"] = map_cmd("v:lua._enhance_jk_move('k')"):with_silent():with_expr(),
 	-- Plugin nvim-bufdel
 	["n|œ"] = map_cr("BufDel"):with_noremap():with_silent(),
-	-- Plugin clever-f
-	["n|;"] = map_cmd("v:lua._enhance_ft_move(';')"):with_expr(),
-	["n|,"] = map_cmd("v:lua._enhance_ft_move(',')"):with_expr(),
 	-- Plugin Hop
 	["nv|<leader>w"] = map_cmd("<Cmd>HopWordMW<CR>"):with_noremap(),
 	["nv|<leader>j"] = map_cmd("<Cmd>HopLineMW<CR>"):with_noremap(),
