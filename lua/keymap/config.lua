@@ -9,20 +9,23 @@ _G._enhance_jk_move = function(key)
 	return t(map)
 end
 
-_G._enhance_ft_move = function(key)
-	local map = {
-		[";"] = "<Plug>(clever-f-repeat-forward)",
-		[","] = "<Plug>(clever-f-repeat-back)",
-	}
-	return t(map[key])
-end
-
 _G._command_panel = function()
 	require("telescope.builtin").keymaps({
 		lhs_filter = function(lhs)
 			return not string.find(lhs, "Þ")
 		end,
 	})
+end
+
+_G._flash_esc_or_noh = function()
+	local flash_active, state = pcall(function()
+		return require("flash.plugins.char").state
+	end)
+	if flash_active and state then
+		state:hide()
+	else
+		vim.cmd([[noh]])
+	end
 end
 
 local lazygit = nil
