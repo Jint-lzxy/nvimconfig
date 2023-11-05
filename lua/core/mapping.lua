@@ -6,6 +6,7 @@ local map_cmd = bind.map_cmd
 -- Core mappings
 local core_map = {
 	-- Vim map
+	["n|<Esc>"] = map_cu("lua _flash_esc_or_noh()"):with_noremap():with_silent(),
 	["n|<S-Tab>"] = map_cr("normal za"):with_noremap():with_silent(),
 	["n|<C-s>"] = map_cu("write"):with_noremap():with_silent(),
 	["n|Y"] = map_cmd("y$"),
