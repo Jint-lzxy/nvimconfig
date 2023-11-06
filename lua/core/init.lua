@@ -26,7 +26,7 @@ local disable_distribution_plugins = function()
 	vim.g.did_install_default_menus = 1
 	vim.g.did_install_syntax_menu = 1
 
-	-- Uncomment this if you define your own filetypes in `after/ftplugin`
+	-- Comment this if you define your own filetypes in `after/ftplugin`
 	-- vim.g.did_load_filetypes = 1
 
 	-- Do not load native syntax completion
@@ -56,11 +56,11 @@ local disable_distribution_plugins = function()
 	vim.g.loaded_zip = 1
 	vim.g.loaded_zipPlugin = 1
 
-	-- Do not use builtin matchit.vim and matchparen.vim since the use of vim-matchup
+	-- Do not use builtin matchit.vim and matchparen.vim because we're using vim-matchup
 	vim.g.loaded_matchit = 1
 	vim.g.loaded_matchparen = 1
 
-	-- Disable sql omni completion.
+	-- Disable sql omni completion
 	vim.g.loaded_sql_completion = 1
 
 	-- Disable EditorConfig support
