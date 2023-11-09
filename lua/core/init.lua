@@ -46,8 +46,8 @@ local disable_distribution_plugins = function()
 	-- Do not load tohtml.vim
 	vim.g.loaded_2html_plugin = 1
 
-	-- Do not load zipPlugin.vim, gzip.vim and tarPlugin.vim (all these plugins are
-	-- related to checking files inside compressed files)
+	-- Do not load zipPlugin.vim, gzip.vim and tarPlugin.vim (all of these plugins are
+	-- related to reading files inside compressed containers)
 	vim.g.loaded_gzip = 1
 	vim.g.loaded_tar = 1
 	vim.g.loaded_tarPlugin = 1
@@ -63,12 +63,13 @@ local disable_distribution_plugins = function()
 	-- Disable sql omni completion
 	vim.g.loaded_sql_completion = 1
 
-	-- Disable EditorConfig support
+	-- Set this to 0 in order to disable native EditorConfig support
 	vim.g.editorconfig = 1
 
 	-- Disable remote plugins
-	-- NOTE: Disabling rplugin.vim will show error for `wilder.nvim` in :checkhealth,
-	-- NOTE:  but since it's config doesn't require python rtp, it's fine to ignore.
+	-- NOTE:
+	--  > Disabling rplugin.vim will make `wilder.nvim` complain about missing rplugins during :checkhealth,
+	--  > but since it's config doesn't require python rtp (strictly), it's fine to ignore that for now.
 	-- vim.g.loaded_remote_plugins = 1
 end
 
