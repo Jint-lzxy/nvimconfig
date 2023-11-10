@@ -186,6 +186,7 @@ settings["treesitter_deps"] = {
 	"vim",
 	"vimdoc",
 	"vue",
+	"xml",
 	"yaml",
 }
 
