@@ -1,13 +1,24 @@
 return function()
-	vim.g.cmake_command = "cmake"
-	vim.g.cmake_test_command = "ctest"
-	vim.g.cmake_default_config = "Debug"
-	vim.g.cmake_build_dir_location = "./build/"
-	vim.g.cmake_console_size = 15
-	vim.g.cmake_console_echo_cmd = 1
-	vim.g.cmake_link_compile_commands = 1
-	vim.g.cmake_statusline = 0
-	vim.g.cmake_restore_state = 1
-	vim.g.cmake_reinit_on_dir_changed = 1
-	vim.g.cmake_root_markers = { ".git", ".svn", "src" }
+	require("cmake-tools").setup({
+		cmake_command = "cmake", -- this is used to specify cmake command path
+		cmake_build_directory = "build/${variant:buildType}", -- this is used to specify generate directory for cmake, allows macro expansion
+		cmake_soft_link_compile_commands = true, -- this will automatically make a soft link from compile commands file to project root dir
+		cmake_executor = {
+			name = "quickfix", -- name of the executor
+			opts = {
+				quickfix = {
+					show = "always",
+					position = "bottom",
+					size = 10,
+				},
+			},
+		},
+		cmake_terminal = {
+			name = "terminal",
+			opts = {
+				name = "CMake Terminal",
+				prefix_name = "[CMakeTools]: ",
+			},
+		},
+	})
 end
