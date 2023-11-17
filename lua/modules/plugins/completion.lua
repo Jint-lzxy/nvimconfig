@@ -17,6 +17,7 @@ completion["dnlhc/glance.nvim"] = {
 }
 completion["nvimdev/lspsaga.nvim"] = {
 	lazy = true,
+	commit = "283a3fc",
 	event = "LspAttach",
 	config = require("completion.lspsaga"),
 	dependencies = { "nvim-tree/nvim-web-devicons" },
