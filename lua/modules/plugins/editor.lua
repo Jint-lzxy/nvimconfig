@@ -105,14 +105,14 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	config = require("editor.treesitter"),
 	dependencies = {
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
-		{ "JoosepAlviste/nvim-ts-context-commentstring" },
 		{ "mfussenegger/nvim-treehopper" },
-		{ "hiphish/rainbow-delimiters.nvim", config = require("editor.rainbow_delims") },
+		{ "abecodes/tabout.nvim", config = require("editor.tabout") },
 		{ "andymass/vim-matchup", config = require("editor.matchup") },
-		{ "nvim-treesitter/nvim-treesitter-context", config = require("editor.ts-context") },
 		{ "windwp/nvim-ts-autotag", config = require("editor.autotag") },
 		{ "NvChad/nvim-colorizer.lua", config = require("editor.colorizer") },
-		{ "abecodes/tabout.nvim", config = require("editor.tabout") },
+		{ "hiphish/rainbow-delimiters.nvim", config = require("editor.rainbow_delims") },
+		{ "nvim-treesitter/nvim-treesitter-context", config = require("editor.ts-context") },
+		{ "JoosepAlviste/nvim-ts-context-commentstring", config = require("editor.ts-context-commentstring") },
 	},
 }
 

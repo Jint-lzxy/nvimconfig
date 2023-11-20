@@ -49,7 +49,6 @@ return vim.schedule_wrap(function()
 				},
 			},
 		},
-		context_commentstring = { enable = true, enable_autocmd = false },
 		indent = { enable = true },
 		matchup = { enable = true, include_match_words = { "c", "cpp" } },
 	})
