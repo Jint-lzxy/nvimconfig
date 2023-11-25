@@ -50,7 +50,7 @@ return function()
 
 	local leader = "<leader>"
 	dashboard.section.buttons.val = {
-		button("[leader] f c", " Scheme change", leader, "<Cmd>Telescope colorscheme<CR>"),
+		button("[leader] f c", " Scheme change", leader, "<Cmd>Telescope colorscheme<CR>"),
 		button("[leader] f r", " File frecency", leader, "<Cmd>Telescope frecency<CR>"),
 		button("[leader] f e", "󰋚 File history", leader, "<Cmd>Telescope oldfiles<CR>"),
 		button("[leader] f p", " Project find", leader, "<Cmd>Telescope projects<CR>"),
