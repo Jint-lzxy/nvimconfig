@@ -62,7 +62,7 @@ return function()
 
 	local function footer()
 		local stats = require("lazy").stats()
-		local greet = " 💝  Have Fun with neovim"
+		local greet = " 💝  Have Fun with Neovim"
 			.. "  󰀨 v"
 			.. vim.version().major
 			.. "."
