@@ -43,7 +43,7 @@ return function()
 				preview_cutoff = 120,
 			},
 			preview = {
-				timeout = 300,
+				timeout = 150,
 				filesize_limit = 30,
 				highlight_limit = 1,
 			},
