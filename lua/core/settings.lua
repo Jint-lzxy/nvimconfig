@@ -205,16 +205,19 @@ settings["gui_config"] = {
 -- https://neovide.dev/configuration.html
 ---@type table<string, boolean|number|string>
 settings["neovide_config"] = {
-	no_idle = true,
-	refresh_rate = 120,
-	cursor_vfx_mode = "railgun",
-	cursor_vfx_opacity = 200.0,
+	no_idle = false,
+	input_ime = true,
+	fullscreen = true,
+	padding_left = 8,
+	confirm_quit = true,
+	cursor_vfx_mode = "torpedo",
+	cursor_trail_size = 0.05,
 	cursor_antialiasing = true,
-	cursor_trail_length = 0.05,
+	hide_mouse_when_typing = true,
+	input_macos_alt_is_meta = false,
 	cursor_animation_length = 0.03,
 	cursor_vfx_particle_speed = 20.0,
 	cursor_vfx_particle_density = 5.0,
-	cursor_vfx_particle_lifetime = 1.2,
 }
 
 return settings
