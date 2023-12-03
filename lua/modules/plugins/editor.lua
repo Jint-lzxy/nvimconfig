@@ -104,8 +104,8 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	event = "BufReadPre",
 	config = require("editor.treesitter"),
 	dependencies = {
-		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		{ "mfussenegger/nvim-treehopper" },
+		{ "nvim-treesitter/nvim-treesitter-textobjects" },
 		{ "abecodes/tabout.nvim", config = require("editor.tabout") },
 		{ "andymass/vim-matchup", config = require("editor.matchup") },
 		{ "windwp/nvim-ts-autotag", config = require("editor.autotag") },
