@@ -2,7 +2,6 @@ local global = require("core.global")
 
 local function load_options()
 	local global_local = {
-		-- spellfile = global.cache_dir .. "spell/en.uft-8.add",
 		-- viewdir = global.cache_dir .. "view/",
 		autoread = true,
 		autowrite = true,
@@ -59,6 +58,7 @@ local function load_options()
 		sidescrolloff = 5,
 		smartcase = true,
 		smarttab = true,
+		spellfile = global.vim_path .. "/spell/en.uft-8.add",
 		splitbelow = true,
 		splitkeep = "screen",
 		splitright = true,
