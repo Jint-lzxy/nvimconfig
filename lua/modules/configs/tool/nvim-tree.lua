@@ -13,7 +13,7 @@ return function()
 		hijack_netrw = true,
 		hijack_unnamed_buffer_when_opening = true,
 		open_on_tab = false,
-		respect_buf_cwd = false,
+		respect_buf_cwd = true,
 		prefer_startup_root = false,
 		sort_by = "name",
 		sync_root_with_cwd = true,
