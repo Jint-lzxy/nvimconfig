@@ -66,6 +66,7 @@ return function()
 			D = "git: Show diff",
 			f = {
 				name = "Telescope commands",
+				R = "find: Open previous picker",
 				p = "find: Project",
 				w = "find: Word",
 				r = "find: File by frecency",

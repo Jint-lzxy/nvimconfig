@@ -91,16 +91,18 @@ local plug_map = {
 	-- Plugin Undotree
 	["n|<leader>u"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
 	-- Plugin Telescope
+	["n|<leader>fn"] = map_cu(":enew"):with_noremap():with_silent(),
+	["n|<leader>fk"] = map_cu("lua _command_panel()"):with_noremap():with_silent(),
 	["n|<leader>fp"] = map_cu("lua require('telescope').extensions.projects.projects{}"):with_noremap():with_silent(),
 	["n|<leader>fr"] = map_cu("lua require('telescope').extensions.frecency.frecency{}"):with_noremap():with_silent(),
 	["n|<leader>fw"] = map_cu("lua require('telescope').extensions.live_grep_args.live_grep_args{}")
 		:with_noremap()
 		:with_silent(),
+	["n|<leader>fR"] = map_cu("Telescope resume"):with_noremap():with_silent(),
 	["n|<leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent(),
 	["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
 	["n|<leader>fi"] = map_cu("Telescope file_browser path=%:p:h"):with_noremap():with_silent(),
 	["n|<leader>fc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
-	["n|<leader>fn"] = map_cu(":enew"):with_noremap():with_silent(),
 	["n|<leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),
@@ -110,7 +112,6 @@ local plug_map = {
 	["n|<leader>fo"] = map_cu("Telescope vim_options"):with_noremap():with_silent(),
 	["n|<leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
 	["n|<leader>ft"] = map_cu("TodoTelescope"):with_noremap():with_silent(),
-	["n|<leader>fk"] = map_cu("lua _command_panel()"):with_noremap():with_silent(),
 	-- Plugin accelerate-jk
 	["n|j"] = map_cmd("v:lua._enhance_jk_move('j')"):with_silent():with_expr(),
 	["n|k"] = map_cmd("v:lua._enhance_jk_move('k')"):with_silent():with_expr(),
