@@ -121,14 +121,11 @@ tool["mfussenegger/nvim-dap"] = {
 	},
 	config = require("tool.dap"),
 	dependencies = {
-		{
-			"rcarriga/nvim-dap-ui",
-			config = require("tool.dap.dapui"),
-		},
-		{ "theHamsta/nvim-dap-virtual-text", config = require("tool.dap.dap-virtual-text") },
 		{ "jay-babu/mason-nvim-dap.nvim" },
 		{ "LiadOz/nvim-dap-repl-highlights" },
 		{ "jbyuki/one-small-step-for-vimkind" },
+		{ "rcarriga/nvim-dap-ui", config = require("tool.dap.dapui") },
+		{ "theHamsta/nvim-dap-virtual-text", config = require("tool.dap.dap-virtual-text") },
 	},
 }
 
