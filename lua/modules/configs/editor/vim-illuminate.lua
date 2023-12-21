@@ -13,7 +13,6 @@ return function()
 			"DoomInfo",
 			"fugitive",
 			"help",
-			"lsgsagaoutline",
 			"neogitstatus",
 			"norg",
 			"NvimTree",
