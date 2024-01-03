@@ -95,8 +95,8 @@ return function()
 				d = "lsp: Show line disgnostics",
 				i = "lsp: LSP Info",
 				r = "lsp: LSP Restart",
-				p = "lsp: LSP Stop",
 				s = "lsp: LSP Start",
+				S = "lsp: LSP Stop",
 			},
 			n = {
 				name = "NvimTree commands",
