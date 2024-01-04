@@ -9,7 +9,7 @@ return vim.schedule_wrap(function()
 		highlight = {
 			enable = true,
 			disable = function(ft, bufnr)
-				if vim.tbl_contains({ "vim" }, ft) then
+				if vim.tbl_contains({ "gitattributes", "gitcommit", "gitignore", "git_config", "git_rebase" }, ft) then
 					return true
 				end
 
