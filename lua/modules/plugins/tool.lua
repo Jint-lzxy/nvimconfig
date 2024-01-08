@@ -14,7 +14,7 @@ tool["nvim-tree/nvim-tree.lua"] = {
 tool["michaelb/sniprun"] = {
 	lazy = true,
 	build = "bash ./install.sh",
-	cmd = "SnipRun",
+	cmd = { "SnipRun", "SnipReset", "SnipInfo" },
 	config = require("tool.sniprun"),
 }
 tool["akinsho/toggleterm.nvim"] = {
