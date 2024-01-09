@@ -5,6 +5,8 @@ return function()
 		options = {
 			always_show_bufferline = true,
 			buffer_close_icon = icons.ui.Close,
+			close_command = "BufDel! %d",
+			right_mouse_command = "BufDel! %d",
 			diagnostics = "nvim_lsp",
 			diagnostics_indicator = function(count)
 				return "(" .. count .. ")"
