@@ -111,6 +111,23 @@ local opts = {
 ---A handler to setup all servers defined under `completion/servers/*.lua`
 ---@param lsp_name string
 local function mason_lsp_handler(lsp_name)
+	-- rust_analyzer is configured using mrcjkb/rustaceanvim
+	-- warn users if they have set it up manually
+	if lsp_name == "rust_analyzer" then
+		local config_exist = pcall(require, "completion.servers." .. lsp_name)
+		if config_exist then
+			vim.notify(
+				[[
+`rust_analyzer` is configured independently via `mrcjkb/rustaceanvim`. To get rid of this warning,
+please REMOVE your LSP configuration (rust_analyzer.lua) from the `servers` directory and configure
+`rust_analyzer` using the appropriate `setup` options provided by `rustaceanvim` instead.]],
+				vim.log.levels.WARN,
+				{ title = "nvim-lspconfig" }
+			)
+		end
+		return
+	end
+
 	local ok, custom_handler = pcall(require, "completion.servers." .. lsp_name)
 	if not ok then
 		-- Default to use factory config for server(s) that doesn't include a spec
