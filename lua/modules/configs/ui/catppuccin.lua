@@ -3,7 +3,6 @@ return function()
 	local clear = {}
 
 	require("catppuccin").setup({
-		flavour = "mocha",
 		background = { light = "latte", dark = "mocha" },
 		dim_inactive = {
 			enabled = false,
@@ -141,6 +140,9 @@ return function()
 					-- For fidget
 					FidgetTask = { bg = cp.none, fg = cp.surface2 },
 					FidgetTitle = { fg = cp.blue, style = { "bold" } },
+
+					-- For nvim-notify
+					NotifyBackground = { bg = cp.base },
 
 					-- For nvim-tree
 					NvimTreeRootFolder = { fg = cp.pink },
