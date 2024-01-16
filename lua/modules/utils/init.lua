@@ -108,16 +108,12 @@ end
 ---@param background? string @The background color
 ---@param italic? boolean
 local function set_global_hl(name, foreground, background, italic)
-	vim.api.nvim_set_hl(
-		0,
-		name,
-		{
-			fg = foreground,
-			bg = background,
-			italic = italic == true,
-			default = not vim.g.colors_name:find("catppuccin"),
-		}
-	)
+	vim.api.nvim_set_hl(0, name, {
+		fg = foreground,
+		bg = background,
+		italic = italic == true,
+		default = not vim.g.colors_name:find("catppuccin"),
+	})
 end
 
 ---Blend foreground with background
