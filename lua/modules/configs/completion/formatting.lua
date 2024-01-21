@@ -36,9 +36,9 @@ end, { nargs = 1, complete = "filetype" })
 
 function M.enable_format_on_save(is_configured)
 	local opts = { pattern = "*", timeout = 1000 }
-	vim.api.nvim_create_augroup("format_on_save", { clear = true })
+	vim.api.nvim_create_augroup("__format_on_save", { clear = true })
 	vim.api.nvim_create_autocmd("BufWritePre", {
-		group = "format_on_save",
+		group = "__format_on_save",
 		pattern = opts.pattern,
 		callback = function()
 			require("completion.formatting").format({
@@ -57,7 +57,7 @@ function M.enable_format_on_save(is_configured)
 end
 
 function M.disable_format_on_save()
-	pcall(vim.api.nvim_del_augroup_by_name, "format_on_save")
+	pcall(vim.api.nvim_del_augroup_by_name, "__format_on_save")
 	if format_on_save then
 		vim.notify(
 			"Successfully disabled format-on-save",
@@ -77,7 +77,7 @@ end
 
 function M.toggle_format_on_save()
 	local status = pcall(vim.api.nvim_get_autocmds, {
-		group = "format_on_save",
+		group = "__format_on_save",
 		event = "BufWritePre",
 	})
 	if not status then
