@@ -8,12 +8,12 @@ return function()
 				-- The example below will paint @something in comments with Constant
 				filter = { filetype = "lua" },
 				pattern = "%s*%-%-%-%s*(@%w+)",
-				hl = "CmpItemKindVariable",
+				hl = "MarkdownTodo",
 			},
 			{
 				filter = { filetype = "python" },
 				pattern = "%s*([_%w]+:)",
-				hl = "CmpItemKindVariable",
+				hl = "MarkdownTodo",
 			},
 		},
 	})
