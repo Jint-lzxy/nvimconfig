@@ -153,6 +153,7 @@ settings["dap_deps"] = {
 -- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
 ---@type string[]
 settings["treesitter_deps"] = {
+	"asm",
 	"bash",
 	"c",
 	"cmake",
