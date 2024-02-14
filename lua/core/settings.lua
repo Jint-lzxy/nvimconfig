@@ -160,6 +160,7 @@ settings["treesitter_deps"] = {
 	"cpp",
 	"c_sharp",
 	"css",
+	"disassembly",
 	"git_rebase",
 	"gitattributes",
 	"gitignore",
