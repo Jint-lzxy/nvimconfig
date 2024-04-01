@@ -16,6 +16,7 @@ if vim.g.neovide then
 		["nv|<D-v>"] = map_cmd('"+P'):with_noremap(),
 		["c|<D-v>"] = map_cmd("<C-r>+"):with_noremap(),
 		["i|<D-v>"] = map_cmd('<Esc>l"+Pli'):with_noremap(),
+		["t|<D-v>"] = map_cmd('<C-\\><C-n>l"+Pli'):with_noremap(),
 	}
 
 	bind.nvim_load_mapping(neovide_map)
