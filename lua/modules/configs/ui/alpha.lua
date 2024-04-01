@@ -55,7 +55,7 @@ return function()
 		button("[leader] f e", "󰋚 File history", leader, "<Cmd>Telescope oldfiles<CR>"),
 		button("[leader] f p", " Project find", leader, "<Cmd>Telescope projects<CR>"),
 		button("[leader] f f", "󰈞 File find", leader, "<Cmd>Telescope find_files<CR>"),
-		button("[leader] f n", " File new", leader, "<Cmd>enew<CR>"),
+		button("[leader] f n", " New file", leader, "<Cmd>enew<CR>"),
 		button("[leader] f w", " Word find", leader, "<Cmd>Telescope live_grep<CR>"),
 	}
 	dashboard.section.buttons.opts.hl = "AlphaButtons"

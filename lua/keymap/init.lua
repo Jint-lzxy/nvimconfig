@@ -39,25 +39,26 @@ local plug_map = {
 	["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
 	["n|<leader>ls"] = map_cr("LspStart"):with_noremap():with_silent():with_nowait(),
 	["n|<leader>lS"] = map_cr("LspStop"):with_noremap():with_silent():with_nowait(),
-	["n|†"] = map_cr("SymbolsOutline"):with_noremap():with_silent(),
+	["n|go"] = map_cr("Outline"):with_noremap():with_silent(),
 	["n|g["] = map_cr("Lspsaga diagnostic_jump_prev"):with_noremap():with_silent(),
 	["n|g]"] = map_cr("Lspsaga diagnostic_jump_next"):with_noremap():with_silent(),
-	["n|<leader>ld"] = map_cr("Lspsaga show_line_diagnostics ++unfocus"):with_noremap():with_silent(),
+	["n|<leader>lx"] = map_cr("Lspsaga show_line_diagnostics ++unfocus"):with_noremap():with_silent(),
 	["n|gs"] = map_cr("lua vim.lsp.buf.signature_help()"):with_noremap():with_silent(),
 	["n|gr"] = map_cr("Lspsaga rename"):with_noremap():with_silent(),
 	["n|gR"] = map_cr("Lspsaga rename ++project"):with_noremap():with_silent(),
 	["n|K"] = map_cmd("<Cmd>Lspsaga hover_doc<CR>"):with_noremap():with_silent(),
-	["nv|<leader>ca"] = map_cr("Lspsaga code_action"):with_noremap():with_silent(),
+	["nv|ga"] = map_cr("Lspsaga code_action"):with_noremap():with_silent(),
 	["n|gd"] = map_cr("Glance definitions"):with_noremap():with_silent(),
 	["n|gD"] = map_cr("Lspsaga goto_definition"):with_noremap():with_silent(),
 	["n|gh"] = map_cr("Glance references"):with_noremap():with_silent(),
 	["n|gt"] = map_cr("Glance type_definitions"):with_noremap():with_silent(),
 	["n|gm"] = map_cr("Glance implementations"):with_noremap():with_silent(),
-	["n|<leader>ci"] = map_cr("Lspsaga incoming_calls"):with_noremap():with_silent(),
-	["n|<leader>co"] = map_cr("Lspsaga outgoing_calls"):with_noremap():with_silent(),
-	["n|<leader>G"] = map_cu("Git"):with_noremap():with_silent(),
-	["n|gpP"] = map_cr("G push"):with_noremap():with_silent(),
-	["n|gpp"] = map_cr("G pull"):with_noremap():with_silent(),
+	["n|gci"] = map_cr("Lspsaga incoming_calls"):with_noremap():with_silent(),
+	["n|gco"] = map_cr("Lspsaga outgoing_calls"):with_noremap():with_silent(),
+	-- vim-fugitive
+	["n|<leader>gG"] = map_cu("Git"):with_noremap():with_silent(),
+	["n|gps"] = map_cr("G push"):with_noremap():with_silent(),
+	["n|gpl"] = map_cr("G pull"):with_noremap():with_silent(),
 	-- Toggle Terminal
 	-- Global
 	["t|œ"] = map_cmd("<C-\\><C-n>"):with_noremap():with_silent(), -- switch to normal mode in terminal.
@@ -65,7 +66,7 @@ local plug_map = {
 	["n|∂"] = map_cr("ToggleTerm direction=float"):with_noremap():with_silent(),
 	["i|∂"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>"):with_noremap():with_silent(),
 	["t|∂"] = map_cu("<C-\\><C-n><Cmd>ToggleTerm"):with_noremap():with_silent(),
-	["n|<leader>g"] = map_cu("lua _toggle_lazygit()"):with_noremap():with_silent(),
+	["n|<leader>gg"] = map_cu("lua _toggle_lazygit()"):with_noremap():with_silent(),
 	-- Horizontal / Vertical
 	["n|«"] = map_cr("ToggleTerm direction=horizontal"):with_noremap():with_silent(),
 	["i|«"] = map_cmd("<Esc><Cmd>ToggleTerm direction=horizontal<CR>"):with_noremap():with_silent(),
@@ -79,11 +80,11 @@ local plug_map = {
 	-- Plugin suda.vim
 	["n|<C-S-s>"] = map_cu("SudaWrite"):with_silent():with_noremap(),
 	-- Plugin trouble
-	["n|<leader>cr"] = map_cr("TroubleToggle lsp_references"):with_noremap():with_silent(),
-	["n|<leader>cd"] = map_cr("TroubleToggle document_diagnostics"):with_noremap():with_silent(),
-	["n|<leader>cw"] = map_cr("TroubleToggle workspace_diagnostics"):with_noremap():with_silent(),
-	["n|<leader>cq"] = map_cr("TroubleToggle quickfix"):with_noremap():with_silent(),
-	["n|<leader>cl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent(),
+	["n|<leader>ll"] = map_cr("TroubleToggle lsp_references"):with_noremap():with_silent(),
+	["n|<leader>ld"] = map_cr("TroubleToggle document_diagnostics"):with_noremap():with_silent(),
+	["n|<leader>lw"] = map_cr("TroubleToggle workspace_diagnostics"):with_noremap():with_silent(),
+	["n|<leader>lq"] = map_cr("TroubleToggle quickfix"):with_noremap():with_silent(),
+	["n|<leader>lL"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent(),
 	-- Plugin nvim-tree
 	["n|<C-n>"] = map_cr("NvimTreeToggle"):with_noremap():with_silent(),
 	["n|<leader>nf"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent(),
@@ -122,7 +123,7 @@ local plug_map = {
 	["nv|<leader>j"] = map_cmd("<Cmd>HopLineMW<CR>"):with_noremap(),
 	["nv|<leader>k"] = map_cmd("<Cmd>HopLineMW<CR>"):with_noremap(),
 	["nv|<leader>o"] = map_cmd("<Cmd>HopChar1MW<CR>"):with_noremap(),
-	["nv|<leader>oo"] = map_cmd("<Cmd>HopChar2MW<CR>"):with_noremap(),
+	["nv|<leader>O"] = map_cmd("<Cmd>HopChar2MW<CR>"):with_noremap(),
 	-- Plugin EasyAlign
 	["nx|gea"] = map_cr("EasyAlign"):with_noremap():with_silent(),
 	-- Plugin MarkdownPreview
@@ -161,8 +162,8 @@ local plug_map = {
 	["i|¬"] = map_cmd("<Plug>(TaboutMulti)"):with_silent(),
 	["i|˙"] = map_cmd("<Plug>(TaboutBackMulti)"):with_silent(),
 	-- Plugin Diffview
-	["n|<leader>D"] = map_cr("DiffviewOpen"):with_silent():with_noremap(),
-	["n|<leader><leader>D"] = map_cr("DiffviewClose"):with_silent():with_noremap(),
+	["n|<leader>gd"] = map_cr("DiffviewOpen"):with_silent():with_noremap(),
+	["n|<leader>gD"] = map_cr("DiffviewClose"):with_silent():with_noremap(),
 }
 
 bind.nvim_load_mapping(plug_map)
