@@ -32,7 +32,7 @@ local data = {
 		Unit = "",
 		Value = "󰎠",
 		Variable = "",
-		-- ccls-specific icons.
+		-- ccls-specific icons
 		TypeAlias = "",
 		Parameter = "",
 		StaticMethod = "",

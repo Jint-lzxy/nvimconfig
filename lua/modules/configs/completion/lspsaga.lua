@@ -152,11 +152,11 @@ return function()
 				Null = { icons.type.Null, "LspKindNull" },
 				Object = { icons.type.Object, "LspKindObject" },
 				String = { icons.type.String, "LspKindString" },
-				-- ccls-specific icons.
+				-- ccls-specific icons
 				TypeAlias = { icons.kind.TypeAlias, "LspKindTypeAlias" },
 				Parameter = { icons.kind.Parameter, "LspKindParameter" },
 				StaticMethod = { icons.kind.StaticMethod, "LspKindStaticMethod" },
-				-- Microsoft-specific icons.
+				-- Microsoft-specific icons
 				Text = { icons.kind.Text, "LspKindText" },
 				Snippet = { icons.kind.Snippet, "LspKindSnippet" },
 				Folder = { icons.kind.Folder, "LspKindFolder" },
