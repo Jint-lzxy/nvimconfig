@@ -21,7 +21,7 @@ completion["nvimdev/lspsaga.nvim"] = {
 	config = require("completion.lspsaga"),
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 }
-completion["simrat39/symbols-outline.nvim"] = {
+completion["hedyhli/outline.nvim"] = {
 	lazy = true,
 	event = "LspAttach",
 	config = require("completion.outline"),
