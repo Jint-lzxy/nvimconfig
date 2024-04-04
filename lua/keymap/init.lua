@@ -37,8 +37,8 @@ local plug_map = {
 	-- Lsp
 	["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
 	["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
-	["n|<leader>ls"] = map_cr("LspStart"):with_noremap():with_silent():with_nowait(),
-	["n|<leader>lS"] = map_cr("LspStop"):with_noremap():with_silent():with_nowait(),
+	["n|<leader>ls"] = map_cr("LspStop"):with_noremap():with_silent():with_nowait(),
+	["n|<leader>lS"] = map_cr("LspStart"):with_noremap():with_silent():with_nowait(),
 	["n|go"] = map_cr("Outline"):with_noremap():with_silent(),
 	["n|g["] = map_cr("Lspsaga diagnostic_jump_prev"):with_noremap():with_silent(),
 	["n|g]"] = map_cr("Lspsaga diagnostic_jump_next"):with_noremap():with_silent(),
