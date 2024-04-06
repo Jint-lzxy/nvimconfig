@@ -116,9 +116,6 @@ local plug_map = {
 	["n|<leader>fo"] = map_cu("Telescope vim_options"):with_noremap():with_silent(),
 	["n|<leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
 	["n|<leader>ft"] = map_cu("TodoTelescope"):with_noremap():with_silent(),
-	-- Plugin accelerate-jk
-	["n|j"] = map_cmd("v:lua._enhance_jk_move('j')"):with_silent():with_expr(),
-	["n|k"] = map_cmd("v:lua._enhance_jk_move('k')"):with_silent():with_expr(),
 	-- Plugin nvim-bufdel
 	["n|œ"] = map_cr("BufDel"):with_noremap():with_silent(),
 	-- Plugin Hop

@@ -63,11 +63,6 @@ ui["folke/paint.nvim"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("ui.paint"),
 }
-ui["edluffy/specs.nvim"] = {
-	lazy = true,
-	event = "CursorMoved",
-	config = require("ui.specs"),
-}
 ui["folke/todo-comments.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
