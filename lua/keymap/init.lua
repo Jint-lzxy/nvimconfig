@@ -107,6 +107,9 @@ local plug_map = {
 	["n|<leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
 	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),
+	["v|<leader>fs"] = map_cu("lua require('telescope.builtin').grep_string({ search = _buf_vtext() })")
+		:with_noremap()
+		:with_silent(),
 	["n|<leader>fd"] = map_cu("Telescope persisted"):with_noremap():with_silent(),
 	["n|<leader>fh"] = map_cu("Telescope highlights"):with_noremap():with_silent(),
 	["n|<leader>fa"] = map_cu("Telescope autocommands"):with_noremap():with_silent(),

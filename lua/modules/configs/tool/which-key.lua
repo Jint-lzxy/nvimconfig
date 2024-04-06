@@ -72,7 +72,10 @@ return function()
 				p = "find: Project",
 				r = "find: File by frecency",
 				R = "find: Open previous picker",
-				s = "find: Word under cursor",
+				s = {
+					{ mode = "n", "find: Word under cursor" },
+					{ mode = "v", "find: Current selection" },
+				},
 				t = "find: Todo comments",
 				w = "find: Word",
 				z = "edit: Change cwd using zoxide",
