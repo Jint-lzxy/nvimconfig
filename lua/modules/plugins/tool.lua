@@ -124,8 +124,12 @@ tool["mfussenegger/nvim-dap"] = {
 		{ "jay-babu/mason-nvim-dap.nvim" },
 		{ "LiadOz/nvim-dap-repl-highlights" },
 		{ "jbyuki/one-small-step-for-vimkind" },
-		{ "rcarriga/nvim-dap-ui", config = require("tool.dap.dapui") },
 		{ "theHamsta/nvim-dap-virtual-text", config = require("tool.dap.dap-virtual-text") },
+		{
+			"rcarriga/nvim-dap-ui",
+			dependencies = "nvim-neotest/nvim-nio",
+			config = require("tool.dap.dapui"),
+		},
 	},
 }
 
