@@ -13,14 +13,15 @@ $REQUIRED_NVIM_VERSION_LEGACY = [version]'0.8.0'
 $USE_SSH = $True
 
 # package mgr vars
-$choco_package_matrix = @{ "gcc" = "mingw"; "git" = "git"; "nvim" = "neovim"; "make" = "make"; "sudo" = "psutils"; "node" = "nodejs"; "pip" = "python3"; "fzf" = "fzf"; "rg" = "ripgrep"; "go" = "go"; "curl" = "curl"; "wget" = "wget"; "tree-sitter" = "tree-sitter"; "ruby" = "ruby"; "sqlite3" = "sqlite"; "rustc" = "rust-ms" }
-$scoop_package_matrix = @{ "gcc" = "mingw"; "git" = "git"; "nvim" = "neovim"; "make" = "make"; "sudo" = "psutils"; "node" = "nodejs"; "pip" = "python"; "fzf" = "fzf"; "rg" = "ripgrep"; "go" = "go"; "curl" = "curl"; "wget" = "wget"; "tree-sitter" = "tree-sitter"; "ruby" = "ruby"; "sqlite3" = "sqlite"; "rustc" = "rust" }
+$choco_package_matrix = @{ "gcc" = "mingw"; "git" = "git"; "nvim" = "neovim"; "make" = "make"; "sudo" = "psutils"; "node" = "nodejs"; "pip" = "python3"; "fzf" = "fzf"; "rg" = "ripgrep"; "go" = "go"; "curl" = "curl"; "wget" = "wget"; "tree-sitter" = "tree-sitter"; "ruby" = "ruby"; "rustc" = "rust-ms" }
+$scoop_package_matrix = @{ "gcc" = "mingw"; "git" = "git"; "nvim" = "neovim"; "make" = "make"; "sudo" = "psutils"; "node" = "nodejs"; "pip" = "python"; "fzf" = "fzf"; "rg" = "ripgrep"; "go" = "go"; "curl" = "curl"; "wget" = "wget"; "tree-sitter" = "tree-sitter"; "ruby" = "ruby"; "rustc" = "rust" }
 $installer_pkg_matrix = @{ "NodeJS" = "npm"; "Python" = "pip"; "Ruby" = "gem" }
 
 # env vars
 $env:XDG_CONFIG_HOME ??= $env:LOCALAPPDATA
 $env:CCPACK_MGR ??= 'unknown'
 $env:CCLONE_BRANCH ??= 'master'
+$env:CCLONE_BRANCH_LEGACY ??= '0.8'
 $env:CCLONE_ATTR ??= 'undef'
 $env:CCDEST_DIR ??= "$env:XDG_CONFIG_HOME\nvim"
 $env:CCBACKUP_DIR = "$env:CCDEST_DIR" + "_backup-" + (Get-Date).ToUniversalTime().ToString("yyyyMMddTHHmmss")
@@ -121,7 +122,7 @@ function check_clone_pref {
 	if ($USR_CHOICE -eq 0) {
 		$env:CCLONE_ATTR = '--depth=1'
 	} else {
-		$env:CCLONE_ATTR = ''
+		$env:CCLONE_ATTR = '--progress'
 	}
 }
 
@@ -266,7 +267,6 @@ function fetch_deps {
 	check_and_fetch_exec -PkgName "curl"
 	check_and_fetch_exec -PkgName "wget"
 	check_and_fetch_exec -PkgName "rustc"
-	check_and_fetch_exec -PkgName "sqlite3"
 	check_and_fetch_exec -PkgName "tree-sitter"
 
 	# Reload PATH for future use
@@ -281,6 +281,23 @@ function check_nvim_version ([Parameter(Mandatory = $True)][ValidateNotNullOrEmp
 
 	$nvim_version = [version]$nvim_version
 	return ($nvim_version -ge $RequiredVersionMin)
+}
+
+function clone_repo ([Parameter(Mandatory = $True)][ValidateNotNullOrEmpty()] [string]$WithURL) {
+	if ((check_nvim_version -RequiredVersionMin $REQUIRED_NVIM_VERSION)) {
+		safe_execute -WithCmd { git clone --progress -b "$env:CCLONE_BRANCH" "$env:CCLONE_ATTR" $WithURL "$env:CCDEST_DIR" }
+	} elseif ((check_nvim_version -RequiredVersionMin $REQUIRED_NVIM_VERSION_LEGACY)) {
+		warn -Msg "You have outdated Nvim installed (< $REQUIRED_NVIM_VERSION)."
+		info -Msg "Automatically redirecting you to the latest compatible version..."
+		safe_execute -WithCmd { git clone --progress -b "$env:CCLONE_BRANCH_LEGACY" "$env:CCLONE_ATTR" $WithURL "$env:CCDEST_DIR" }
+	} else {
+		warn -Msg "You have outdated Nvim installed (< $REQUIRED_NVIM_VERSION_LEGACY)."
+		_abort -Msg "This Neovim distribution is no longer supported." -Type "NotImplemented" -Info_msg @"
+You have a legacy Neovim distribution installed.
+Please make sure you have nvim v$REQUIRED_NVIM_VERSION_LEGACY installed at the very least.
+
+"@
+	}
 }
 
 function ring_bell {
@@ -354,35 +371,9 @@ You must install Git before installing this Nvim config. See:
 	info -Msg "Fetching in progress..."
 
 	if ($USE_SSH) {
-		if ((check_nvim_version -RequiredVersionMin $REQUIRED_NVIM_VERSION)) {
-			safe_execute -WithCmd { git clone --progress -b "$env:CCLONE_BRANCH" "$env:CCLONE_ATTR" 'git@github.com:Jint-lzxy/nvimconfig.git' "$env:CCDEST_DIR" }
-		} elseif ((check_nvim_version -RequiredVersionMin $REQUIRED_NVIM_VERSION_LEGACY)) {
-			warn -Msg "You have outdated Nvim installed (< $REQUIRED_NVIM_VERSION)."
-			info -Msg "Automatically redirecting you to the latest compatible version..."
-			safe_execute -WithCmd { git clone --progress -b 0.8 "$env:CCLONE_ATTR" 'git@github.com:Jint-lzxy/nvimconfig.git' "$env:CCDEST_DIR" }
-		} else {
-			warn -Msg "You have outdated Nvim installed (< $REQUIRED_NVIM_VERSION_LEGACY)."
-			_abort -Msg "This Neovim distribution is no longer supported." -Type "NotImplemented" -Info_msg @"
-You have a legacy Neovim distribution installed.
-Please make sure you have nvim v$REQUIRED_NVIM_VERSION_LEGACY installed at the very least.
-
-"@
-		}
+		clone_repo -WithURL 'git@github.com:ayamir/nvimdots.git'
 	} else {
-		if ((check_nvim_version -RequiredVersionMin $REQUIRED_NVIM_VERSION)) {
-			safe_execute -WithCmd { git clone --progress -b "$env:CCLONE_BRANCH" "$env:CCLONE_ATTR" 'https://github.com/Jint-lzxy/nvimconfig.git' "$env:CCDEST_DIR" }
-		} elseif ((check_nvim_version -RequiredVersionMin $REQUIRED_NVIM_VERSION_LEGACY)) {
-			warn -Msg "You have outdated Nvim installed (< $REQUIRED_NVIM_VERSION)."
-			info -Msg "Automatically redirecting you to the latest compatible version..."
-			safe_execute -WithCmd { git clone --progress -b 0.8 "$env:CCLONE_ATTR" 'https://github.com/Jint-lzxy/nvimconfig.git' "$env:CCDEST_DIR" }
-		} else {
-			warn -Msg "You have outdated Nvim installed (< $REQUIRED_NVIM_VERSION_LEGACY)."
-			_abort -Msg "This Neovim distribution is no longer supported." -Type "NotImplemented" -Info_msg @"
-You have a legacy Neovim distribution installed.
-Please make sure you have nvim v$REQUIRED_NVIM_VERSION_LEGACY installed at the very least.
-
-"@
-		}
+		clone_repo -WithURL 'https://github.com/Jint-lzxy/nvimconfig.git'
 	}
 
 	safe_execute -WithCmd { Set-Location -Path "$env:CCDEST_DIR" }
