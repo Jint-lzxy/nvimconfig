@@ -3,7 +3,7 @@
 return function(defaults)
 	require("ltex_extra").setup({
 		init_check = true,
-		path = vim.fn.getcwd() .. "/spell",
+		path = vim.fn.stdpath("config") .. "/spell",
 		log_level = "error",
 		server_opts = {
 			on_attach = defaults.on_attach,
