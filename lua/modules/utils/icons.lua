@@ -181,7 +181,6 @@ local data = {
 		luasnip = "󰃐",
 		nvim_lsp = "",
 		nvim_lua = "",
-		orgmode = "",
 		path = "",
 		spell = "󰓆",
 		tmux = "",

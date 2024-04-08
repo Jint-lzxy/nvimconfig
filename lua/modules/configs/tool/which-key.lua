@@ -56,7 +56,7 @@ return function()
 				v = "debug: Step over",
 			},
 			f = {
-				name = " Telescope / Fuzzy Find",
+				name = " Telescope / Fuzzy Finder",
 				a = "find: Nvim automatic commands",
 				b = "find: Buffer opened",
 				c = "ui: Change colorscheme",
@@ -131,9 +131,9 @@ return function()
 			},
 			s = {
 				name = " Sessions",
-				s = "sesson: Save current",
-				l = "sesson: Load current",
-				d = "sesson: Delete current",
+				s = "session: Save current",
+				l = "session: Load current",
+				d = "session: Delete current",
 			},
 			t = {
 				name = " Tab Pages",
