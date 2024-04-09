@@ -6,6 +6,14 @@ return function()
 	-- Please set additional flags for the supported servers here
 	-- Don't specify any config here if you are using the default one.
 	local sources = {
+		btns.diagnostics.vint.with({
+			filetypes = { "vim" },
+			extra_args = require("completion.linters.vint"),
+			-- vimls will report errors, so ignore them here
+			filter = function(diagnostic)
+				return diagnostic.severity ~= vim.diagnostic.severity.ERROR
+			end,
+		}),
 		btns.formatting.asmfmt.with({
 			extra_filetypes = { "nasm" },
 		}),
