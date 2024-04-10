@@ -140,9 +140,10 @@ return function()
 			},
 			s = {
 				name = " Sessions",
-				s = "session: Save current",
-				l = "session: Load current",
 				d = "session: Delete current",
+				l = "session: Load current",
+				r = "session: Goto root directory",
+				s = "session: Save current",
 			},
 			t = {
 				name = " Tab Pages",

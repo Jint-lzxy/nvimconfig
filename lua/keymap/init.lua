@@ -129,6 +129,7 @@ local plug_map = {
 	-- Plugin MarkdownPreview
 	["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent(),
 	-- Plugin persisted.nvim
+	["n|<leader>sr"] = map_cu("ProjectRoot"):with_noremap():with_silent(),
 	["n|<leader>ss"] = map_cu("SessionSave"):with_noremap():with_silent(),
 	["n|<leader>sl"] = map_cu("SessionLoad"):with_noremap():with_silent(),
 	["n|<leader>sd"] = map_cu("SessionDelete"):with_noremap():with_silent(),
