@@ -104,7 +104,7 @@ return function()
 		},
 		performance = {
 			async_budget = 1,
-			max_view_entries = 120,
+			max_view_entries = 100,
 		},
 		-- You can set mappings if you want
 		mapping = cmp.mapping.preset.insert({
@@ -140,7 +140,7 @@ return function()
 		},
 		-- You should specify your *installed* sources.
 		sources = {
-			{ name = "nvim_lsp", max_item_count = 150 },
+			{ name = "nvim_lsp" },
 			{ name = "nvim_lua" },
 			{ name = "luasnip" },
 			{ name = "path" },
