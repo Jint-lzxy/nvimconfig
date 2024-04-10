@@ -1,4 +1,3 @@
--- TODO: add expls for `s` and `gc`
 return function()
 	local icons = {
 		ui = require("modules.utils.icons").get("ui"),
@@ -123,6 +122,16 @@ return function()
 				s = "package: Sync",
 				u = "package: Update",
 				x = "package: Clean",
+			},
+			q = {
+				name = " QuickFix",
+				a = "quickfix: Previous item above the current line",
+				b = "quickfix: Next item below the current line",
+				c = "quickfix: Close",
+				n = "quickfix: Next item",
+				o = "quickfix: Open",
+				p = "quickfix: Previous item",
+				q = "quickfix: Close",
 			},
 			r = {
 				name = " SnipRun",
