@@ -81,7 +81,7 @@ editor["olimorris/persisted.nvim"] = {
 editor["lambdalisue/suda.vim"] = {
 	lazy = true,
 	cmd = { "SudaRead", "SudaWrite" },
-	config = require("editor.suda"),
+	init = require("editor.suda"),
 }
 editor["romainl/vim-cool"] = {
 	lazy = true,
@@ -107,8 +107,8 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 	dependencies = {
 		{ "mfussenegger/nvim-treehopper" },
 		{ "nvim-treesitter/nvim-treesitter-textobjects" },
+		{ "andymass/vim-matchup", init = require("editor.matchup") },
 		{ "abecodes/tabout.nvim", config = require("editor.tabout") },
-		{ "andymass/vim-matchup", config = require("editor.matchup") },
 		{ "windwp/nvim-ts-autotag", config = require("editor.autotag") },
 		{ "NvChad/nvim-colorizer.lua", config = require("editor.colorizer") },
 		{ "hiphish/rainbow-delimiters.nvim", config = require("editor.rainbow_delims") },
