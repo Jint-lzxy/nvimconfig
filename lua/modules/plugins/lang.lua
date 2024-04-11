@@ -36,6 +36,10 @@ lang["barreiroleo/ltex_extra.nvim"] = {
 	lazy = true,
 	ft = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc" },
 }
+lang["fladson/vim-kitty"] = {
+	lazy = true,
+	ft = { "kitty", "kitty-session" },
+}
 lang["chrisbra/csv.vim"] = {
 	lazy = true,
 	ft = "csv",
