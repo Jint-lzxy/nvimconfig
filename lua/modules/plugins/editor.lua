@@ -23,6 +23,7 @@ editor["numToStr/Comment.nvim"] = {
 editor["sindrets/diffview.nvim"] = {
 	lazy = true,
 	cmd = { "DiffviewOpen", "DiffviewClose" },
+	config = require("editor.diffview"),
 }
 editor["folke/flash.nvim"] = {
 	lazy = true,
@@ -43,6 +44,16 @@ editor["smoka7/hop.nvim"] = {
 	},--]]
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.hop"),
+}
+editor["tzachar/local-highlight.nvim"] = {
+	lazy = true,
+	event = { "CursorHold", "CursorHoldI" },
+	config = require("editor.localhl"),
+}
+editor["echasnovski/mini.align"] = {
+	lazy = true,
+	event = { "CursorHold", "CursorHoldI" },
+	config = require("editor.align"),
 }
 editor["echasnovski/mini.surround"] = {
 	lazy = true,
@@ -76,14 +87,9 @@ editor["romainl/vim-cool"] = {
 	lazy = true,
 	event = { "CursorMoved", "InsertEnter" },
 }
-editor["junegunn/vim-easy-align"] = {
+editor["tpope/vim-sleuth"] = {
 	lazy = true,
-	cmd = "EasyAlign",
-}
-editor["RRethy/vim-illuminate"] = {
-	lazy = true,
-	event = { "CursorHold", "CursorHoldI" },
-	config = require("editor.vim-illuminate"),
+	event = { "BufNewFile", "BufReadPost", "BufFilePost" },
 }
 
 ----------------------------------------------------------------------

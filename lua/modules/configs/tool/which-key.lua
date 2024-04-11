@@ -169,7 +169,8 @@ return function()
 			D = "lsp: Goto definition",
 			e = {
 				name = "󰝔 Alignments",
-				a = "edit: Align with delimiter",
+				a = "edit: Align text interactively",
+				A = "edit: Align text interactively (preview enabled)",
 			},
 			h = "lsp: Show reference(s)",
 			m = "lsp: Show implementation(s)",
