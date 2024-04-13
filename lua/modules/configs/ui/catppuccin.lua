@@ -80,6 +80,7 @@ return function()
 			noice = false,
 			notify = true,
 			nvimtree = true,
+			NormalNvim = true,
 			overseer = false,
 			pounce = false,
 			rainbow_delimiters = true,
