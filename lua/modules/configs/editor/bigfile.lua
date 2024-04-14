@@ -16,7 +16,7 @@ return function()
 	}
 
 	require("bigfile").setup({
-		filesize = 1, -- size of the file in MiB
+		filesize = 1.5, -- size of the file in MiB
 		pattern = { "*" }, -- autocmd pattern
 		features = { -- features to disable
 			"lsp",
