@@ -281,5 +281,6 @@ return function()
 		["<C-S-s>"] = "edit: Save file using sudo",
 		["<A-h>"] = { { mode = "i", "edit: Goto begin of pair" } },
 		["<A-l>"] = { { mode = "i", "edit: Goto end of pair" } },
+		["<A-f>"] = { { mode = "n", "formatter: Toggle format on save" } },
 	})
 end
