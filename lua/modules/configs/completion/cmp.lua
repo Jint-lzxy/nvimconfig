@@ -32,7 +32,7 @@ return function()
 
 	local cmp = require("cmp")
 	cmp.setup({
-		preselect = cmp.PreselectMode.Item,
+		preselect = cmp.PreselectMode.None,
 		window = {
 			completion = {
 				border = border("PmenuBorder"),
