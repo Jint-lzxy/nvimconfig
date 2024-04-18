@@ -145,8 +145,15 @@ return function()
 			{ name = "path" },
 			{ name = "spell" },
 			{ name = "tmux" },
-			{ name = "buffer" },
 			{ name = "latex_symbols" },
+			{
+				name = "buffer",
+				option = {
+					get_bufnrs = function()
+						return vim.fn.line("$") < 1000 and { vim.api.nvim_get_current_buf() } or {}
+					end,
+				},
+			},
 			-- { name = "copilot" },
 			-- { name = "cmp_tabnine" },
 		},
