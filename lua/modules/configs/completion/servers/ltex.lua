@@ -6,10 +6,10 @@ return function(defaults)
 		path = vim.fn.stdpath("config") .. "/spell",
 		log_level = "error",
 		server_opts = {
+			cmd = { "ltex-ls" },
 			on_attach = defaults.on_attach,
 			capabilities = defaults.capabilities,
 			single_file_support = true,
-			cmd = { "ltex-ls" },
 			settings = {
 				ltex = {
 					enabled = { "bib", "gitcommit", "markdown", "org", "plaintex", "rst", "rnoweb", "tex", "pandoc" },

@@ -9,17 +9,10 @@ return {
 				ruff = {
 					enabled = true,
 					select = {
-						-- enable pycodestyle
-						"E",
-						-- enable pyflakes
-						"F",
+						"E", -- pycodestyle
+						"F", -- pyflakes
 					},
-					ignore = {
-						-- ignore E501 (line too long)
-						"E501",
-						-- ignore F401 (imported but unused)
-						-- "F401",
-					},
+					ignore = { "E501" },
 					extendSelect = { "I" },
 					severities = {
 						F401 = "I",
