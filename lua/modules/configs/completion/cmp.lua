@@ -49,7 +49,6 @@ return function()
 			comparators = {
 				-- require("copilot_cmp.comparators").prioritize,
 				-- require("copilot_cmp.comparators").score,
-				-- require("cmp_tabnine.compare"),
 				compare.offset,
 				compare.exact,
 				-- compare.scopes,
@@ -73,7 +72,6 @@ return function()
 					string.format(" %s  %s", lspkind_icons[vim_item.kind] or icons.cmp.undefined, vim_item.kind or "")
 
 				vim_item.menu = setmetatable({
-					cmp_tabnine = "[TN]",
 					copilot = "[CPLT]",
 					buffer = "[BUF]",
 					nvim_lsp = "[LSP]",
@@ -155,7 +153,6 @@ return function()
 				},
 			},
 			-- { name = "copilot" },
-			-- { name = "cmp_tabnine" },
 		},
 		experimental = {
 			ghost_text = {
