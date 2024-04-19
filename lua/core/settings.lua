@@ -171,6 +171,7 @@ settings["treesitter_deps"] = {
 	"gitignore",
 	"go",
 	"gomod",
+	"gosum",
 	"gpg",
 	"hlsl",
 	"html",
