@@ -20,13 +20,13 @@ lang["mrcjkb/rustaceanvim"] = {
 	ft = "rust",
 	version = "^3",
 	init = require("lang.rust"),
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = "nvim-lua/plenary.nvim",
 }
 lang["Saecki/crates.nvim"] = {
 	lazy = true,
 	event = "BufReadPost Cargo.toml",
 	config = require("lang.crates"),
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = "nvim-lua/plenary.nvim",
 }
 lang["iamcco/markdown-preview.nvim"] = {
 	lazy = true,

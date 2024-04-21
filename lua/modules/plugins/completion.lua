@@ -19,7 +19,7 @@ completion["nvimdev/lspsaga.nvim"] = {
 	lazy = true,
 	event = "LspAttach",
 	config = require("completion.lspsaga"),
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = "nvim-tree/nvim-web-devicons",
 }
 completion["hedyhli/outline.nvim"] = {
 	lazy = true,
@@ -46,7 +46,7 @@ completion["hrsh7th/nvim-cmp"] = {
 	dependencies = {
 		{
 			"L3MON4D3/LuaSnip",
-			dependencies = { "rafamadriz/friendly-snippets" },
+			dependencies = "rafamadriz/friendly-snippets",
 			config = require("completion.luasnip"),
 		},
 		{ "lukas-reineke/cmp-under-comparator" },
