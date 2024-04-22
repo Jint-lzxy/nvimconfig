@@ -9,7 +9,10 @@ return vim.schedule_wrap(function()
 		highlight = {
 			enable = true,
 			disable = function(ft, bufnr)
-				if vim.tbl_contains({ "gitcommit" }, ft) then
+				if
+					vim.tbl_contains({ "gitcommit" }, ft)
+					or (vim.api.nvim_buf_line_count(bufnr) > 4500 and ft ~= "vimdoc")
+				then
 					return true
 				end
 
