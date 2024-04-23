@@ -87,10 +87,6 @@ editor["romainl/vim-cool"] = {
 	lazy = true,
 	event = { "CursorMoved", "InsertEnter" },
 }
-editor["tpope/vim-sleuth"] = {
-	lazy = true,
-	event = { "BufNewFile", "BufReadPost", "BufFilePost" },
-}
 
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
