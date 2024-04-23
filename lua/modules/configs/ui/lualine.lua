@@ -131,6 +131,7 @@ return function()
 				return "│"
 			end,
 			padding = 0,
+			separator = { left = "", right = "" },
 			color = utils.gen_hl("surface1", true, true),
 		},
 
