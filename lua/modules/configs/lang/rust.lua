@@ -6,5 +6,7 @@ return function()
 			configuration = false,
 			autoload_configurations = false,
 		},
+		server = { standalone = true },
+		tools = { reload_workspace_from_cargo_toml = true },
 	}
 end
