@@ -10,7 +10,7 @@ return function()
 			find = "sf", -- Find surrounding (to the right)
 			find_left = "sF", -- Find surrounding (to the left)
 			highlight = "sh", -- Highlight surrounding
-			replace = "sr", -- Replace surrounding
+			replace = "sc", -- Replace surrounding
 			update_n_lines = "sn", -- Update `n_lines`
 
 			suffix_last = "l", -- Suffix to search with "prev" method
