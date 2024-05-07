@@ -138,7 +138,7 @@ return function()
 		},
 		-- You should specify your *installed* sources.
 		sources = {
-			{ name = "nvim_lsp" },
+			{ name = "nvim_lsp", priority = 10 },
 			{ name = "nvim_lua" },
 			{ name = "luasnip" },
 			{ name = "path" },
