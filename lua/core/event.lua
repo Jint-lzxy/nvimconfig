@@ -44,8 +44,9 @@ function autocmd.load_autocmds()
 				[[nested if &l:autoread > 0 | source <afile> | echo 'source ' . bufname('%') | endif]],
 			},
 			{ "BufWritePre", "/tmp/*", "setlocal noundofile" },
-			{ "BufWritePre", "COMMIT_EDITMSG", "setlocal noundofile" },
 			{ "BufWritePre", "MERGE_MSG", "setlocal noundofile" },
+			{ "BufWritePre", "description", "setlocal noundofile" },
+			{ "BufWritePre", "COMMIT_EDITMSG", "setlocal noundofile" },
 			{ "BufWritePre", "*.tmp", "setlocal noundofile" },
 			{ "BufWritePre", "*.bak", "setlocal noundofile" },
 			-- change cursor to vertical bar after leaving neovim.
