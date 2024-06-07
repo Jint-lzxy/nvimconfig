@@ -5,7 +5,7 @@
 <p align="center">
     <a href="https://github.com/neovim/neovim/releases/tag/stable">
     <img
-        alt="NeoVim Version Capability"
+        alt="Neovim Version Capability"
         src="https://img.shields.io/badge/Supports%20Nvim-v0.10-A6D895?style=for-the-badge&colorA=363A4F&logo=neovim&logoColor=D9E0EE">
     </a>
     <a href="https://github.com/Jint-lzxy/nvimconfig/issues">
