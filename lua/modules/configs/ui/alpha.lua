@@ -4,14 +4,17 @@ return function()
 	require("modules.utils").gen_alpha_hl()
 
 	dashboard.section.header.val = {
-		[[      ██╗██╗███╗   ██╗████████╗   ██╗     ███████╗██╗  ██╗██╗   ██╗ ]],
-		[[      ██║██║████╗  ██║╚══██╔══╝   ██║     ╚══███╔╝╚██╗██╔╝╚██╗ ██╔╝ ]],
-		[[      ██║██║██╔██╗ ██║   ██║█████╗██║       ███╔╝  ╚███╔╝  ╚████╔╝  ]],
-		[[ ██   ██║██║██║╚██╗██║   ██║╚════╝██║      ███╔╝   ██╔██╗   ╚██╔╝   ]],
-		[[ ╚█████╔╝██║██║ ╚████║   ██║      ███████╗███████╗██╔╝ ██╗   ██║    ]],
-		[[  ╚════╝ ╚═╝╚═╝  ╚═══╝   ╚═╝      ╚══════╝╚══════╝╚═╝  ╚═╝   ╚═╝    ]],
+		[[      .-') _   ('-.                     (`-.           _   .-')     ]],
+		[[     ( OO ) )_(  OO)                  _(OO  )_        ( '.( OO )_   ]],
+		[[ ,--./ ,--,'(,------. .-'),-----. ,--(_/   ,. \ ,-.-') ,--.   ,--.) ]],
+		[[ |   \ |  |\ |  .---'( OO'  .-.  '\   \   /(__/ |  |OO)|   `.'   |  ]],
+		[[ |    \|  | )|  |    /   |  | |  | \   \ /   /  |  |  \|         |  ]],
+		[[ |  .     |/(|  '--. \_) |  |\|  |  \   '   /,  |  |(_/|  |'.'|  |  ]],
+		[[ |  |\    |  |  .--'   \ |  | |  |   \     /__),|  |_.'|  |   |  |  ]],
+		[[ |  | \   |  |  `---.   `'  '-'  '    \   /   (_|  |   |  |   |  |  ]],
+		[[ `--'  `--'  `------'     `-----'      `-'      `--'   `--'   `--'  ]],
 		[[                                                                    ]],
-		[[    Configuration By 冷酔閑吟                       ver ]] .. os.date("%Y.%m") .. [[     ]],
+		[[   Configuration By jint_lzxy_                       ver ]] .. os.date("%Y.%m") .. [[     ]],
 	}
 	dashboard.section.header.opts.hl = "AlphaHeader"
 
@@ -78,17 +81,17 @@ return function()
 	dashboard.section.footer.val = footer()
 	dashboard.section.footer.opts.hl = "AlphaFooter"
 
-	local head_butt_padding = 2
-	local occu_height = #dashboard.section.header.val + 2 * #dashboard.section.buttons.val + head_butt_padding
-	local header_padding = math.max(0, math.ceil((vim.fn.winheight("$") - occu_height) * 0.25))
-	local foot_butt_padding = 1
+	local head_bot_padding = 2
+	local occu_height = #dashboard.section.header.val + 2 * #dashboard.section.buttons.val + head_bot_padding
+	local header_padding = math.max(0, math.ceil((vim.fn.winheight(0) - occu_height) * 0.25))
+	local foot_bot_padding = 1
 
 	dashboard.config.layout = {
 		{ type = "padding", val = header_padding },
 		dashboard.section.header,
-		{ type = "padding", val = head_butt_padding },
+		{ type = "padding", val = head_bot_padding },
 		dashboard.section.buttons,
-		{ type = "padding", val = foot_butt_padding },
+		{ type = "padding", val = foot_bot_padding },
 		dashboard.section.footer,
 	}
 	alpha.setup(dashboard.opts)
