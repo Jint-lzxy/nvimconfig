@@ -1,23 +1,16 @@
 {
   "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema-zh-tw.json",
-  "diagnostics": {
-    "globals": [
-      "vim"
-    ],
-    "disable": [
-      "different-requires"
-    ]
-  },
   "runtime": {
     "version": "LuaJIT"
+  },
+  "diagnostics": {
+    "globals": ["vim"],
+    "disable": ["different-requires", "undefined-field"]
   },
   "workspace": {
     "maxPreload": 100000,
     "preloadFileSize": 10000,
-    "ignoreDir": [
-      ".vscode",
-      ".git"
-    ],
+    "ignoreDir": [".vscode", ".git"],
     "library": [
       "/usr/local/opt/neovim/share/nvim/runtime/lua",
       "/usr/local/opt/neovim/share/nvim/runtime/plugin"

@@ -121,7 +121,6 @@ end
 ---@param background string @The background color to blend with
 ---@param alpha number|string @Number between 0 and 1 for blending amount.
 function M.blend(foreground, background, alpha)
-	---@diagnostic disable-next-line: cast-local-type
 	alpha = type(alpha) == "string" and (tonumber(alpha, 16) / 0xff) or alpha
 	local bg = hex_to_rgb(background)
 	local fg = hex_to_rgb(foreground)
@@ -167,6 +166,7 @@ function M.extend_hl(name, def)
 	local current_def = vim.api.nvim_get_hl(0, { name = name, link = false })
 	local combined_def = vim.tbl_deep_extend("force", current_def, def)
 
+	---@diagnostic disable-next-line: param-type-mismatch
 	vim.api.nvim_set_hl(0, name, combined_def)
 end
 
