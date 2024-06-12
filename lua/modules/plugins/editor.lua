@@ -47,7 +47,7 @@ editor["smoka7/hop.nvim"] = {
 }
 editor["tzachar/local-highlight.nvim"] = {
 	lazy = true,
-	event = { "BufNewFile", "BufReadPost", "BufFilePost" },
+	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("editor.localhl"),
 }
 editor["echasnovski/mini.align"] = {

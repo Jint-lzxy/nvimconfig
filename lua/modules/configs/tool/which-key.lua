@@ -31,7 +31,7 @@ return function()
 	})
 
 	require("which-key").register({
-		-- <leader> stuffs
+		-- <leader> stuff
 		["<leader>"] = {
 			b = {
 				name = "󰓩 Buffers",

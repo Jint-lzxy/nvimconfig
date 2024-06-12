@@ -58,8 +58,8 @@ return vim.schedule_wrap(function()
 	require("nvim-treesitter.install").prefer_git = true
 	if use_ssh then
 		local parsers = require("nvim-treesitter.parsers").get_parser_configs()
-		for _, p in pairs(parsers) do
-			p.install_info.url = p.install_info.url:gsub("https://github.com/", "git@github.com:")
+		for _, parser in pairs(parsers) do
+			parser.install_info.url = parser.install_info.url:gsub("https://github.com/", "git@github.com:")
 		end
 	end
 end)

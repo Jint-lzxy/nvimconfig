@@ -1,6 +1,6 @@
 local settings = {}
 
--- Set it to false if you want to use https to update plugins and treesitter parsers.
+-- Set it to false if you want to use HTTPS to update plugins and treesitter parsers.
 ---@type boolean
 settings["use_ssh"] = true
 
@@ -29,7 +29,7 @@ settings["format_disabled_dirs"] = {
 }
 
 -- Set it to false if diagnostics virtual text is annoying.
--- If disabled, you may browse lsp diagnostics using trouble.nvim (press `gt` to toggle it).
+-- If disabled, you may browse lsp diagnostics using trouble.nvim (press `<leader>ld` to toggle it).
 ---@type boolean
 settings["diagnostics_virtual_text"] = true
 

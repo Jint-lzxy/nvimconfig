@@ -33,7 +33,7 @@ return function()
 					filetype = "Outline",
 					text = "Symbol Outline",
 					text_align = "center",
-					padding = 0,
+					separator = true,
 				},
 			},
 			right_trunc_marker = icons.ui.Right,

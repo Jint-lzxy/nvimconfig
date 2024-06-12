@@ -170,4 +170,4 @@ if vim.fn.executable("dart") == 1 then
 	nvim_lsp.dartls.setup(final_opts)
 end
 
-vim.api.nvim_command([[LspStart]]) -- Start LSPs
+pcall(vim.cmd.LspStart) -- Start LSPs

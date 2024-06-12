@@ -2,7 +2,7 @@ local autocmd = {}
 
 -- auto close NvimTree
 vim.api.nvim_create_autocmd("BufEnter", {
-	group = vim.api.nvim_create_augroup("NvimTreeClose", { clear = true }),
+	group = vim.api.nvim_create_augroup("NvimTreeAutoClose", { clear = true }),
 	pattern = "NvimTree_*",
 	callback = function()
 		local layout = vim.api.nvim_call_function("winlayout", {})
@@ -61,7 +61,7 @@ function autocmd.load_autocmds()
 			-- { "BufEnter", "*", "silent! lcd %:p:h" },
 		},
 		wins = {
-			-- Highlight current line only on focused window
+			-- Highlight current line only in focused window
 			{
 				"WinEnter,BufEnter,InsertLeave",
 				"*",
@@ -78,9 +78,9 @@ function autocmd.load_autocmds()
 				"*",
 				[[if has('nvim') | wshada | else | wviminfo! | endif]],
 			},
-			-- Check if file changed when its window is focus, more eager than 'autoread'
+			-- Check if a file has changed when its window is in focus, being more proactive than 'autoread'.
 			{ "FocusGained", "*", "checktime" },
-			-- Equalize window dimensions when resizing vim window
+			-- Maintain uniform window dimensions when resizing Vim windows
 			{ "VimResized", "*", [[tabdo wincmd =]] },
 		},
 		ft = {
@@ -91,14 +91,12 @@ function autocmd.load_autocmds()
 			{
 				"FileType",
 				"c,cpp",
-				"nnoremap <silent> <buffer> <leader>h :ClangdSwitchSourceHeader<CR>",
+				"nnoremap <silent> <buffer> <leader>h <Cmd>ClangdSwitchSourceHeader<CR>",
 			},
 			{
 				"FileType",
 				"cmake",
-				"nnoremap <silent> <nowait> <buffer> K <Cmd>lua vim.lsp.buf.hover()<CR>"
-					.. "|"
-					.. "lua vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' })",
+				"nnoremap <silent> <nowait> <buffer> K <Cmd>lua vim.lsp.buf.hover()<CR>",
 			},
 		},
 		yank = {

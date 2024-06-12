@@ -26,7 +26,7 @@ local core_map = {
 	["n|æ"] = map_cr("resize +2"):with_silent(),
 	["n|<C-q>"] = map_cr("wq"),
 	["n|Œ"] = map_cr("q!"),
-	["n|<leader>c"] = map_cr("setlocal spell! spelllang=en_us"),
+	["n|<leader>c"] = map_cr("setlocal spell! spelllang=en_us"):with_noremap(),
 	["x|<leader>p"] = map_cmd('"_dP'):with_silent():with_noremap(),
 	["n|+"] = map_cmd("<C-a>"):with_noremap():with_silent(),
 	["n|-"] = map_cmd("<C-x>"):with_noremap():with_silent(),
@@ -59,16 +59,16 @@ local core_map = {
 	["c|<C-h>"] = map_cmd("<BS>"):with_noremap(),
 	["c|<C-t>"] = map_cmd([[<C-R>=expand("%:p:h") . "/" <CR>]]):with_noremap(),
 	-- Visual mode
-	["v|J"] = map_cmd(":m '>+1<CR>gv=gv"),
-	["v|K"] = map_cmd(":m '<-2<CR>gv=gv"),
-	["v|<"] = map_cmd("<gv"),
-	["v|>"] = map_cmd(">gv"),
+	["v|J"] = map_cmd(":m '>+1<CR>gv=gv"):with_silent(),
+	["v|K"] = map_cmd(":m '<-2<CR>gv=gv"):with_silent(),
+	["v|<"] = map_cmd("<gv"):with_silent(),
+	["v|>"] = map_cmd(">gv"):with_silent(),
 	-- Accoustomed Settings
 	["n|<Up>"] = map_cr("resize +1"):with_silent():with_noremap(),
 	["n|<Down>"] = map_cr("resize -1"):with_silent():with_noremap(),
 	["n|<Left>"] = map_cr("vertical resize +2"):with_silent():with_noremap(),
 	["n|<Right>"] = map_cr("vertical resize -2"):with_silent():with_noremap(),
-	["n|ø"] = map_cmd("<Esc><C-w>q"),
+	["n|ø"] = map_cmd("<Esc><C-w>q"):with_noremap():with_noremap(),
 }
 
 bind.nvim_load_mapping(core_map)
