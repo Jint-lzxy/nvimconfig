@@ -15,6 +15,22 @@ return function()
 			{ open = "{", close = "}" },
 		},
 		ignore_beginning = true, -- if the cursor is at the beginning of a filled element it will rather tab out than shift the content
-		exclude = {}, -- tabout will ignore these filetypes
+		exclude = {
+			-- tabout will ignore these filetypes
+			"alpha",
+			"bigfile",
+			"checkhealth",
+			"dap-repl",
+			"diff",
+			"help",
+			"notify",
+			"NvimTree",
+			"Outline",
+			"qf",
+			"TelescopePrompt",
+			"text",
+			"toggleterm",
+			"undotree",
+		},
 	})
 end
