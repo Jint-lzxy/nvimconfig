@@ -92,9 +92,7 @@ return function()
 				name = "󱜙 LSP",
 				d = "lsp: Show document diagnostics",
 				i = "lsp: Info",
-				l = "lsp: Show lsp references",
-				L = "lsp: Show loclist",
-				q = "lsp: Show quickfix list",
+				p = "lsp: Show project diagnostics",
 				r = "lsp: Restart",
 				s = "lsp: Stop",
 				S = "lsp: Start",
@@ -160,7 +158,7 @@ return function()
 			name = "󰢩 Miscellaneous / Utils",
 			a = { mode = { "n", "v" }, "lsp: Code action" },
 			b = "buffer: Pick current buffer",
-			c = {
+			i = {
 				name = "󱜙 LSP Call Hierarchy",
 				i = "lsp: Show incoming calls",
 				o = "lsp: Show outgoing calls",

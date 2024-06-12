@@ -1,18 +1,5 @@
 local vim = vim
 
--- TODO: Update this function to use `vim.getregion()` when v0.10 is released.
-_G._buf_vtext = function()
-	local a_orig = vim.fn.getreg("a")
-	local mode = vim.fn.mode()
-	if mode ~= "v" and mode ~= "V" then
-		vim.cmd([[normal! gv]])
-	end
-	vim.cmd([[silent! normal! "aygv]])
-	local text = vim.fn.getreg("a")
-	vim.fn.setreg("a", a_orig)
-	return text
-end
-
 _G._command_panel = function()
 	require("telescope.builtin").keymaps({
 		lhs_filter = function(lhs)

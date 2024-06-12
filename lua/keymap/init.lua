@@ -34,7 +34,7 @@ local plug_map = {
 	["n|<leader>pp"] = map_cr("Lazy profile"):with_silent():with_noremap():with_nowait(),
 	["n|<leader>pr"] = map_cr("Lazy restore"):with_silent():with_noremap():with_nowait(),
 	["n|<leader>px"] = map_cr("Lazy clean"):with_silent():with_noremap():with_nowait(),
-	-- Lsp
+	-- LSP
 	["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
 	["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
 	["n|<leader>ls"] = map_cr("LspStop"):with_noremap():with_silent():with_nowait(),
@@ -54,21 +54,21 @@ local plug_map = {
 	["n|gh"] = map_cr("Glance references"):with_noremap():with_silent(),
 	["n|gt"] = map_cr("Glance type_definitions"):with_noremap():with_silent(),
 	["n|gm"] = map_cr("Glance implementations"):with_noremap():with_silent(),
-	["n|gci"] = map_cr("Lspsaga incoming_calls"):with_noremap():with_silent(),
-	["n|gco"] = map_cr("Lspsaga outgoing_calls"):with_noremap():with_silent(),
+	["n|gii"] = map_cr("Lspsaga incoming_calls"):with_noremap():with_silent(),
+	["n|gio"] = map_cr("Lspsaga outgoing_calls"):with_noremap():with_silent(),
 	-- vim-fugitive
 	["n|<leader>gG"] = map_cu("Git"):with_noremap():with_silent(),
 	["n|gps"] = map_cr("G push"):with_noremap():with_silent(),
 	["n|gpl"] = map_cr("G pull"):with_noremap():with_silent(),
-	-- Toggle Terminal
-	-- Global
-	["t|œ"] = map_cmd("<C-\\><C-n>"):with_noremap():with_silent(), -- switch to normal mode in terminal.
-	-- Floating
+	-- Terminal
+	--- Global
+	["t|œ"] = map_cmd("<C-\\><C-n>"):with_noremap():with_silent(), -- switch to normal mode in terminal
+	--- Floating
 	["n|∂"] = map_cr("ToggleTerm direction=float"):with_noremap():with_silent(),
 	["i|∂"] = map_cmd("<Esc><Cmd>ToggleTerm direction=float<CR>"):with_noremap():with_silent(),
 	["t|∂"] = map_cu("<C-\\><C-n><Cmd>ToggleTerm"):with_noremap():with_silent(),
 	["n|<leader>gg"] = map_cu("lua _toggle_lazygit()"):with_noremap():with_silent(),
-	-- Horizontal / Vertical
+	--- Horizontal / Vertical
 	["n|«"] = map_cr("ToggleTerm direction=horizontal"):with_noremap():with_silent(),
 	["i|«"] = map_cmd("<Esc><Cmd>ToggleTerm direction=horizontal<CR>"):with_noremap():with_silent(),
 	["t|«"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent(),
@@ -107,10 +107,7 @@ local plug_map = {
 	["n|<leader>fc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
 	["n|<leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
 	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
-	["n|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),
-	["v|<leader>fs"] = map_cu("lua require('telescope.builtin').grep_string({ search = _buf_vtext() })")
-		:with_noremap()
-		:with_silent(),
+	["nv|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),
 	["n|<leader>fd"] = map_cu("Telescope persisted"):with_noremap():with_silent(),
 	["n|<leader>fh"] = map_cu("Telescope highlights"):with_noremap():with_silent(),
 	["n|<leader>fa"] = map_cu("Telescope autocommands"):with_noremap():with_silent(),
@@ -125,8 +122,6 @@ local plug_map = {
 	["nv|<leader>k"] = map_cmd("<Cmd>HopLineMW<CR>"):with_noremap(),
 	["nv|<leader>o"] = map_cmd("<Cmd>HopChar1MW<CR>"):with_noremap(),
 	["nv|<leader>O"] = map_cmd("<Cmd>HopChar2MW<CR>"):with_noremap(),
-	-- Plugin EasyAlign
-	["nx|gea"] = map_cr("EasyAlign"):with_noremap():with_silent(),
 	-- Plugin MarkdownPreview
 	["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent(),
 	-- Plugin persisted.nvim
@@ -158,6 +153,7 @@ local plug_map = {
 	["n|<leader>dR"] = map_cr("lua require('osv').run_this()"):with_noremap():with_silent(),
 	["n|<leader>dt"] = map_cr("lua require('dap').terminate()"):with_noremap():with_silent(),
 	["n|<leader>dv"] = map_cr("lua require('dap').step_over()"):with_noremap():with_silent(),
+	-- Plugin Treehopper
 	["o|m"] = map_cu("lua require('tsht').nodes()"):with_silent(),
 	["x|m"] = map_cr("lua require('tsht').nodes()"):with_noremap():with_silent(),
 	-- Plugin Tabout
