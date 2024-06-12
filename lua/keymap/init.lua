@@ -80,12 +80,10 @@ local plug_map = {
 	["t|<F5>"] = map_cmd("<Cmd>ToggleTerm<CR>"):with_noremap():with_silent(),
 	-- Plugin suda.vim
 	["n|<C-S-s>"] = map_cu("SudaWrite"):with_silent():with_noremap(),
-	-- Plugin trouble
-	["n|<leader>ll"] = map_cr("TroubleToggle lsp_references"):with_noremap():with_silent(),
-	["n|<leader>ld"] = map_cr("TroubleToggle document_diagnostics"):with_noremap():with_silent(),
-	["n|<leader>lw"] = map_cr("TroubleToggle workspace_diagnostics"):with_noremap():with_silent(),
-	["n|<leader>lq"] = map_cr("TroubleToggle quickfix"):with_noremap():with_silent(),
-	["n|<leader>lL"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent(),
+	-- Plugin trouble.nvim
+	["n|<leader>lw"] = map_cr("Trouble diagnostics toggle"):with_noremap():with_silent(),
+	["n|<leader>lp"] = map_cr("Trouble project_diagnostics toggle"):with_noremap():with_silent(),
+	["n|<leader>ld"] = map_cr("Trouble diagnostics toggle filter.buf=0"):with_noremap():with_silent(),
 	-- Plugin nvim-tree
 	["n|<C-n>"] = map_cr("NvimTreeToggle"):with_noremap():with_silent(),
 	["n|<leader>nf"] = map_cr("NvimTreeFindFile"):with_noremap():with_silent(),
