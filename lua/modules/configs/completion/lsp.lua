@@ -100,7 +100,9 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	signs = true,
 	underline = true,
 	virtual_text = diagnostics_virtual_text and {
-		severity_limit = diagnostics_level,
+		severity = {
+			min = vim.diagnostic.severity[diagnostics_level],
+		},
 	} or false,
 	update_in_insert = false,
 })
