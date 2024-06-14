@@ -13,8 +13,8 @@ local function load_options()
 		clipboard = "unnamedplus",
 		cmdheight = 1, -- 0, 1, 2
 		cmdwinheight = 5,
-		complete = ".,w,b,k",
-		completeopt = "menuone,noselect",
+		complete = ".,w,b,k,kspell",
+		completeopt = "menuone,noselect,popup",
 		cursorcolumn = false,
 		cursorline = true,
 		diffopt = "filler,iwhite,internal,linematch:60,algorithm:patience",
@@ -58,6 +58,7 @@ local function load_options()
 		sidescrolloff = 5,
 		smartcase = true,
 		smarttab = true,
+		smoothscroll = true,
 		spellfile = global.vim_path .. "/spell/en.uft-8.add",
 		splitbelow = true,
 		splitkeep = "screen",
