@@ -27,9 +27,9 @@ return function()
 			icons = {
 				-- Kind
 				Class = { icon = icons.kind.Class, hl = "LspKindClass" },
+				Component = { icon = icons.kind.Snippet, hl = "LspKindSnippet" },
 				Constant = { icon = icons.kind.Constant, hl = "LspKindConstant" },
 				Constructor = { icon = icons.kind.Constructor, hl = "LspKindConstructor" },
-				Component = { icon = icons.kind.Snippet, hl = "LspKindSnippet" },
 				Enum = { icon = icons.kind.Enum, hl = "LspKindEnum" },
 				EnumMember = { icon = icons.kind.EnumMember, hl = "LspKindEnumMember" },
 				Event = { icon = icons.kind.Event, hl = "LspKindEvent" },
@@ -42,7 +42,6 @@ return function()
 				Method = { icon = icons.kind.Method, hl = "LspKindMethod" },
 				Module = { icon = icons.kind.Module, hl = "LspKindModule" },
 				Namespace = { icon = icons.kind.Namespace, hl = "LspKindNamespace" },
-				Number = { icon = icons.kind.Number, hl = "LspKindNumber" },
 				Operator = { icon = icons.kind.Operator, hl = "LspKindOperator" },
 				Package = { icon = icons.kind.Package, hl = "LspKindPackage" },
 				Property = { icon = icons.kind.Property, hl = "LspKindProperty" },
@@ -53,13 +52,14 @@ return function()
 				Array = { icon = icons.type.Array, hl = "LspKindArray" },
 				Boolean = { icon = icons.type.Boolean, hl = "LspKindBoolean" },
 				Null = { icon = icons.type.Null, hl = "LspKindNull" },
+				Number = { icon = icons.type.Number, hl = "LspKindNumber" },
 				Object = { icon = icons.type.Object, hl = "LspKindObject" },
 				String = { icon = icons.type.String, hl = "LspKindString" },
 				-- ccls-specific icons
-				TypeAlias = { icons.kind.TypeAlias, hl = "LspKindTypeAlias" },
+				Macro = { icon = icons.kind.Macro, hl = "LspKindConstant" },
 				Parameter = { icons.kind.Parameter, hl = "LspKindParameter" },
 				StaticMethod = { icons.kind.StaticMethod, hl = "LspKindStaticMethod" },
-				Macro = { icon = icons.kind.Macro, hl = "LspKindConstant" },
+				TypeAlias = { icons.kind.TypeAlias, hl = "LspKindTypeAlias" },
 			},
 		},
 	})
