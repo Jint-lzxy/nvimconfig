@@ -106,14 +106,6 @@ function autocmd.load_autocmds()
 				[[silent! lua vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 300 })]],
 			},
 		},
-		workaround = {
-			-- Workaround for neovim/neovim#21856
-			{
-				"VimLeave",
-				"*",
-				[[call jobstart('', { 'detach': v:true })]],
-			},
-		},
 	}
 
 	autocmd.nvim_create_augroups(definitions)
