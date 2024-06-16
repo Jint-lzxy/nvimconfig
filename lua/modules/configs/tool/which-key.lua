@@ -146,6 +146,7 @@ return function()
 			t = {
 				name = " Tab Pages",
 				c = "tab: Close current tab",
+				d = "tab: Close current tab",
 				j = "tab: Move to previous tab",
 				k = "tab: Move to next tab",
 				n = "tab: Create a new tab",
