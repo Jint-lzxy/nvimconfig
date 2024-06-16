@@ -1,5 +1,13 @@
 local tool = {}
 
+tool["Bekaboo/dropbar.nvim"] = {
+	lazy = false,
+	config = require("tool.dropbar"),
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+		"nvim-telescope/telescope-fzf-native.nvim",
+	},
+}
 tool["nvim-tree/nvim-tree.lua"] = {
 	lazy = true,
 	cmd = {
