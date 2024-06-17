@@ -1,4 +1,4 @@
-# Ignore macOS store file
+# Ignore Desktop Services Store (macOS)
 .DS_Store
 
 # Ignore old config
