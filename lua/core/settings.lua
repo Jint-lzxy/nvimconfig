@@ -4,6 +4,10 @@ local settings = {}
 ---@type boolean
 settings["use_ssh"] = true
 
+-- Set it to false if you want to turn off LSP Inlay Hints
+---@type boolean
+settings["lsp_inlayhints"] = false
+
 -- Set it to false if there's no need to format on save.
 ---@type boolean
 settings["format_on_save"] = true
