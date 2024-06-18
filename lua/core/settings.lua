@@ -126,6 +126,7 @@ settings["lsp_deps"] = {
 settings["null_ls_deps"] = {
 	"actionlint",
 	"asmfmt",
+	"checkmake",
 	"clang_format",
 	"cmake_format",
 	"editorconfig-checker",
