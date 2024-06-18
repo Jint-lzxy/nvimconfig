@@ -36,12 +36,6 @@ ui["nvim-lualine/lualine.nvim"] = {
 	event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	config = require("ui.lualine"),
 }
-ui["karb94/neoscroll.nvim"] = {
-	lazy = true,
-	cond = not vim.g.neovide,
-	event = { "CursorHold", "CursorHoldI" },
-	config = require("ui.neoscroll"),
-}
 ui["zbirenbaum/neodim"] = {
 	lazy = true,
 	event = "LspAttach",
