@@ -14,7 +14,7 @@ return function()
 		[[ |  | \   |  |  `---.   `'  '-'  '    \   /   (_|  |   |  |   |  |  ]],
 		[[ `--'  `--'  `------'     `-----'      `-'      `--'   `--'   `--'  ]],
 		[[                                                                    ]],
-		[[   Configuration By jint_lzxy_                       ver ]] .. os.date("%Y.%m") .. [[     ]],
+		[[   Configuration by jint_lzxy_                       ver ]] .. os.date("%Y.%m") .. [[     ]],
 	}
 	dashboard.section.header.opts.hl = "AlphaHeader"
 
