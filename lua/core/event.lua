@@ -31,7 +31,6 @@ end
 
 function autocmd.load_autocmds()
 	local definitions = {
-		lazy = {},
 		bufs = {
 			-- Reload vim config automatically
 			{
@@ -44,14 +43,13 @@ function autocmd.load_autocmds()
 				"*.vim",
 				[[nested if &l:autoread > 0 | source <afile> | echo 'source ' . bufname('%') | endif]],
 			},
+			{ "BufWritePre", "*~", "setlocal noundofile" },
 			{ "BufWritePre", "/tmp/*", "setlocal noundofile" },
+			{ "BufWritePre", "*.tmp", "setlocal noundofile" },
+			{ "BufWritePre", "*.bak", "setlocal noundofile" },
 			{ "BufWritePre", "MERGE_MSG", "setlocal noundofile" },
 			{ "BufWritePre", "description", "setlocal noundofile" },
 			{ "BufWritePre", "COMMIT_EDITMSG", "setlocal noundofile" },
-			{ "BufWritePre", "*.tmp", "setlocal noundofile" },
-			{ "BufWritePre", "*.bak", "setlocal noundofile" },
-			-- change cursor to vertical bar after leaving neovim.
-			{ "VimLeave", "*", "set guicursor=a:ver2" },
 			-- auto place to last edit
 			{
 				"BufReadPost",
@@ -79,7 +77,7 @@ function autocmd.load_autocmds()
 				"*",
 				[[if has('nvim') | wshada | else | wviminfo! | endif]],
 			},
-			-- Check if a file has changed when its window is in focus, being more proactive than 'autoread'.
+			-- Check if a file has changed when its window is in focus, being more proactive than 'autoread'
 			{ "FocusGained", "*", "checktime" },
 			-- Maintain uniform window dimensions when resizing Vim windows
 			{ "VimResized", "*", [[tabdo wincmd =]] },
