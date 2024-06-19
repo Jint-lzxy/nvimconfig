@@ -75,7 +75,6 @@ return function()
 					copilot = "[CPLT]",
 					buffer = "[BUF]",
 					nvim_lsp = "[LSP]",
-					nvim_lua = "[LUA]",
 					path = "[PATH]",
 					tmux = "[TMUX]",
 					latex_symbols = "[LTEX]",
@@ -139,7 +138,6 @@ return function()
 		-- You should specify your *installed* sources.
 		sources = {
 			{ name = "nvim_lsp", priority = 10 },
-			{ name = "nvim_lua" },
 			{ name = "luasnip" },
 			{ name = "path" },
 			{ name = "spell" },
