@@ -3,7 +3,7 @@ local global = require("core.global")
 
 -- Create cache dir and data dirs
 local createdir = function()
-	local data_dir = {
+	local data_dirs = {
 		global.cache_dir .. "backup",
 		global.cache_dir .. "session",
 		global.cache_dir .. "swap",
@@ -12,10 +12,11 @@ local createdir = function()
 	}
 	-- Only check whether cache_dir exists, this would be enough.
 	if vim.fn.isdirectory(global.cache_dir) == 0 then
-		os.execute("mkdir -p " .. global.cache_dir)
-		for _, v in pairs(data_dir) do
-			if vim.fn.isdirectory(v) == 0 then
-				os.execute("mkdir -p " .. v)
+		---@diagnostic disable-next-line: param-type-mismatch
+		vim.fn.mkdir(global.cache_dir, "p")
+		for _, dir in pairs(data_dirs) do
+			if vim.fn.isdirectory(dir) == 0 then
+				vim.fn.mkdir(dir, "p")
 			end
 		end
 	end
@@ -73,7 +74,7 @@ local disable_distribution_plugins = function()
 	-- vim.g.loaded_remote_plugins = 1
 end
 
-local leader_map = function()
+local mapleader = function()
 	vim.g.mapleader = " "
 	-- NOTE:
 	--  > Uncomment the following if you're using a <leader> other than <Space>, and you wish
@@ -145,7 +146,7 @@ end
 local load_core = function()
 	createdir()
 	disable_distribution_plugins()
-	leader_map()
+	mapleader()
 
 	gui_config()
 	neovide_config()
