@@ -45,11 +45,5 @@ lang["chrisbra/csv.vim"] = {
 	lazy = true,
 	ft = "csv",
 }
-lang["gauteh/vim-cppman"] = {
-	enabled = false,
-	lazy = true,
-	ft = { "c", "cpp" },
-	keys = "K", -- only activate this plugin when we're searching for documentation.
-}
 
 return lang
