@@ -18,7 +18,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 function autocmd.nvim_create_augroups(definitions)
 	for group_name, definition in pairs(definitions) do
-		vim.api.nvim_command("augroup " .. group_name)
+		-- Prepend an underscore to avoid name clashes
+		vim.api.nvim_command("augroup _" .. group_name)
 		vim.api.nvim_command("autocmd!")
 		for _, def in ipairs(definition) do
 			local command = table.concat(vim.iter({ "autocmd", def }):flatten(math.huge):totable(), " ")
