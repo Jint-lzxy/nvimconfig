@@ -6,14 +6,6 @@ return function()
 	-- Please set additional flags for the supported servers here
 	-- Don't specify any config here if you are using the default one.
 	local sources = {
-		btns.diagnostics.vint.with({
-			filetypes = { "vim" },
-			extra_args = require("completion.linters.vint"),
-			-- vimls will report errors, so ignore them here
-			filter = function(diagnostic)
-				return diagnostic.severity ~= vim.diagnostic.severity.ERROR
-			end,
-		}),
 		btns.formatting.asmfmt.with({
 			extra_filetypes = { "nasm" },
 		}),
@@ -27,24 +19,32 @@ return function()
 		}),
 		btns.formatting.prettier.with({
 			filetypes = {
-				"vue",
-				"typescript",
+				"css",
+				"html",
 				"javascript",
-				"typescriptreact",
 				"javascriptreact",
 				"json",
-				"yaml",
-				"html",
-				"css",
+				"markdown",
 				"scss",
 				"sh",
-				"markdown",
+				"typescript",
+				"typescriptreact",
+				"vue",
+				"yaml",
 			},
+		}),
+		btns.diagnostics.vint.with({
+			filetypes = { "vim" },
+			extra_args = require("completion.linters.vint"),
+			-- vimls will report errors, so ignore them here
+			filter = function(diagnostic)
+				return diagnostic.severity ~= vim.diagnostic.severity.ERROR
+			end,
 		}),
 	}
 	null_ls.setup({
-		border = "rounded",
 		debug = false,
+		border = "rounded",
 		log_level = "warn",
 		update_in_insert = false,
 		sources = sources,

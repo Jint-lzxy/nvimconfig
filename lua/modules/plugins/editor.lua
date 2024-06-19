@@ -33,15 +33,6 @@ editor["folke/flash.nvim"] = {
 editor["smoka7/hop.nvim"] = {
 	lazy = true,
 	version = "*",
-	--Old Config
-	--[[cmd = {
-		"HopLine",
-		"HopLineStart",
-		"HopWord",
-		"HopPattern",
-		"HopChar1",
-		"HopChar2",
-	},--]]
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.hop"),
 }

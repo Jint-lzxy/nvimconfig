@@ -7,13 +7,11 @@ require("keymap.config")
 local plug_map = {
 	-- Bufferline
 	["n|gb"] = map_cr("BufferLinePick"):with_noremap():with_silent(),
-	["n|˚"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent(),
 	["n|∆"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent(),
+	["n|˚"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent(),
 	["n|Ô"] = map_cr("BufferLineMovePrev"):with_noremap():with_silent(),
 	["n|"] = map_cr("BufferLineMoveNext"):with_noremap():with_silent(),
 	["n|π"] = map_cr("BufferLineTogglePin"):with_noremap():with_silent(),
-	["n|<leader>be"] = map_cr("BufferLineSortByExtension"):with_noremap(),
-	["n|<leader>bd"] = map_cr("BufferLineSortByDirectory"):with_noremap(),
 	["n|¡"] = map_cr("BufferLineGoToBuffer 1"):with_noremap():with_silent(),
 	["n|™"] = map_cr("BufferLineGoToBuffer 2"):with_noremap():with_silent(),
 	["n|£"] = map_cr("BufferLineGoToBuffer 3"):with_noremap():with_silent(),
@@ -23,6 +21,8 @@ local plug_map = {
 	["n|¶"] = map_cr("BufferLineGoToBuffer 7"):with_noremap():with_silent(),
 	["n|•"] = map_cr("BufferLineGoToBuffer 8"):with_noremap():with_silent(),
 	["n|ª"] = map_cr("BufferLineGoToBuffer 9"):with_noremap():with_silent(),
+	["n|<leader>be"] = map_cr("BufferLineSortByExtension"):with_noremap(),
+	["n|<leader>bd"] = map_cr("BufferLineSortByDirectory"):with_noremap(),
 	-- Lazy.nvim
 	["n|<leader>ph"] = map_cr("Lazy"):with_silent():with_noremap():with_nowait(),
 	["n|<leader>ps"] = map_cr("Lazy sync"):with_silent():with_noremap():with_nowait(),
@@ -47,7 +47,7 @@ local plug_map = {
 	["n|gs"] = map_cr("lua vim.lsp.buf.signature_help()"):with_noremap():with_silent(),
 	["n|gr"] = map_cr("Lspsaga rename"):with_noremap():with_silent(),
 	["n|gR"] = map_cr("Lspsaga rename ++project"):with_noremap():with_silent(),
-	["n|K"] = map_cmd("<Cmd>Lspsaga hover_doc<CR>"):with_noremap():with_silent(),
+	["n|K"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
 	["nv|ga"] = map_cr("Lspsaga code_action"):with_noremap():with_silent(),
 	["n|gd"] = map_cr("Glance definitions"):with_noremap():with_silent(),
 	["n|gD"] = map_cr("Lspsaga goto_definition"):with_noremap():with_silent(),
@@ -91,27 +91,27 @@ local plug_map = {
 	-- Plugin Undotree
 	["n|<leader>u"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
 	-- Plugin Telescope
-	["n|<leader>fn"] = map_cu(":enew"):with_noremap():with_silent(),
+	["n|<leader>fn"] = map_cu("enew"):with_noremap():with_silent(),
 	["n|<leader>fk"] = map_cu("lua _command_panel()"):with_noremap():with_silent(),
 	["n|<leader>fp"] = map_cu("lua require('telescope').extensions.projects.projects{}"):with_noremap():with_silent(),
 	["n|<leader>fr"] = map_cu("lua require('telescope').extensions.frecency.frecency{}"):with_noremap():with_silent(),
 	["n|<leader>fw"] = map_cu("lua require('telescope').extensions.live_grep_args.live_grep_args{}")
 		:with_noremap()
 		:with_silent(),
-	["n|<leader>fR"] = map_cu("Telescope resume"):with_noremap():with_silent(),
+	["n|<leader>fa"] = map_cu("Telescope autocommands"):with_noremap():with_silent(),
+	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
+	["n|<leader>fc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
+	["n|<leader>fd"] = map_cu("Telescope persisted"):with_noremap():with_silent(),
 	["n|<leader>fe"] = map_cu("Telescope oldfiles"):with_noremap():with_silent(),
 	["n|<leader>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
-	["n|<leader>fi"] = map_cu("Telescope file_browser path=%:p:h"):with_noremap():with_silent(),
-	["n|<leader>fc"] = map_cu("Telescope colorscheme"):with_noremap():with_silent(),
 	["n|<leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
-	["n|<leader>fb"] = map_cu("Telescope buffers"):with_noremap():with_silent(),
-	["nv|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),
-	["n|<leader>fd"] = map_cu("Telescope persisted"):with_noremap():with_silent(),
 	["n|<leader>fh"] = map_cu("Telescope highlights"):with_noremap():with_silent(),
-	["n|<leader>fa"] = map_cu("Telescope autocommands"):with_noremap():with_silent(),
+	["n|<leader>fi"] = map_cu("Telescope file_browser path=%:p:h"):with_noremap():with_silent(),
 	["n|<leader>fo"] = map_cu("Telescope vim_options"):with_noremap():with_silent(),
-	["n|<leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
+	["n|<leader>fR"] = map_cu("Telescope resume"):with_noremap():with_silent(),
+	["nv|<leader>fs"] = map_cu("Telescope grep_string"):with_noremap():with_silent(),
 	["n|<leader>ft"] = map_cu("TodoTelescope"):with_noremap():with_silent(),
+	["n|<leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
 	-- Plugin nvim-bufdel
 	["n|œ"] = map_cr("BufDel"):with_noremap():with_silent(),
 	-- Plugin Hop
@@ -123,10 +123,10 @@ local plug_map = {
 	-- Plugin MarkdownPreview
 	["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent(),
 	-- Plugin persisted.nvim
+	["n|<leader>sd"] = map_cu("SessionDelete"):with_noremap():with_silent(),
+	["n|<leader>sl"] = map_cu("SessionLoad"):with_noremap():with_silent(),
 	["n|<leader>sr"] = map_cu("ProjectRoot"):with_noremap():with_silent(),
 	["n|<leader>ss"] = map_cu("SessionSave"):with_noremap():with_silent(),
-	["n|<leader>sl"] = map_cu("SessionLoad"):with_noremap():with_silent(),
-	["n|<leader>sd"] = map_cu("SessionDelete"):with_noremap():with_silent(),
 	-- Plugin SnipRun
 	["n|<leader>r"] = map_cu([[%SnipRun]]):with_noremap():with_silent(),
 	["v|<leader>r"] = map_cr("SnipRun"):with_noremap():with_silent(),

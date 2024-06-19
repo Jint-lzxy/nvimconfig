@@ -101,9 +101,9 @@ function M.format_filter(clients)
 end
 
 function M.format(opts)
-	local filedir = vim.fn.expand("%:p:h")
+	local parent_dir = vim.fn.expand("%:p:h")
 	for i = 1, #disabled_workspaces do
-		if vim.regex(vim.fs.normalize(disabled_workspaces[i])):match_str(filedir) ~= nil then
+		if vim.regex(vim.fs.normalize(disabled_workspaces[i])):match_str(parent_dir) ~= nil then
 			vim.notify(
 				string.format(
 					"[LSP] Formatting for all files under [%s] has been disabled.",
