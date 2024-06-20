@@ -2,12 +2,12 @@ local global = require("core.global")
 
 local function load_options()
 	local options = {
-		-- viewdir = global.cache_dir .. "view/",
+		-- viewdir = global.cache_dir .. "/view/",
 		autoread = true,
 		autowrite = true,
 		backspace = "indent,eol,start",
 		backup = false,
-		backupdir = global.cache_dir .. "backup//,.",
+		backupdir = global.cache_dir .. "/backup//,.",
 		backupskip = "/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*,*/shm/*,/private/var/*,.vault.vim",
 		breakat = [[\ \	;:,!?@*-+/]],
 		clipboard = "unnamedplus",
@@ -18,7 +18,7 @@ local function load_options()
 		cursorcolumn = false,
 		cursorline = true,
 		diffopt = "filler,iwhite,internal,linematch:60,algorithm:patience",
-		directory = global.cache_dir .. "swap//",
+		directory = global.cache_dir .. "/swap//",
 		display = "lastline",
 		encoding = "utf-8",
 		equalalways = false,
@@ -71,7 +71,7 @@ local function load_options()
 		timeoutlen = 300,
 		ttimeout = true,
 		ttimeoutlen = 0,
-		undodir = global.cache_dir .. "undo//",
+		undodir = global.cache_dir .. "/undo//",
 		updatetime = 200,
 		viewoptions = "folds,cursor,curdir,slash,unix",
 		virtualedit = "block",

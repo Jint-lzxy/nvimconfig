@@ -52,7 +52,7 @@ end
 ---@param cmd_string string
 ---@return map_rhs
 function rhs_options:map_cu(cmd_string)
-	-- <C-u> to eliminate the automatically inserted range in visual mode.
+	-- <C-u> to eliminate the automatically inserted range in visual mode
 	self.cmd = (":<C-u>%s<CR>"):format(cmd_string)
 	return self
 end
