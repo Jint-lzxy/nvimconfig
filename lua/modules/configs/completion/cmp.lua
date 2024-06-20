@@ -95,9 +95,6 @@ return function()
 				return vim_item
 			end,
 		},
-		matching = {
-			disallow_partial_fuzzy_matching = false,
-		},
 		performance = {
 			async_budget = 1,
 			max_view_entries = 100,
