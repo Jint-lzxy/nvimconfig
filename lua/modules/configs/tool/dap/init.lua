@@ -81,7 +81,7 @@ return function()
 
 	mason_dap.setup({
 		ensure_installed = require("core.settings").dap_deps,
-		automatic_installation = true,
+		automatic_installation = false,
 		handlers = { mason_dap_handler },
 	})
 
