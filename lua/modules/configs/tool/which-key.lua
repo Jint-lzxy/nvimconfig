@@ -47,6 +47,7 @@ return function()
 				d = "debug: Close debug panels",
 				i = "debug: Step into",
 				l = "debug: Do last run again",
+				n = "debug: Use this nvim instance as server",
 				o = "debug: Step out",
 				O = "debug: Open repl",
 				r = "debug: Run/Continue",
