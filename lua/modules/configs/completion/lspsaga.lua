@@ -29,7 +29,7 @@ return function()
 		request_timeout = 3000,
 		-- Breadcrumbs: https://nvimdev.github.io/lspsaga/breadcrumbs/
 		symbol_in_winbar = {
-			enable = true,
+			enable = false,
 			separator = " " .. icons.ui.Separator,
 			hide_keyword = false,
 			show_file = false,
