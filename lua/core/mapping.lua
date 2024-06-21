@@ -69,7 +69,6 @@ local core_map = {
 	["n|<Down>"] = map_cr("resize -1"):with_silent():with_noremap(),
 	["n|<Left>"] = map_cr("vertical resize +2"):with_silent():with_noremap(),
 	["n|<Right>"] = map_cr("vertical resize -2"):with_silent():with_noremap(),
-	["n|ø"] = map_cmd("<Esc><C-w>q"):with_noremap():with_noremap(),
 }
 
 bind.nvim_load_mapping(core_map)

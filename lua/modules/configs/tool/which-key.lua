@@ -204,7 +204,6 @@ return function()
 			{ mode = "n", "lsp: Show doc" },
 			{ mode = "v", "edit: Move this line up" },
 		},
-		["<A-o>"] = "window: Close current split",
 		["<C-h>"] = {
 			{ mode = "n", "window: Focus shift left" },
 			{ mode = "c", "edit: Delete one char" },
