@@ -65,6 +65,7 @@ local core_map = {
 	["v|<"] = map_cmd("<gv"):with_silent(),
 	["v|>"] = map_cmd(">gv"):with_silent(),
 	-- Accoustomed Settings
+	["n|¨"] = map_cr("set undofile! undofile?"):with_noremap(),
 	["n|<Up>"] = map_cr("resize +1"):with_silent():with_noremap(),
 	["n|<Down>"] = map_cr("resize -1"):with_silent():with_noremap(),
 	["n|<Left>"] = map_cr("vertical resize +2"):with_silent():with_noremap(),

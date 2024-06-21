@@ -227,6 +227,7 @@ return function()
 		["<A-S-q>"] = "edit: Force quit without writing",
 		["+"] = "edit: Increment under cursor",
 		["-"] = "edit: Decrement under cursor",
+		["<A-S-u>"] = "edit: Toggle the undofile config",
 		["<C-a>"] = {
 			{ mode = { "n", "x" }, "edit: Select all" },
 			{ mode = "c", "edit: Far left" },
