@@ -35,7 +35,7 @@ local function load_options()
 		inccommand = "nosplit",
 		incsearch = true,
 		infercase = true,
-		jumpoptions = "stack",
+		jumpoptions = "stack,view",
 		laststatus = 3,
 		list = true,
 		listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
