@@ -6,7 +6,6 @@ require("keymap.config")
 
 local plug_map = {
 	-- Bufferline
-	["n|gb"] = map_cr("BufferLinePick"):with_noremap():with_silent(),
 	["n|∆"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent(),
 	["n|˚"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent(),
 	["n|Ô"] = map_cr("BufferLineMovePrev"):with_noremap():with_silent(),
@@ -44,7 +43,6 @@ local plug_map = {
 	["n|g["] = map_cr("Lspsaga diagnostic_jump_prev"):with_noremap():with_silent(),
 	["n|g]"] = map_cr("Lspsaga diagnostic_jump_next"):with_noremap():with_silent(),
 	["n|<leader>lx"] = map_cr("Lspsaga show_line_diagnostics ++unfocus"):with_noremap():with_silent(),
-	["n|gs"] = map_cr("lua vim.lsp.buf.signature_help()"):with_noremap():with_silent(),
 	["n|gr"] = map_cr("Lspsaga rename"):with_noremap():with_silent(),
 	["n|gR"] = map_cr("Lspsaga rename ++project"):with_noremap():with_silent(),
 	["n|K"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),

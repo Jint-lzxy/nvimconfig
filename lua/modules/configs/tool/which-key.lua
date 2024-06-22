@@ -161,7 +161,6 @@ return function()
 		g = {
 			name = "󰢩 Miscellaneous / Utils",
 			a = { mode = { "n", "v" }, "lsp: Code action" },
-			b = "buffer: Pick current buffer",
 			i = {
 				name = "󱜙 LSP Call Hierarchy",
 				i = "lsp: Show incoming calls",
@@ -184,7 +183,6 @@ return function()
 			},
 			r = "lsp: Rename in file range",
 			R = "lsp: Rename in project range",
-			s = "lsp: Signature help",
 			t = "lsp: Preview type definition(s)",
 			["["] = "lsp: Prev diagnostic",
 			["]"] = "lsp: Next diagnostic",
