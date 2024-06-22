@@ -240,7 +240,7 @@ return function()
 		["<C-f>"] = { mode = "c", "edit: Right" },
 		["<C-e>"] = { mode = "c", "edit: Far right" },
 		["<C-d>"] = { mode = "c", "edit: Delete one char" },
-		["<C-t>"] = { mode = "c", "edit: Complete path of parent folder" },
+		["%%"] = { mode = "c", "edit: Complete parent folder path" },
 		["<"] = { mode = "v", "edit: Decrease indentation (1L)" },
 		[">"] = { mode = "v", "edit: Increase indentation (1L)" },
 
