@@ -42,8 +42,10 @@ local core_map = {
 	["n|<leader>tc"] = map_cr("tabclose"):with_noremap():with_silent(),
 	["n|<leader>td"] = map_cr("tabclose"):with_noremap():with_silent(),
 	["n|<leader>tj"] = map_cr("tabprevious"):with_noremap():with_silent(),
+	["n|<leader>tp"] = map_cr("tabprevious"):with_noremap():with_silent(),
 	["n|<leader>tk"] = map_cr("tabnext"):with_noremap():with_silent(),
-	["n|<leader>tn"] = map_cr("tabnew"):with_noremap():with_silent(),
+	["n|<leader>tn"] = map_cr("tabnext"):with_noremap():with_silent(),
+	["n|<leader>tN"] = map_cr("tabnew"):with_noremap():with_silent(),
 	["n|<leader>to"] = map_cr("tabonly"):with_noremap():with_silent(),
 	-- Insert mode
 	["i|<C-u>"] = map_cmd("<C-g>u<C-u>"):with_noremap(),
