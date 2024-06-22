@@ -125,6 +125,7 @@ local plug_map = {
 	["n|<leader>sl"] = map_cu("SessionLoad"):with_noremap():with_silent(),
 	["n|<leader>sr"] = map_cu("ProjectRoot"):with_noremap():with_silent(),
 	["n|<leader>ss"] = map_cu("SessionSave"):with_noremap():with_silent(),
+	["n|<leader>st"] = map_cu("SessionToggle"):with_noremap():with_silent(),
 	-- Plugin SnipRun
 	["n|<leader>r"] = map_cu([[%SnipRun]]):with_noremap():with_silent(),
 	["v|<leader>r"] = map_cr("SnipRun"):with_noremap():with_silent(),

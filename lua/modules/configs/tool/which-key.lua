@@ -143,6 +143,7 @@ return function()
 				l = "session: Load current",
 				r = "session: Goto root directory",
 				s = "session: Save current",
+				t = "session: Toggle current",
 			},
 			t = {
 				name = " Tab Pages",
