@@ -100,6 +100,9 @@ return function()
 				w = "lsp: Show workspace diagnostics",
 				x = "lsp: Show line disgnostics",
 			},
+			m = {
+				{ mode = { "o", "v" }, "jump: Operate across the syntax tree" },
+			},
 			n = {
 				name = " File Tree",
 				f = "filetree: NvimTree find file",
@@ -192,7 +195,7 @@ return function()
 		-- Core mappings
 		["<S-Tab>"] = "edit: Toggle code fold",
 		["<C-s>"] = "edit: Save file",
-		m = { { mode = "o", "jump: Operate across syntax tree" } },
+		m = { mode = { "o", "v" }, "jump: Operate across the syntax tree" },
 		Y = "edit: Yank text to EOL",
 		D = "edit: Delete text to EOL",
 		n = "edit: Next search result",

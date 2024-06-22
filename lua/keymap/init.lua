@@ -154,6 +154,8 @@ local plug_map = {
 	-- Plugin Treehopper
 	["o|m"] = map_cu("lua require('tsht').nodes()"):with_silent(),
 	["x|m"] = map_cr("lua require('tsht').nodes()"):with_noremap():with_silent(),
+	["o|<leader>m"] = map_cu("lua require('tsht').nodes()"):with_silent(),
+	["x|<leader>m"] = map_cr("lua require('tsht').nodes()"):with_noremap():with_silent(),
 	-- Plugin Tabout
 	["i|¬"] = map_cmd("<Plug>(TaboutMulti)"):with_silent(),
 	["i|˙"] = map_cmd("<Plug>(TaboutBackMulti)"):with_silent(),
