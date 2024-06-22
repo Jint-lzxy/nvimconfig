@@ -78,6 +78,11 @@ editor["romainl/vim-cool"] = {
 	lazy = true,
 	event = { "CursorMoved", "InsertEnter" },
 }
+editor["chaoren/vim-resizewindow"] = {
+	lazy = true,
+	event = "BufWinEnter",
+	init = require("editor.resizewin"),
+}
 
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
