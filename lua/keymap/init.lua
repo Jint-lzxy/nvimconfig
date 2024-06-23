@@ -52,8 +52,8 @@ local plug_map = {
 	["n|gh"] = map_cr("Glance references"):with_noremap():with_silent(),
 	["n|gt"] = map_cr("Glance type_definitions"):with_noremap():with_silent(),
 	["n|gm"] = map_cr("Glance implementations"):with_noremap():with_silent(),
-	["n|gii"] = map_cr("Lspsaga incoming_calls"):with_noremap():with_silent(),
-	["n|gio"] = map_cr("Lspsaga outgoing_calls"):with_noremap():with_silent(),
+	["n|gli"] = map_cr("Lspsaga incoming_calls"):with_noremap():with_silent(),
+	["n|glo"] = map_cr("Lspsaga outgoing_calls"):with_noremap():with_silent(),
 	-- vim-fugitive
 	["n|<leader>gG"] = map_cu("Git"):with_noremap():with_silent(),
 	["n|gps"] = map_cr("G push"):with_noremap():with_silent(),

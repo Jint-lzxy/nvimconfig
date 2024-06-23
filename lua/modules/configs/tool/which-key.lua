@@ -165,11 +165,6 @@ return function()
 		g = {
 			name = "󰢩 Miscellaneous / Utils",
 			a = { mode = { "n", "v" }, "lsp: Code action" },
-			i = {
-				name = "󱜙 LSP Call Hierarchy",
-				i = "lsp: Show incoming calls",
-				o = "lsp: Show outgoing calls",
-			},
 			d = "lsp: Preview definition(s)",
 			D = "lsp: Goto definition",
 			e = {
@@ -178,6 +173,11 @@ return function()
 				A = "edit: Align text interactively (preview enabled)",
 			},
 			h = "lsp: Show reference(s)",
+			l = {
+				name = "󱜙 LSP Call Hierarchy",
+				i = "lsp: Show incoming calls",
+				o = "lsp: Show outgoing calls",
+			},
 			m = "lsp: Show implementation(s)",
 			o = "lsp: Toggle outline",
 			p = {
