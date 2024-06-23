@@ -9,11 +9,9 @@ return function()
 		only_first_definition = true,
 		all_references = false,
 		clear_on_continue = false,
-		-- filter_references_pattern = '<module',
-		-- experimental features:
 		virt_text_pos = "eol",
+		-- experimental features:
 		all_frames = false,
 		virt_lines = false,
-		virt_text_win_col = nil,
 	})
 end
