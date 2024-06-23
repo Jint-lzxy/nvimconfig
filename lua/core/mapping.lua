@@ -60,6 +60,7 @@ local core_map = {
 	["c|<C-e>"] = map_cmd("<End>"):with_noremap(),
 	["c|<C-d>"] = map_cmd("<Del>"):with_noremap(),
 	["c|<C-h>"] = map_cmd("<BS>"):with_noremap(),
+	["c|<C-S-f>"] = map_cmd("<C-f>"):with_noremap(),
 	["c|%%"] = map_cmd([[getcmdtype() == ':' ? expand('%:h').'/' : '%%']]):with_expr():with_noremap(),
 	-- Visual mode
 	["v|J"] = map_cmd(":m '>+1<CR>gv=gv"):with_silent(),
