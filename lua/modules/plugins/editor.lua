@@ -55,6 +55,11 @@ editor["ojroques/nvim-bufdel"] = {
 	lazy = true,
 	cmd = { "BufDel", "BufDelAll", "BufDelOthers" },
 }
+editor["brenoprata10/nvim-highlight-colors"] = {
+	lazy = true,
+	event = { "CursorHold", "CursorHoldI" },
+	config = require("editor.highlight-colors"),
+}
 editor["olimorris/persisted.nvim"] = {
 	lazy = true,
 	cmd = {
@@ -102,7 +107,6 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		{ "andymass/vim-matchup", init = require("editor.matchup") },
 		{ "abecodes/tabout.nvim", config = require("editor.tabout") },
 		{ "windwp/nvim-ts-autotag", config = require("editor.autotag") },
-		{ "NvChad/nvim-colorizer.lua", config = require("editor.colorizer") },
 		{ "hiphish/rainbow-delimiters.nvim", config = require("editor.rainbow_delims") },
 		{ "nvim-treesitter/nvim-treesitter-context", config = require("editor.ts-context") },
 		{ "JoosepAlviste/nvim-ts-context-commentstring", config = require("editor.ts-context-commentstring") },
