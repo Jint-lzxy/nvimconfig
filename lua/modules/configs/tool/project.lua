@@ -5,7 +5,7 @@ return function()
 		patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
 		ignore_lsp = { "null-ls", "copilot" },
 		exclude_dirs = {},
-		show_hidden = false,
+		show_hidden = true,
 		silent_chdir = true,
 		scope_chdir = "global",
 		datapath = vim.fn.stdpath("data"),
