@@ -10,7 +10,7 @@ completion["neovim/nvim-lspconfig"] = {
 		{ "Jint-lzxy/lsp_signature.nvim", config = require("completion.lsp-signature") },
 	},
 }
-completion["dnlhc/glance.nvim"] = {
+completion["DNLHC/glance.nvim"] = {
 	lazy = true,
 	event = "LspAttach",
 	config = require("completion.glance"),
