@@ -59,7 +59,7 @@ local function load_options()
 		smartcase = true,
 		smarttab = true,
 		smoothscroll = true,
-		spellfile = global.vim_path .. "/spell/en.uft-8.add",
+		spellfile = global.vim_path .. "/spell/en.utf-8.add",
 		splitbelow = true,
 		splitkeep = "screen",
 		splitright = true,
