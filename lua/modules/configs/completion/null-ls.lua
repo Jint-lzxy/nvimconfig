@@ -47,6 +47,7 @@ return function()
 		border = "rounded",
 		log_level = "warn",
 		update_in_insert = false,
+		default_timeout = require("core.settings").format_timeout,
 		sources = sources,
 	})
 

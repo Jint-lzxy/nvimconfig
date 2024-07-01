@@ -4,6 +4,7 @@ local settings = require("core.settings")
 local disabled_workspaces = settings.format_disabled_dirs
 local format_on_save = settings.format_on_save
 local format_notify = settings.format_notify
+local format_timeout = settings.format_timeout
 local format_modifications_only = settings.format_modifications_only
 local server_formatting_block_list = settings.server_formatting_block_list
 
@@ -11,7 +12,7 @@ vim.api.nvim_create_user_command("FormatToggle", function()
 	M.toggle_format_on_save()
 end, {})
 
-local block_list = require("core.settings").formatter_block_list
+local block_list = settings.formatter_block_list
 vim.api.nvim_create_user_command("FormatterToggleFt", function(opts)
 	if block_list[opts.args] == nil then
 		vim.notify(
@@ -35,7 +36,7 @@ vim.api.nvim_create_user_command("FormatterToggleFt", function(opts)
 end, { nargs = 1, complete = "filetype" })
 
 function M.enable_format_on_save(is_configured)
-	local opts = { pattern = "*", timeout = 1000 }
+	local opts = { pattern = "*", timeout = format_timeout }
 	vim.api.nvim_create_augroup("__format_on_save", { clear = true })
 	vim.api.nvim_create_autocmd("BufWritePre", {
 		group = "__format_on_save",
@@ -156,7 +157,9 @@ function M.format(opts)
 				{ title = "LSP Formatter Warning" }
 			)
 			return
-		elseif
+		end
+
+		if
 			format_modifications_only
 			and require("lsp-format-modifications").format_modifications(client, bufnr).success
 		then
