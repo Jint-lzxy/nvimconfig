@@ -21,7 +21,7 @@ return {
         AlignConsecutiveAssignments: Consecutive, SortUsingDeclarations: true, \z
         SortIncludes: CaseSensitive, SpaceAfterCStyleCast: true, SpaceBeforeCaseColon: false, \z
         AllowShortLambdasOnASingleLine: All, PackConstructorInitializers: Never, \z
-        SpaceBeforeRangeBasedForLoopColon: false, AlignAfterOpenBracket: Align, \z
+        SpaceBeforeRangeBasedForLoopColon: true, AlignAfterOpenBracket: Align, \z
         AlwaysBreakTemplateDeclarations: Yes, IndentCaseLabels: true, Standard: Auto, \z
         SpaceBeforeSquareBrackets: false, EmptyLineBeforeAccessModifier: Leave \z
     }",
