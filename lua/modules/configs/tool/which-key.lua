@@ -130,6 +130,8 @@ return function()
 				a = "qf: Previous item above the current line",
 				b = "qf: Next item below the current line",
 				c = "qf: Close",
+				f = "qf: First item",
+				l = "qf: Last item",
 				n = "qf: Next item",
 				o = "qf: Open",
 				p = "qf: Previous item",
