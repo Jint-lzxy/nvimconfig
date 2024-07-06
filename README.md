@@ -67,11 +67,11 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Jint-lzxy/nvimconfig/HEA
 
 ## 📜 License
 
-This Neovim configuration is released under the MIT license, which grants the following permissions:
+This Neovim configuration is released under the BSD 3-Clause license, which grants the following permissions:
 
 - Commercial use
 - Distribution
 - Modification
 - Private use
 
-For more convoluted language, see the [LICENSE](https://github.com/ayamir/nvimdots/blob/main/LICENSE).
+For more convoluted language, see the [LICENSE](https://github.com/Jint-lzxy/nvimconfig/blob/master/LICENSE).
