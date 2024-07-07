@@ -55,7 +55,7 @@ return function(defaults)
 			"--header-insertion=iwyu",
 			"--include-cleaner-stdlib",
 			"--limit-references=1000",
-			"--limit-results=150",
+			"--limit-results=300",
 			"--pch-storage=memory",
 		},
 		commands = {
