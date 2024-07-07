@@ -9,7 +9,7 @@ return function()
 		port = "${port}",
 		executable = {
 			command = vim.fn.exepath("codelldb"), -- Find codelldb on $PATH
-			args = { "--port", "${port}", "--liblldb", "/usr/local/opt/llvm/lib/liblldb.dylib" },
+			args = { "--port", "${port}" },
 			detached = is_windows and false or true,
 		},
 	}
