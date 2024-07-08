@@ -1,7 +1,17 @@
 return function()
+	local disabled = { j = { k = false, j = false } }
+
 	require("better_escape").setup({
-		mapping = { "jk", "kj", "jj" },
 		timeout = vim.o.timeoutlen,
-		clear_empty_lines = true,
+		mappings = {
+			i = {
+				j = { k = "<Esc>", j = "<Esc>" },
+				k = { j = "<Esc>" },
+			},
+			c = disabled,
+			s = disabled,
+			v = disabled,
+			t = disabled,
+		},
 	})
 end
