@@ -162,6 +162,8 @@ local plug_map = {
 	-- Plugin Diffview
 	["n|<leader>gd"] = map_cr("DiffviewOpen"):with_silent():with_noremap(),
 	["n|<leader>gD"] = map_cr("DiffviewClose"):with_silent():with_noremap(),
+	["n|<leader>gf"] = map_cr("DiffviewFileHistory %"):with_silent():with_noremap(),
+	["n|<leader>gF"] = map_cr("DiffviewClose"):with_silent():with_noremap(),
 }
 
 bind.nvim_load_mapping(plug_map)

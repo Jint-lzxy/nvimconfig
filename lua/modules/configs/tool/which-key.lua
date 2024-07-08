@@ -84,6 +84,8 @@ return function()
 				name = "󰊢 Git",
 				d = "git: Show diff",
 				D = "git: Close diff",
+				f = "git: Show current file's history",
+				F = "git: Close current file's history",
 				g = "git: Toggle lazygit",
 				G = "git: Toggle fugitive",
 			},

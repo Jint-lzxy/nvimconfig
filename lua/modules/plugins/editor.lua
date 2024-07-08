@@ -22,7 +22,7 @@ editor["numToStr/Comment.nvim"] = {
 }
 editor["sindrets/diffview.nvim"] = {
 	lazy = true,
-	cmd = { "DiffviewOpen", "DiffviewClose" },
+	cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose" },
 	config = require("editor.diffview"),
 }
 editor["folke/flash.nvim"] = {
