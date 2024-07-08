@@ -89,7 +89,7 @@ local function load_options()
 		breakindentopt = "shift:2,min:20",
 		concealcursor = "niv",
 		conceallevel = 0,
-		expandtab = false,
+		expandtab = true,
 		foldenable = true,
 		formatoptions = "1jcroql",
 		linebreak = true,
