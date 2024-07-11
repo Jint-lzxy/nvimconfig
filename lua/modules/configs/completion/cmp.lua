@@ -96,7 +96,7 @@ return function()
 		},
 		performance = {
 			async_budget = 1,
-			max_view_entries = 100,
+			max_view_entries = 300,
 		},
 		-- You can set mappings if you want
 		mapping = cmp.mapping.preset.insert({
