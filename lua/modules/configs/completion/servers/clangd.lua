@@ -41,7 +41,7 @@ return function(defaults)
 		single_file_support = true,
 		cmd = {
 			"clangd",
-			"-j=12",
+			"-j=9",
 			"--enable-config",
 			-- You MUST set this arg ↓ to your c/cpp compiler location (if not included)!
 			"--query-driver=" .. get_binary_path_list({ "clang++", "clang", "gcc", "g++" }),
