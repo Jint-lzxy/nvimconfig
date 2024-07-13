@@ -107,7 +107,6 @@ editor["nvim-treesitter/nvim-treesitter"] = {
 		{ "andymass/vim-matchup", init = require("editor.matchup") },
 		{ "abecodes/tabout.nvim", config = require("editor.tabout") },
 		{ "windwp/nvim-ts-autotag", config = require("editor.autotag") },
-		{ "hiphish/rainbow-delimiters.nvim", config = require("editor.rainbow_delims") },
 		{ "nvim-treesitter/nvim-treesitter-context", config = require("editor.ts-context") },
 		{ "JoosepAlviste/nvim-ts-context-commentstring", config = require("editor.ts-context-commentstring") },
 	},
