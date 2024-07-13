@@ -83,7 +83,7 @@ return function()
 			NormalNvim = true,
 			overseer = false,
 			pounce = false,
-			rainbow_delimiters = true,
+			rainbow_delimiters = false,
 			sandwich = false,
 			semantic_tokens = true,
 			symbols_outline = true,
