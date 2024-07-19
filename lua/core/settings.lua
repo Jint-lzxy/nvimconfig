@@ -34,6 +34,7 @@ settings["formatter_block_list"] = {
 -- Servers in this list will skip setting formatting capabilities if rhs is true.
 ---@type table<string, boolean>
 settings["server_formatting_block_list"] = {
+	bashls = true,
 	clangd = true,
 	jsonls = true,
 	lua_ls = true,
