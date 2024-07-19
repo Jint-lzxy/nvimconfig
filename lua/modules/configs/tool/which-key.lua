@@ -7,19 +7,13 @@ return function()
 	require("which-key").setup({
 		preset = "classic",
 		delay = vim.o.timeoutlen,
+		triggers = {
+			{ "<auto>", mode = "nixso" },
+		},
 		win = {
 			border = "none",
 			padding = { 1, 2 },
 			wo = { winblend = 0 },
-		},
-		modes = {
-			n = true,
-			i = true,
-			t = true,
-			c = false,
-			x = false,
-			s = false,
-			o = false,
 		},
 		plugins = {
 			marks = true,
