@@ -24,6 +24,7 @@ return vim.schedule_wrap(function()
 		textobjects = {
 			select = {
 				enable = true,
+				lookahead = true,
 				keymaps = {
 					["af"] = "@function.outer",
 					["if"] = "@function.inner",
