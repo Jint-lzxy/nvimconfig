@@ -4,8 +4,8 @@ return {
 	settings = {
 		Lua = {
 			runtime = { version = "LuaJIT" },
-			hint = { enable = true, setType = true },
 			telemetry = { enable = false },
+			hint = { enable = true, setType = true },
 			-- Do not override treesitter lua highlighting with lua_ls' highlighting
 			semantic = { enable = false },
 		},
