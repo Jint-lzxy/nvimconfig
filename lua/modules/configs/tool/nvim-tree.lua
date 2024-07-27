@@ -10,43 +10,24 @@ return function()
 		auto_reload_on_write = true,
 		disable_netrw = false,
 		hijack_cursor = true,
-		hijack_netrw = true,
+		hijack_netrw = false,
 		hijack_unnamed_buffer_when_opening = true,
-		open_on_tab = false,
 		respect_buf_cwd = true,
 		prefer_startup_root = false,
-		sort_by = "name",
 		sync_root_with_cwd = true,
-		view = {
-			side = "left",
-			number = false,
-			signcolumn = "yes",
-			centralize_selection = false,
-			preserve_window_proportions = false,
-			float = { enable = false },
-		},
 		renderer = {
 			full_name = false,
 			group_empty = true,
 			add_trailing = false,
-			highlight_git = true,
 			symlink_destination = true,
+			highlight_git = "all",
 			root_folder_label = ":.:s?.*?/..?",
-			highlight_opened_files = "none",
 			special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md", "CMakeLists.txt" },
 			indent_markers = {
 				enable = true,
 				inline_arrows = true,
-				icons = {
-					corner = "└",
-					edge = "│",
-					item = "│",
-					none = " ",
-				},
 			},
 			icons = {
-				webdev_colors = true,
-				git_placement = "after",
 				show = {
 					file = true,
 					folder = true,
@@ -55,24 +36,23 @@ return function()
 				},
 				padding = " ",
 				symlink_arrow = " 󰁔 ",
+				git_placement = "after",
 				glyphs = {
-					default = icons.documents.Default, --
-					symlink = icons.documents.Symlink, --
+					default = icons.documents.Default,
+					symlink = icons.documents.Symlink,
 					bookmark = icons.ui.Bookmark,
 					git = {
 						unstaged = icons.git.Mod_alt,
-						staged = icons.git.Add, --󰄬
+						staged = icons.git.Add,
 						unmerged = icons.git.Unmerged,
-						renamed = icons.git.Rename, --󰁔
-						untracked = icons.git.Untracked, -- "󰞋"
-						deleted = icons.git.Remove, --
-						ignored = icons.git.Ignore, --◌
+						renamed = icons.git.Rename,
+						untracked = icons.git.Untracked,
+						deleted = icons.git.Remove,
+						ignored = icons.git.Ignore,
 					},
 					folder = {
 						arrow_open = icons.ui.ArrowOpen,
 						arrow_closed = icons.ui.ArrowClosed,
-						-- arrow_open = "",
-						-- arrow_closed = "",
 						default = icons.ui.Folder,
 						open = icons.ui.FolderOpen,
 						empty = icons.ui.EmptyFolder,
@@ -82,17 +62,6 @@ return function()
 					},
 				},
 			},
-		},
-		update_focused_file = {
-			enable = true,
-			update_root = true,
-		},
-		filters = {
-			dotfiles = false,
-			no_buffer = false,
-			git_clean = false,
-			git_ignored = true,
-			custom = { ".DS_Store" },
 		},
 		actions = {
 			use_system_clipboard = true,
@@ -145,28 +114,21 @@ return function()
 				error = icons.diagnostics.Error_alt,
 			},
 		},
-		filesystem_watchers = {
+		filters = {
 			enable = true,
-			debounce_delay = 50,
+			dotfiles = false,
+			no_buffer = false,
+			git_clean = false,
+			git_ignored = true,
+			no_bookmark = false,
+			custom = { ".DS_Store" },
 		},
-		git = {
+		update_focused_file = {
 			enable = true,
-			cygwin_support = false,
-			show_on_dirs = true,
-		},
-		live_filter = {
-			prefix = "[FILTER]: ",
-			always_show_folders = true,
+			update_root = { enable = true },
 		},
 		trash = {
 			cmd = "trash -F",
-		},
-		ui = {
-			confirm = {
-				remove = true,
-				trash = true,
-				default_yes = false,
-			},
 		},
 		log = {
 			enable = false,
