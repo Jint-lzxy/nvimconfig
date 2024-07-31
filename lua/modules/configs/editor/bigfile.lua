@@ -16,9 +16,9 @@ return function()
 	}
 
 	require("bigfile").setup({
-		filesize = 1.5, -- size of the file in MiB
 		pattern = { "*" }, -- autocmd pattern
 		features = { -- features to disable
+		filesize = 2, -- size of the file in MiB
 			"indent_blankline",
 			"lsp",
 			"treesitter",
