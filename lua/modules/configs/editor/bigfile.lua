@@ -16,15 +16,16 @@ return function()
 	}
 
 	require("bigfile").setup({
-		pattern = { "*" }, -- autocmd pattern
-		features = { -- features to disable
 		filesize = 2, -- size of the file in MiB
+		pattern = { "*" },
+		features = {
 			"indent_blankline",
 			"lsp",
+			"syntax",
 			"treesitter",
 			"vimopts",
-			ftdetect,
 			cmp,
+			ftdetect,
 		},
 	})
 end
