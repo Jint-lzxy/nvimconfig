@@ -150,7 +150,7 @@ return function()
 				name = "buffer",
 				option = {
 					get_bufnrs = function()
-						return vim.fn.line("$") < 4500 and { vim.api.nvim_get_current_buf() } or {}
+						return vim.api.nvim_buf_line_count(0) < 2500 and { vim.api.nvim_get_current_buf() } or {}
 					end,
 				},
 			},
