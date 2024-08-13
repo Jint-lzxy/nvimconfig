@@ -13,7 +13,7 @@ lang["ray-x/go.nvim"] = {
 	ft = { "go", "gomod", "gosum" },
 	build = ":GoInstallBinaries",
 	config = require("lang.go"),
-	dependencies = { "ray-x/guihua.lua" },
+	dependencies = "ray-x/guihua.lua",
 }
 lang["mrcjkb/rustaceanvim"] = {
 	lazy = true,
