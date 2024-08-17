@@ -84,6 +84,7 @@ return function()
 			overseer = false,
 			pounce = false,
 			rainbow_delimiters = false,
+			render_markdown = true,
 			sandwich = false,
 			semantic_tokens = true,
 			symbols_outline = true,
