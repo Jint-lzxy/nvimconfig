@@ -261,6 +261,7 @@ return function()
 			{ "<C-a>", desc = "edit: Select all", mode = { "n", "x" } },
 			{ "<C-q>", desc = "edit: Save file and quit", mode = { "i", "n" } },
 			{ "<C-b>", desc = "edit: Move cursor one char left", mode = { "c", "i" } },
+			{ "<F1>", desc = "tool: toggle markdown preview within nvim" },
 			{ "<F6>", desc = "debug: Run/Continue" },
 			{ "<F7>", desc = "debug: Terminate debug session" },
 			{ "<F8>", desc = "debug: Toggle breakpoint" },

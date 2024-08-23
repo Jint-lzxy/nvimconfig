@@ -118,6 +118,8 @@ local plug_map = {
 	["nv|<leader>k"] = map_cmd("<Cmd>HopLineMW<CR>"):with_noremap(),
 	["nv|<leader>o"] = map_cmd("<Cmd>HopChar1MW<CR>"):with_noremap(),
 	["nv|<leader>O"] = map_cmd("<Cmd>HopChar2MW<CR>"):with_noremap(),
+	-- Plugin render-markdown.nvim
+	["n|<F1>"] = map_cr("RenderMarkdown toggle"):with_noremap():with_silent(),
 	-- Plugin MarkdownPreview
 	["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent(),
 	-- Plugin persisted.nvim
