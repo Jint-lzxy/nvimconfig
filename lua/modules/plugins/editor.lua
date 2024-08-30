@@ -88,6 +88,10 @@ editor["chaoren/vim-resizewindow"] = {
 	event = "BufWinEnter",
 	init = require("editor.resizewin"),
 }
+editor["tpope/vim-sleuth"] = {
+	lazy = true,
+	event = { "BufNewFile", "BufReadPost", "BufFilePost" },
+}
 
 ----------------------------------------------------------------------
 --                  :treesitter related plugins                    --
