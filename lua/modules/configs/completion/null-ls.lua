@@ -10,7 +10,7 @@ return function()
 			extra_filetypes = { "nasm" },
 		}),
 		btns.formatting.clang_format.with({
-			filetypes = { "c", "cpp", "objc", "objcpp", "cs", "java", "cuda", "proto" },
+			filetypes = { "c", "cpp", "objc", "objcpp", "cs", "cuda", "proto" },
 			extra_args = require("completion.formatters.clang_format"),
 		}),
 		btns.formatting.cmake_format.with({
