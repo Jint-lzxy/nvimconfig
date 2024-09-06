@@ -39,7 +39,7 @@ settings["server_formatting_block_list"] = {
 	jsonls = true,
 	lua_ls = true,
 	neocmake = true,
-	tsserver = true,
+	ts_ls = true,
 }
 
 -- Set the format disabled directories here, files under these dirs won't be formatted on save.
