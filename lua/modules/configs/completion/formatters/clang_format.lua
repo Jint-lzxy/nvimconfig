@@ -1,28 +1,23 @@
 return {
-	"-style={ \z
-        BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: ForIndentation, \z
-        NamespaceIndentation: All, AccessModifierOffset: -4, \z
-        AlignArrayOfStructures: Right, AlignEscapedNewlines: Left, \z
-        AlignTrailingComments: true, AllowShortBlocksOnASingleLine: Empty, \z
-        AllowShortCaseLabelsOnASingleLine: true, AllowShortEnumsOnASingleLine: true, \z
-        AllowShortFunctionsOnASingleLine: Inline, AllowShortLoopsOnASingleLine: false, \z
-        BitFieldColonSpacing: Both, BreakBeforeBraces: Custom, BraceWrapping: {\z
-        AfterCaseLabel: false, AfterClass: false, AfterEnum: false, AfterFunction: true, \z
-        AfterNamespace: true, AfterStruct: false, AfterUnion: true, AfterExternBlock: false, \z
-        BeforeCatch: true, BeforeElse: false, BeforeLambdaBody: false, BeforeWhile: false, \z
-        SplitEmptyFunction: false, SplitEmptyRecord: false, SplitEmptyNamespace: true}, \z
-        FixNamespaceComments: true, ShortNamespaceLines: 1, ColumnLimit: 120, \z
-        BreakBeforeTernaryOperators: true, BreakConstructorInitializers: BeforeColon, \z
-        BreakInheritanceList: BeforeColon, BreakStringLiterals: true, \z
-        Cpp11BracedListStyle: true, EmptyLineAfterAccessModifier: Leave, \z
-        AlignConsecutiveMacros: Consecutive, IndentPPDirectives: AfterHash, \z
-        IncludeBlocks: Preserve, IndentWrappedFunctionNames: true, PointerAlignment: Left, \z
-        ReferenceAlignment: Pointer, SeparateDefinitionBlocks: Always, \z
-        AlignConsecutiveAssignments: Consecutive, SortUsingDeclarations: true, \z
-        SortIncludes: CaseSensitive, SpaceAfterCStyleCast: true, SpaceBeforeCaseColon: false, \z
-        AllowShortLambdasOnASingleLine: All, PackConstructorInitializers: Never, \z
-        SpaceBeforeRangeBasedForLoopColon: true, AlignAfterOpenBracket: Align, \z
-        AlwaysBreakTemplateDeclarations: Yes, IndentCaseLabels: true, Standard: Auto, \z
-        SpaceBeforeSquareBrackets: false, EmptyLineBeforeAccessModifier: Leave \z
+	"-style={ BasedOnStyle: LLVM, ColumnLimit: 120, TabWidth: 4, IndentWidth: 4, \z
+        UseTab: ForIndentation, AccessModifierOffset: -4, ReflowComments: true, \z
+        SortIncludes: CaseSensitive, PointerAlignment: Left, FixNamespaceComments: true, \z
+        SeparateDefinitionBlocks: Always, BitFieldColonSpacing: Both, AlignAfterOpenBracket: Align, \z
+        AlignArrayOfStructures: Right, AlignConsecutiveAssignments: Consecutive, \z
+        AlignConsecutiveBitFields: Consecutive, AlignConsecutiveMacros: Consecutive, \z
+        AlignEscapedNewlines: Left, AlignOperands: AlignAfterOperator, AlignTrailingComments: true, \z
+        AllowAllArgumentsOnNextLine: true, AllowAllParametersOfDeclarationOnNextLine: true, \z
+        AllowShortBlocksOnASingleLine: Empty, AllowShortFunctionsOnASingleLine: true, \z
+        AllowShortLambdasOnASingleLine: All, BinPackArguments: false, BinPackParameters: false, \z
+        EmptyLineAfterAccessModifier: Never, EmptyLineBeforeAccessModifier: Always, \z
+        InsertTrailingCommas: Wrapped, MaxEmptyLinesToKeep: 1, PackConstructorInitializers: NextLine, \z
+        IndentPPDirectives: AfterHash, IndentRequiresClause: true, IndentWrappedFunctionNames: false, \z
+        BreakBeforeConceptDeclarations: true, PenaltyIndentedWhitespace: 4, \z
+        AlwaysBreakTemplateDeclarations: Yes, BreakInheritanceList: BeforeColon, \z
+        BreakBeforeBraces: Custom, BraceWrapping: { AfterCaseLabel: false, AfterClass: false, \z
+        AfterEnum: false, AfterFunction: true, AfterNamespace: false, AfterStruct: false, \z
+        AfterUnion: true, AfterExternBlock: false, BeforeCatch: true, BeforeElse: false, \z
+        BeforeLambdaBody: false, BeforeWhile: false, SplitEmptyFunction: false, \z
+        SplitEmptyRecord: false, SplitEmptyNamespace: true }, Standard: Auto, SpacesInAngles: Leave \z
     }",
 }
