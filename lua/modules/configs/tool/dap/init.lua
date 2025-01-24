@@ -58,7 +58,6 @@ return function()
 		if not ok then
 			-- Default to use factory config for clients(s) that doesn't include a spec
 			mason_dap.default_setup(config)
-			return
 		elseif type(custom_handler) == "function" then
 			-- Case where the protocol requires its own setup
 			-- Make sure to set
