@@ -1,4 +1,4 @@
--- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/vimls.lua
+-- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/vimls.lua
 return {
 	cmd = { "vim-language-server", "--stdio" },
 	filetypes = { "vim" },

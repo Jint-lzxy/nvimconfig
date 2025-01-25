@@ -1,4 +1,4 @@
--- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/sourcekit.lua
+-- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/sourcekit.lua
 return {
 	cmd = { "sourcekit-lsp", "--completion-max-results=300" },
 	filetypes = { "swift", "objc", "objcpp" },

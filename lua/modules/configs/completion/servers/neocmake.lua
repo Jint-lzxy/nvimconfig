@@ -1,4 +1,4 @@
--- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/neocmake.lua
+-- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/configs/neocmake.lua
 return {
 	cmd = { "neocmakelsp", "--stdio" },
 	filetypes = { "cmake" },
