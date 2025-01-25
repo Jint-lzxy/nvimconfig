@@ -54,19 +54,13 @@ return function()
 					end)
 					:with_buffer(bufnr)
 					:with_noremap()
-					:with_desc("git: Stage hunk"),
+					:with_desc("git: Toggle staging/unstaging of hunk"),
 				["v|<leader>gs"] = map_callback(function()
 						actions.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
 					end)
 					:with_buffer(bufnr)
 					:with_noremap()
-					:with_desc("git: Stage hunk"),
-				["n|<leader>gu"] = map_callback(function()
-						actions.undo_stage_hunk()
-					end)
-					:with_buffer(bufnr)
-					:with_noremap()
-					:with_desc("git: Undo stage hunk"),
+					:with_desc("git: Toggle staging/unstaging of selected hunk"),
 				["n|<leader>gr"] = map_callback(function()
 						actions.reset_hunk()
 					end)
@@ -99,7 +93,7 @@ return function()
 					:with_desc("git: Blame line"),
 				-- Text objects
 				["ox|ih"] = map_callback(function()
-						actions.text_object()
+						actions.select_hunk()
 					end)
 					:with_buffer(bufnr)
 					:with_noremap(),
