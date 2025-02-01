@@ -11,7 +11,7 @@ return vim.schedule_wrap(function()
 			disable = function(ft, bufnr)
 				if
 					vim.tbl_contains({ "gitcommit" }, ft)
-					or (vim.api.nvim_buf_line_count(bufnr) > 7500 and ft ~= "vimdoc")
+					or (vim.api.nvim_buf_line_count(bufnr) > 9500 and ft ~= "vimdoc")
 				then
 					return true
 				end
