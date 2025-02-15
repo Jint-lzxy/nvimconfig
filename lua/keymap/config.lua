@@ -19,6 +19,30 @@ _G._flash_esc_or_noh = function()
 	end
 end
 
+_G._toggle_inlayhint = function()
+	local is_enabled = vim.lsp.inlay_hint.is_enabled()
+
+	vim.lsp.inlay_hint.enable(not is_enabled)
+	vim.notify(
+		(is_enabled and "Inlay hint disabled successfully" or "Inlay hint enabled successfully"),
+		vim.log.levels.INFO,
+		{ title = "LSP Inlay Hint" }
+	)
+end
+
+local _vt_enabled = require("core.settings").diagnostics_virtual_text
+_G._toggle_virtualtext = function()
+	if vim.diagnostic.is_enabled() then
+		_vt_enabled = not _vt_enabled
+		vim.diagnostic[_vt_enabled and "show" or "hide"]()
+		vim.notify(
+			(_vt_enabled and "Virtual text is now displayed" or "Virtual text is now hidden"),
+			vim.log.levels.INFO,
+			{ title = "LSP Diagnostic" }
+		)
+	end
+end
+
 local lazygit = nil
 _G._toggle_lazygit = function()
 	if not lazygit then
