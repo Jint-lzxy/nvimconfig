@@ -1,5 +1,3 @@
-local vim = vim
-
 _G._command_panel = function()
 	require("telescope.builtin").keymaps({
 		lhs_filter = function(lhs)

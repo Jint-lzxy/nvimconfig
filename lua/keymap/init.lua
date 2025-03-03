@@ -2,7 +2,7 @@ local bind = require("keymap.bind")
 local map_cr = bind.map_cr
 local map_cu = bind.map_cu
 local map_cmd = bind.map_cmd
-require("keymap.config")
+require("keymap.helpers")
 
 local core_map = {
 	-- Vim map
