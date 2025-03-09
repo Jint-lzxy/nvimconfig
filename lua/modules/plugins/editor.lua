@@ -18,7 +18,7 @@ editor["LunarVim/bigfile.nvim"] = {
 editor["numToStr/Comment.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
-	config = require("editor.comment_nvim"),
+	config = require("editor.comment"),
 }
 editor["sindrets/diffview.nvim"] = {
 	lazy = true,
