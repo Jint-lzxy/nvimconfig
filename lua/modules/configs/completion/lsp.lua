@@ -85,7 +85,9 @@ mason_registry:on(
 					)
 				end,
 				on_stderr = function(_, msg_stream)
-					vim.notify(msg_stream, vim.log.levels.ERROR, { title = "[lsp] Install Failure" })
+					if msg_stream then
+						vim.notify(msg_stream, vim.log.levels.ERROR, { title = "[lsp] Install Failure" })
+					end
 				end,
 			})
 			:start()
