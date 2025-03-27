@@ -36,15 +36,15 @@ editor["smoka7/hop.nvim"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.hop"),
 }
-editor["tzachar/local-highlight.nvim"] = {
-	lazy = true,
-	event = { "BufReadPost", "BufAdd", "BufNewFile" },
-	config = require("editor.localhl"),
-}
 editor["echasnovski/mini.align"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("editor.align"),
+}
+editor["echasnovski/mini.cursorword"] = {
+	lazy = true,
+	event = { "BufReadPost", "BufAdd", "BufNewFile" },
+	config = require("editor.cursorword"),
 }
 editor["echasnovski/mini.surround"] = {
 	lazy = true,
