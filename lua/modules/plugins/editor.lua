@@ -10,11 +10,6 @@ editor["max397574/better-escape.nvim"] = {
 	event = "InsertEnter",
 	config = require("editor.better-escape"),
 }
-editor["LunarVim/bigfile.nvim"] = {
-	lazy = false,
-	cond = require("core.settings").load_big_files_faster,
-	config = require("editor.bigfile"),
-}
 editor["numToStr/Comment.nvim"] = {
 	lazy = true,
 	event = { "CursorHold", "CursorHoldI" },
@@ -24,6 +19,11 @@ editor["sindrets/diffview.nvim"] = {
 	lazy = true,
 	cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewClose" },
 	config = require("editor.diffview"),
+}
+editor["pteroctopus/faster.nvim"] = {
+	lazy = false,
+	cond = require("core.settings").load_big_files_faster,
+	config = require("editor.bigfile"),
 }
 editor["folke/flash.nvim"] = {
 	lazy = true,
