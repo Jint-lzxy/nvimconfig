@@ -118,11 +118,13 @@ return function()
 			--- LSP
 			{ "<leader>l", group = "󱜙 LSP" },
 			{ "<leader>ld", desc = "lsp: Show document diagnostics" },
+			{ "<leader>lh", desc = "lsp: Toggle inlay hint" },
 			{ "<leader>li", desc = "lsp: Info" },
 			{ "<leader>lp", desc = "lsp: Show project diagnostics" },
 			{ "<leader>lr", desc = "lsp: Restart" },
 			{ "<leader>lS", desc = "lsp: Start" },
 			{ "<leader>ls", desc = "lsp: Stop" },
+			{ "<leader>lv", desc = "lsp: Toggle virtual text" },
 			{ "<leader>lw", desc = "lsp: Show workspace diagnostics" },
 			{ "<leader>lx", desc = "lsp: Show line disgnostics" },
 			--- File tree
