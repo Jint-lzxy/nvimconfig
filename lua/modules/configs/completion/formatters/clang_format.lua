@@ -1,23 +1,22 @@
 return {
-	"-style={ BasedOnStyle: LLVM, ColumnLimit: 120, TabWidth: 4, IndentWidth: 4, \z
-        UseTab: ForIndentation, AccessModifierOffset: -4, ReflowComments: true, \z
-        SortIncludes: CaseSensitive, PointerAlignment: Left, FixNamespaceComments: true, \z
-        SeparateDefinitionBlocks: Always, BitFieldColonSpacing: Both, AlignAfterOpenBracket: Align, \z
-        AlignArrayOfStructures: Right, AlignConsecutiveAssignments: Consecutive, \z
-        AlignConsecutiveBitFields: Consecutive, AlignConsecutiveMacros: Consecutive, \z
-        AlignEscapedNewlines: Left, AlignOperands: AlignAfterOperator, AlignTrailingComments: true, \z
-        AllowAllArgumentsOnNextLine: true, AllowAllParametersOfDeclarationOnNextLine: true, \z
-        AllowShortBlocksOnASingleLine: Empty, AllowShortFunctionsOnASingleLine: true, \z
-        AllowShortLambdasOnASingleLine: All, BinPackArguments: false, BinPackParameters: false, \z
+	"-style={ BasedOnStyle: LLVM, Standard: Auto, ColumnLimit: 120, SortIncludes: CaseSensitive, \z
+        IncludeBlocks: Regroup, ReflowComments: true, FixNamespaceComments: true, UseTab: Never, \z
+        SpacesInAngles: Leave, IndentRequiresClause: true, BitFieldColonSpacing: Both, \z
+        IndentPPDirectives: AfterHash, IndentWrappedFunctionNames: false, PointerAlignment: Left, \z
+        AlignEscapedNewlines: Left, AlignTrailingComments: true, AlignAfterOpenBracket: Align, \z
+        AlignArrayOfStructures: Right, AlignOperands: AlignAfterOperator, \z
+        AlignConsecutiveMacros: Consecutive, AlignConsecutiveBitFields: Consecutive, \z
+        AlignConsecutiveAssignments: Consecutive, MaxEmptyLinesToKeep: 1, BinPackArguments: false, \z
+        BinPackParameters: false, InsertTrailingCommas: Wrapped, SeparateDefinitionBlocks: Always, \z
         EmptyLineAfterAccessModifier: Never, EmptyLineBeforeAccessModifier: Always, \z
-        InsertTrailingCommas: Wrapped, MaxEmptyLinesToKeep: 1, PackConstructorInitializers: NextLine, \z
-        IndentPPDirectives: AfterHash, IndentRequiresClause: true, IndentWrappedFunctionNames: false, \z
-        BreakBeforeConceptDeclarations: true, PenaltyIndentedWhitespace: 4, \z
+        PackConstructorInitializers: NextLine, AllowAllArgumentsOnNextLine: true, \z
+        AllowShortLambdasOnASingleLine: All, AllowShortBlocksOnASingleLine: Empty, \z
+        AllowShortFunctionsOnASingleLine: false, AllowAllParametersOfDeclarationOnNextLine: true, \z
         AlwaysBreakTemplateDeclarations: Yes, BreakInheritanceList: BeforeColon, \z
-        BreakBeforeBraces: Custom, BraceWrapping: { AfterCaseLabel: false, AfterClass: false, \z
-        AfterEnum: false, AfterFunction: true, AfterNamespace: false, AfterStruct: false, \z
-        AfterUnion: true, AfterExternBlock: false, BeforeCatch: true, BeforeElse: false, \z
-        BeforeLambdaBody: false, BeforeWhile: false, SplitEmptyFunction: false, \z
-        SplitEmptyRecord: false, SplitEmptyNamespace: true }, Standard: Auto, SpacesInAngles: Leave \z
+        BreakBeforeConceptDeclarations: true, BreakBeforeBraces: Custom, BraceWrapping: { \z
+        AfterCaseLabel: false, AfterClass: false, AfterEnum: false, AfterFunction: true, \z
+        AfterNamespace: false, AfterStruct: false, AfterUnion: true, AfterExternBlock: false, \z
+        BeforeCatch: true, BeforeElse: false, BeforeLambdaBody: false, BeforeWhile: false, \z
+        SplitEmptyFunction: false, SplitEmptyRecord: false, SplitEmptyNamespace: true, } \z
     }",
 }
