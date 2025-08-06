@@ -18,7 +18,7 @@ _G._flash_esc_or_noh = function()
 end
 
 _G._toggle_inlayhint = function()
-	local is_enabled = vim.lsp.inlay_hint.is_enabled()
+	local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
 
 	vim.lsp.inlay_hint.enable(not is_enabled)
 	vim.notify(
@@ -28,17 +28,14 @@ _G._toggle_inlayhint = function()
 	)
 end
 
-local _vt_enabled = require("core.settings").diagnostics_virtual_text
-_G._toggle_virtualtext = function()
-	if vim.diagnostic.is_enabled() then
-		_vt_enabled = not _vt_enabled
-		vim.diagnostic[_vt_enabled and "show" or "hide"]()
-		vim.notify(
-			(_vt_enabled and "Virtual text is now displayed" or "Virtual text is now hidden"),
-			vim.log.levels.INFO,
-			{ title = "LSP Diagnostic" }
-		)
-	end
+_G._toggle_virtuallines = function()
+	require("tiny-inline-diagnostic").toggle()
+	vim.notify(
+		"Virtual lines are now "
+			.. (require("tiny-inline-diagnostic.diagnostic").user_toggle_state and "displayed" or "hidden"),
+		vim.log.levels.INFO,
+		{ title = "LSP Diagnostic" }
+	)
 end
 
 local lazygit = nil

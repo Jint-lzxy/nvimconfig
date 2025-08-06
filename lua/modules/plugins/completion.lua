@@ -5,8 +5,8 @@ completion["neovim/nvim-lspconfig"] = {
 	event = { "CursorHold", "CursorHoldI" },
 	config = require("completion.lspconfig"),
 	dependencies = {
-		{ "williamboman/mason.nvim" },
-		{ "williamboman/mason-lspconfig.nvim" },
+		{ "mason-org/mason.nvim" },
+		{ "mason-org/mason-lspconfig.nvim" },
 		{ "Jint-lzxy/lsp_signature.nvim", config = require("completion.lsp-signature") },
 	},
 }
@@ -25,6 +25,10 @@ completion["hedyhli/outline.nvim"] = {
 	lazy = true,
 	event = "LspAttach",
 	config = require("completion.outline"),
+}
+completion["rachartier/tiny-inline-diagnostic.nvim"] = {
+	lazy = false,
+	config = require("completion.tiny-inline-diagnostic"),
 }
 completion["joechrisellis/lsp-format-modifications.nvim"] = {
 	lazy = true,
@@ -60,9 +64,9 @@ completion["hrsh7th/nvim-cmp"] = {
 		{ "lukas-reineke/cmp-under-comparator" },
 	},
 }
---[[
 completion["zbirenbaum/copilot.lua"] = {
 	lazy = true,
+	cond = require("core.settings").use_copilot,
 	cmd = "Copilot",
 	event = "InsertEnter",
 	config = require("completion.copilot"),
@@ -73,6 +77,5 @@ completion["zbirenbaum/copilot.lua"] = {
 		},
 	},
 }
---]]
 
 return completion

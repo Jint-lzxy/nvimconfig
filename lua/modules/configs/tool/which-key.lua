@@ -124,7 +124,7 @@ return function()
 			{ "<leader>lr", desc = "lsp: Restart" },
 			{ "<leader>lS", desc = "lsp: Start" },
 			{ "<leader>ls", desc = "lsp: Stop" },
-			{ "<leader>lv", desc = "lsp: Toggle virtual text" },
+			{ "<leader>lv", desc = "lsp: Toggle virtual lines" },
 			{ "<leader>lw", desc = "lsp: Show workspace diagnostics" },
 			{ "<leader>lx", desc = "lsp: Show line disgnostics" },
 			--- File tree
