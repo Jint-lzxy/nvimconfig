@@ -32,7 +32,7 @@ function Lazy:load_plugins()
 		local plugins_list = vim.split(fn.glob(modules_dir .. "/plugins/*.lua"), "\n")
 		if type(plugins_list) == "table" then
 			for _, f in ipairs(plugins_list) do
-				-- fill list with `plugins/*.lua`'s path used for later `require` like this:
+				-- fill the list with paths from `plugins/*.lua` to be used later with `require`, like this:
 				-- list[#list + 1] = "plugins/completion.lua"
 				list[#list + 1] = f:sub(#modules_dir - 6, -1)
 			end
@@ -43,7 +43,7 @@ function Lazy:load_plugins()
 	append_nativertp()
 
 	for _, m in ipairs(get_plugins_list()) do
-		-- require modules which returned in previous operation like this:
+		-- require modules returned in the previous operation, like this:
 		-- local modules = require("modules/plugins/completion.lua")
 		local modules = require(m:sub(0, #m - 4))
 		if type(modules) == "table" then

@@ -1,6 +1,6 @@
 local autocmd = {}
 
--- auto close NvimTree
+-- Autoclose NvimTree
 vim.api.nvim_create_autocmd("BufEnter", {
 	group = vim.api.nvim_create_augroup("NvimTreeAutoClose", { clear = true }),
 	pattern = "NvimTree_*",
@@ -13,6 +13,27 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		then
 			vim.api.nvim_command([[confirm quit]])
 		end
+	end,
+})
+
+-- Autoclose some filetype with <q>
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {
+		"qf",
+		"help",
+		"man",
+		"notify",
+		"nofile",
+		"terminal",
+		"prompt",
+		"toggleterm",
+		"copilot",
+		"startuptime",
+		"tsplayground",
+	},
+	callback = function(event)
+		vim.bo[event.buf].buflisted = false
+		vim.api.nvim_buf_set_keymap(event.buf, "n", "q", "<Cmd>close<CR>", { silent = true })
 	end,
 })
 
@@ -50,13 +71,13 @@ function autocmd.load_autocmds()
 			{ "BufWritePre", "MERGE_MSG", "setlocal noundofile" },
 			{ "BufWritePre", "description", "setlocal noundofile" },
 			{ "BufWritePre", "COMMIT_EDITMSG", "setlocal noundofile" },
-			-- auto place to last edit
+			-- Auto place to last edit
 			{
 				"BufReadPost",
 				"*",
 				[[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif]],
 			},
-			-- auto change directory
+			-- Auto change directory
 			-- { "BufEnter", "*", "silent! lcd %:p:h" },
 		},
 		wins = {
