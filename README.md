@@ -6,7 +6,7 @@
     <a href="https://github.com/neovim/neovim/releases/tag/stable">
     <img
         alt="Neovim Version Capability"
-        src="https://img.shields.io/badge/Supports%20Nvim-v0.10-A6D895?style=for-the-badge&colorA=363A4F&logo=neovim&logoColor=D9E0EE">
+        src="https://img.shields.io/badge/Supports%20Nvim-v0.11-A6D895?style=for-the-badge&colorA=363A4F&logo=neovim&logoColor=D9E0EE">
     </a>
     <a href="https://github.com/Jint-lzxy/nvimconfig/issues">
     <img
@@ -28,9 +28,9 @@ Branch info:
 
 |   Branch   | Supported Neovim version |
 | :--------: | :----------------------: |
-|   master   |     nvim 0.10 stable     |
-|    0.9     |         nvim 0.9         |
-| legacy-0.8 |         nvim 0.8         |
+|   master   |     nvim 0.11 stable     |
+|    0.10    |        nvim 0.10         |
+| legacy-0.9 |         nvim 0.9         |
 
 </div>
 
@@ -39,7 +39,7 @@ Branch info:
 
 ### 🎐 Features
 
-- **Fast.** Less than **30ms** to start (Depends on SSD and CPU, tested on Zephyrus G14 2022 version).
+- **Fast.** Less than **50ms** to start (Depends on SSD and CPU, tested on Apple<sup>&reg;</sup> MacBookPro16,1).
 - **Simple.** Runs out of the box.
 - **Modern.** Pure `lua` config.
 - **Modular.** Easy to customize.
