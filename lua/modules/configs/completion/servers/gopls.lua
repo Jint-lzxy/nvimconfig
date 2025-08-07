@@ -30,7 +30,7 @@ return {
 	settings = {
 		gopls = {
 			staticcheck = true,
-			semanticTokens = false,
+			semanticTokens = true,
 			usePlaceholders = true,
 			completeUnimported = true,
 			symbolMatcher = "Fuzzy",
