@@ -76,7 +76,6 @@ return function()
 			{ "<leader>do", desc = "debug: Step out" },
 			{ "<leader>dO", desc = "debug: Open repl" },
 			{ "<leader>dr", desc = "debug: Run/Continue" },
-			{ "<leader>dR", desc = "debug: Start a Lua debugger" },
 			{ "<leader>dt", desc = "debug: Terminate the current session" },
 			{ "<leader>dv", desc = "debug: Step over" },
 			--- Fuzzy finder
@@ -95,7 +94,7 @@ return function()
 			{ "<leader>fo", desc = "find: Nvim options" },
 			{ "<leader>fp", desc = "find: Project" },
 			{ "<leader>fr", desc = "find: File by frecency" },
-			{ "<leader>fR", desc = "find: Open previous picker" },
+			{ "<leader>fR", desc = "find: Resume last search" },
 			{ "<leader>fs", desc = "find: Word under cursor", mode = "n" },
 			{ "<leader>fs", desc = "find: Current selection", mode = "v" },
 			{ "<leader>ft", desc = "find: Todo comments" },

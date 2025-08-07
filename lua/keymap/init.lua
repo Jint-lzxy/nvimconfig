@@ -231,7 +231,6 @@ local mappings = {
 		["n|<leader>dO"] = map_cr("lua require('dap').repl.open()"):with_noremap():with_silent(),
 		["n|<leader>dr"] = map_cr("lua require('dap').continue()"):with_noremap():with_silent(),
 		["n|<leader>dn"] = map_cr("lua require('osv').launch({ port = 7052 })"):with_noremap():with_silent(),
-		["n|<leader>dR"] = map_cr("lua require('osv').run_this()"):with_noremap():with_silent(),
 		["n|<leader>dt"] = map_cr("lua require('dap').terminate()"):with_noremap():with_silent(),
 		["n|<leader>dv"] = map_cr("lua require('dap').step_over()"):with_noremap():with_silent(),
 		-- Plugin Treehopper
