@@ -17,8 +17,8 @@ return function()
 		notification = {
 			override_vim_notify = false,
 			window = {
-				winblend = 0,
 				zindex = 25,
+				winblend = 100,
 			},
 		},
 	})
