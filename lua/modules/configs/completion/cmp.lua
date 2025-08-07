@@ -45,22 +45,23 @@ return function()
 		},
 		sorting = {
 			priority_weight = 2,
-			comparators = {
-				-- require("copilot_cmp.comparators").prioritize,
-				-- require("copilot_cmp.comparators").score,
-				compare.offset,
+			comparators = vim.list_extend(require("core.settings").use_copilot and {
+				require("copilot_cmp.comparators").prioritize,
+				require("copilot_cmp.comparators").score,
+			} or {}, {
+				compare.offset, -- Items closer to cursor will have lower priority
 				compare.exact,
 				-- compare.scopes,
 				compare.lsp_scores,
 				compare.sort_text,
 				compare.score,
 				compare.recently_used,
-				-- compare.locality, -- This conflicts with `offset`
+				-- compare.locality, -- Items closer to cursor will have higher priority, conflicts with `offset`
 				require("cmp-under-comparator").under,
 				compare.kind,
 				compare.length,
 				compare.order,
-			},
+			}),
 		},
 		formatting = {
 			fields = { "abbr", "kind", "menu" },
@@ -154,7 +155,7 @@ return function()
 					end,
 				},
 			},
-			-- { name = "copilot" },
+			{ name = "copilot" },
 		},
 		experimental = {
 			ghost_text = {
