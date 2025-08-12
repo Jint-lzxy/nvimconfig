@@ -1,8 +1,6 @@
-local diagnostics_virtual_text = require("core.settings").diagnostics_virtual_text
-local diagnostics_level = require("core.settings").diagnostics_level
 local is_windows = require("core.global").is_windows
 
-local nvim_lsp = require("lspconfig")
+local lsp_deps = require("core.settings").lsp_deps
 local mason = require("mason")
 local mason_registry = require("mason-registry")
 local mason_lspconfig = require("mason-lspconfig")
@@ -34,79 +32,16 @@ mason.setup({
 	},
 })
 
--- Additional plugins for pylsp
-mason_registry:on(
-	"package:install:success",
-	vim.schedule_wrap(function(pkg)
-		if pkg.name ~= "python-lsp-server" then
-			return
-		end
-
-		local venv = vim.fn.stdpath("data") .. "/mason/packages/python-lsp-server/venv"
-		local python = is_windows and venv .. "/Scripts/python.exe" or venv .. "/bin/python"
-		local black = is_windows and venv .. "/Scripts/black.exe" or venv .. "/bin/black"
-		local ruff = is_windows and venv .. "/Scripts/ruff.exe" or venv .. "/bin/ruff"
-
-		require("plenary.job")
-			:new({
-				command = python,
-				args = {
-					"-m",
-					"pip",
-					"install",
-					"-U",
-					"--disable-pip-version-check",
-					"python-lsp-black",
-					"python-lsp-ruff",
-					"pylsp-rope",
-				},
-				cwd = venv,
-				env = { VIRTUAL_ENV = venv },
-				on_exit = function()
-					if vim.fn.executable(black) == 1 and vim.fn.executable(ruff) == 1 then
-						vim.notify(
-							"Finished installing pylsp plugins",
-							vim.log.levels.INFO,
-							{ title = "[lsp] Install Status" }
-						)
-					else
-						vim.notify(
-							"Failed to install pylsp plugins. [Executable not found]",
-							vim.log.levels.ERROR,
-							{ title = "[lsp] Install Failure" }
-						)
-					end
-				end,
-				on_start = function()
-					vim.notify(
-						"Now installing pylsp plugins...",
-						vim.log.levels.INFO,
-						{ title = "[lsp] Install Status", timeout = 6000 }
-					)
-				end,
-				on_stderr = function(_, msg_stream)
-					if msg_stream then
-						vim.notify(msg_stream, vim.log.levels.ERROR, { title = "[lsp] Install Failure" })
-					end
-				end,
-			})
-			:start()
-	end)
-)
-
 mason_lspconfig.setup({
-	ensure_installed = require("core.settings").lsp_deps,
-	automatic_installation = false,
+	ensure_installed = lsp_deps,
+	-- Skip auto enable because we are loading language servers lazily
+	automatic_enable = false,
 })
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+vim.diagnostic.config({
 	signs = true,
 	underline = true,
-	virtual_text = diagnostics_virtual_text and {
-		severity = {
-			min = vim.diagnostic.severity[diagnostics_level],
-		},
-	} or false,
+	virtual_text = false,
 	update_in_insert = false,
 })
 
@@ -140,15 +75,16 @@ please REMOVE your LSP configuration (rust_analyzer.lua) from the `servers` dire
 	local ok, custom_handler = pcall(require, "completion.servers." .. lsp_name)
 	if not ok then
 		-- Default to use factory config for server(s) that doesn't include a spec
-		nvim_lsp[lsp_name].setup(opts)
-		return
+		require("modules.utils").register_server(lsp_name, opts)
 	elseif type(custom_handler) == "function" then
-		--- Case where language server requires its own setup
-		--- Make sure to call require("lspconfig")[lsp_name].setup() in the function
-		--- See `clangd.lua` for example.
+		-- Case where language server requires its own setup
+		-- Be sure to call `vim.lsp.config()` within the setup function.
+		-- Refer to |vim.lsp.config()| for documentation.
+		-- For an example, see `clangd.lua`.
 		custom_handler(opts)
+		vim.lsp.enable(lsp_name)
 	elseif type(custom_handler) == "table" then
-		nvim_lsp[lsp_name].setup(vim.tbl_deep_extend("force", opts, custom_handler))
+		require("modules.utils").register_server(lsp_name, vim.tbl_deep_extend("force", opts, custom_handler))
 	else
 		vim.notify(
 			string.format(
@@ -162,19 +98,113 @@ please REMOVE your LSP configuration (rust_analyzer.lua) from the `servers` dire
 	end
 end
 
-mason_lspconfig.setup_handlers({ mason_lsp_handler })
+---A simplified mimic of <mason-lspconfig 1.x>'s `setup_handlers` callback.
+---Invoked for each Mason package (name or `Package` object) to configure its language server.
+---@param pkg string|{name: string} @Either the package name (string) or a Package object
+local function setup_lsp_for_package(pkg)
+	-- First try to grab the builtin mappings
+	local mappings = mason_lspconfig.get_mappings().package_to_lspconfig
+	-- If empty or nil, build it by hand
+	if not mappings or vim.tbl_isempty(mappings) then
+		mappings = {}
+		for _, spec in ipairs(mason_registry.get_all_package_specs()) do
+			local lspconfig = vim.tbl_get(spec, "neovim", "lspconfig")
+			if lspconfig then
+				mappings[spec.name] = lspconfig
+			end
+		end
+	end
 
--- Setup lsps that are not supported by `mason.nvim` but supported by `nvim-lspconfig` here.
+	-- Figure out the package name and lookup
+	local name = type(pkg) == "string" and pkg or pkg.name
+	local srv = mappings[name]
+	if not srv then
+		return
+	end
+
+	-- Invoke the handler
+	mason_lsp_handler(srv)
+end
+
+for _, pkg in ipairs(mason_registry.get_installed_package_names()) do
+	setup_lsp_for_package(pkg)
+end
+
+-- Hook into Mason's package install event to install extra plugins for pylsp (black, ruff, rope),
+-- then configure the installed package's LSP using setup_lsp_for_package.
+mason_registry:on(
+	"package:install:success",
+	vim.schedule_wrap(function(pkg)
+		if pkg.name == "python-lsp-server" then
+			local venv = vim.fn.stdpath("data") .. "/mason/packages/python-lsp-server/venv"
+			local python = is_windows and venv .. "/Scripts/python.exe" or venv .. "/bin/python"
+			local black = is_windows and venv .. "/Scripts/black.exe" or venv .. "/bin/black"
+			local ruff = is_windows and venv .. "/Scripts/ruff.exe" or venv .. "/bin/ruff"
+
+			require("plenary.job")
+				:new({
+					command = python,
+					args = {
+						"-m",
+						"pip",
+						"install",
+						"-U",
+						"--disable-pip-version-check",
+						"python-lsp-black",
+						"python-lsp-ruff",
+						"pylsp-rope",
+					},
+					cwd = venv,
+					env = { VIRTUAL_ENV = venv },
+					on_exit = function()
+						if vim.fn.executable(black) == 1 and vim.fn.executable(ruff) == 1 then
+							vim.notify(
+								"Finished installing pylsp plugins",
+								vim.log.levels.INFO,
+								{ title = "[lsp] Install Status" }
+							)
+						else
+							vim.notify(
+								"Failed to install pylsp plugins. [Executable not found]",
+								vim.log.levels.ERROR,
+								{ title = "[lsp] Install Failure" }
+							)
+						end
+					end,
+					on_start = function()
+						vim.notify(
+							"Now installing pylsp plugins...",
+							vim.log.levels.INFO,
+							{ title = "[lsp] Install Status", timeout = 6000 }
+						)
+					end,
+					on_stderr = function(_, msg_stream)
+						if msg_stream then
+							vim.notify(msg_stream, vim.log.levels.ERROR, { title = "[lsp] Install Failure" })
+						end
+					end,
+				})
+				:start()
+		end
+
+		setup_lsp_for_package(pkg)
+	end)
+)
+
+-- Configure LSPs that are not supported by `mason.nvim` but are available in `nvim-lspconfig`.
+-- First call |vim.lsp.config()|, then |vim.lsp.enable()| (or use `register_server`, see below)
+-- to ensure the language server is properly configured and starts automatically.
 if vim.fn.executable("sourcekit-lsp") == 1 then
 	local _opts = require("completion.servers.sourcekit")
 	local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
-	nvim_lsp.sourcekit.setup(final_opts)
+	require("modules.utils").register_server("sourcekit", final_opts)
 end
 
 if vim.fn.executable("dart") == 1 then
 	local _opts = require("completion.servers.dartls")
 	local final_opts = vim.tbl_deep_extend("keep", _opts, opts)
-	nvim_lsp.dartls.setup(final_opts)
+	require("modules.utils").register_server("dartls", final_opts)
 end
 
-pcall(vim.cmd.LspStart) -- Start LSPs
+-- Start LSPs
+pcall(vim.cmd.LspStart)
