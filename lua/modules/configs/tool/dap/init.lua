@@ -7,8 +7,6 @@ return function()
 	local colors = require("modules.utils").get_palette()
 	local mappings = require("tool.dap.dap-keymap")
 
-	-- dap.set_log_level("TRACE")
-
 	-- Initialize debug hooks
 	_G._debugging = false
 	local function debug_init_cb()
