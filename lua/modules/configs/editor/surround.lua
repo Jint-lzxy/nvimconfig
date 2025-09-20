@@ -11,7 +11,6 @@ return function()
 			find_left = "sF",
 			highlight = "sh",
 			replace = "sc",
-			update_n_lines = "sn",
 
 			suffix_last = "l",
 			suffix_next = "n",
