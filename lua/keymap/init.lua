@@ -131,7 +131,7 @@ local mappings = {
 		["n|glo"] = map_cr("Lspsaga outgoing_calls"):with_noremap():with_silent(),
 		["n|<leader>lv"] = map_cu("lua _toggle_virtuallines()"):with_noremap():with_silent(),
 		["n|<leader>lh"] = map_cu("lua _toggle_inlayhint()"):with_noremap():with_silent(),
-		-- vim-fugitive
+		-- Plugin vim-fugitive
 		["n|<leader>gG"] = map_cu("Git"):with_noremap():with_silent(),
 		["n|gps"] = map_cr("G push"):with_noremap():with_silent(),
 		["n|gpl"] = map_cr("G pull"):with_noremap():with_silent(),
