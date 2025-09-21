@@ -62,8 +62,6 @@ return function()
 			{ "<leader>b", group = "󰓩 Buffers" },
 			{ "<leader>bd", desc = "buffer: Sort by directory" },
 			{ "<leader>be", desc = "buffer: Sort by extension" },
-			--- Spell check
-			{ "<leader>c", desc = "edit: Toggle spell check" },
 			--- Debug
 			{ "<leader>d", group = " Debug" },
 			{ "<leader>db", desc = "debug: Set breakpoint with condition" },
@@ -163,6 +161,8 @@ return function()
 			{ "<leader>sr", desc = "session: Goto root directory" },
 			{ "<leader>ss", desc = "session: Save current" },
 			{ "<leader>st", desc = "session: Toggle current" },
+			--- Spell check
+			{ "<leader>S", desc = "edit: Toggle spell check" },
 			--- Tab pages
 			{ "<leader>t", group = " Tab Pages" },
 			{ "<leader>tc", desc = "tab: Close current tab" },
