@@ -50,6 +50,14 @@ local opts = {
 		vim.lsp.protocol.make_client_capabilities(),
 		require("cmp_nvim_lsp").default_capabilities()
 	),
+	on_attach = function(client, bufnr)
+		-- Skip 'nofile' buffers. These almost never need LSP features.
+		if vim.bo[bufnr].buftype == "nofile" then
+			vim.schedule(function()
+				vim.lsp.buf_detach_client(bufnr, client.id)
+			end)
+		end
+	end,
 }
 ---A handler to setup all servers defined under `completion/servers/*.lua`
 ---@param lsp_name string
