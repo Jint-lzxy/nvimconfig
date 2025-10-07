@@ -4,7 +4,6 @@ local lsp_deps = require("core.settings").lsp_deps
 local mason = require("mason")
 local mason_registry = require("mason-registry")
 local mason_lspconfig = require("mason-lspconfig")
-require("lspconfig.ui.windows").default_options.border = "rounded"
 
 local icons = {
 	ui = require("modules.utils.icons").get("ui", true),
