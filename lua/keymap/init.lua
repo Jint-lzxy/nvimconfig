@@ -199,6 +199,20 @@ local mappings = {
 		["nv|<leader>k"] = map_cmd("<Cmd>HopLineMW<CR>"):with_noremap(),
 		["nv|<leader>o"] = map_cmd("<Cmd>HopChar1MW<CR>"):with_noremap(),
 		["nv|<leader>O"] = map_cmd("<Cmd>HopChar2MW<CR>"):with_noremap(),
+		-- Plugin cmake-tools.nvim
+		["n|<leader>cr"] = map_cr("CMakeRun"):with_silent():with_noremap(),
+		["n|<leader>cb"] = map_cr("CMakeBuild"):with_silent():with_noremap(),
+		["n|<leader>cc"] = map_cr("CMakeClean"):with_silent():with_noremap(),
+		["n|<leader>cd"] = map_cr("CMakeDebug"):with_silent():with_noremap(),
+		["n|<leader>ct"] = map_cr("CMakeRunTest"):with_silent():with_noremap(),
+		["n|<leader>cg"] = map_cr("CMakeGenerate"):with_silent():with_noremap(),
+		["n|<leader>co"] = map_cr("CMakeOpenCache"):with_silent():with_noremap(),
+		["n|<leader>cR"] = map_cr("CMakeQuickRun"):with_silent():with_noremap(),
+		["n|<leader>cB"] = map_cr("CMakeQuickBuild"):with_silent():with_noremap(),
+		["n|<leader>cD"] = map_cr("CMakeQuickDebug"):with_silent():with_noremap(),
+		["n|<leader>cS"] = map_cr("CMakeQuickStart"):with_silent():with_noremap(),
+		["n|<leader>cq"] = map_cr("CMakeCloseRunner"):with_silent():with_noremap(),
+		["n|<leader>cs"] = map_cr("CMakeSelectBuildType"):with_silent():with_noremap(),
 		-- Plugin render-markdown.nvim
 		["n|<F1>"] = map_cr("RenderMarkdown toggle"):with_noremap():with_silent(),
 		-- Plugin MarkdownPreview
