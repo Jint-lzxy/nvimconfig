@@ -1,26 +1,38 @@
 return function()
+	local global = require("core.global")
+
 	require("cmake-tools").setup({
 		cmake_command = "cmake",
-		cmake_build_directory = "build/${variant:buildType}",
-		do_not_add_newline = false,
-		auto_close_when_success = true,
-		cmake_regenerate_on_save = false,
-		cmake_soft_link_compile_commands = true,
+		ctest_command = "ctest",
+		do_not_add_newline = true,
+		cmake_build_directory = function()
+			local sep = global.is_windows and "\\" or "/"
+			return ("build%s${variant:buildType}"):format(sep)
+		end,
+		cmake_regenerate_on_save = true,
+		cmake_virtual_text_support = true,
+		cmake_compile_commands_options = {
+			action = "soft_link",
+		},
+		cmake_notifications = {
+			runner = { enabled = false },
+			executor = { enabled = false },
+		},
 		cmake_executor = {
 			name = "quickfix",
 			opts = {
-				quickfix = {
-					show = "always",
-					position = "bottom",
-					size = 10,
-				},
+				show = "always",
+				position = "botright",
+				size = 10,
 			},
 		},
-		cmake_terminal = {
-			name = "terminal",
+		cmake_runner = {
+			name = "toggleterm",
 			opts = {
-				name = "CMake Terminal",
-				prefix_name = "[CMakeTools]: ",
+				direction = "float",
+				close_on_exit = false,
+				auto_scroll = true,
+				singleton = true,
 			},
 		},
 	})
